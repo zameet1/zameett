@@ -181,6 +181,14 @@ section{padding:104px 48px}
 .services{background:var(--ivory)}
 .svc-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:64px}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border-dk)}
+/* "Three Ways To Work With Us" (A/B/C) — three cards only, so collapse
+   straight to a single column instead of the 2-col intermediate step used
+   by the 6-card service grids (which would orphan the 3rd card alone). */
+.svc-grid.svc-grid-paths{grid-template-columns:repeat(3,1fr)}
+@media(max-width:768px){
+  .svc-grid.svc-grid-paths{grid-template-columns:1fr}
+  .svc-grid.svc-grid-paths .svc-card{padding:36px 24px}
+}
 .svc-card{background:var(--ivory);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s}
 .svc-card:hover{background:var(--gold-pale)}
 .svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--burg),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
