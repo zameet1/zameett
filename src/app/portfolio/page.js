@@ -1,9 +1,12 @@
 import Link from "next/link";
 import PortfolioGallery from "@/components/PortfolioGallery";
 import Footer from "@/components/Footer";
+import CoverImage from "@/components/CoverImage";
 
 export const metadata = {
-  title: "Zameett — Portfolio",
+  title: "Portfolio",
+  description:
+    "A curated lookbook of modest wear designed, sampled and manufactured by Zameett — abayas, velvet kaftans, bias-cut pieces, embellished formals and printed capsules.",
 };
 
 export default function Portfolio() {
@@ -26,7 +29,7 @@ export default function Portfolio() {
         <div className="inner">
           <div className="pff-media">
             <span className="pff-badge">Featured Collection</span>
-            <img src="/images/18.jpeg" alt="Maroon velvet caftan gown" />
+            <CoverImage src="/images/18.jpeg" alt="Maroon velvet caftan gown" objectPosition="center 22%" sizes="(max-width: 960px) 100vw, 55vw" priority />
           </div>
           <div className="pff-copy">
             <p className="s-tag">Autumn Atelier</p>
@@ -58,7 +61,7 @@ export default function Portfolio() {
 
       {/* FEATURED CASE PHOTO BREAK */}
       <div className="photo-break">
-        <img src="/images/13.jpeg" style={{ objectPosition: "center 30%" }} alt="Zameett atelier" />
+        <CoverImage src="/images/13.jpeg" objectPosition="center 30%" alt="Zameett atelier" />
         <div className="pb-overlay">
           <div className="pb-content">
             <p className="pb-tag">Inside the Atelier</p>

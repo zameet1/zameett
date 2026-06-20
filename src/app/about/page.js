@@ -1,8 +1,11 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import CoverImage from "@/components/CoverImage";
 
 export const metadata = {
-  title: "Zameett — About",
+  title: "About",
+  description:
+    "Zameett is a Pakistan-based design and manufacturing partner built for modest fashion brands, independent designers and boutique owners — design only or full concept-to-doorstep service.",
 };
 
 export default function About() {
@@ -45,9 +48,9 @@ export default function About() {
             </div>
           </div>
           <div className="about-grid reveal">
-            <div className="about-ph"><img src="/images/30.jpeg" style={{ objectPosition: "center 30%" }} alt="Fabric swatch library" /></div>
-            <div className="about-ph"><img src="/images/26.jpeg" style={{ objectPosition: "center 20%" }} alt="Hand embellishment detail" /></div>
-            <div className="about-ph wide"><img src="/images/27.jpeg" style={{ objectPosition: "center 30%" }} alt="Finished collection on the rail" /></div>
+            <div className="about-ph"><CoverImage src="/images/30.jpeg" objectPosition="center 30%" alt="Fabric swatch library" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="about-ph"><CoverImage src="/images/26.jpeg" objectPosition="center 20%" alt="Hand embellishment detail" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="about-ph wide"><CoverImage src="/images/27.jpeg" objectPosition="center 30%" alt="Finished collection on the rail" sizes="(max-width: 960px) 100vw, 50vw" /></div>
           </div>
         </div>
       </section>
@@ -69,9 +72,9 @@ export default function About() {
       <section className="experience">
         <div className="inner">
           <div className="exp-photos reveal">
-            <div className="exp-ph tall"><img src="/images/13.jpeg" style={{ objectPosition: "center 35%" }} alt="Zameett production floor" /></div>
-            <div className="exp-ph"><img src="/images/14.jpeg" style={{ objectPosition: "center 30%" }} alt="Digital tech pack" /></div>
-            <div className="exp-ph"><img src="/images/31.jpeg" style={{ objectPosition: "center 30%" }} alt="Design and embroidery development" /></div>
+            <div className="exp-ph tall"><CoverImage src="/images/13.jpeg" objectPosition="center 35%" alt="Zameett production floor" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="exp-ph"><CoverImage src="/images/14.jpeg" objectPosition="center 30%" alt="Digital tech pack" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="exp-ph"><CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="Design and embroidery development" sizes="(max-width: 960px) 50vw, 25vw" /></div>
           </div>
           <div className="reveal">
             <p className="s-tag">Our Story</p>
@@ -135,7 +138,7 @@ export default function About() {
 
       {/* PHOTO BREAK */}
       <div className="photo-break">
-        <img src="/images/28.jpeg" style={{ objectPosition: "center 35%" }} alt="Zameett collection moodboard" />
+        <CoverImage src="/images/28.jpeg" objectPosition="center 35%" alt="Zameett collection moodboard" />
         <div className="pb-overlay">
           <div className="pb-content">
             <p className="pb-tag">Our Philosophy</p>

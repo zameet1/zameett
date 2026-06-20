@@ -20,6 +20,7 @@ export function CartProvider({ children }) {
   const toastTimer = useRef(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- localStorage only exists client-side, must hydrate after mount
     setItems(readCart());
     function onStorage(e) {
       if (e.key === CART_KEY) setItems(readCart());

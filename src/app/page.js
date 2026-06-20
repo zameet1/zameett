@@ -1,10 +1,7 @@
 import Link from "next/link";
 import AddToCartButton from "@/components/AddToCartButton";
 import Footer from "@/components/Footer";
-
-export const metadata = {
-  title: "Zameett — Modest Fashion Design & Manufacturing",
-};
+import CoverImage from "@/components/CoverImage";
 
 export default function Home() {
   return (
@@ -13,7 +10,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-bg">
-          <img src="/images/21.jpeg" alt="Zameett modest wear collection" />
+          <CoverImage src="/images/21.jpeg" alt="Zameett modest wear collection" priority />
         </div>
         <div className="hero-inner">
           <div className="hero-content">
@@ -177,7 +174,7 @@ export default function Home() {
 
       {/* PHOTO BREAK */}
       <div className="photo-break">
-        <img src="/images/19.jpeg" style={{ objectPosition: "center 22%" }} alt="Modest fashion" />
+        <CoverImage src="/images/19.jpeg" objectPosition="center 22%" alt="Modest fashion" />
         <div className="pb-overlay">
           <div className="pb-content">
             <p className="pb-tag">Our Philosophy</p>
@@ -206,19 +203,19 @@ export default function Home() {
           </div>
           <div className="sig-grid reveal">
             <Link href="/portfolio" className="sig-card">
-              <img src="/images/09.jpeg" style={{ objectPosition: "center 16%" }} alt="Ivory pearl-trim abaya" />
+              <CoverImage src="/images/09.jpeg" objectPosition="center 16%" alt="Ivory pearl-trim abaya" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Abayas</div><h4>Ivory Pearl-Trim Abaya</h4></div>
             </Link>
             <Link href="/portfolio" className="sig-card">
-              <img src="/images/16.jpeg" style={{ objectPosition: "center 16%" }} alt="Plum and sage velvet caftan" />
+              <CoverImage src="/images/16.jpeg" objectPosition="center 16%" alt="Plum and sage velvet caftan" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Formal</div><h4>Plum &amp; Sage Velvet</h4></div>
             </Link>
             <Link href="/portfolio" className="sig-card">
-              <img src="/images/02.jpeg" style={{ objectPosition: "center 16%" }} alt="Rosewood belted maxi" />
+              <CoverImage src="/images/02.jpeg" objectPosition="center 16%" alt="Rosewood belted maxi" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Bias Cut</div><h4>Rosewood Belted Maxi</h4></div>
             </Link>
             <Link href="/portfolio" className="sig-card">
-              <img src="/images/08.jpeg" style={{ objectPosition: "center 16%" }} alt="Terracotta tribal kimono" />
+              <CoverImage src="/images/08.jpeg" objectPosition="center 16%" alt="Terracotta tribal kimono" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Embroidery</div><h4>Terracotta Tribal Kimono</h4></div>
             </Link>
           </div>
@@ -285,7 +282,7 @@ export default function Home() {
             <div className="shl-card">
               <div className="shl-thumb">
                 <span className="shl-fmt">PDF · AI</span>
-                <img src="/images/14.jpeg" style={{ objectPosition: "center 40%" }} alt="Tech pack template" />
+                <CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Tech pack template" sizes="(max-width: 900px) 100vw, 33vw" />
               </div>
               <div className="shl-body">
                 <div className="shl-cat">Tech Packs</div>
@@ -300,7 +297,7 @@ export default function Home() {
             <div className="shl-card">
               <div className="shl-thumb">
                 <span className="shl-fmt">AI · PNG</span>
-                <img src="/images/28.jpeg" style={{ objectPosition: "center 30%" }} alt="Flat sketch library" />
+                <CoverImage src="/images/28.jpeg" objectPosition="center 30%" alt="Flat sketch library" sizes="(max-width: 900px) 100vw, 33vw" />
               </div>
               <div className="shl-body">
                 <div className="shl-cat">Flats &amp; CADs</div>
@@ -315,7 +312,7 @@ export default function Home() {
             <div className="shl-card">
               <div className="shl-thumb">
                 <span className="shl-fmt">Bundle</span>
-                <img src="/images/31.jpeg" style={{ objectPosition: "center 30%" }} alt="Starter kit bundle" />
+                <CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="Starter kit bundle" sizes="(max-width: 900px) 100vw, 33vw" />
               </div>
               <div className="shl-body">
                 <div className="shl-cat">Best Value · Save 40%</div>

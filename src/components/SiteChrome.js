@@ -1,7 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function SiteChrome() {
+  const pathname = usePathname();
   const [barWidth, setBarWidth] = useState(0);
   const [navShadow, setNavShadow] = useState(false);
   const [showTop, setShowTop] = useState(false);
@@ -24,24 +26,21 @@ export default function SiteChrome() {
     if (nav) nav.style.boxShadow = navShadow ? "0 2px 24px rgba(74,14,43,0.10)" : "none";
   }, [navShadow]);
 
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    const els = document.querySelectorAll(".reveal");
-    els.forEach((el, i) => {
-      el.style.transitionDelay = (i % 3) * 0.08 + "s";
-      io.observe(el);
-    });
-    return () => io.disconnect();
+  const animateCount = useCallback((el) => {
+    const raw = el.textContent.trim();
+    const m = raw.match(/^(\d+)(.*)$/);
+    if (!m) return;
+    const target = parseInt(m[1], 10);
+    const suffix = m[2];
+    const dur = 1400;
+    const t0 = performance.now();
+    function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
   }, []);
 
   useEffect(() => {
@@ -58,24 +57,7 @@ export default function SiteChrome() {
     );
     document.querySelectorAll(".stat-num").forEach((el) => statIO.observe(el));
     return () => statIO.disconnect();
-  }, []);
-
-  function animateCount(el) {
-    const raw = el.textContent.trim();
-    const m = raw.match(/^(\d+)(.*)$/);
-    if (!m) return;
-    const target = parseInt(m[1], 10);
-    const suffix = m[2];
-    const dur = 1400;
-    const t0 = performance.now();
-    function tick(now) {
-      const p = Math.min((now - t0) / dur, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
+  }, [pathname, animateCount]);
 
   return (
     <>
