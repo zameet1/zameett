@@ -1,4 +1,3 @@
-import Link from "next/link";
 import AddToCartButton from "@/components/AddToCartButton";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
@@ -35,8 +34,8 @@ export default function Home() {
               <span className="pill">Full Manufacturing</span>
             </div>
             <div className="hero-btns">
-              <Link href="/contact" className="btn btn-gold">Start Your Project</Link>
-              <Link href="/services" className="btn btn-outline-ivory">Our Services</Link>
+              <a href="/contact" className="btn btn-gold">Start Your Project</a>
+              <a href="/services" className="btn btn-outline-ivory">Our Services</a>
             </div>
           </div>
         </div>
@@ -109,7 +108,7 @@ export default function Home() {
                 Professional designs and manufacturer-ready tech packs — everything your factory
                 needs to execute your vision perfectly. No manufacturing commitment required.
               </p>
-              <Link href="/services" className="svc-link">Learn more →</Link>
+              <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num">02</div>
@@ -118,7 +117,7 @@ export default function Home() {
                 From mood boards to final illustrations — abayas, bias cuts, scarves, modest formal
                 and casual wear, designed with cultural understanding.
               </p>
-              <Link href="/services" className="svc-link">Learn more →</Link>
+              <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num">03</div>
@@ -127,7 +126,7 @@ export default function Home() {
                 Custom embroidery patterns, textile prints and embellishment placement matched to
                 your brand&rsquo;s aesthetic and quality standards.
               </p>
-              <Link href="/services" className="svc-link">Learn more →</Link>
+              <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num">04</div>
@@ -136,7 +135,7 @@ export default function Home() {
                 The right fabrics for modest wear — from lightweight linens to heavy embellished
                 formals — at competitive prices that protect your margins.
               </p>
-              <Link href="/services" className="svc-link">Learn more →</Link>
+              <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num">05</div>
@@ -145,7 +144,7 @@ export default function Home() {
                 A prototype is approved before any production run begins. We never move forward
                 until you are completely satisfied — no wasted budgets.
               </p>
-              <Link href="/services" className="svc-link">Learn more →</Link>
+              <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num">06</div>
@@ -154,7 +153,7 @@ export default function Home() {
                 Finished, quality-checked and packaged — shipped worldwide directly to you or your
                 customers. Truly end-to-end.
               </p>
-              <Link href="/services" className="svc-link">Learn more →</Link>
+              <a href="/services" className="svc-link">Learn more →</a>
             </div>
           </div>
           <div className="design-banner reveal">
@@ -167,7 +166,7 @@ export default function Home() {
                 commitment, ever.
               </p>
             </div>
-            <Link href="/contact" className="btn btn-burg">Design-Only Enquiry →</Link>
+            <a href="/contact" className="btn btn-burg">Design-Only Enquiry →</a>
           </div>
         </div>
       </section>
@@ -183,7 +182,7 @@ export default function Home() {
               We specialise in modest wear — abayas, bias cuts, scarves and formal modest
               collections — crafted from Pakistan and delivered to the world.
             </p>
-            <Link href="/about" className="btn btn-gold">Our Story →</Link>
+            <a href="/about" className="btn btn-gold">Our Story →</a>
           </div>
         </div>
       </div>
@@ -202,25 +201,25 @@ export default function Home() {
             </p>
           </div>
           <div className="sig-grid reveal">
-            <Link href="/portfolio" className="sig-card">
+            <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/09.jpeg" objectPosition="center 16%" alt="Ivory pearl-trim abaya" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Abayas</div><h4>Ivory Pearl-Trim Abaya</h4></div>
-            </Link>
-            <Link href="/portfolio" className="sig-card">
+            </a>
+            <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/16.jpeg" objectPosition="center 16%" alt="Plum and sage velvet caftan" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Formal</div><h4>Plum &amp; Sage Velvet</h4></div>
-            </Link>
-            <Link href="/portfolio" className="sig-card">
+            </a>
+            <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/02.jpeg" objectPosition="center 16%" alt="Rosewood belted maxi" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Bias Cut</div><h4>Rosewood Belted Maxi</h4></div>
-            </Link>
-            <Link href="/portfolio" className="sig-card">
+            </a>
+            <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/08.jpeg" objectPosition="center 16%" alt="Terracotta tribal kimono" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Embroidery</div><h4>Terracotta Tribal Kimono</h4></div>
-            </Link>
+            </a>
           </div>
           <div className="sig-foot reveal">
-            <Link href="/portfolio" className="btn btn-outline">View Full Lookbook →</Link>
+            <a href="/portfolio" className="btn btn-outline">View Full Lookbook →</a>
           </div>
         </div>
       </section>
@@ -275,7 +274,7 @@ export default function Home() {
             <p className="s-body">
               Ready-made tech packs, patterns and design tools — the same professional files we
               build for clients, available to download instantly.{" "}
-              <Link href="/digital" style={{ color: "var(--gold)", fontWeight: 500 }}>Browse all products →</Link>
+              <a href="/digital" style={{ color: "var(--gold)", fontWeight: 500 }}>Browse all products →</a>
             </p>
           </div>
           <div className="shop-grid reveal">
@@ -326,7 +325,7 @@ export default function Home() {
             </div>
           </div>
           <div className="shop-foot reveal">
-            <Link href="/digital" className="btn btn-burg">Visit the Shop →</Link>
+            <a href="/digital" className="btn btn-burg">Visit the Shop →</a>
           </div>
         </div>
       </section>
@@ -370,8 +369,8 @@ export default function Home() {
           Pakistan-crafted, world-delivered.
         </p>
         <div className="cta-btns">
-          <Link href="/contact" className="btn btn-gold">Start Your Project →</Link>
-          <Link href="/services" className="btn btn-outline-ivory">View Services</Link>
+          <a href="/contact" className="btn btn-gold">Start Your Project →</a>
+          <a href="/services" className="btn btn-outline-ivory">View Services</a>
         </div>
       </section>
     </div>

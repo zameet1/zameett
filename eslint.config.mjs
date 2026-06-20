@@ -3,6 +3,13 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
+  {
+    rules: {
+      // Plain <a> tags are used intentionally for internal nav: the hosting
+      // environment breaks next/link's client-side RSC soft-navigation fetch.
+      "@next/next/no-html-link-for-pages": "off",
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

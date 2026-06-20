@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useCart } from "./CartContext";
 
 export default function CartDrawer() {
@@ -25,9 +24,9 @@ export default function CartDrawer() {
             <p className="cart-empty">
               Your cart is empty.
               <br />
-              <Link href="/digital" onClick={() => setDrawerOpen(false)}>
+              <a href="/digital" onClick={() => setDrawerOpen(false)}>
                 Browse digital products →
-              </Link>
+              </a>
             </p>
           ) : (
             items.map((i) => (

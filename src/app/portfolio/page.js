@@ -1,4 +1,3 @@
-import Link from "next/link";
 import PortfolioGallery from "@/components/PortfolioGallery";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
@@ -14,7 +13,7 @@ export default function Portfolio() {
     <>
       <header className="page-hero">
         <div className="inner">
-          <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; Portfolio</p>
+          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Portfolio</p>
           <h1>The <em>lookbook.</em></h1>
           <p>
             A curated archive of modest wear we have designed, sampled and manufactured — abayas,
@@ -67,7 +66,7 @@ export default function Portfolio() {
             <p className="pb-tag">Inside the Atelier</p>
             <h2 className="pb-h">&ldquo;Every piece in this archive was cut, stitched and finished by our own team.&rdquo;</h2>
             <p className="pb-p">Design only or full production — what you see here is what we can build for your label, from a single sample to a full collection.</p>
-            <Link href="/contact" className="btn btn-gold">Start Your Project →</Link>
+            <a href="/contact" className="btn btn-gold">Start Your Project →</a>
           </div>
         </div>
       </div>
@@ -111,8 +110,8 @@ export default function Portfolio() {
           Pakistan-crafted, world-delivered.
         </p>
         <div className="cta-btns">
-          <Link href="/contact" className="btn btn-gold">Start Your Project →</Link>
-          <Link href="/services" className="btn btn-outline-ivory">View Services</Link>
+          <a href="/contact" className="btn btn-gold">Start Your Project →</a>
+          <a href="/services" className="btn btn-outline-ivory">View Services</a>
         </div>
       </section>
       <Footer variant="shop" />

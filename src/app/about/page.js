@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 
@@ -14,7 +13,7 @@ export default function About() {
       {/* PAGE HERO */}
       <header className="page-hero">
         <div className="inner">
-          <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; About</p>
+          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; About</p>
           <h1>We speak <em>modest fashion</em> fluently.</h1>
           <p>
             Zameett is a Pakistan-based design and manufacturing partner built specifically for
@@ -98,7 +97,7 @@ export default function About() {
               we build files any good factory can follow. Or let us handle manufacturing too, so
               your vision is never lost in translation.
             </p>
-            <Link href="/contact" className="btn btn-burg">Let&rsquo;s Talk About Your Project →</Link>
+            <a href="/contact" className="btn btn-burg">Let&rsquo;s Talk About Your Project →</a>
           </div>
         </div>
       </section>
@@ -144,7 +143,7 @@ export default function About() {
             <p className="pb-tag">Our Philosophy</p>
             <h2 className="pb-h">&ldquo;Your vision, executed with precision and cultural understanding.&rdquo;</h2>
             <p className="pb-p">Crafted from Pakistan and delivered to the world — modest wear made by people who understand it.</p>
-            <Link href="/portfolio" className="btn btn-gold">See Our Work →</Link>
+            <a href="/portfolio" className="btn btn-gold">See Our Work →</a>
           </div>
         </div>
       </div>
@@ -158,8 +157,8 @@ export default function About() {
           Pakistan-crafted, world-delivered.
         </p>
         <div className="cta-btns">
-          <Link href="/contact" className="btn btn-gold">Start Your Project →</Link>
-          <Link href="/services" className="btn btn-outline-ivory">View Services</Link>
+          <a href="/contact" className="btn btn-gold">Start Your Project →</a>
+          <a href="/services" className="btn btn-outline-ivory">View Services</a>
         </div>
       </section>
       <Footer />
