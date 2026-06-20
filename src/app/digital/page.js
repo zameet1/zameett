@@ -1,4 +1,3 @@
-import Link from "next/link";
 import AddToCartButton from "@/components/AddToCartButton";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
@@ -14,7 +13,7 @@ export default function Digital() {
     <>
       <header className="page-hero">
         <div className="inner">
-          <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; Digital Products</p>
+          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Digital Products</p>
           <h1>Launch faster with <em>ready-made design tools.</em></h1>
           <p>
             Tech-pack templates, graded patterns, sourcing guides and motif packs — the same
@@ -251,8 +250,8 @@ export default function Digital() {
         <h2 className="s-title">Want a tech pack made <em>just for your design?</em></h2>
         <p className="cta-sub">Our digital products are a head start — but we also build bespoke designs and tech packs from scratch. Tell us what you need.</p>
         <div className="cta-btns">
-          <Link href="/contact" className="btn btn-gold">Request Custom Work →</Link>
-          <Link href="/services" className="btn btn-outline-ivory">View Services</Link>
+          <a href="/contact" className="btn btn-gold">Request Custom Work →</a>
+          <a href="/services" className="btn btn-outline-ivory">View Services</a>
         </div>
       </section>
       <Footer variant="shop" />

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import FaqAccordion from "@/components/FaqAccordion";
 import ScrollTopLink from "@/components/ScrollTopLink";
@@ -15,7 +14,7 @@ export default function Contact() {
     <>
       <header className="page-hero">
         <div className="inner">
-          <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; Contact</p>
+          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Contact</p>
           <h1>Let&rsquo;s bring your <em>collection to life.</em></h1>
           <p>
             Fill in the form and we will get back to you within 24 hours. Tell us as much or as

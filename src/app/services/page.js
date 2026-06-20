@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 
@@ -13,7 +12,7 @@ export default function Services() {
     <>
       <header className="page-hero">
         <div className="inner">
-          <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; Services</p>
+          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Services</p>
           <h1>Design only, full manufacturing, or <em>everything in between.</em></h1>
           <p>
             Zameett is built around flexibility. Take our designs to your own factory, or let us
@@ -106,7 +105,7 @@ export default function Services() {
               <h3>Just need designs? <em>That is perfectly fine.</em></h3>
               <p>Many of our clients come to Zameett only for design concepts and tech packs — they have their own manufacturer or are still building their production setup. We create production-ready files that any factory in the world can follow. No manufacturing commitment needed, ever.</p>
             </div>
-            <Link href="/contact" className="btn btn-burg">Design-Only Enquiry →</Link>
+            <a href="/contact" className="btn btn-burg">Design-Only Enquiry →</a>
           </div>
         </div>
       </section>
@@ -119,7 +118,7 @@ export default function Services() {
             <p className="pb-tag">Design to Delivery</p>
             <h2 className="pb-h">&ldquo;From your first design sketch to your customer&rsquo;s door.&rdquo;</h2>
             <p className="pb-p">Design only, sampling, full manufacturing, or worldwide delivery — Zameett handles whichever part of the journey you need.</p>
-            <Link href="/portfolio" className="btn btn-outline-gold">See Our Work →</Link>
+            <a href="/portfolio" className="btn btn-outline-gold">See Our Work →</a>
           </div>
         </div>
       </div>
@@ -198,8 +197,8 @@ export default function Services() {
         <h2 className="s-title">Tell us what you&rsquo;re making.<br /><em>We&rsquo;ll map the route.</em></h2>
         <p className="cta-sub">Share your project and we will come back with a clear path, timeline and quote within 24 hours.</p>
         <div className="cta-btns">
-          <Link href="/contact" className="btn btn-gold">Request a Quote →</Link>
-          <Link href="/portfolio" className="btn btn-outline-ivory">View Portfolio</Link>
+          <a href="/contact" className="btn btn-gold">Request a Quote →</a>
+          <a href="/portfolio" className="btn btn-outline-ivory">View Portfolio</a>
         </div>
       </section>
       <Footer />

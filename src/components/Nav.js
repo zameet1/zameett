@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "./CartContext";
@@ -21,21 +20,21 @@ export default function Nav() {
   return (
     <>
       <nav>
-        <Link href="/" className="logo">
+        <a href="/" className="logo">
           Zamee<span>tt</span>
-        </Link>
+        </a>
         <ul className="nav-links">
           {LINKS.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className={pathname === l.href ? "active" : ""}>
+              <a href={l.href} className={pathname === l.href ? "active" : ""}>
                 {l.label}
-              </Link>
+              </a>
             </li>
           ))}
           <li>
-            <Link href="/contact" className="nav-cta btn">
+            <a href="/contact" className="nav-cta btn">
               Get a Quote
-            </Link>
+            </a>
           </li>
         </ul>
         <button
@@ -62,18 +61,18 @@ export default function Nav() {
       </nav>
       <div className={`mobile-menu${open ? " open" : ""}`}>
         {LINKS.map((l) => (
-          <Link
+          <a
             key={l.href}
             href={l.href}
             className={pathname === l.href ? "active" : ""}
             onClick={() => setOpen(false)}
           >
             {l.label}
-          </Link>
+          </a>
         ))}
-        <Link href="/contact" onClick={() => setOpen(false)}>
+        <a href="/contact" onClick={() => setOpen(false)}>
           Get a Quote
-        </Link>
+        </a>
       </div>
     </>
   );
