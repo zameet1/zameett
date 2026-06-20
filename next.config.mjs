@@ -17,11 +17,14 @@ const nextConfig = {
       },
       {
         // HTML pages (everything except hashed static assets & images) must
-        // always revalidate with the server so a new deploy is picked up
-        // immediately. Without this the browser/host caches stale HTML that
-        // still points at old chunks — the "sometimes old, sometimes new" bug.
+        // always revalidate with BOTH the browser (max-age=0) and any shared
+        // CDN/proxy (s-maxage=0). Hostinger's hcdn was caching HTML for a year
+        // via s-maxage=31536000, serving stale pages — the "sometimes old,
+        // sometimes new" bug. s-maxage=0 forces the CDN to revalidate too.
         source: "/:path((?!_next/|images/).*)",
-        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=0, s-maxage=0, must-revalidate" },
+        ],
       },
     ];
   },
