@@ -1,15 +1,87 @@
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
+import JsonLd from "@/components/JsonLd";
+
+const SERVICES = [
+  {
+    name: "Design & Tech Packs Only",
+    description:
+      "Complete design concepts, construction notes, measurements and specs — everything a factory needs to execute the vision perfectly. No manufacturing commitment required.",
+  },
+  {
+    name: "Design Concept & Styling",
+    description:
+      "From mood boards to final design illustrations — abayas, bias cuts, scarves, modest formal and casual wear, designed with cultural understanding and commercial precision.",
+  },
+  {
+    name: "Embroidery & Textile Prints",
+    description:
+      "Custom embroidery patterns, textile prints and embellishment placement designed to match a brand's aesthetic. Standalone files or applied during full production.",
+  },
+  {
+    name: "Textile Sourcing",
+    description:
+      "Sourcing the right fabrics for modest wear — from lightweight linens to heavy embellished formals — from trusted suppliers at competitive prices.",
+  },
+  {
+    name: "Sampling & Production",
+    description:
+      "A prototype sample is made and sent for full approval before any production run begins.",
+  },
+  {
+    name: "Delivery to Doorstep",
+    description:
+      "Finished, quality-checked and packaged — shipped worldwide directly to the client or their customers.",
+  },
+];
+
+const servicesSchema = SERVICES.map((s) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: s.name,
+  description: s.description,
+  provider: { "@type": "Organization", name: "Zameett", url: "https://zameett.com" },
+  areaServed: "Worldwide",
+  serviceType: "Modest Fashion Design & Manufacturing",
+}));
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://zameett.com/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://zameett.com/services" },
+  ],
+};
 
 export const metadata = {
   title: "Services",
   description:
-    "Design and tech packs only, design plus sampling, or full manufacturing from concept to worldwide delivery — explore Zameett's modest fashion service paths.",
+    "Modest wear tech pack design and abaya manufacturing services — design only, design plus sampling, or full production from concept to worldwide delivery.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Modest Wear Tech Pack Design & Abaya Manufacturing Services | Zameett",
+    description:
+      "Three ways to work with Zameett: design and tech packs only, design plus sampling, or full abaya manufacturing from concept to worldwide delivery.",
+    url: "/services",
+    images: [{ url: "/images/14.jpeg", width: 1200, height: 630, alt: "Modest wear tech pack and design development on tablet" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Modest Wear Tech Pack Design & Abaya Manufacturing Services | Zameett",
+    description:
+      "Design and tech packs only, design plus sampling, or full abaya manufacturing from concept to worldwide delivery.",
+    images: ["/images/14.jpeg"],
+  },
 };
 
 export default function Services() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
+      {servicesSchema.map((s, i) => (
+        <JsonLd key={i} data={s} />
+      ))}
       <header className="page-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Services</p>
@@ -131,27 +203,27 @@ export default function Services() {
           <div className="p-row">
             <div className="p-step">
               <div className="p-circle"><span>1</span></div>
-              <h4>Consultation</h4>
+              <h3>Consultation</h3>
               <p>We understand your brand, budget, timeline, and whether you need design only or full production.</p>
             </div>
             <div className="p-step">
               <div className="p-circle"><span>2</span></div>
-              <h4>Design &amp; Tech Pack</h4>
+              <h3>Design &amp; Tech Pack</h3>
               <p>Designs and manufacturer-ready tech packs created from your approved creative brief.</p>
             </div>
             <div className="p-step">
               <div className="p-circle"><span>3</span></div>
-              <h4>Fabric &amp; Materials</h4>
+              <h3>Fabric &amp; Materials</h3>
               <p>Fabric options presented for approval — or files handed off if you are producing elsewhere.</p>
             </div>
             <div className="p-step">
               <div className="p-circle"><span>4</span></div>
-              <h4>Sample &amp; Approval</h4>
+              <h3>Sample &amp; Approval</h3>
               <p>Prototype created and sent to you. Full production only begins after your complete approval.</p>
             </div>
             <div className="p-step">
               <div className="p-circle"><span>5</span></div>
-              <h4>Production &amp; Delivery</h4>
+              <h3>Production &amp; Delivery</h3>
               <p>Full production run, strict quality control, and worldwide delivery to your doorstep.</p>
             </div>
           </div>
@@ -173,19 +245,19 @@ export default function Services() {
           <div className="pain-list">
             <div className="pain-item">
               <div className="pain-n">01</div>
-              <div><h4>Too Many Vendors</h4><p>One for fabric, one for design, one for embroidery, one for production. The coordination alone eats your time, budget and sanity.</p></div>
+              <div><h3>Too Many Vendors</h3><p>One for fabric, one for design, one for embroidery, one for production. The coordination alone eats your time, budget and sanity.</p></div>
             </div>
             <div className="pain-item">
               <div className="pain-n">02</div>
-              <div><h4>Manufacturers Ruin Designs</h4><p>You invest in beautiful tech packs — then a factory that doesn&rsquo;t understand modest wear construction ruins everything. Wrong drape, wrong proportions, wasted season.</p></div>
+              <div><h3>Manufacturers Ruin Designs</h3><p>You invest in beautiful tech packs — then a factory that doesn&rsquo;t understand modest wear construction ruins everything. Wrong drape, wrong proportions, wasted season.</p></div>
             </div>
             <div className="pain-item">
               <div className="pain-n">03</div>
-              <div><h4>No Modest Wear Expertise</h4><p>Generic manufacturers don&rsquo;t understand the cultural nuance, modesty standards or silhouette precision behind an abaya or bias-cut scarf.</p></div>
+              <div><h3>No Modest Wear Expertise</h3><p>Generic manufacturers don&rsquo;t understand the cultural nuance, modesty standards or silhouette precision behind an abaya or bias-cut scarf.</p></div>
             </div>
             <div className="pain-item">
               <div className="pain-n">04</div>
-              <div><h4>No End-to-End Support</h4><p>You are left alone to manage logistics, quality control and delivery — on top of running your entire brand and creative direction.</p></div>
+              <div><h3>No End-to-End Support</h3><p>You are left alone to manage logistics, quality control and delivery — on top of running your entire brand and creative direction.</p></div>
             </div>
           </div>
         </div>

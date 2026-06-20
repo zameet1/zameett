@@ -5,6 +5,8 @@ import Nav from "@/components/Nav";
 import CartDrawer from "@/components/CartDrawer";
 import Toast from "@/components/Toast";
 import SiteChrome from "@/components/SiteChrome";
+import JsonLd from "@/components/JsonLd";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -31,6 +33,7 @@ export const metadata = {
     template: "%s | Zameett",
   },
   description: siteDescription,
+  alternates: { canonical: "/" },
   keywords: [
     "modest fashion",
     "abaya manufacturer",
@@ -58,12 +61,30 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  verification: {
+    // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in .env.local with the value
+    // Google Search Console gives you under Settings > Ownership verification
+    // > HTML tag. Leave unset and this meta tag simply won't render.
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Zameett",
+  url: siteUrl,
+  description: siteDescription,
+  // No logo or sameAs (social) links included — add a real logo image and
+  // real social profile URLs here once they exist, rather than fabricating.
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <body>
+        <JsonLd data={organizationSchema} />
+        <GoogleAnalytics />
         <CartProvider>
           <Nav />
           {children}

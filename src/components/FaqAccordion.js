@@ -44,7 +44,7 @@ export default function FaqAccordion() {
       {FAQS.map((f, i) => (
         <div className="faq-item" key={i}>
           <div className="faq-q" onClick={() => setOpenIdx(openIdx === i ? null : i)}>
-            <h4>{f.q}</h4>
+            <h3>{f.q}</h3>
             <div className={`faq-tog${openIdx === i ? " open" : ""}`}>+</div>
           </div>
           <div className={`faq-ans${openIdx === i ? " open" : ""}`}>

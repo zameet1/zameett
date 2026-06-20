@@ -6,7 +6,21 @@ import Footer from "@/components/Footer";
 export const metadata = {
   title: "Contact",
   description:
-    "Get in touch with Zameett for design-only enquiries or full manufacturing — fill in the form and we'll respond within 24 hours.",
+    "Get in touch with Zameett for a modest fashion design or manufacturing quote — fill in the form and we'll respond within 24 hours.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Zameett | Get a Modest Fashion Design & Manufacturing Quote",
+    description:
+      "Design only or full manufacturing — tell us your vision and we'll respond within 24 hours with a clear path and quote.",
+    url: "/contact",
+    images: [{ url: "/images/26.jpeg", width: 1200, height: 630, alt: "Hand embellishment detail on a Zameett modest wear piece" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Zameett | Get a Modest Fashion Design & Manufacturing Quote",
+    description: "Design only or full manufacturing — tell us your vision and we'll respond within 24 hours.",
+    images: ["/images/26.jpeg"],
+  },
 };
 
 export default function Contact() {
@@ -40,10 +54,6 @@ export default function Contact() {
                 <a href="mailto:hello@zameett.com">hello@zameett.com</a>
               </div>
               <div className="contact-detail">
-                <span>WhatsApp</span>
-                <a href="#">+92 — Add Your Number</a>
-              </div>
-              <div className="contact-detail">
                 <span>Based In</span>
                 <p>Pakistan — Shipping Worldwide</p>
               </div>
@@ -54,14 +64,6 @@ export default function Contact() {
               <div className="contact-detail">
                 <span>Response Time</span>
                 <p>Within 24 hours, every enquiry</p>
-              </div>
-              <div className="contact-detail">
-                <span>Follow Us</span>
-                <div className="social-row">
-                  <a href="#" className="social-btn">📸</a>
-                  <a href="#" className="social-btn">💼</a>
-                  <a href="#" className="social-btn">💬</a>
-                </div>
               </div>
             </div>
           </div>

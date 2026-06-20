@@ -1,16 +1,111 @@
 import AddToCartButton from "@/components/AddToCartButton";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
+import JsonLd from "@/components/JsonLd";
+
+const PRODUCTS = [
+  {
+    name: "Modest Wear Tech Pack Template",
+    description:
+      "A fully editable, factory-ready tech-pack template designed around modest silhouettes — drop in your own flats and specs.",
+    image: "/images/14.jpeg",
+    price: 49,
+  },
+  {
+    name: "Abaya Block Pattern Set",
+    description:
+      "Graded base blocks for open and closed abayas — a tested starting point you can adapt into your own styles.",
+    image: "/images/31.jpeg",
+    price: 39,
+  },
+  {
+    name: "Fabric & Trims Sourcing Guide",
+    description:
+      "Our working reference for modest-wear fabrics — weights, drape, best uses and the colour families we run most.",
+    image: "/images/30.jpeg",
+    price: 29,
+  },
+  {
+    name: "Modest Silhouette Flat Sketch Library",
+    description:
+      "100+ editable vector flats — abayas, kaftans, kimonos, slips and shawls — to build tech packs and line sheets fast.",
+    image: "/images/28.jpeg",
+    price: 59,
+  },
+  {
+    name: "Print & Embroidery Motif Pack",
+    description:
+      "Original florals, geometrics and border motifs — print-ready repeats and embroidery placements for collections.",
+    image: "/images/03.jpeg",
+    price: 35,
+  },
+  {
+    name: "Collection Launch Planner",
+    description:
+      "A step-by-step workbook to take a modest collection from concept to launch — timelines, costings and checklists.",
+    image: "/images/27.jpeg",
+    price: 25,
+  },
+  {
+    name: "The Modest Brand Starter Kit",
+    description:
+      "All six digital products bundled together — everything needed to launch a modest label professionally.",
+    image: "/images/14.jpeg",
+    price: 129,
+  },
+];
+
+const productsSchema = PRODUCTS.map((p) => ({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: p.name,
+  description: p.description,
+  image: `https://zameett.com${p.image}`,
+  offers: {
+    "@type": "Offer",
+    price: p.price,
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+  },
+}));
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://zameett.com/" },
+    { "@type": "ListItem", position: 2, name: "Digital Products", item: "https://zameett.com/digital" },
+  ],
+};
 
 export const metadata = {
   title: "Digital Products",
   description:
-    "Ready-made tech-pack templates, graded patterns, sourcing guides and motif packs for modest fashion brands — instant download, production-grade, fully editable.",
+    "Modest wear tech pack templates and digital fashion design files — graded patterns, sourcing guides and motif packs for modest fashion brands, instant download.",
+  alternates: { canonical: "/digital" },
+  openGraph: {
+    title: "Modest Wear Tech Pack Templates & Digital Fashion Design Files | Zameett",
+    description:
+      "Ready-made tech-pack templates, graded abaya patterns, sourcing guides and motif packs — production-grade digital design files, instant download.",
+    url: "/digital",
+    images: [{ url: "/images/28.jpeg", width: 1200, height: 630, alt: "Modest silhouette flat sketch library digital design files" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Modest Wear Tech Pack Templates & Digital Fashion Design Files | Zameett",
+    description:
+      "Ready-made tech-pack templates, graded abaya patterns, sourcing guides and motif packs for modest fashion brands.",
+    images: ["/images/28.jpeg"],
+  },
 };
 
 export default function Digital() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
+      {productsSchema.map((p, i) => (
+        <JsonLd key={i} data={p} />
+      ))}
       <header className="page-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Digital Products</p>
@@ -178,9 +273,9 @@ export default function Digital() {
       <section className="bundle">
         <div className="inner">
           <div className="bundle-media reveal">
-            <div className="b-img tall"><CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Tech packs" sizes="(max-width: 960px) 50vw, 25vw" /></div>
-            <div className="b-img"><CoverImage src="/images/30.jpeg" objectPosition="center 35%" alt="Swatches" sizes="(max-width: 960px) 50vw, 25vw" /></div>
-            <div className="b-img"><CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="Design development" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="b-img tall"><CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Modest Brand Starter Kit — tech pack templates included in the bundle" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="b-img"><CoverImage src="/images/30.jpeg" objectPosition="center 35%" alt="Fabric swatches from the Modest Brand Starter Kit sourcing guide" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="b-img"><CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="Modest wear design and embroidery development files in the Starter Kit" sizes="(max-width: 960px) 50vw, 25vw" /></div>
           </div>
           <div className="reveal">
             <p className="s-tag">Best Value · Save 40%</p>
@@ -220,10 +315,10 @@ export default function Digital() {
             <p className="s-tag">Made Properly</p>
             <h2 className="s-title">What goes into <em>every file.</em></h2>
             <ul className="inside-checks">
-              <li><span className="ic-n">01</span><div><h4>Factory-Ready Detail</h4><p>The same level of spec we hand our own production floor — nothing left to guesswork.</p></div></li>
-              <li><span className="ic-n">02</span><div><h4>Fully Editable</h4><p>Open files you can adapt to your own styles, branding and measurements.</p></div></li>
-              <li><span className="ic-n">03</span><div><h4>Modest-Wear Specific</h4><p>Built around abayas, kaftans and modest silhouettes — not generic fashion blocks.</p></div></li>
-              <li><span className="ic-n">04</span><div><h4>Guided &amp; Documented</h4><p>Each product includes a how-to guide so you know exactly how to use it.</p></div></li>
+              <li><span className="ic-n">01</span><div><h3>Factory-Ready Detail</h3><p>The same level of spec we hand our own production floor — nothing left to guesswork.</p></div></li>
+              <li><span className="ic-n">02</span><div><h3>Fully Editable</h3><p>Open files you can adapt to your own styles, branding and measurements.</p></div></li>
+              <li><span className="ic-n">03</span><div><h3>Modest-Wear Specific</h3><p>Built around abayas, kaftans and modest silhouettes — not generic fashion blocks.</p></div></li>
+              <li><span className="ic-n">04</span><div><h3>Guided &amp; Documented</h3><p>Each product includes a how-to guide so you know exactly how to use it.</p></div></li>
             </ul>
           </div>
         </div>
@@ -237,9 +332,9 @@ export default function Digital() {
             <h2 className="s-title">How it <em>works.</em></h2>
           </div>
           <div className="dl-row reveal">
-            <div className="dl-step"><div className="dl-ico">1</div><h4>Choose &amp; Checkout</h4><p>Pick a single product or the full bundle and check out securely in minutes.</p></div>
-            <div className="dl-step"><div className="dl-ico">2</div><h4>Download Instantly</h4><p>Your files are delivered straight to your inbox the moment payment clears.</p></div>
-            <div className="dl-step"><div className="dl-ico">3</div><h4>Build &amp; Launch</h4><p>Use them with any manufacturer — or bring them back to us to produce.</p></div>
+            <div className="dl-step"><div className="dl-ico">1</div><h3>Choose &amp; Checkout</h3><p>Pick a single product or the full bundle and check out securely in minutes.</p></div>
+            <div className="dl-step"><div className="dl-ico">2</div><h3>Download Instantly</h3><p>Your files are delivered straight to your inbox the moment payment clears.</p></div>
+            <div className="dl-step"><div className="dl-ico">3</div><h3>Build &amp; Launch</h3><p>Use them with any manufacturer — or bring them back to us to produce.</p></div>
           </div>
         </div>
       </section>

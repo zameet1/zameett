@@ -4,7 +4,22 @@ import CoverImage from "@/components/CoverImage";
 export const metadata = {
   title: "About",
   description:
-    "Zameett is a Pakistan-based design and manufacturing partner built for modest fashion brands, independent designers and boutique owners — design only or full concept-to-doorstep service.",
+    "Zameett is a Pakistan-based modest fashion manufacturer — a design and manufacturing partner for modest fashion brands, independent designers and boutique owners, offering design-only or full concept-to-doorstep service.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Zameett | Pakistan Modest Fashion Manufacturer",
+    description:
+      "Our story, our team's experience and who we serve — a specialist modest fashion design and manufacturing partner based in Pakistan, delivering worldwide.",
+    url: "/about",
+    images: [{ url: "/images/27.jpeg", width: 1200, height: 630, alt: "Finished modest wear collection on the rail at Zameett" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Zameett | Pakistan Modest Fashion Manufacturer",
+    description:
+      "Our story, our team's experience and who we serve — a specialist modest fashion design and manufacturing partner based in Pakistan.",
+    images: ["/images/27.jpeg"],
+  },
 };
 
 export default function About() {
@@ -40,10 +55,10 @@ export default function About() {
               Zameett is built to serve you at every level of your brand&rsquo;s journey.
             </p>
             <div className="values">
-              <div className="val"><h4>Flexible Services</h4><p>Design only or full manufacturing — you choose your level of involvement.</p></div>
-              <div className="val"><h4>Culturally Rooted</h4><p>We understand modest fashion aesthetically, technically and culturally.</p></div>
-              <div className="val"><h4>Transparent Process</h4><p>Updated at every stage. No surprises. No hidden costs. No confusion.</p></div>
-              <div className="val"><h4>Flexible MOQs</h4><p>Small brands and growing labels are equally welcome here.</p></div>
+              <div className="val"><h3>Flexible Services</h3><p>Design only or full manufacturing — you choose your level of involvement.</p></div>
+              <div className="val"><h3>Culturally Rooted</h3><p>We understand modest fashion aesthetically, technically and culturally.</p></div>
+              <div className="val"><h3>Transparent Process</h3><p>Updated at every stage. No surprises. No hidden costs. No confusion.</p></div>
+              <div className="val"><h3>Flexible MOQs</h3><p>Small brands and growing labels are equally welcome here.</p></div>
             </div>
           </div>
           <div className="about-grid reveal">
@@ -57,14 +72,15 @@ export default function About() {
       {/* STATS */}
       <div className="stats">
         <div className="inner">
-          <div className="stat"><div className="stat-num">50+</div><div className="stat-lbl">Clients Served</div></div>
+          <div className="stat"><div className="stat-num">100+</div><div className="stat-lbl">Clients Worldwide</div></div>
           <div className="stat-sep"></div>
           <div className="stat"><div className="stat-num">100%</div><div className="stat-lbl">End-to-End Capable</div></div>
           <div className="stat-sep"></div>
-          <div className="stat"><div className="stat-num">5+</div><div className="stat-lbl">Years Experience</div></div>
+          <div className="stat"><div className="stat-num">6+</div><div className="stat-lbl">Years Team Experience</div></div>
           <div className="stat-sep"></div>
           <div className="stat"><div className="stat-num">🌍</div><div className="stat-lbl">Worldwide Delivery</div></div>
         </div>
+        <p className="stats-note">Figures reflect our team&rsquo;s combined experience in modest fashion design and manufacturing.</p>
       </div>
 
       {/* EXPERIENCE / OUR STORY */}
@@ -72,7 +88,7 @@ export default function About() {
         <div className="inner">
           <div className="exp-photos reveal">
             <div className="exp-ph tall"><CoverImage src="/images/13.jpeg" objectPosition="center 35%" alt="Zameett production floor" sizes="(max-width: 960px) 50vw, 25vw" /></div>
-            <div className="exp-ph"><CoverImage src="/images/14.jpeg" objectPosition="center 30%" alt="Digital tech pack" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="exp-ph"><CoverImage src="/images/14.jpeg" objectPosition="center 30%" alt="Modest wear tech pack and design development on tablet at Zameett" sizes="(max-width: 960px) 50vw, 25vw" /></div>
             <div className="exp-ph"><CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="Design and embroidery development" sizes="(max-width: 960px) 50vw, 25vw" /></div>
           </div>
           <div className="reveal">
@@ -117,19 +133,19 @@ export default function About() {
           <div className="c-list reveal">
             <div className="c-item">
               <div className="c-dot">✦</div>
-              <div><h4>Small Modest Fashion Brands</h4><p>Launching your first collection? We support small MOQs and guide you through every step from idea to finished product.</p></div>
+              <div><h3>Small Modest Fashion Brands</h3><p>Launching your first collection? We support small MOQs and guide you through every step from idea to finished product.</p></div>
             </div>
             <div className="c-item">
               <div className="c-dot">✏️</div>
-              <div><h4>Independent Designers</h4><p>Need designs and tech packs only? We create complete production-ready files you can hand to any manufacturer, anywhere.</p></div>
+              <div><h3>Independent Designers</h3><p>Need designs and tech packs only? We create complete production-ready files you can hand to any manufacturer, anywhere.</p></div>
             </div>
             <div className="c-item">
               <div className="c-dot">🏪</div>
-              <div><h4>Boutique Owners</h4><p>Custom-manufactured modest wear with your own branding and label — exclusive to your boutique, built to your standards.</p></div>
+              <div><h3>Boutique Owners</h3><p>Custom-manufactured modest wear with your own branding and label — exclusive to your boutique, built to your standards.</p></div>
             </div>
             <div className="c-item">
               <div className="c-dot">📈</div>
-              <div><h4>Growing Labels</h4><p>Ready to scale your production? We handle larger volumes without ever compromising on quality, accuracy or brand identity.</p></div>
+              <div><h3>Growing Labels</h3><p>Ready to scale your production? We handle larger volumes without ever compromising on quality, accuracy or brand identity.</p></div>
             </div>
           </div>
         </div>

@@ -1,16 +1,42 @@
 import PortfolioGallery from "@/components/PortfolioGallery";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
+import JsonLd from "@/components/JsonLd";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://zameett.com/" },
+    { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://zameett.com/portfolio" },
+  ],
+};
 
 export const metadata = {
   title: "Portfolio",
   description:
-    "A curated lookbook of modest wear designed, sampled and manufactured by Zameett — abayas, velvet kaftans, bias-cut pieces, embellished formals and printed capsules.",
+    "Modest fashion portfolio and abaya design examples from Zameett — a curated lookbook of abayas, velvet kaftans, bias-cut pieces, embellished formals and printed capsules.",
+  alternates: { canonical: "/portfolio" },
+  openGraph: {
+    title: "Modest Fashion Portfolio & Abaya Design Examples | Zameett",
+    description:
+      "A curated lookbook of modest wear designed, sampled and manufactured by Zameett — abayas, velvet kaftans, bias-cut pieces and embellished formals.",
+    url: "/portfolio",
+    images: [{ url: "/images/18.jpeg", width: 1200, height: 630, alt: "Maroon velvet caftan gown from the Zameett portfolio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Modest Fashion Portfolio & Abaya Design Examples | Zameett",
+    description:
+      "A curated lookbook of abayas, velvet kaftans, bias-cut pieces and embellished formals designed and manufactured by Zameett.",
+    images: ["/images/18.jpeg"],
+  },
 };
 
 export default function Portfolio() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
       <header className="page-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Portfolio</p>
