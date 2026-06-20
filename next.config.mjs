@@ -15,6 +15,14 @@ const nextConfig = {
         source: "/images/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
       },
+      {
+        // HTML pages (everything except hashed static assets & images) must
+        // always revalidate with the server so a new deploy is picked up
+        // immediately. Without this the browser/host caches stale HTML that
+        // still points at old chunks — the "sometimes old, sometimes new" bug.
+        source: "/:path((?!_next/|images/).*)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
+      },
     ];
   },
 };
