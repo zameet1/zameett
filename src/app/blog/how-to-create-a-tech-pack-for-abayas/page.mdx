@@ -1,0 +1,89 @@
+import JsonLd from "@/components/JsonLd";
+import Footer from "@/components/Footer";
+
+export const metadata = {
+  title: "How to Create a Tech Pack for Abayas",
+  description:
+    "A practical, step-by-step guide to building a manufacturer-ready tech pack for abayas — measurements, construction notes, fabric specs and what most designers get wrong.",
+  alternates: { canonical: "/blog/how-to-create-a-tech-pack-for-abayas" },
+  openGraph: {
+    title: "How to Create a Tech Pack for Abayas | Zameett",
+    description:
+      "A practical, step-by-step guide to building a manufacturer-ready tech pack for abayas.",
+    url: "/blog/how-to-create-a-tech-pack-for-abayas",
+    type: "article",
+    images: [{ url: "/images/14.jpeg", width: 1200, height: 630, alt: "Modest wear tech pack and design development on tablet" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Create a Tech Pack for Abayas | Zameett",
+    description: "A practical, step-by-step guide to building a manufacturer-ready tech pack for abayas.",
+    images: ["/images/14.jpeg"],
+  },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How to Create a Tech Pack for Abayas",
+  description:
+    "A practical, step-by-step guide to building a manufacturer-ready tech pack for abayas — measurements, construction notes, fabric specs and what most designers get wrong.",
+  image: "https://zameett.com/images/14.jpeg",
+  datePublished: "2026-06-01",
+  author: { "@type": "Organization", name: "Zameett" },
+  publisher: { "@type": "Organization", name: "Zameett" },
+};
+
+<JsonLd data={articleSchema} />
+
+<header className="page-hero">
+  <div className="inner">
+    <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog">Blog</a> &nbsp;/&nbsp; Tech Pack Guide</p>
+    <h1>How to Create a <em>Tech Pack for Abayas</em></h1>
+    <p>Published June 1, 2026 · A practical, step-by-step guide from the Zameett team.</p>
+  </div>
+</header>
+
+<section className="services">
+  <div className="inner" style={{ maxWidth: 760 }}>
+
+A tech pack is the single document that decides whether your abaya comes back from the factory looking like your sketch — or looking like something else entirely. This guide covers what a modest-wear tech pack actually needs to contain.
+
+## Why abayas need a different tech pack than general fashion
+
+Generic fashion tech pack templates assume a fitted Western silhouette: bust, waist and hip measurements, princess seams, darts. An abaya is built around drape, modesty coverage and often an open-front or closed construction that those templates don't account for. If your tech pack doesn't specify sleeve drop, hem sweep, and exact coverage points, a manufacturer unfamiliar with modest wear will guess — and guessing is where collections get ruined.
+
+## What to include
+
+### 1. Flat sketches, front and back
+
+Clean vector flats showing the open or closed front, sleeve style, and any cape or layering detail. Annotate every seam line.
+
+### 2. Measurement spec sheet
+
+At minimum: shoulder width, sleeve length, sleeve opening, body length, hem sweep, and neckline depth — graded across your full size range, not just one sample size.
+
+### 3. Construction notes
+
+Seam types, hem finish (rolled, blind, raw), closure type (snap, zip, tie), and lining requirements if any. This is the section most designers skip — and the one manufacturers rely on most.
+
+### 4. Fabric and trim specs
+
+Exact fabric name, weight (GSM), composition, and supplier if known. Note drape requirements — an abaya in heavy crepe behaves completely differently from one in chiffon.
+
+### 5. Embellishment placement
+
+If there's embroidery, beading or print, mark exact placement and scale on the flat sketch, not just in a separate moodboard.
+
+## The mistake that ruins most first collections
+
+Designers send beautiful illustrations with no construction notes, assuming "the factory will figure it out." For modest wear specifically, that assumption is expensive — wrong drape, wrong proportions, and a wasted production run are the most common outcome.
+
+---
+
+Need a tech pack built for you, or want to see one done properly first? [Browse our tech pack template](/digital) or [get in touch](/contact) about a custom build.
+
+  </div>
+</section>
+
+<Footer />

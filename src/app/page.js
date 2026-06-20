@@ -69,16 +69,17 @@ export default function Home() {
       {/* STATS */}
       <div className="stats">
         <div className="inner">
-          <div className="stat"><div className="stat-num">50+</div><div className="stat-lbl">Clients Served</div></div>
+          <div className="stat"><div className="stat-num">100+</div><div className="stat-lbl">Clients Worldwide</div></div>
           <div className="stat-sep"></div>
           <div className="stat"><div className="stat-num">100%</div><div className="stat-lbl">End-to-End Capable</div></div>
           <div className="stat-sep"></div>
           <div className="stat"><div className="stat-num">3</div><div className="stat-lbl">Service Paths</div></div>
           <div className="stat-sep"></div>
-          <div className="stat"><div className="stat-num">5+</div><div className="stat-lbl">Years Experience</div></div>
+          <div className="stat"><div className="stat-num">6+</div><div className="stat-lbl">Years Team Experience</div></div>
           <div className="stat-sep"></div>
           <div className="stat"><div className="stat-num">🌍</div><div className="stat-lbl">Worldwide Delivery</div></div>
         </div>
+        <p className="stats-note">Figures reflect our team&rsquo;s combined experience in modest fashion design and manufacturing.</p>
       </div>
 
       {/* SERVICES PREVIEW */}
@@ -173,7 +174,7 @@ export default function Home() {
 
       {/* PHOTO BREAK */}
       <div className="photo-break">
-        <CoverImage src="/images/19.jpeg" objectPosition="center 22%" alt="Modest fashion" />
+        <CoverImage src="/images/19.jpeg" objectPosition="center 22%" alt="Zameett modest wear collection — abayas and modest formal pieces crafted in Pakistan" />
         <div className="pb-overlay">
           <div className="pb-content">
             <p className="pb-tag">Our Philosophy</p>
@@ -203,19 +204,19 @@ export default function Home() {
           <div className="sig-grid reveal">
             <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/09.jpeg" objectPosition="center 16%" alt="Ivory pearl-trim abaya" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Abayas</div><h4>Ivory Pearl-Trim Abaya</h4></div>
+              <div className="sig-cap"><div className="c">Abayas</div><h3>Ivory Pearl-Trim Abaya</h3></div>
             </a>
             <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/16.jpeg" objectPosition="center 16%" alt="Plum and sage velvet caftan" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Formal</div><h4>Plum &amp; Sage Velvet</h4></div>
+              <div className="sig-cap"><div className="c">Formal</div><h3>Plum &amp; Sage Velvet</h3></div>
             </a>
             <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/02.jpeg" objectPosition="center 16%" alt="Rosewood belted maxi" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Bias Cut</div><h4>Rosewood Belted Maxi</h4></div>
+              <div className="sig-cap"><div className="c">Bias Cut</div><h3>Rosewood Belted Maxi</h3></div>
             </a>
             <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/08.jpeg" objectPosition="center 16%" alt="Terracotta tribal kimono" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Embroidery</div><h4>Terracotta Tribal Kimono</h4></div>
+              <div className="sig-cap"><div className="c">Embroidery</div><h3>Terracotta Tribal Kimono</h3></div>
             </a>
           </div>
           <div className="sig-foot reveal">
@@ -241,22 +242,22 @@ export default function Home() {
           <div className="why-grid reveal">
             <div className="why-card">
               <div className="w-icon">🪡</div>
-              <h4>Modest Wear Specialists</h4>
+              <h3>Modest Wear Specialists</h3>
               <p>We only do modest fashion. Every design and production decision is made with deep cultural and technical industry understanding.</p>
             </div>
             <div className="why-card">
               <div className="w-icon">🎨</div>
-              <h4>Design-Only Welcome</h4>
+              <h3>Design-Only Welcome</h3>
               <p>No manufacturing commitment needed. Come for designs and tech packs and take them to any factory you choose. We never lock you in.</p>
             </div>
             <div className="why-card">
               <div className="w-icon">📦</div>
-              <h4>Truly End-to-End</h4>
+              <h3>Truly End-to-End</h3>
               <p>Design to delivery under one roof when you need it. No coordinating multiple vendors. No miscommunications. No lost vision.</p>
             </div>
             <div className="why-card">
               <div className="w-icon">✅</div>
-              <h4>Quality Guaranteed</h4>
+              <h3>Quality Guaranteed</h3>
               <p>Every piece goes through strict quality control before dispatch. We do not ship anything we would not be proud to wear ourselves.</p>
             </div>
           </div>
@@ -281,7 +282,7 @@ export default function Home() {
             <div className="shl-card">
               <div className="shl-thumb">
                 <span className="shl-fmt">PDF · AI</span>
-                <CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Tech pack template" sizes="(max-width: 900px) 100vw, 33vw" />
+                <CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Modest wear tech pack template preview — flat sketch and spec sheet" sizes="(max-width: 900px) 100vw, 33vw" />
               </div>
               <div className="shl-body">
                 <div className="shl-cat">Tech Packs</div>
@@ -296,7 +297,7 @@ export default function Home() {
             <div className="shl-card">
               <div className="shl-thumb">
                 <span className="shl-fmt">AI · PNG</span>
-                <CoverImage src="/images/28.jpeg" objectPosition="center 30%" alt="Flat sketch library" sizes="(max-width: 900px) 100vw, 33vw" />
+                <CoverImage src="/images/28.jpeg" objectPosition="center 30%" alt="Modest silhouette flat sketch library — editable vector flats for tech packs" sizes="(max-width: 900px) 100vw, 33vw" />
               </div>
               <div className="shl-body">
                 <div className="shl-cat">Flats &amp; CADs</div>
@@ -311,7 +312,7 @@ export default function Home() {
             <div className="shl-card">
               <div className="shl-thumb">
                 <span className="shl-fmt">Bundle</span>
-                <CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="Starter kit bundle" sizes="(max-width: 900px) 100vw, 33vw" />
+                <CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="The Modest Brand Starter Kit — bundled digital design files for modest fashion brands" sizes="(max-width: 900px) 100vw, 33vw" />
               </div>
               <div className="shl-body">
                 <div className="shl-cat">Best Value · Save 40%</div>

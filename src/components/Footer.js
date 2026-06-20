@@ -15,12 +15,6 @@ export default function Footer({ variant = "default" }) {
               complete concept-to-doorstep service. We serve brands, designers and boutiques
               worldwide.
             </p>
-            <div className="footer-social">
-              <a href="#" className="f-social-btn">📸</a>
-              <a href="#" className="f-social-btn">💼</a>
-              <a href="#" className="f-social-btn">💬</a>
-              <a href="#" className="f-social-btn">📌</a>
-            </div>
           </div>
 
           {isShop ? (
@@ -55,6 +49,7 @@ export default function Footer({ variant = "default" }) {
               <li><a href="/portfolio">Portfolio</a></li>
               {isShop && <li><a href="/services">Services</a></li>}
               <li><a href="/services">How We Work</a></li>
+              <li><a href="/blog">Blog</a></li>
               <li><a href="/contact">FAQ</a></li>
             </ul>
           </div>
@@ -63,7 +58,6 @@ export default function Footer({ variant = "default" }) {
             <ul>
               <li><a href="mailto:hello@zameett.com">hello@zameett.com</a></li>
               <li><a href="/contact">WhatsApp</a></li>
-              <li><a href="#">Instagram</a></li>
               <li><a href="/contact">Get a Quote</a></li>
               <li><a href="/contact">Design-Only Enquiry</a></li>
             </ul>

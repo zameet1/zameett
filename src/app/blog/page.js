@@ -1,0 +1,59 @@
+import Footer from "@/components/Footer";
+import CoverImage from "@/components/CoverImage";
+import { POSTS } from "./posts";
+
+export const metadata = {
+  title: "Blog",
+  description:
+    "Guides on modest wear tech packs, abaya manufacturing and building a modest fashion brand — from the Zameett team.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Zameett Blog | Modest Fashion & Manufacturing Guides",
+    description:
+      "Guides on modest wear tech packs, abaya manufacturing and building a modest fashion brand.",
+    url: "/blog",
+    images: [{ url: "/images/14.jpeg", width: 1200, height: 630, alt: "Zameett blog — modest fashion manufacturing guides" }],
+  },
+};
+
+export default function Blog() {
+  const sorted = [...POSTS].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  return (
+    <>
+      <header className="page-hero">
+        <div className="inner">
+          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Blog</p>
+          <h1>Guides for <em>modest fashion brands.</em></h1>
+          <p>
+            Practical, no-fluff guides on tech packs, abaya manufacturing and building a modest
+            wear label — written from the floor of our own atelier.
+          </p>
+        </div>
+      </header>
+
+      <section className="services">
+        <div className="inner">
+          <div className="dp-grid">
+            {sorted.map((post) => (
+              <a key={post.slug} href={`/blog/${post.slug}`} className="dp-card">
+                <div className="dp-thumb">
+                  <CoverImage src={post.image} alt={post.title} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                </div>
+                <div className="dp-body">
+                  <div className="dp-cat">
+                    {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                  </div>
+                  <h2 style={{ fontSize: 24, marginBottom: 12 }}>{post.title}</h2>
+                  <p>{post.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+}
