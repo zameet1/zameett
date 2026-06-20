@@ -27,27 +27,6 @@ export default function SiteChrome() {
   }, [navShadow]);
 
   useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    const els = document.querySelectorAll(".reveal");
-    els.forEach((el, i) => {
-      el.classList.remove("in");
-      el.style.transitionDelay = (i % 3) * 0.08 + "s";
-      io.observe(el);
-    });
-    return () => io.disconnect();
-  }, [pathname]);
-
-  useEffect(() => {
     const statIO = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
