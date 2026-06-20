@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function SiteChrome() {
@@ -26,23 +26,7 @@ export default function SiteChrome() {
     if (nav) nav.style.boxShadow = navShadow ? "0 2px 24px rgba(74,14,43,0.10)" : "none";
   }, [navShadow]);
 
-  useEffect(() => {
-    const statIO = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            animateCount(e.target);
-            statIO.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-    document.querySelectorAll(".stat-num").forEach((el) => statIO.observe(el));
-    return () => statIO.disconnect();
-  }, [pathname]);
-
-  function animateCount(el) {
+  const animateCount = useCallback((el) => {
     const raw = el.textContent.trim();
     const m = raw.match(/^(\d+)(.*)$/);
     if (!m) return;
@@ -57,7 +41,23 @@ export default function SiteChrome() {
       if (p < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
-  }
+  }, []);
+
+  useEffect(() => {
+    const statIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            animateCount(e.target);
+            statIO.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    document.querySelectorAll(".stat-num").forEach((el) => statIO.observe(el));
+    return () => statIO.disconnect();
+  }, [pathname, animateCount]);
 
   return (
     <>

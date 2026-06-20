@@ -5,7 +5,9 @@ import ScrollTopLink from "@/components/ScrollTopLink";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Zameett — Contact",
+  title: "Contact",
+  description:
+    "Get in touch with Zameett for design-only enquiries or full manufacturing — fill in the form and we'll respond within 24 hours.",
 };
 
 export default function Contact() {

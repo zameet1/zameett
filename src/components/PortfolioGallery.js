@@ -68,6 +68,7 @@ export default function PortfolioGallery() {
             <div className="pf-shot">
               <span className="pf-num">{item.num}</span>
               <span className="pf-view">View</span>
+              {/* eslint-disable-next-line @next/next/no-img-element -- masonry layout needs intrinsic/organic image height, fill won't work without a fixed-size container */}
               <img src={item.src} alt={item.alt} />
             </div>
             <div className="pf-cap">
@@ -92,6 +93,7 @@ export default function PortfolioGallery() {
           >
             ‹
           </button>
+          {/* eslint-disable-next-line @next/next/no-img-element -- lightbox needs natural image dimensions, not a fill container */}
           <img src={shown[lightboxIdx].src} alt={shown[lightboxIdx].alt} />
           <button
             className="lb-nav lb-next"

@@ -1,9 +1,12 @@
 import Link from "next/link";
 import AddToCartButton from "@/components/AddToCartButton";
 import Footer from "@/components/Footer";
+import CoverImage from "@/components/CoverImage";
 
 export const metadata = {
-  title: "Zameett — Digital Products",
+  title: "Digital Products",
+  description:
+    "Ready-made tech-pack templates, graded patterns, sourcing guides and motif packs for modest fashion brands — instant download, production-grade, fully editable.",
 };
 
 export default function Digital() {
@@ -41,7 +44,7 @@ export default function Digital() {
               <div className="dp-thumb">
                 <div className="dp-formats"><span className="dp-fmt">PDF</span><span className="dp-fmt">AI</span></div>
                 <span className="dp-instant">Instant Download</span>
-                <img src="/images/14.jpeg" style={{ objectPosition: "center 40%" }} alt="Tech pack template" />
+                <CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Tech pack template" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
               </div>
               <div className="dp-body">
                 <div className="dp-cat">Tech Packs</div>
@@ -63,7 +66,7 @@ export default function Digital() {
               <div className="dp-thumb">
                 <div className="dp-formats"><span className="dp-fmt">PDF</span><span className="dp-fmt">DXF</span></div>
                 <span className="dp-instant">Instant Download</span>
-                <img src="/images/31.jpeg" style={{ objectPosition: "center 30%" }} alt="Abaya block patterns" />
+                <CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="Abaya block patterns" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
               </div>
               <div className="dp-body">
                 <div className="dp-cat">Patterns</div>
@@ -85,7 +88,7 @@ export default function Digital() {
               <div className="dp-thumb">
                 <div className="dp-formats"><span className="dp-fmt">PDF</span></div>
                 <span className="dp-instant">Instant Download</span>
-                <img src="/images/30.jpeg" style={{ objectPosition: "center 35%" }} alt="Fabric sourcing guide" />
+                <CoverImage src="/images/30.jpeg" objectPosition="center 35%" alt="Fabric sourcing guide" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
               </div>
               <div className="dp-body">
                 <div className="dp-cat">Sourcing</div>
@@ -107,7 +110,7 @@ export default function Digital() {
               <div className="dp-thumb">
                 <div className="dp-formats"><span className="dp-fmt">AI</span><span className="dp-fmt">PNG</span></div>
                 <span className="dp-instant">Instant Download</span>
-                <img src="/images/28.jpeg" style={{ objectPosition: "center 30%" }} alt="Flat sketch CAD library" />
+                <CoverImage src="/images/28.jpeg" objectPosition="center 30%" alt="Flat sketch CAD library" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
               </div>
               <div className="dp-body">
                 <div className="dp-cat">Flats &amp; CADs</div>
@@ -129,7 +132,7 @@ export default function Digital() {
               <div className="dp-thumb">
                 <div className="dp-formats"><span className="dp-fmt">PNG</span><span className="dp-fmt">AI</span></div>
                 <span className="dp-instant">Instant Download</span>
-                <img src="/images/03.jpeg" style={{ objectPosition: "center 18%" }} alt="Print and embroidery motif pack" />
+                <CoverImage src="/images/03.jpeg" objectPosition="center 18%" alt="Print and embroidery motif pack" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
               </div>
               <div className="dp-body">
                 <div className="dp-cat">Prints &amp; Embroidery</div>
@@ -151,7 +154,7 @@ export default function Digital() {
               <div className="dp-thumb">
                 <div className="dp-formats"><span className="dp-fmt">PDF</span></div>
                 <span className="dp-instant">Instant Download</span>
-                <img src="/images/27.jpeg" style={{ objectPosition: "center 30%" }} alt="Launch planner" />
+                <CoverImage src="/images/27.jpeg" objectPosition="center 30%" alt="Launch planner" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
               </div>
               <div className="dp-body">
                 <div className="dp-cat">Planning</div>
@@ -176,9 +179,9 @@ export default function Digital() {
       <section className="bundle">
         <div className="inner">
           <div className="bundle-media reveal">
-            <div className="b-img tall"><img src="/images/14.jpeg" style={{ objectPosition: "center 40%" }} alt="Tech packs" /></div>
-            <div className="b-img"><img src="/images/30.jpeg" style={{ objectPosition: "center 35%" }} alt="Swatches" /></div>
-            <div className="b-img"><img src="/images/31.jpeg" style={{ objectPosition: "center 30%" }} alt="Design development" /></div>
+            <div className="b-img tall"><CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Tech packs" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="b-img"><CoverImage src="/images/30.jpeg" objectPosition="center 35%" alt="Swatches" sizes="(max-width: 960px) 50vw, 25vw" /></div>
+            <div className="b-img"><CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="Design development" sizes="(max-width: 960px) 50vw, 25vw" /></div>
           </div>
           <div className="reveal">
             <p className="s-tag">Best Value · Save 40%</p>
@@ -213,7 +216,7 @@ export default function Digital() {
       {/* WHAT'S INSIDE */}
       <section className="inside">
         <div className="inner">
-          <div className="inside-media reveal"><img src="/images/31.jpeg" style={{ objectPosition: "center 30%" }} alt="Inside a tech pack" /></div>
+          <div className="inside-media reveal"><CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="Inside a tech pack" sizes="(max-width: 960px) 100vw, 50vw" /></div>
           <div className="reveal">
             <p className="s-tag">Made Properly</p>
             <h2 className="s-title">What goes into <em>every file.</em></h2>

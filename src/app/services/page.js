@@ -1,8 +1,11 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import CoverImage from "@/components/CoverImage";
 
 export const metadata = {
-  title: "Zameett — Services",
+  title: "Services",
+  description:
+    "Design and tech packs only, design plus sampling, or full manufacturing from concept to worldwide delivery — explore Zameett's modest fashion service paths.",
 };
 
 export default function Services() {
@@ -110,7 +113,7 @@ export default function Services() {
 
       {/* PHOTO BREAK */}
       <div className="photo-break">
-        <img src="/images/14.jpeg" style={{ objectPosition: "center 40%" }} alt="Technical package on tablet" />
+        <CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Technical package on tablet" />
         <div className="pb-overlay">
           <div className="pb-content">
             <p className="pb-tag">Design to Delivery</p>
