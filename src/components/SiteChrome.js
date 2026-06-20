@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function SiteChrome() {
+  const pathname = usePathname();
   const [barWidth, setBarWidth] = useState(0);
   const [navShadow, setNavShadow] = useState(false);
   const [showTop, setShowTop] = useState(false);
@@ -38,11 +40,12 @@ export default function SiteChrome() {
     );
     const els = document.querySelectorAll(".reveal");
     els.forEach((el, i) => {
+      el.classList.remove("in");
       el.style.transitionDelay = (i % 3) * 0.08 + "s";
       io.observe(el);
     });
     return () => io.disconnect();
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const statIO = new IntersectionObserver(
@@ -58,7 +61,7 @@ export default function SiteChrome() {
     );
     document.querySelectorAll(".stat-num").forEach((el) => statIO.observe(el));
     return () => statIO.disconnect();
-  }, []);
+  }, [pathname]);
 
   function animateCount(el) {
     const raw = el.textContent.trim();
