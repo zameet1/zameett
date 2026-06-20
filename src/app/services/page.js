@@ -108,7 +108,7 @@ export default function Services() {
               others later.
             </p>
           </div>
-          <div className="svc-grid reveal" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+          <div className="svc-grid svc-grid-paths reveal">
             <div className="svc-card featured">
               <span className="svc-badge">Most Popular</span>
               <div className="svc-num">A</div>
