@@ -2,21 +2,15 @@
 import { useEffect, useState } from "react";
 
 const ITEMS = [
-  { num: "01", cat: "formal", src: "/images/16.jpeg", alt: "Plum and sage velvet caftan", catLabel: "Formal · Full Manufacturing", title: <>Plum &amp; Sage <em>Velvet Caftan</em></>, desc: "Colour-blocked velvet with woven trims and beaded edges." },
-  { num: "02", cat: "embroidery", src: "/images/01.jpeg", alt: "Olive embroidered kaftan", catLabel: "Embroidery · Design + Sampling", title: <>Olive <em>Embroidered Kaftan</em></>, desc: "Self-jacquard with hand-worked neckline and tassels." },
-  { num: "03", cat: "abaya", src: "/images/09.jpeg", alt: "Ivory pearl-trim abaya", catLabel: "Abayas · Full Manufacturing", title: <>Ivory <em>Pearl-Trim Abaya</em></>, desc: "Soft crepe with hand-beaded lapels and tasselled ties." },
-  { num: "04", cat: "bias", src: "/images/02.jpeg", alt: "Rosewood satin maxi", catLabel: "Bias Cut · Full Manufacturing", title: <>Rosewood <em>Belted Maxi</em></>, desc: "Fluid satin maxi with pleated skirt, cut on the bias." },
-  { num: "05", cat: "embroidery", src: "/images/10.jpeg", alt: "Protea print kaftan", catLabel: "Prints · Design Only", title: <>Protea <em>Print Kaftan</em></>, desc: "Placement-printed silk developed from original artwork." },
-  { num: "06", cat: "formal", src: "/images/15.jpeg", alt: "Midnight beaded abaya", catLabel: "Formal · Embroidery", title: <>Midnight <em>Beaded Velvet Abaya</em></>, desc: "Navy velvet open abaya with all-over beadwork and lace." },
-  { num: "07", cat: "abaya", src: "/images/07.jpeg", alt: "Onyx button-front abaya", catLabel: "Abayas · Tech Packs", title: <>Onyx <em>Button-Front Abaya</em></>, desc: "Satin abaya with covered-button placket and bishop sleeves." },
-  { num: "08", cat: "formal", src: "/images/17.jpeg", alt: "Sage velvet lace robe", catLabel: "Formal · Full Manufacturing", title: <>Sage <em>Velvet &amp; Lace Robe</em></>, desc: "Velvet robe over satin slip with scalloped lace trim." },
-  { num: "09", cat: "embroidery", src: "/images/lemon.jpeg", alt: "Lemon bloom open abaya", catLabel: "Prints · Design + Sampling", title: <>Lemon Bloom <em>Open Abaya</em></>, desc: "Ditsy-floral printed open abaya with contrast ties." },
-  { num: "10", cat: "scarf", src: "/images/12.jpeg", alt: "Rosé paisley shawl suit", catLabel: "Shawls · Print Design", title: <>Rosé <em>Paisley Shawl Suit</em></>, desc: "Paisley-printed suit with matching shawl, artwork to garment." },
-  { num: "11", cat: "abaya", src: "/images/20.jpeg", alt: "Cocoa cape abaya", catLabel: "Abayas · Full Manufacturing", title: <>Cocoa <em>Cape Abaya</em></>, desc: "Draped cape-back abaya with gold hardware and embroidered hem." },
-  { num: "12", cat: "bias", src: "/images/04.jpeg", alt: "Sleeveless slip edit", catLabel: "Bias Cut · Tech Packs", title: <>The <em>Sleeveless Slip Edit</em></>, desc: "A four-colour slip-dress capsule, graded and tech-packed." },
-  { num: "13", cat: "embroidery", src: "/images/08.jpeg", alt: "Terracotta tribal kimono", catLabel: "Embroidery · Full Manufacturing", title: <>Terracotta <em>Tribal Kimono</em></>, desc: "Layered kimono with woven tribal panels and fringe sleeves." },
-  { num: "14", cat: "scarf", src: "/images/22.jpeg", alt: "Champagne fringe shawl abaya", catLabel: "Shawls · Full Manufacturing", title: <>Champagne <em>Fringe Shawl Abaya</em></>, desc: "Tonal abaya with macramé-fringe shawl and lace appliqué." },
-  { num: "15", cat: "formal", src: "/images/19.jpeg", alt: "Powder blue embroidered set", catLabel: "Formal · Design + Sampling", title: <>Powder Blue <em>Embroidered Set</em></>, desc: "Floral-embroidered open abaya layered over a satin slip." },
+  { num: "01", cat: "embroidery", src: "/images/01.jpeg", alt: "Olive embroidered kaftan", catLabel: "Embroidery · Design + Sampling", title: <>Olive <em>Embroidered Kaftan</em></>, desc: "Self-jacquard with hand-worked neckline and tassels." },
+  { num: "02", cat: "abaya", src: "/images/09.jpeg", alt: "Ivory pearl-trim abaya", catLabel: "Abayas · Full Manufacturing", title: <>Ivory <em>Pearl-Trim Abaya</em></>, desc: "Soft crepe with hand-beaded lapels and tasselled ties." },
+  { num: "03", cat: "bias", src: "/images/02.jpeg", alt: "Rosewood satin maxi", catLabel: "Bias Cut · Full Manufacturing", title: <>Rosewood <em>Belted Maxi</em></>, desc: "Fluid satin maxi with pleated skirt, cut on the bias." },
+  { num: "04", cat: "formal", src: "/images/07.jpeg", alt: "Onyx button-front abaya", catLabel: "Formal · Full Manufacturing", title: <>Onyx <em>Button-Front Abaya</em></>, desc: "Satin abaya with a covered-button placket and bishop sleeves." },
+  { num: "05", cat: "embroidery", src: "/images/lemon.jpeg", alt: "Lemon bloom open abaya", catLabel: "Prints · Design + Sampling", title: <>Lemon Bloom <em>Open Abaya</em></>, desc: "Ditsy-floral printed open abaya with contrast ties." },
+  { num: "06", cat: "scarf", src: "/images/12.jpeg", alt: "Rosé paisley shawl suit", catLabel: "Shawls · Print Design", title: <>Rosé <em>Paisley Shawl Suit</em></>, desc: "Paisley-printed suit with matching shawl, artwork to garment." },
+  { num: "07", cat: "abaya", src: "/images/20.jpeg", alt: "Cocoa cape abaya", catLabel: "Abayas · Full Manufacturing", title: <>Cocoa <em>Cape Abaya</em></>, desc: "Draped layered abaya with woven trims and tassel ties." },
+  { num: "08", cat: "bias", src: "/images/04.jpeg", alt: "Sleeveless slip edit", catLabel: "Bias Cut · Tech Packs", title: <>The <em>Sleeveless Slip Edit</em></>, desc: "A four-colour slip-dress capsule, graded and tech-packed." },
+  { num: "09", cat: "embroidery", src: "/images/08.jpeg", alt: "Terracotta tribal kimono", catLabel: "Embroidery · Full Manufacturing", title: <>Terracotta <em>Tribal Kimono</em></>, desc: "Layered kimono with woven tribal panels and fringe sleeves." },
 ];
 
 const FILTERS = [

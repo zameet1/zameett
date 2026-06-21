@@ -207,8 +207,8 @@ export default function Home() {
               <div className="sig-cap"><div className="c">Abayas</div><h3>Ivory Pearl-Trim Abaya</h3></div>
             </a>
             <a href="/portfolio" className="sig-card">
-              <CoverImage src="/images/16.jpeg" objectPosition="center 16%" alt="Plum and sage velvet caftan" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Formal</div><h3>Plum &amp; Sage Velvet</h3></div>
+              <CoverImage src="/images/16.jpeg" objectPosition="center 16%" alt="Ivory protea-print silk gown" sizes="(max-width: 900px) 50vw, 25vw" />
+              <div className="sig-cap"><div className="c">Prints</div><h3>Ivory Protea Print</h3></div>
             </a>
             <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/02.jpeg" objectPosition="center 16%" alt="Rosewood belted maxi" sizes="(max-width: 900px) 50vw, 25vw" />
