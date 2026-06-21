@@ -2,7 +2,7 @@ import { POSTS } from "./blog/posts";
 
 const siteUrl = "https://zameett.com";
 
-const routes = ["", "/about", "/services", "/portfolio", "/digital", "/contact", "/blog", "/privacy", "/terms"];
+const routes = ["", "/about", "/services", "/portfolio", "/contact", "/blog", "/privacy", "/terms"];
 
 export default function sitemap() {
   const staticEntries = routes.map((route) => ({

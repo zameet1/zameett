@@ -1,9 +1,6 @@
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "@/components/CartContext";
 import Nav from "@/components/Nav";
-import CartDrawer from "@/components/CartDrawer";
-import Toast from "@/components/Toast";
 import SiteChrome from "@/components/SiteChrome";
 import JsonLd from "@/components/JsonLd";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -106,13 +103,9 @@ export default function RootLayout({ children }) {
       <body>
         <JsonLd data={organizationSchema} />
         <GoogleAnalytics />
-        <CartProvider>
-          <Nav />
-          {children}
-          <CartDrawer />
-          <Toast />
-          <SiteChrome />
-        </CartProvider>
+        <Nav />
+        {children}
+        <SiteChrome />
       </body>
     </html>
   );
