@@ -23,7 +23,10 @@ export default function SiteChrome() {
 
   useEffect(() => {
     const nav = document.querySelector("nav");
-    if (nav) nav.style.boxShadow = navShadow ? "0 2px 24px rgba(74,14,43,0.10)" : "none";
+    if (nav)
+      nav.style.boxShadow = navShadow
+        ? "0 1px 0 rgba(201,169,110,0.18), 0 10px 36px -14px rgba(53,9,32,0.40)"
+        : "0 1px 0 rgba(201,169,110,0.12), 0 8px 32px -16px rgba(53,9,32,0.25)";
   }, [navShadow]);
 
   const animateCount = useCallback((el) => {

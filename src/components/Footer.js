@@ -1,72 +1,91 @@
+"use client";
+import { useState } from "react";
 import SocialLinks from "./SocialLinks";
 
-export default function Footer({ variant = "default" }) {
-  const isShop = variant === "shop";
+// Link groups. On mobile each is a tap-to-open dropdown; on desktop they are
+// always-open columns (controlled purely by CSS, so the toggle is inert there).
+const GROUPS = [
+  {
+    title: "Explore",
+    links: [
+      { label: "Services", href: "/services" },
+      { label: "Portfolio", href: "/portfolio" },
+      { label: "Shop", href: "/digital" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About Zameett", href: "/about" },
+      { label: "How We Work", href: "/services" },
+      { label: "FAQ", href: "/contact" },
+      { label: "Get a Quote", href: "/contact" },
+    ],
+  },
+  {
+    title: "Get in Touch",
+    links: [
+      { label: "hello@zameett.com", href: "mailto:hello@zameett.com" },
+      { label: "WhatsApp", href: "https://wa.me/92246599699", external: true },
+      { label: "Design-Only Enquiry", href: "/contact" },
+    ],
+  },
+];
+
+export default function Footer() {
+  const [openTitle, setOpenTitle] = useState(null);
 
   return (
     <footer>
       <div className="footer-inner">
         <div className="footer-top">
-          <div>
+          <div className="footer-brand">
             <a href="/" className="footer-logo">
               Zamee<span>tt</span>
             </a>
             <p className="footer-desc">
-              Full-service modest fashion design and manufacturing from Pakistan. Design only, or
-              complete concept-to-doorstep service. We serve brands, designers and boutiques
-              worldwide.
+              Full-service modest fashion design and manufacturing from Pakistan — design only, or
+              complete concept-to-doorstep service for brands, designers and boutiques worldwide.
             </p>
             <div className="footer-social">
               <SocialLinks className="f-social-btn" />
             </div>
           </div>
 
-          {isShop ? (
-            <div className="footer-col">
-              <h5>Shop</h5>
-              <ul>
-                <li><a href="/digital">Tech Pack Template</a></li>
-                <li><a href="/digital">Abaya Block Patterns</a></li>
-                <li><a href="/digital">Sourcing Guide</a></li>
-                <li><a href="/digital">Flat Sketch Library</a></li>
-                <li><a href="/digital">Starter Kit Bundle</a></li>
-              </ul>
-            </div>
-          ) : (
-            <div className="footer-col">
-              <h5>Services</h5>
-              <ul>
-                <li><a href="/services">Design Only</a></li>
-                <li><a href="/services">Tech Packs</a></li>
-                <li><a href="/services">Design Concept</a></li>
-                <li><a href="/services">Embroidery &amp; Prints</a></li>
-                <li><a href="/services">Full Manufacturing</a></li>
-              </ul>
-            </div>
-          )}
-
-          <div className="footer-col">
-            <h5>Company</h5>
-            <ul>
-              <li><a href="/about">About Zameett</a></li>
-              {!isShop && <li><a href="/about">Our Story</a></li>}
-              <li><a href="/portfolio">Portfolio</a></li>
-              {isShop && <li><a href="/services">Services</a></li>}
-              <li><a href="/services">How We Work</a></li>
-              <li><a href="/blog">Blog</a></li>
-              <li><a href="/contact">FAQ</a></li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h5>Contact</h5>
-            <ul>
-              <li><a href="mailto:hello@zameett.com">hello@zameett.com</a></li>
-              <li><a href="https://wa.me/92246599699" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-              <li><a href="/contact">Get a Quote</a></li>
-              <li><a href="/contact">Design-Only Enquiry</a></li>
-            </ul>
+          <div className="footer-cols">
+            {GROUPS.map((group) => {
+              const open = openTitle === group.title;
+              return (
+                <div key={group.title} className={`footer-col${open ? " open" : ""}`}>
+                  <button
+                    type="button"
+                    className="footer-col-head"
+                    aria-expanded={open}
+                    onClick={() => setOpenTitle(open ? null : group.title)}
+                  >
+                    <h5>{group.title}</h5>
+                    <span className="footer-col-toggle" aria-hidden="true" />
+                  </button>
+                  <ul>
+                    {group.links.map((link) => (
+                      <li key={link.label}>
+                        {link.external ? (
+                          <a href={link.href} target="_blank" rel="noopener noreferrer">
+                            {link.label}
+                          </a>
+                        ) : (
+                          <a href={link.href}>{link.label}</a>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </div>
+
         <div className="footer-bottom">
           <p>© 2026 Zameett. All rights reserved.</p>
           <p>Modest Fashion Design &amp; Manufacturing · Based in Pakistan · Serving the World</p>
