@@ -349,7 +349,7 @@ export default function Digital() {
           <a href="/services" className="btn btn-outline-ivory">View Services</a>
         </div>
       </section>
-      <Footer variant="shop" />
+      <Footer />
     </>
   );
 }
