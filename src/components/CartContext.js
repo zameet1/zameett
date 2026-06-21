@@ -83,13 +83,9 @@ export function CartProvider({ children }) {
     [save]
   );
 
-  const checkout = useCallback(() => {
-    if (readCart().length === 0) {
-      showToast("Your cart is empty");
-      return;
-    }
-    showToast("Checkout is a demo — connect a payment provider to go live");
-  }, [showToast]);
+  const clearCart = useCallback(() => {
+    save([]);
+  }, [save]);
 
   const count = items.reduce((n, i) => n + (i.qty || 1), 0);
   const total = items.reduce((s, i) => s + i.price * (i.qty || 1), 0);
@@ -105,7 +101,7 @@ export function CartProvider({ children }) {
         addToCart,
         removeFromCart,
         changeQty,
-        checkout,
+        clearCart,
         toastMsg,
         showToast,
       }}

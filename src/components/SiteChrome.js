@@ -4,17 +4,11 @@ import { usePathname } from "next/navigation";
 
 export default function SiteChrome() {
   const pathname = usePathname();
-  const [barWidth, setBarWidth] = useState(0);
   const [navShadow, setNavShadow] = useState(false);
-  const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
     function onScroll() {
-      const y = window.scrollY;
-      setNavShadow(y > 40);
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      setBarWidth(h > 0 ? (y / h) * 100 : 0);
-      setShowTop(y > 600);
+      setNavShadow(window.scrollY > 40);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -62,17 +56,5 @@ export default function SiteChrome() {
     return () => statIO.disconnect();
   }, [pathname, animateCount]);
 
-  return (
-    <>
-      <div id="scroll-progress" style={{ width: `${barWidth}%` }} />
-      <button
-        id="back-top"
-        className={showTop ? "show" : ""}
-        aria-label="Back to top"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      >
-        ↑
-      </button>
-    </>
-  );
+  return null;
 }

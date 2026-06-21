@@ -558,8 +558,6 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
    SITE CHROME
    ════════════════════════════════════════ */
 
-#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:600;background:linear-gradient(90deg,var(--burg),var(--gold));transition:width .1s linear}
-
 .cart-btn{position:relative;background:none;border:none;cursor:pointer;color:var(--burg);padding:6px;display:flex;align-items:center;justify-content:center;margin-left:4px;transition:color .2s}
 .cart-btn:hover{color:var(--gold)}
 .cart-badge{position:absolute;top:-3px;right:-4px;min-width:17px;height:17px;padding:0 4px;border-radius:100px;background:var(--gold);color:var(--burg-deep);font-family:var(--font-jost),sans-serif;font-size:10px;font-weight:600;display:none;align-items:center;justify-content:center;line-height:1}
@@ -592,12 +590,9 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 .cart-total-row span:last-child{font-family:var(--font-cormorant),serif;font-size:30px;font-weight:700;color:var(--burg)}
 .cart-note{text-align:center;font-family:var(--font-jost),sans-serif;font-size:11px;color:var(--mid);margin-top:12px;letter-spacing:.5px}
 
-#z-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(160%);z-index:800;background:var(--burg);color:var(--gold-lt);font-family:var(--font-jost),sans-serif;font-size:13px;letter-spacing:.4px;padding:15px 26px;border-radius:2px;box-shadow:0 16px 40px -16px rgba(0,0,0,.5);transition:transform .45s cubic-bezier(.2,.7,.2,1);max-width:90vw;text-align:center}
-#z-toast.show{transform:translateX(-50%) translateY(0)}
-
-#back-top{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--burg);color:var(--gold-lt);border:none;font-size:20px;cursor:pointer;z-index:600;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s,transform .3s,background .25s;box-shadow:0 10px 26px -10px rgba(74,14,43,.6)}
-#back-top.show{opacity:1;pointer-events:auto;transform:none}
-#back-top:hover{background:var(--burg-deep)}
+/* minimal Samsung-style popup — compact rounded pill that drops from the top */
+#z-toast{position:fixed;top:88px;left:50%;transform:translateX(-50%) translateY(-160%);z-index:800;background:rgba(28,28,28,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;font-family:var(--font-jost),sans-serif;font-size:13px;font-weight:400;letter-spacing:.2px;padding:11px 20px;border-radius:100px;box-shadow:0 10px 30px -10px rgba(0,0,0,.45);transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .4s;opacity:0;max-width:88vw;text-align:center;display:flex;align-items:center;gap:8px}
+#z-toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 
 #lightbox{position:fixed;inset:0;z-index:900;background:rgba(14,6,8,.94);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
 #lightbox.open{opacity:1;pointer-events:auto}
