@@ -58,9 +58,6 @@ export const metadata = {
     description: siteDescription,
     images: ["/images/21.jpeg"],
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
   verification: {
     // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in .env.local with the value
     // Google Search Console gives you under Settings > Ownership verification
