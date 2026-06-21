@@ -66,12 +66,29 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: "#4A0E2B",
+};
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Zameett",
   url: siteUrl,
   description: siteDescription,
+  logo: `${siteUrl}/icon.png`,
+  image: `${siteUrl}/icon.png`,
+  email: "hello@zameett.com",
+  telephone: "+92246599699",
+  areaServed: "Worldwide",
+  address: { "@type": "PostalAddress", addressCountry: "PK" },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "hello@zameett.com",
+    telephone: "+92246599699",
+    availableLanguage: ["English", "Urdu"],
+  },
   // Official profiles — tells Google these accounts belong to Zameett.
   sameAs: [
     "https://www.instagram.com/zameett_",
