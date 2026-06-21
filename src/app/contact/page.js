@@ -69,7 +69,7 @@ export default function Contact() {
               </div>
               <div className="contact-detail">
                 <span>WhatsApp</span>
-                <a href="https://wa.me/92246599699" target="_blank" rel="noopener noreferrer">+92 246599699</a>
+                <a href="https://wa.me/923246599699" target="_blank" rel="noopener noreferrer">+92 324 6599699</a>
               </div>
               <div className="contact-detail">
                 <span>Based In</span>
