@@ -2,8 +2,7 @@
 import { useCart } from "./CartContext";
 
 export default function CartDrawer() {
-  const { items, total, drawerOpen, setDrawerOpen, removeFromCart, changeQty, checkout } =
-    useCart();
+  const { items, total, drawerOpen, setDrawerOpen, removeFromCart, changeQty } = useCart();
 
   return (
     <>
@@ -56,14 +55,15 @@ export default function CartDrawer() {
             <span>Subtotal</span>
             <span>${total}</span>
           </div>
-          <button
+          <a
             className="btn btn-burg"
-            style={{ width: "100%", border: "none", cursor: "pointer" }}
-            onClick={checkout}
+            style={{ width: "100%", border: "none", cursor: "pointer", textAlign: "center", display: items.length ? "block" : "none" }}
+            href="/checkout"
+            onClick={() => setDrawerOpen(false)}
           >
             Checkout →
-          </button>
-          <p className="cart-note">Instant download after purchase</p>
+          </a>
+          <p className="cart-note">We&rsquo;ll send a secure payment link to complete your order</p>
         </div>
       </aside>
     </>
