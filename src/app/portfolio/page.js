@@ -54,23 +54,23 @@ export default function Portfolio() {
         <div className="inner">
           <div className="pff-media">
             <span className="pff-badge">Featured Collection</span>
-            <CoverImage src="/images/18.jpeg" alt="Maroon velvet caftan gown" objectPosition="center 22%" sizes="(max-width: 960px) 100vw, 55vw" priority />
+            <CoverImage src="/images/18.jpeg" alt="Ivory protea-print silk gown" objectPosition="center 22%" sizes="(max-width: 960px) 100vw, 55vw" priority />
           </div>
           <div className="pff-copy">
-            <p className="s-tag">Autumn Atelier</p>
-            <h2>Maroon <em>Velvet Caftan</em> Gown</h2>
+            <p className="s-tag">Signature Atelier</p>
+            <h2>Ivory <em>Protea Print</em> Gown</h2>
             <p>
-              A deep velvet caftan with hand-applied metallic gota borders and a softly belted
-              waist — designed, sampled and produced end-to-end in our atelier.
+              A flowing ivory gown with a hand-developed protea placement print and softly gathered
+              sleeves — designed, sampled and produced end-to-end in our atelier.
             </p>
             <p>
               From the first sketch to the final pressed garment, this piece moved through every
-              stage of the Zameett house: design, fabric sourcing, embroidery, sampling and
-              finishing.
+              stage of the Zameett house: design, original print artwork, fabric sourcing, sampling
+              and finishing.
             </p>
             <div className="pff-meta">
               <div className="m"><b>14</b><span>Days to sample</span></div>
-              <div className="m"><b>Velvet</b><span>Primary fabric</span></div>
+              <div className="m"><b>Silk</b><span>Primary fabric</span></div>
               <div className="m"><b>Full</b><span>Manufacturing</span></div>
             </div>
           </div>
