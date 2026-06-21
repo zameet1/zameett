@@ -69,7 +69,7 @@ export default function Home() {
       {/* STATS */}
       <div className="stats">
         <div className="inner">
-          <div className="stat"><div className="stat-num">100+</div><div className="stat-lbl">Clients Worldwide</div></div>
+          <div className="stat"><div className="stat-num">350+</div><div className="stat-lbl">Clients Worldwide</div></div>
           <div className="stat-sep"></div>
           <div className="stat"><div className="stat-num">100%</div><div className="stat-lbl">End-to-End Capable</div></div>
           <div className="stat-sep"></div>
