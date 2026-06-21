@@ -2,6 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import FaqAccordion from "@/components/FaqAccordion";
 import ScrollTopLink from "@/components/ScrollTopLink";
 import Footer from "@/components/Footer";
+import SocialLinks from "@/components/SocialLinks";
 
 export const metadata = {
   title: "Contact",
@@ -54,6 +55,10 @@ export default function Contact() {
                 <a href="mailto:hello@zameett.com">hello@zameett.com</a>
               </div>
               <div className="contact-detail">
+                <span>WhatsApp</span>
+                <a href="https://wa.me/92246599699" target="_blank" rel="noopener noreferrer">+92 246599699</a>
+              </div>
+              <div className="contact-detail">
                 <span>Based In</span>
                 <p>Pakistan — Shipping Worldwide</p>
               </div>
@@ -64,6 +69,12 @@ export default function Contact() {
               <div className="contact-detail">
                 <span>Response Time</span>
                 <p>Within 24 hours, every enquiry</p>
+              </div>
+              <div className="contact-detail">
+                <span>Follow Us</span>
+                <div className="social-row">
+                  <SocialLinks className="social-btn" />
+                </div>
               </div>
             </div>
           </div>

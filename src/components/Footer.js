@@ -1,3 +1,4 @@
+import SocialLinks from "./SocialLinks";
 
 export default function Footer({ variant = "default" }) {
   const isShop = variant === "shop";
@@ -15,6 +16,9 @@ export default function Footer({ variant = "default" }) {
               complete concept-to-doorstep service. We serve brands, designers and boutiques
               worldwide.
             </p>
+            <div className="footer-social">
+              <SocialLinks className="f-social-btn" />
+            </div>
           </div>
 
           {isShop ? (
@@ -57,7 +61,7 @@ export default function Footer({ variant = "default" }) {
             <h5>Contact</h5>
             <ul>
               <li><a href="mailto:hello@zameett.com">hello@zameett.com</a></li>
-              <li><a href="/contact">WhatsApp</a></li>
+              <li><a href="https://wa.me/92246599699" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
               <li><a href="/contact">Get a Quote</a></li>
               <li><a href="/contact">Design-Only Enquiry</a></li>
             </ul>
