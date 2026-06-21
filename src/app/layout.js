@@ -76,14 +76,14 @@ const organizationSchema = {
   logo: `${siteUrl}/icon.png`,
   image: `${siteUrl}/icon.png`,
   email: "hello@zameett.com",
-  telephone: "+92246599699",
+  telephone: "+923246599699",
   areaServed: "Worldwide",
   address: { "@type": "PostalAddress", addressCountry: "PK" },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
     email: "hello@zameett.com",
-    telephone: "+92246599699",
+    telephone: "+923246599699",
     availableLanguage: ["English", "Urdu"],
   },
   // Official profiles — tells Google these accounts belong to Zameett.

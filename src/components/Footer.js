@@ -27,7 +27,7 @@ const GROUPS = [
     title: "Get in Touch",
     links: [
       { label: "hello@zameett.com", href: "mailto:hello@zameett.com" },
-      { label: "WhatsApp", href: "https://wa.me/92246599699", external: true },
+      { label: "WhatsApp", href: "https://wa.me/923246599699", external: true },
       { label: "Design-Only Enquiry", href: "/contact" },
     ],
   },
