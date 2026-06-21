@@ -184,7 +184,7 @@ export default function Services() {
 
       {/* PHOTO BREAK */}
       <div className="photo-break">
-        <CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Technical package on tablet" />
+        <CoverImage src="/images/techpack.jpeg" objectPosition="center 40%" alt="Technical package on tablet" />
         <div className="pb-overlay">
           <div className="pb-content">
             <p className="pb-tag">Design to Delivery</p>
