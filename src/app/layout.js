@@ -75,8 +75,15 @@ const organizationSchema = {
   name: "Zameett",
   url: siteUrl,
   description: siteDescription,
-  // No logo or sameAs (social) links included — add a real logo image and
-  // real social profile URLs here once they exist, rather than fabricating.
+  // Official profiles — tells Google these accounts belong to Zameett.
+  sameAs: [
+    "https://www.instagram.com/zameett_",
+    "https://www.tiktok.com/@zameet.t",
+    "https://www.pinterest.com/zameett/",
+    "https://www.upwork.com/freelancers/~0195a91e0ec99ac93c",
+    "https://www.fiverr.com/zameett",
+    "https://www.reddit.com/user/zameett/",
+  ],
 };
 
 export default function RootLayout({ children }) {
