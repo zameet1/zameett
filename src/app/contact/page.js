@@ -1,8 +1,20 @@
 import ContactForm from "@/components/ContactForm";
 import FaqAccordion from "@/components/FaqAccordion";
+import { FAQS } from "@/components/faqData";
 import ScrollTopLink from "@/components/ScrollTopLink";
 import Footer from "@/components/Footer";
 import SocialLinks from "@/components/SocialLinks";
+import JsonLd from "@/components/JsonLd";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 export const metadata = {
   title: "Contact",
@@ -27,6 +39,7 @@ export const metadata = {
 export default function Contact() {
   return (
     <>
+      <JsonLd data={faqSchema} />
       <header className="page-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Contact</p>

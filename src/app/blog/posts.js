@@ -4,6 +4,22 @@
 // the post page itself.
 export const POSTS = [
   {
+    slug: "modest-fashion-manufacturer-pakistan",
+    title: "How to Choose a Modest Fashion Manufacturer in Pakistan",
+    description:
+      "What to look for in an abaya and modest wear manufacturer in Pakistan — specialisation, tech packs, MOQs, sampling and quality control — so your collection comes out right.",
+    date: "2026-06-21",
+    image: "/images/27.jpeg",
+  },
+  {
+    slug: "how-to-start-a-modest-fashion-brand",
+    title: "How to Start a Modest Fashion Brand: A Step-by-Step Guide",
+    description:
+      "From first concept to launch — designs, tech packs, fabric sourcing, sampling, production and delivery. A practical roadmap for new modest wear and abaya brands.",
+    date: "2026-06-14",
+    image: "/images/19.jpeg",
+  },
+  {
     slug: "how-to-create-a-tech-pack-for-abayas",
     title: "How to Create a Tech Pack for Abayas",
     description:
