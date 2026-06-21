@@ -88,7 +88,11 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>© 2026 Zameett. All rights reserved.</p>
-          <p>Modest Fashion Design &amp; Manufacturing · Based in Pakistan · Serving the World</p>
+          <p className="footer-legal">
+            <a href="/privacy">Privacy Policy</a>
+            <span>·</span>
+            <a href="/terms">Terms</a>
+          </p>
         </div>
       </div>
     </footer>
