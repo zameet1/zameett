@@ -10,8 +10,8 @@ const GROUPS = [
     links: [
       { label: "Services", href: "/services" },
       { label: "Portfolio", href: "/portfolio" },
-      { label: "Shop", href: "/digital" },
       { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {

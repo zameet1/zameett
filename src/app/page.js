@@ -1,4 +1,3 @@
-import AddToCartButton from "@/components/AddToCartButton";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 
@@ -260,73 +259,6 @@ export default function Home() {
               <h3>Quality Guaranteed</h3>
               <p>Every piece goes through strict quality control before dispatch. We do not ship anything we would not be proud to wear ourselves.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SHOP HIGHLIGHT */}
-      <section className="shop-hl">
-        <div className="inner">
-          <div className="svc-head reveal">
-            <div>
-              <p className="s-tag">From the Shop</p>
-              <h2 className="s-title">Digital products to <em>launch faster.</em></h2>
-            </div>
-            <p className="s-body">
-              Ready-made tech packs, patterns and design tools — the same professional files we
-              build for clients, available to download instantly.{" "}
-              <a href="/digital" style={{ color: "var(--gold)", fontWeight: 500 }}>Browse all products →</a>
-            </p>
-          </div>
-          <div className="shop-grid reveal">
-            <div className="shl-card">
-              <div className="shl-thumb">
-                <span className="shl-fmt">PDF · AI</span>
-                <CoverImage src="/images/14.jpeg" objectPosition="center 40%" alt="Modest wear tech pack template preview — flat sketch and spec sheet" sizes="(max-width: 900px) 100vw, 33vw" />
-              </div>
-              <div className="shl-body">
-                <div className="shl-cat">Tech Packs</div>
-                <h3>Modest Wear <em>Tech Pack Template</em></h3>
-                <p>A factory-ready, fully editable tech-pack template built around modest silhouettes.</p>
-                <div className="shl-foot">
-                  <div className="shl-price">$49<span className="was">$69</span></div>
-                  <AddToCartButton className="shl-buy" name="Tech Pack Template" price={49}>Add to Cart</AddToCartButton>
-                </div>
-              </div>
-            </div>
-            <div className="shl-card">
-              <div className="shl-thumb">
-                <span className="shl-fmt">AI · PNG</span>
-                <CoverImage src="/images/28.jpeg" objectPosition="center 30%" alt="Modest silhouette flat sketch library — editable vector flats for tech packs" sizes="(max-width: 900px) 100vw, 33vw" />
-              </div>
-              <div className="shl-body">
-                <div className="shl-cat">Flats &amp; CADs</div>
-                <h3>Modest Silhouette <em>Flat Sketch Library</em></h3>
-                <p>100+ editable vector flats to build tech packs and line sheets fast.</p>
-                <div className="shl-foot">
-                  <div className="shl-price">$59<span className="was">$89</span></div>
-                  <AddToCartButton className="shl-buy" name="Flat Sketch Library" price={59}>Add to Cart</AddToCartButton>
-                </div>
-              </div>
-            </div>
-            <div className="shl-card">
-              <div className="shl-thumb">
-                <span className="shl-fmt">Bundle</span>
-                <CoverImage src="/images/31.jpeg" objectPosition="center 30%" alt="The Modest Brand Starter Kit — bundled digital design files for modest fashion brands" sizes="(max-width: 900px) 100vw, 33vw" />
-              </div>
-              <div className="shl-body">
-                <div className="shl-cat">Best Value · Save 40%</div>
-                <h3>The Modest <em>Brand Starter Kit</em></h3>
-                <p>All six digital products bundled together — everything to launch a label.</p>
-                <div className="shl-foot">
-                  <div className="shl-price">$129<span className="was">$236</span></div>
-                  <AddToCartButton className="shl-buy" name="The Modest Brand Starter Kit" price={129}>Add to Cart</AddToCartButton>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="shop-foot reveal">
-            <a href="/digital" className="btn btn-burg">Visit the Shop →</a>
           </div>
         </div>
       </section>
