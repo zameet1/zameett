@@ -111,17 +111,17 @@ export default function Services() {
           <div className="svc-grid svc-grid-paths reveal">
             <div className="svc-card featured">
               <span className="svc-badge">Most Popular</span>
-              <div className="svc-num">A</div>
+              <div className="svc-num" aria-hidden="true">A</div>
               <h3>Design &amp; Tech Packs Only</h3>
               <p>We create complete design concepts and manufacturer-ready tech packs. You take the files to any factory in the world. No production commitment required.</p>
             </div>
             <div className="svc-card">
-              <div className="svc-num">B</div>
+              <div className="svc-num" aria-hidden="true">B</div>
               <h3>Design + Sampling</h3>
               <p>Designs, tech packs and a physical prototype sample produced and shipped to you — so you can approve fit and finish before committing to a full run.</p>
             </div>
             <div className="svc-card">
-              <div className="svc-num">C</div>
+              <div className="svc-num" aria-hidden="true">C</div>
               <h3>Full Manufacturing</h3>
               <p>The complete journey — design, sourcing, sampling, production, quality control and worldwide delivery, all handled under one roof.</p>
             </div>
@@ -142,32 +142,32 @@ export default function Services() {
           <div className="svc-grid reveal">
             <div className="svc-card featured">
               <span className="svc-badge">Most Popular</span>
-              <div className="svc-num">01</div>
+              <div className="svc-num" aria-hidden="true">01</div>
               <h3>Design &amp; Tech Packs Only</h3>
               <p>Complete design concepts, construction notes, measurements and specs — everything your factory needs to execute your vision perfectly. No manufacturing commitment required.</p>
             </div>
             <div className="svc-card">
-              <div className="svc-num">02</div>
+              <div className="svc-num" aria-hidden="true">02</div>
               <h3>Design Concept &amp; Styling</h3>
               <p>From mood boards to final design illustrations — abayas, bias cuts, scarves, modest formal and casual wear. Designed with cultural understanding and commercial precision.</p>
             </div>
             <div className="svc-card">
-              <div className="svc-num">03</div>
+              <div className="svc-num" aria-hidden="true">03</div>
               <h3>Embroidery &amp; Textile Prints</h3>
               <p>Custom embroidery patterns, textile prints and embellishment placement designed to match your brand&rsquo;s aesthetic. Standalone files or applied during full production.</p>
             </div>
             <div className="svc-card">
-              <div className="svc-num">04</div>
+              <div className="svc-num" aria-hidden="true">04</div>
               <h3>Textile Sourcing</h3>
               <p>We source the right fabrics for modest wear — from lightweight linens to heavy embellished formals — from trusted suppliers at competitive prices that protect your margins.</p>
             </div>
             <div className="svc-card">
-              <div className="svc-num">05</div>
+              <div className="svc-num" aria-hidden="true">05</div>
               <h3>Sampling &amp; Production</h3>
               <p>A prototype sample is made and sent for your full approval before any production run begins. We never move forward until you are completely satisfied.</p>
             </div>
             <div className="svc-card">
-              <div className="svc-num">06</div>
+              <div className="svc-num" aria-hidden="true">06</div>
               <h3>Delivery to Doorstep</h3>
               <p>Finished, quality-checked and packaged — shipped worldwide directly to you or your customers. The most complete end-to-end service for modest fashion brands.</p>
             </div>

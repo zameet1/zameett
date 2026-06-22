@@ -64,7 +64,7 @@ export default function Footer() {
                     aria-expanded={open}
                     onClick={() => setOpenTitle(open ? null : group.title)}
                   >
-                    <h5>{group.title}</h5>
+                    <h2>{group.title}</h2>
                     <span className="footer-col-toggle" aria-hidden="true" />
                   </button>
                   <ul>

@@ -8,7 +8,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-bg">
-          <CoverImage src="/images/21.jpeg" alt="Zameett modest wear collection" priority />
+          <CoverImage src="/images/21.jpeg" alt="Zameett modest wear collection" priority quality={68} />
         </div>
         <div className="hero-inner">
           <div className="hero-content">
@@ -102,7 +102,7 @@ export default function Home() {
           <div className="svc-grid reveal">
             <div className="svc-card featured">
               <span className="svc-badge">Most Popular</span>
-              <div className="svc-num">01</div>
+              <div className="svc-num" aria-hidden="true">01</div>
               <h3>Design &amp; Tech Packs Only</h3>
               <p>
                 Professional designs and manufacturer-ready tech packs — everything your factory
@@ -111,7 +111,7 @@ export default function Home() {
               <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
-              <div className="svc-num">02</div>
+              <div className="svc-num" aria-hidden="true">02</div>
               <h3>Design Concept &amp; Styling</h3>
               <p>
                 From mood boards to final illustrations — abayas, bias cuts, scarves, modest formal
@@ -120,7 +120,7 @@ export default function Home() {
               <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
-              <div className="svc-num">03</div>
+              <div className="svc-num" aria-hidden="true">03</div>
               <h3>Embroidery &amp; Textile Prints</h3>
               <p>
                 Custom embroidery patterns, textile prints and embellishment placement matched to
@@ -129,7 +129,7 @@ export default function Home() {
               <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
-              <div className="svc-num">04</div>
+              <div className="svc-num" aria-hidden="true">04</div>
               <h3>Textile Sourcing</h3>
               <p>
                 The right fabrics for modest wear — from lightweight linens to heavy embellished
@@ -138,7 +138,7 @@ export default function Home() {
               <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
-              <div className="svc-num">05</div>
+              <div className="svc-num" aria-hidden="true">05</div>
               <h3>Sampling &amp; Production</h3>
               <p>
                 A prototype is approved before any production run begins. We never move forward
@@ -147,7 +147,7 @@ export default function Home() {
               <a href="/services" className="svc-link">Learn more →</a>
             </div>
             <div className="svc-card">
-              <div className="svc-num">06</div>
+              <div className="svc-num" aria-hidden="true">06</div>
               <h3>Delivery to Doorstep</h3>
               <p>
                 Finished, quality-checked and packaged — shipped worldwide directly to you or your
