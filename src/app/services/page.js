@@ -130,6 +130,9 @@ export default function Services() {
         </div>
       </section>
 
+      {/* FEATURED GIGS */}
+      <FeaturedGigs />
+
       {/* DETAILED SERVICES */}
       <section className="services" style={{ paddingTop: 24 }}>
         <div className="inner">
@@ -182,9 +185,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-
-      {/* FEATURED GIGS */}
-      <FeaturedGigs />
 
       {/* PHOTO BREAK */}
       <div className="photo-break">

@@ -11,8 +11,8 @@ export const GIGS = [
     tagline:
       "Production-ready tech packs built specifically for modest wear brands — abayas, kaftans, bisht and heavily embellished garments.",
     serviceValue: "Fashion Tech Pack (Abaya / Kaftan / Modest Wear)",
-    cover: "/services/abaya-3.jpeg",
-    gallery: ["/services/abaya-3.jpeg", "/services/abaya-1.jpeg", "/services/abaya-2.jpeg"],
+    cover: "/services/abaya-1.jpeg",
+    gallery: ["/services/abaya-1.jpeg", "/services/abaya-2.jpeg", "/services/abaya-3.jpeg"],
     pdf: "/services/abaya-techpack-portfolio.pdf",
     intro: [
       "Your manufacturer won't start without a proper tech pack. A bad one means wrong samples, wasted money, and weeks of back-and-forth fixing mistakes that never should have happened.",
@@ -45,8 +45,8 @@ export const GIGS = [
     tagline:
       "Your premium textile design partner — high-end, production-ready fabric prints that set your clothing brand apart.",
     serviceValue: "Custom Seamless Textile Patterns",
-    cover: "/services/textile-2.jpeg",
-    gallery: ["/services/textile-2.jpeg", "/services/textile-3.jpeg", "/services/textile-1.jpeg"],
+    cover: "/services/textile-1.jpeg",
+    gallery: ["/services/textile-1.jpeg", "/services/textile-2.jpeg", "/services/textile-3.jpeg"],
     pdf: "/services/textile-prints-portfolio.pdf",
     intro: [
       "Looking for unique, production-ready fabric prints that set your clothing brand apart? I specialise in creating high-end, custom digital textile designs tailored to your brand's identity.",
