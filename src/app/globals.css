@@ -57,9 +57,12 @@ nav{
 .nav-cta:hover{background:var(--burg-deep)!important}
 .nav-cta.active::after{display:none}
 .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.nav-toggle span{width:24px;height:2px;background:var(--burg);transition:.3s}
-.mobile-menu{position:fixed;inset:76px 0 auto 0;background:rgba(250,247,242,0.94);backdrop-filter:blur(26px) saturate(160%);-webkit-backdrop-filter:blur(26px) saturate(160%);border-bottom:1px solid rgba(255,255,255,0.18);box-shadow:0 12px 32px -16px rgba(53,9,32,0.3);z-index:399;display:none;flex-direction:column;padding:16px 24px 28px}
-.mobile-menu.open{display:flex}
+.nav-toggle span{width:24px;height:2px;background:var(--burg);transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .2s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:76px 0 auto 0;background:rgba(250,247,242,0.94);backdrop-filter:blur(26px) saturate(160%);-webkit-backdrop-filter:blur(26px) saturate(160%);border-bottom:1px solid rgba(255,255,255,0.18);box-shadow:0 12px 32px -16px rgba(53,9,32,0.3);z-index:399;display:flex;flex-direction:column;padding:0 24px;max-height:0;opacity:0;overflow:hidden;transform:translateY(-6px);pointer-events:none;transition:max-height .4s cubic-bezier(.2,.7,.2,1),opacity .3s ease,transform .4s cubic-bezier(.2,.7,.2,1),padding .4s ease}
+.mobile-menu.open{max-height:85vh;opacity:1;transform:none;pointer-events:auto;padding:16px 24px 28px}
 .mobile-menu a{padding:15px 4px;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--mid);border-bottom:1px solid var(--border-dk)}
 .mobile-menu a.active{color:var(--burg)}
 .mobile-menu a:last-child{border-bottom:none;margin-top:12px;background:var(--burg);color:var(--gold-lt);text-align:center;padding:15px}
@@ -628,9 +631,21 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .footer-col ul a{font-size:14px;padding:4px 0;display:inline-block}
 }
 @media(max-width:640px){
-  .t-grid,.why-grid,.svc-grid,.pf-grid{grid-template-columns:1fr}
+  .why-grid,.pf-grid{grid-template-columns:1fr}
   .values,.form-row{grid-template-columns:1fr}
   .about-ph.wide{grid-column:span 1}
+
+  /* Testimonials + services become swipeable carousels on mobile (PC unchanged) */
+  .t-grid,.svc-grid:not(.svc-grid-paths){
+    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
+    gap:14px;background:none;margin:0 -24px;padding:6px 24px 10px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .t-grid::-webkit-scrollbar,.svc-grid:not(.svc-grid-paths)::-webkit-scrollbar{display:none}
+  .t-card,.svc-grid:not(.svc-grid-paths) .svc-card{
+    flex:0 0 84%;scroll-snap-align:center;
+  }
+  .svc-grid:not(.svc-grid-paths) .svc-card{border:1px solid var(--border-dk)}
 }
 
 /* ════════════════════════════════════════
