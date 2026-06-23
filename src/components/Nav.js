@@ -36,8 +36,9 @@ export default function Nav() {
           </li>
         </ul>
         <button
-          className="nav-toggle"
+          className={`nav-toggle${open ? " open" : ""}`}
           aria-label="Menu"
+          aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
         >
           <span></span>
