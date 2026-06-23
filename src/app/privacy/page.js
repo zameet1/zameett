@@ -22,7 +22,7 @@ export default function Privacy() {
           <p className="s-body" style={{ marginBottom: 18 }}>
             This Privacy Policy explains how Zameett (&ldquo;we&rdquo;, &ldquo;us&rdquo;) collects,
             uses and protects the information you provide when you use{" "}
-            <a href="https://zameett.com" style={{ color: "var(--gold)" }}>zameett.com</a>.
+            <a href="https://zameett.com" style={{ color: "var(--gold-deep)", textDecoration: "underline" }}>zameett.com</a>.
           </p>
 
           <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Information we collect</h2>
@@ -58,13 +58,13 @@ export default function Privacy() {
           <p className="s-body" style={{ marginBottom: 18 }}>
             You may request access to, correction of, or deletion of the personal information we
             hold about you at any time by emailing{" "}
-            <a href="mailto:hello@zameett.com" style={{ color: "var(--gold)" }}>hello@zameett.com</a>.
+            <a href="mailto:hello@zameett.com" style={{ color: "var(--gold-deep)", textDecoration: "underline" }}>hello@zameett.com</a>.
           </p>
 
           <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Contact</h2>
           <p className="s-body">
             Questions about this policy? Email{" "}
-            <a href="mailto:hello@zameett.com" style={{ color: "var(--gold)" }}>hello@zameett.com</a>.
+            <a href="mailto:hello@zameett.com" style={{ color: "var(--gold-deep)", textDecoration: "underline" }}>hello@zameett.com</a>.
           </p>
         </div>
       </section>

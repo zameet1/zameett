@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function CoverImage({ src, alt, objectPosition, sizes, priority }) {
+export default function CoverImage({ src, alt, objectPosition, sizes, priority, quality }) {
   return (
     <Image
       src={src}
@@ -8,6 +8,7 @@ export default function CoverImage({ src, alt, objectPosition, sizes, priority }
       fill
       sizes={sizes || "100vw"}
       priority={priority}
+      quality={quality}
       style={{ objectFit: "cover", objectPosition: objectPosition || "center" }}
     />
   );

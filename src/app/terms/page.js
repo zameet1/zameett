@@ -53,7 +53,7 @@ export default function Terms() {
           <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Contact</h2>
           <p className="s-body">
             Questions about these terms? Email{" "}
-            <a href="mailto:hello@zameett.com" style={{ color: "var(--gold)" }}>hello@zameett.com</a>.
+            <a href="mailto:hello@zameett.com" style={{ color: "var(--gold-deep)", textDecoration: "underline" }}>hello@zameett.com</a>.
           </p>
         </div>
       </section>
