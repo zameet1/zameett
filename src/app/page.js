@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
+import FeaturedGigs from "@/components/FeaturedGigs";
 
 export default function Home() {
   return (
@@ -170,6 +171,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FEATURED GIGS */}
+      <FeaturedGigs />
 
       {/* PHOTO BREAK */}
       <div className="photo-break">

@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import JsonLd from "@/components/JsonLd";
+import FeaturedGigs from "@/components/FeaturedGigs";
 
 const SERVICES = [
   {
@@ -181,6 +182,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* FEATURED GIGS */}
+      <FeaturedGigs />
 
       {/* PHOTO BREAK */}
       <div className="photo-break">

@@ -1,19 +1,49 @@
 "use client";
 import { useEffect, useState } from "react";
+import { GIGS } from "@/app/services/gigs";
+
+const CUSTOM = "__custom__";
+
+// Base service options (the two featured gigs are prepended automatically).
+const BASE_SERVICES = [
+  "Design & Tech Packs Only",
+  "Design Concept & Styling",
+  "Embroidery & Textile Prints",
+  "Full Manufacturing (Design to Delivery)",
+  "Sampling & Production",
+  "Not Sure Yet — Let's Talk",
+];
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [service, setService] = useState("");
+  const [customService, setCustomService] = useState("");
 
   // Web3Forms redirects back here with ?sent=1 after a successful submission.
+  // We also support ?service=<gig-slug> to pre-select a featured service when
+  // the visitor arrives from a gig's "Send Inquiry" button.
   useEffect(() => {
-    if (typeof window !== "undefined" && window.location.search.includes("sent=1")) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of redirect query param after mount
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("sent") === "1") {
       setSent(true);
       window.history.replaceState(null, "", window.location.pathname);
       const t = setTimeout(() => setSent(false), 8000);
       return () => clearTimeout(t);
     }
+
+    const slug = params.get("service");
+    if (slug) {
+      const gig = GIGS.find((g) => g.slug === slug);
+      if (gig) {
+        setService(gig.serviceValue);
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    }
   }, []);
+
+  const gigOptions = GIGS.map((g) => g.serviceValue);
 
   return (
     <form className="contact-form" action="https://api.web3forms.com/submit" method="POST">
@@ -42,7 +72,7 @@ export default function ContactForm() {
       </div>
       <div className="form-group">
         <label>I Am A *</label>
-        <select name="I Am A" required defaultValue="">
+        <select name="I Am A" aria-label="I am a" required defaultValue="">
           <option value="" disabled>Select your type</option>
           <option>Small Modest Fashion Brand</option>
           <option>Independent Designer</option>
@@ -53,16 +83,37 @@ export default function ContactForm() {
       </div>
       <div className="form-group">
         <label>Service Required *</label>
-        <select name="Service Required" required defaultValue="">
+        <select
+          name="Service Required"
+          aria-label="Service required"
+          required
+          value={service}
+          onChange={(e) => setService(e.target.value)}
+        >
           <option value="" disabled>What do you need?</option>
-          <option>Design &amp; Tech Packs Only</option>
-          <option>Design Concept &amp; Styling</option>
-          <option>Embroidery &amp; Textile Prints</option>
-          <option>Full Manufacturing (Design to Delivery)</option>
-          <option>Sampling &amp; Production</option>
-          <option>Not Sure Yet — Let&rsquo;s Talk</option>
+          {gigOptions.map((opt) => (
+            <option key={opt} value={opt}>{opt}</option>
+          ))}
+          {BASE_SERVICES.map((opt) => (
+            <option key={opt} value={opt}>{opt}</option>
+          ))}
+          <option value={CUSTOM}>Custom / Something Else (type below)</option>
         </select>
       </div>
+      {service === CUSTOM && (
+        <div className="form-group">
+          <label>Describe Your Custom Request *</label>
+          <input
+            type="text"
+            name="Custom Service"
+            aria-label="Describe your custom request"
+            placeholder="Tell us the exact service you need…"
+            value={customService}
+            onChange={(e) => setCustomService(e.target.value)}
+            required
+          />
+        </div>
+      )}
       <div className="form-group">
         <label>Tell Us About Your Project</label>
         <textarea
