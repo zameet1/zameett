@@ -533,7 +533,11 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 .gig-detail .crumb a:hover{color:var(--gold-deep)}
 .gig-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:24px}
 .gig-gallery{position:sticky;top:100px}
-.gig-main{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--burg-deep);border:1px solid var(--border-dk)}
+.gig-main{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--burg-deep);border:1px solid var(--border-dk);touch-action:pan-y}
+.gig-gal-arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(53,9,32,.78);color:var(--ivory);border:none;cursor:pointer;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .25s;padding:0 0 3px}
+.gig-gal-arrow:hover{background:var(--burg)}
+.gig-gal-arrow.prev{left:12px}
+.gig-gal-arrow.next{right:12px}
 .gig-thumbs{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
 .gig-thumb{position:relative;width:90px;aspect-ratio:1;overflow:hidden;border:1px solid var(--border-dk);background:var(--burg-deep);cursor:pointer;padding:0;opacity:.55;transition:opacity .25s,border-color .25s}
 .gig-thumb.active,.gig-thumb:hover{opacity:1;border-color:var(--gold)}
@@ -564,17 +568,21 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .gig-actions .btn{flex:1;text-align:center;padding:15px 18px}
 }
 
-/* ══ REVEAL ══ (always visible; CSS-only fade-up on mount, no JS required) */
+/* ══ REVEAL ══ (subtle scroll-in; JS adds .in. No JS / reduced motion = fully visible) */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:1}
+.js-reveal .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.js-reveal .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion: no-preference){
-  .reveal{animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both}
   .hero-left>*{animation:fadeUp .75s ease forwards;opacity:0}
   .hero-left>*:nth-child(1){animation-delay:.1s}
   .hero-left>*:nth-child(2){animation-delay:.26s}
   .hero-left>*:nth-child(3){animation-delay:.42s}
   .hero-left>*:nth-child(4){animation-delay:.58s}
   .hero-left>*:nth-child(5){animation-delay:.74s}
+}
+@media (prefers-reduced-motion: reduce){
+  .js-reveal .reveal{opacity:1;transform:none;transition:none}
 }
 
 /* ══ RESPONSIVE ══ */
