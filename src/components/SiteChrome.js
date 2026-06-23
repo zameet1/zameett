@@ -56,5 +56,25 @@ export default function SiteChrome() {
     return () => statIO.disconnect();
   }, [pathname, animateCount]);
 
+  // Subtle scroll-reveal: fade/slide elements in as they enter the viewport.
+  // The inline script in layout adds `js-reveal` (skipped under reduced motion),
+  // so without JS or with reduced motion everything stays fully visible.
+  useEffect(() => {
+    if (!document.documentElement.classList.contains("js-reveal")) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [pathname]);
+
   return null;
 }
