@@ -11,16 +11,16 @@ const GROUPS = [
       { label: "Services", href: "/services" },
       { label: "Portfolio", href: "/portfolio" },
       { label: "Blog", href: "/blog" },
-      { label: "Contact", href: "/contact" },
+      { label: "About Zameett", href: "/about" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Zameett", href: "/about" },
-      { label: "How We Work", href: "/services" },
-      { label: "FAQ", href: "/contact" },
-      { label: "Get a Quote", href: "/contact" },
+      { label: "Featured Services", href: "/services#featured" },
+      { label: "How We Work", href: "/services#how-we-work" },
+      { label: "FAQ", href: "/contact#faq" },
+      { label: "Get a Quote", href: "/contact#get-in-touch" },
     ],
   },
   {
@@ -28,7 +28,7 @@ const GROUPS = [
     links: [
       { label: "hello@zameett.com", href: "mailto:hello@zameett.com" },
       { label: "WhatsApp", href: "https://wa.me/923246599699", external: true },
-      { label: "Design-Only Enquiry", href: "/contact" },
+      { label: "Design-Only Enquiry", href: "/contact?service=fashion-tech-packs" },
     ],
   },
 ];

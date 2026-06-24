@@ -340,6 +340,9 @@ blockquote p{font-family:var(--font-cormorant),serif;font-size:18px;font-style:i
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .contact-form{display:flex;flex-direction:column;gap:20px}
 .contact-info-col{padding-top:10px}
+.contact-quick{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.contact-quick .btn{padding:14px 26px}
+.contact-reply{font-family:var(--font-jost),sans-serif;font-size:12px;letter-spacing:.5px;color:var(--gold-deep);font-weight:500;margin-bottom:36px}
 .contact-detail{display:flex;flex-direction:column;gap:6px;padding:24px 0;border-bottom:1px solid var(--border-dk)}
 .contact-detail:first-child{padding-top:0}
 .contact-detail:last-child{border-bottom:none}
@@ -502,32 +505,21 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 /* ══ DIVIDER ══ */
 .gold-divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.4}
 
-/* ══ FEATURED GIGS (carousel) ══ */
+/* anchored sections clear the fixed nav when linked from the footer */
+#how-we-work,#faq,#get-in-touch,#featured{scroll-margin-top:92px}
+
+/* ══ FEATURED GIGS (grid on desktop, carousel on mobile) ══ */
 .featured-gigs{background:var(--ivory-dk)}
+.gig-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:8px}
+.gig-card{display:flex;flex-direction:column;background:var(--ivory);border:1px solid var(--border-dk);overflow:hidden;transition:transform .35s,box-shadow .35s}
+.gig-card:hover{transform:translateY(-4px);box-shadow:0 26px 54px -30px rgba(53,9,32,.45)}
+.gig-card-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--burg-deep)}
+.gig-card-img img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.gig-card:hover .gig-card-img img{transform:scale(1.05)}
+.gig-card-body{padding:30px 32px 34px;display:flex;flex-direction:column;gap:12px;flex:1}
+.gig-card-body h3{font-family:var(--font-cormorant),serif;font-size:25px;font-weight:700;color:var(--burg);line-height:1.2}
+.gig-card-body p{font-size:14px;color:var(--mid);line-height:1.75;font-weight:300;flex:1}
 .gig-card-link{font-family:var(--font-jost),sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-top:6px}
-.gig-carousel{position:relative;overflow:hidden;border:1px solid var(--border-dk);background:var(--ivory);margin-top:8px}
-.gig-track{display:flex;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.gig-slide{flex:0 0 100%;min-width:100%;display:grid;grid-template-columns:1.15fr 1fr;align-items:stretch;background:var(--ivory)}
-.gig-slide-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--burg-deep)}
-.gig-slide-img img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.gig-slide:hover .gig-slide-img img{transform:scale(1.04)}
-.gig-slide-body{padding:46px 52px;display:flex;flex-direction:column;justify-content:center;gap:14px}
-.gig-slide-body h3{font-family:var(--font-cormorant),serif;font-size:30px;font-weight:700;color:var(--burg);line-height:1.18}
-.gig-slide-body p{font-size:15px;color:var(--mid);line-height:1.8;font-weight:300}
-.gig-arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(53,9,32,.85);color:var(--ivory);border:none;cursor:pointer;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;z-index:3;transition:background .25s;padding:0 0 4px}
-.gig-arrow:hover{background:var(--burg)}
-.gig-arrow.prev{left:16px}
-.gig-arrow.next{right:16px}
-.gig-dots{display:flex;gap:4px;justify-content:center;margin-top:18px}
-.gig-dot{width:24px;height:24px;border:none;background:transparent;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
-.gig-dot::before{content:'';width:9px;height:9px;border-radius:50%;border:1px solid var(--gold-deep);transition:background .25s}
-.gig-dot.active::before{background:var(--gold-deep)}
-@media(max-width:780px){
-  .gig-slide{grid-template-columns:1fr}
-  .gig-slide-img{aspect-ratio:16/11}
-  .gig-slide-body{padding:30px 26px 36px}
-  .gig-arrow{display:none}
-}
 
 /* ══ GIG DETAIL (product page) ══ */
 .gig-detail{margin-top:76px;background:var(--ivory)}
@@ -625,9 +617,9 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   /* show an arrow that rotates when the section is open */
   .footer-col-toggle{display:block;position:relative;width:9px;height:9px;flex-shrink:0;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);transition:transform .25s;margin-bottom:3px}
   .footer-col.open .footer-col-toggle{transform:rotate(-135deg);margin-bottom:-3px}
-  /* collapse the list by default on mobile, expand when section is open */
-  .footer-col ul{display:none;padding:0 2px 18px}
-  .footer-col.open ul{display:flex}
+  /* collapse the list by default on mobile, smoothly expand when section is open */
+  .footer-col ul{display:flex;max-height:0;opacity:0;overflow:hidden;padding:0 2px;transition:max-height .38s cubic-bezier(.2,.7,.2,1),opacity .3s ease,padding .38s ease}
+  .footer-col.open ul{max-height:260px;opacity:1;padding:0 2px 18px}
   .footer-col ul a{font-size:14px;padding:4px 0;display:inline-block}
 }
 @media(max-width:640px){
@@ -635,14 +627,14 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .values,.form-row{grid-template-columns:1fr}
   .about-ph.wide{grid-column:span 1}
 
-  /* Testimonials + services become swipeable carousels on mobile (PC unchanged) */
-  .t-grid,.svc-grid:not(.svc-grid-paths){
+  /* Testimonials + services + featured gigs become swipeable carousels on mobile (PC unchanged) */
+  .t-grid,.svc-grid:not(.svc-grid-paths),.gig-grid{
     display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
     gap:14px;background:none;margin:0 -24px;padding:6px 24px 10px;
     -webkit-overflow-scrolling:touch;scrollbar-width:none;
   }
-  .t-grid::-webkit-scrollbar,.svc-grid:not(.svc-grid-paths)::-webkit-scrollbar{display:none}
-  .t-card,.svc-grid:not(.svc-grid-paths) .svc-card{
+  .t-grid::-webkit-scrollbar,.svc-grid:not(.svc-grid-paths)::-webkit-scrollbar,.gig-grid::-webkit-scrollbar{display:none}
+  .t-card,.svc-grid:not(.svc-grid-paths) .svc-card,.gig-grid .gig-card{
     flex:0 0 84%;scroll-snap-align:center;
   }
   .svc-grid:not(.svc-grid-paths) .svc-card{border:1px solid var(--border-dk)}

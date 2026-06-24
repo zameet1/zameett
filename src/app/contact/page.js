@@ -53,14 +53,30 @@ export default function Contact() {
       </header>
 
       {/* CONTACT FORM */}
-      <section className="contact-section">
+      <section className="contact-section" id="get-in-touch">
         <div className="inner">
           <div className="reveal">
             <p className="s-tag">Get In Touch</p>
             <h2 className="s-title">Talk to a <em>modest wear specialist.</em></h2>
-            <p className="s-body" style={{ marginBottom: 40 }}>
+            <p className="s-body" style={{ marginBottom: 24 }}>
               No pressure and no commitment on the first call. We will listen to your vision and
               walk you through the right next steps for your brand.
+            </p>
+            <div className="contact-quick">
+              <a
+                href="https://wa.me/923246599699"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-burg"
+              >
+                Chat on WhatsApp →
+              </a>
+              <a href="mailto:hello@zameett.com" className="btn btn-outline">
+                Email Us
+              </a>
+            </div>
+            <p className="contact-reply">
+              <span aria-hidden="true">⚡</span> Average reply time — within 24 hours
             </p>
             <div className="contact-info-col">
               <div className="contact-detail">
@@ -99,7 +115,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ */}
-      <section className="faq">
+      <section className="faq" id="faq">
         <div className="inner">
           <div className="faq-layout">
             <div>
