@@ -107,21 +107,21 @@ export default function Portfolio() {
           <div className="t-grid reveal">
             <div className="t-card">
               <div className="t-stars">★★★★★</div>
-              <p>&ldquo;The abaya capsule they produced for us sold out in our first drop. The construction and drape were exactly what we designed — nothing lost in translation.&rdquo;</p>
-              <div className="t-name">Sarah A.</div>
-              <div className="t-role">Modest Fashion Brand — Dubai</div>
+              <p>&ldquo;First time working with Zameett — and I&rsquo;ll be returning for more projects. Exactly the partner we were looking for.&rdquo;</p>
+              <div className="t-name">dorien21</div>
+              <div className="t-role">Verified Client — United States</div>
             </div>
             <div className="t-card">
               <div className="t-stars">★★★★★</div>
-              <p>&ldquo;They rebuilt my ruined collection and took over manufacturing. The results were genuinely stunning — better than my original vision.&rdquo;</p>
-              <div className="t-name">Fatima K.</div>
-              <div className="t-role">Independent Designer — UK</div>
+              <p>&ldquo;Always good. Reliable quality and a smooth process every single time we work together.&rdquo;</p>
+              <div className="t-name">renlaykeef</div>
+              <div className="t-role">Verified Client — United Kingdom</div>
             </div>
             <div className="t-card">
               <div className="t-stars">★★★★★</div>
-              <p>&ldquo;A custom collection my customers absolutely loved, with my own label and branding. Professional, on time, and beautiful quality throughout.&rdquo;</p>
-              <div className="t-name">Nadia R.</div>
-              <div className="t-role">Boutique Owner — Canada</div>
+              <p>&ldquo;Even when I was slow to respond, Zameett was prompt to reply and understanding throughout. Truly professional.&rdquo;</p>
+              <div className="t-name">sajanreddy</div>
+              <div className="t-role">Verified Client — United States</div>
             </div>
           </div>
         </div>
