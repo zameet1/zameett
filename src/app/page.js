@@ -273,25 +273,26 @@ export default function Home() {
           <div className="t-head reveal">
             <p className="s-tag">Client Stories</p>
             <h2 className="s-title">What our clients <em>have to say.</em></h2>
+            <p className="t-rating">★ 4.7 average from verified client reviews</p>
           </div>
           <div className="t-grid reveal">
             <div className="t-card">
               <div className="t-stars">★★★★★</div>
-              <p>&ldquo;Zameett completely transformed how I launch collections. They built my tech packs so professionally that even my new manufacturer understood everything perfectly. Zero revisions needed.&rdquo;</p>
-              <div className="t-name">Sarah A.</div>
-              <div className="t-role">Modest Fashion Brand — Dubai</div>
+              <p>&ldquo;Zameett is kind, understanding and handled multiple revisions with ease. The quality of work was very high and I love the print they made — I&rsquo;ll definitely work with them again. True dedication to customer satisfaction.&rdquo;</p>
+              <div className="t-name">dylani760</div>
+              <div className="t-role">Verified Client — United States</div>
             </div>
             <div className="t-card">
               <div className="t-stars">★★★★★</div>
-              <p>&ldquo;I came to them after a nightmare experience where my previous manufacturer ruined my entire abaya collection. Zameett rebuilt everything and took over production. The results were stunning.&rdquo;</p>
-              <div className="t-name">Fatima K.</div>
-              <div className="t-role">Independent Designer — UK</div>
+              <p>&ldquo;Fast, clear and excellent communication. They took my feedback quickly and adjusted everything fast — exactly the kind of partner a growing brand needs.&rdquo;</p>
+              <div className="t-name">aloosha123</div>
+              <div className="t-role">Verified Client — United Arab Emirates</div>
             </div>
             <div className="t-card">
               <div className="t-stars">★★★★★</div>
-              <p>&ldquo;As a boutique owner I needed someone who truly understood modest wear. Zameett delivered a custom collection my customers absolutely loved. Professional, on time, and beautiful quality.&rdquo;</p>
-              <div className="t-name">Nadia R.</div>
-              <div className="t-role">Boutique Owner — Canada</div>
+              <p>&ldquo;Great job! The team took the time to add everything I needed and were patient with me throughout. Exactly what we needed for our collection.&rdquo;</p>
+              <div className="t-name">hassatabey</div>
+              <div className="t-role">Verified Client — United States</div>
             </div>
           </div>
         </div>
