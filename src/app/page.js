@@ -273,7 +273,7 @@ export default function Home() {
           <div className="t-head reveal">
             <p className="s-tag">Client Stories</p>
             <h2 className="s-title">What our clients <em>have to say.</em></h2>
-            <p className="t-rating">★ 4.7 average from verified client reviews</p>
+            <p className="t-rating">★ 4.9 average from verified client reviews</p>
           </div>
           <div className="t-grid reveal">
             <div className="t-card">
