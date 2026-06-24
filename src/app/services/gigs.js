@@ -69,11 +69,11 @@ export const GIGS = [
   },
   {
     slug: "clothing-manufacturing",
-    title: "Custom Clothing Manufacturer — Low MOQ, Private Label & Worldwide Shipping",
+    title: "Custom Clothing Manufacturer — Any Quantity, Private Label & Worldwide Shipping",
     short: "Clothing Manufacturing",
     tagline:
-      "Reliable clothing manufacturing for brands, startups and private labels — premium apparel from concept to delivery.",
-    serviceValue: "Custom Clothing Manufacturing (Low MOQ / Private Label)",
+      "Reliable clothing manufacturing for brands, startups and private labels — premium apparel at any production volume, from concept to delivery.",
+    serviceValue: "Custom Clothing Manufacturing (Private Label)",
     cover: "/services/manufacturing-1.jpeg",
     gallery: [
       "/services/manufacturing-1.jpeg",
@@ -87,7 +87,7 @@ export const GIGS = [
     listTitle: "Our services",
     list: [
       "Custom clothing manufacturing — t-shirts, hoodies, streetwear, activewear and more",
-      "Low MOQ for startups and growing brands",
+      "No production limit — from small batches to large-volume bulk orders",
       "Fabric and trim sourcing from trusted suppliers",
       "Private labelling — custom tags, woven labels and packaging",
       "Sample development before bulk production",
