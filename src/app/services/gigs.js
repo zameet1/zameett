@@ -82,7 +82,7 @@ export const GIGS = [
     ],
     intro: [
       "Looking for a reliable clothing manufacturer to bring your ideas to life? Our fashion design agency helps brands, startups and private labels create premium-quality apparel with professional manufacturing solutions.",
-      "With extensive experience in fashion design and apparel production, we provide a seamless process from concept to final delivery.",
+      "With extensive experience in fashion design and apparel production, we handle any production volume — from small first runs to large-scale bulk orders, with no minimums and no limits — through a seamless process from concept to final delivery.",
     ],
     listTitle: "Our services",
     list: [
