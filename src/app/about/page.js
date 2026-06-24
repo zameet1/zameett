@@ -113,7 +113,7 @@ export default function About() {
               we build files any good factory can follow. Or let us handle manufacturing too, so
               your vision is never lost in translation.
             </p>
-            <a href="/contact" className="btn btn-burg">Let&rsquo;s Talk About Your Project →</a>
+            <a href="/contact#get-in-touch" className="btn btn-burg">Let&rsquo;s Talk About Your Project →</a>
           </div>
         </div>
       </section>
@@ -173,7 +173,7 @@ export default function About() {
           Pakistan-crafted, world-delivered.
         </p>
         <div className="cta-btns">
-          <a href="/contact" className="btn btn-gold">Start Your Project →</a>
+          <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
           <a href="/services" className="btn btn-outline-ivory">View Services</a>
         </div>
       </section>

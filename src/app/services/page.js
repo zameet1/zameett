@@ -181,7 +181,7 @@ export default function Services() {
               <h3>Just need designs? <em>That is perfectly fine.</em></h3>
               <p>Many of our clients come to Zameett only for design concepts and tech packs — they have their own manufacturer or are still building their production setup. We create production-ready files that any factory in the world can follow. No manufacturing commitment needed, ever.</p>
             </div>
-            <a href="/contact" className="btn btn-burg">Design-Only Enquiry →</a>
+            <a href="/contact?service=fashion-tech-packs#get-in-touch" className="btn btn-burg">Design-Only Enquiry →</a>
           </div>
         </div>
       </section>
@@ -273,7 +273,7 @@ export default function Services() {
         <h2 className="s-title">Tell us what you&rsquo;re making.<br /><em>We&rsquo;ll map the route.</em></h2>
         <p className="cta-sub">Share your project and we will come back with a clear path, timeline and quote within 24 hours.</p>
         <div className="cta-btns">
-          <a href="/contact" className="btn btn-gold">Request a Quote →</a>
+          <a href="/contact#get-in-touch" className="btn btn-gold">Request a Quote →</a>
           <a href="/portfolio" className="btn btn-outline-ivory">View Portfolio</a>
         </div>
       </section>

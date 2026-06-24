@@ -34,7 +34,7 @@ export default function Home() {
               <span className="pill">Full Manufacturing</span>
             </div>
             <div className="hero-btns">
-              <a href="/contact" className="btn btn-gold">Start Your Project</a>
+              <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project</a>
               <a href="/services" className="btn btn-outline-ivory">Our Services</a>
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function Home() {
                 commitment, ever.
               </p>
             </div>
-            <a href="/contact" className="btn btn-burg">Design-Only Enquiry →</a>
+            <a href="/contact?service=fashion-tech-packs#get-in-touch" className="btn btn-burg">Design-Only Enquiry →</a>
           </div>
         </div>
       </section>
@@ -306,7 +306,7 @@ export default function Home() {
           Pakistan-crafted, world-delivered.
         </p>
         <div className="cta-btns">
-          <a href="/contact" className="btn btn-gold">Start Your Project →</a>
+          <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
           <a href="/services" className="btn btn-outline-ivory">View Services</a>
         </div>
       </section>

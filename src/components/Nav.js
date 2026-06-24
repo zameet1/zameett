@@ -30,7 +30,7 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <a href="/contact" className="nav-cta btn">
+            <a href="/contact#get-in-touch" className="nav-cta btn">
               Get a Quote
             </a>
           </li>
@@ -57,7 +57,7 @@ export default function Nav() {
             {l.label}
           </a>
         ))}
-        <a href="/contact" onClick={() => setOpen(false)}>
+        <a href="/contact#get-in-touch" onClick={() => setOpen(false)}>
           Get a Quote
         </a>
       </div>

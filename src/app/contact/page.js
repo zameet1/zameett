@@ -126,7 +126,7 @@ export default function Contact() {
                 on your mind? Reach out directly — we are always happy to talk through your
                 specific situation.
               </p>
-              <ScrollTopLink className="btn btn-burg">Ask Us Directly →</ScrollTopLink>
+              <ScrollTopLink className="btn btn-burg" targetId="get-in-touch">Ask Us Directly →</ScrollTopLink>
             </div>
             <FaqAccordion />
           </div>
