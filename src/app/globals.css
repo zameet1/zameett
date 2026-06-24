@@ -510,7 +510,7 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 
 /* ══ FEATURED GIGS (grid on desktop, carousel on mobile) ══ */
 .featured-gigs{background:var(--ivory-dk)}
-.gig-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:8px}
+.gig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:8px}
 .gig-card{display:flex;flex-direction:column;background:var(--ivory);border:1px solid var(--border-dk);overflow:hidden;transition:transform .35s,box-shadow .35s}
 .gig-card:hover{transform:translateY(-4px);box-shadow:0 26px 54px -30px rgba(53,9,32,.45)}
 .gig-card-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--burg-deep)}
