@@ -9,7 +9,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-bg">
-          <CoverImage src="/images/21.jpeg" alt="Zameett modest wear collection" priority quality={68} />
+          <CoverImage src="/images/21.jpeg" alt="Zameett modest wear collection" priority />
         </div>
         <div className="hero-inner">
           <div className="hero-content">
