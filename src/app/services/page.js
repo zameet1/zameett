@@ -200,7 +200,7 @@ export default function Services() {
       </div>
 
       {/* PROCESS */}
-      <section className="process">
+      <section className="process" id="how-we-work">
         <div className="inner">
           <p className="s-tag">How We Work</p>
           <h2 className="s-title">A clear process. <em>Zero guesswork.</em></h2>
