@@ -67,6 +67,43 @@ export const GIGS = [
     ],
     note: "Message me to discuss your concepts before ordering!",
   },
+  {
+    slug: "clothing-manufacturing",
+    title: "Custom Clothing Manufacturer — Low MOQ, Private Label & Worldwide Shipping",
+    short: "Clothing Manufacturing",
+    tagline:
+      "Reliable clothing manufacturing for brands, startups and private labels — premium apparel from concept to delivery.",
+    serviceValue: "Custom Clothing Manufacturing (Low MOQ / Private Label)",
+    cover: "/services/manufacturing-1.jpeg",
+    gallery: [
+      "/services/manufacturing-1.jpeg",
+      "/services/manufacturing-2.jpeg",
+      "/services/manufacturing-3.jpeg",
+    ],
+    intro: [
+      "Looking for a reliable clothing manufacturer to bring your ideas to life? Our fashion design agency helps brands, startups and private labels create premium-quality apparel with professional manufacturing solutions.",
+      "With extensive experience in fashion design and apparel production, we provide a seamless process from concept to final delivery.",
+    ],
+    listTitle: "Our services",
+    list: [
+      "Custom clothing manufacturing — t-shirts, hoodies, streetwear, activewear and more",
+      "Low MOQ for startups and growing brands",
+      "Fabric and trim sourcing from trusted suppliers",
+      "Private labelling — custom tags, woven labels and packaging",
+      "Sample development before bulk production",
+      "Strict quality control for premium finishing",
+      "Worldwide shipping",
+    ],
+    whyTitle: "Why choose us",
+    why: [
+      "Experienced fashion design agency with proven expertise",
+      "High-quality materials and precise craftsmanship",
+      "Flexible production options for brands of all sizes",
+      "Reliable communication and timely delivery",
+      "End-to-end support from design to manufacturing",
+    ],
+    note: "Whether you're launching a new fashion brand or expanding an existing one, our team delivers exceptional quality and dependable service. Contact us today to discuss your project.",
+  },
 ];
 
 export function getGig(slug) {

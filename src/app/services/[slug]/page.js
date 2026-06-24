@@ -84,22 +84,26 @@ export default async function GigPage({ params }) {
               </ul>
 
               <div className="gig-actions">
-                <a href={`/contact?service=${gig.slug}`} className="btn btn-burg">
+                <a href={`/contact?service=${gig.slug}#get-in-touch`} className="btn btn-burg">
                   Send Inquiry →
                 </a>
-                <a
-                  href={gig.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline"
-                >
-                  View Portfolio PDF
-                </a>
+                {gig.pdf && (
+                  <a
+                    href={gig.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                  >
+                    View Portfolio PDF
+                  </a>
+                )}
               </div>
 
-              <a className="gig-pdf-dl" href={gig.pdf} download>
-                ⬇ Download portfolio (PDF)
-              </a>
+              {gig.pdf && (
+                <a className="gig-pdf-dl" href={gig.pdf} download>
+                  ⬇ Download portfolio (PDF)
+                </a>
+              )}
             </div>
           </div>
 
@@ -125,7 +129,7 @@ export default async function GigPage({ params }) {
 
               <p className="gig-note">{gig.note}</p>
 
-              <a href={`/contact?service=${gig.slug}`} className="btn btn-gold gig-cta">
+              <a href={`/contact?service=${gig.slug}#get-in-touch`} className="btn btn-gold gig-cta">
                 Start Your Project →
               </a>
             </div>
