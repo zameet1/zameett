@@ -3,10 +3,9 @@ import createMDX from "@next/mdx";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx"],
-  // Serve images as-is instead of optimizing them on the server. Hostinger's
-  // shared CPU was being exhausted by next/image's on-demand sharp processing,
-  // causing 503 crash-loops. Pre-sized static JPEGs keep CPU low and the site up.
-  images: { unoptimized: true },
+  // Keep Next.js image optimization on (responsive + webp = fast), but at a
+  // high quality so there is no visible loss vs the originals.
+  images: { qualities: [75, 90] },
   async headers() {
     return [
       {

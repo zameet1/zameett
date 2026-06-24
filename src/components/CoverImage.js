@@ -8,7 +8,7 @@ export default function CoverImage({ src, alt, objectPosition, sizes, priority, 
       fill
       sizes={sizes || "100vw"}
       priority={priority}
-      quality={quality}
+      quality={quality || 90}
       style={{ objectFit: "cover", objectPosition: objectPosition || "center" }}
     />
   );
