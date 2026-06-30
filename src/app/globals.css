@@ -522,6 +522,16 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 .gig-card-body p{font-size:14px;color:var(--mid);line-height:1.75;font-weight:300;flex:1}
 .gig-card-link{font-family:var(--font-jost),sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-top:6px}
 
+/* ══ SHOP / DIGITAL PRODUCTS ══ */
+.shop{background:var(--ivory)}
+.shop-highlight{background:var(--ivory)}
+.prod-card .gig-card-img{aspect-ratio:4/3;background:var(--burg-deep)}
+.prod-badge{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--font-jost),sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:5px 12px;background:var(--gold);color:var(--burg-deep);border-radius:1px}
+.prod-foot{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.prod-price{font-family:var(--font-cormorant),serif;font-size:24px;font-weight:700;color:var(--burg);line-height:1}
+.prod-price-lg{font-family:var(--font-cormorant),serif;font-size:34px;font-weight:700;color:var(--burg);margin:0 0 24px}
+.prod-price-lg span{font-family:var(--font-jost),sans-serif;font-size:12px;font-weight:400;letter-spacing:.5px;color:var(--gold-deep);text-transform:uppercase}
+
 /* ══ GIG DETAIL (product page) ══ */
 .gig-detail{margin-top:76px;background:var(--ivory)}
 .gig-detail .crumb{font-family:var(--font-jost),sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:32px}

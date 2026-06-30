@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import FeaturedGigs from "@/components/FeaturedGigs";
+import ShopHighlight from "@/components/ShopHighlight";
 
 export default function Home() {
   return (
@@ -174,6 +175,9 @@ export default function Home() {
 
       {/* FEATURED GIGS */}
       <FeaturedGigs />
+
+      {/* SHOP / DIGITAL PRODUCTS */}
+      <ShopHighlight />
 
       {/* PHOTO BREAK */}
       <div className="photo-break">

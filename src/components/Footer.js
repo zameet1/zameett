@@ -10,6 +10,7 @@ const GROUPS = [
     links: [
       { label: "Services", href: "/services" },
       { label: "Portfolio", href: "/portfolio" },
+      { label: "Shop", href: "/shop" },
       { label: "Blog", href: "/blog" },
       { label: "About Zameett", href: "/about" },
     ],
