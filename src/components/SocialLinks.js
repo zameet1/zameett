@@ -15,7 +15,7 @@ export const SOCIALS = [
   { name: "Pinterest", Icon: SiPinterest, url: "https://www.pinterest.com/zameett/" },
   { name: "Upwork", Icon: SiUpwork, url: "https://www.upwork.com/freelancers/~0195a91e0ec99ac93c" },
   { name: "Fiverr", Icon: SiFiverr, url: "https://www.fiverr.com/zameett" },
-  { name: "Reddit", Icon: SiReddit, url: "https://www.reddit.com/user/zameett/" },
+  { name: "Reddit", Icon: SiReddit, url: "https://www.reddit.com/user/zameett_/" },
 ];
 
 export default function SocialLinks({ className }) {
