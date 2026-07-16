@@ -48,6 +48,8 @@ export async function POST(request) {
     "branding_settings[button_color]": "#5B1234",
     "branding_settings[border_style]": "rounded",
     "branding_settings[font_family]": "lora",
+    "branding_settings[icon][type]": "url",
+    "branding_settings[icon][url]": new URL("/icon.png", successBaseUrl).toString(),
     "wallet_options[link][display]": "never",
     "custom_text[submit][message]": "Secure payment for an instant Zameett digital product. Your editable files will be delivered to the email used at checkout.",
     "custom_text[after_submit][message]": "Thank you for choosing Zameett. Please check your email for your receipt and digital delivery details.",
