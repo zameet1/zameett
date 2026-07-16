@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import { SiStripe } from "react-icons/si";
-import { FaLock } from "react-icons/fa6";
+import { SiAmericanexpress, SiApplepay, SiMastercard, SiVisa } from "react-icons/si";
 import SocialLinks from "./SocialLinks";
 
 // Link groups. On mobile each is a tap-to-open dropdown; on desktop they are
@@ -91,10 +90,11 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>© 2026 Zameett. All rights reserved.</p>
-          <div className="footer-payment-badge" title="Digital-product payments are secured by Stripe">
-            <FaLock aria-hidden="true" />
-            <span>Secure payments by</span>
-            <SiStripe className="footer-stripe-wordmark" aria-label="Stripe" />
+          <div className="footer-payment-methods" aria-label="Accepted payment methods">
+            <span title="Visa"><SiVisa aria-label="Visa" /></span>
+            <span title="Mastercard"><SiMastercard aria-label="Mastercard" /></span>
+            <span title="American Express"><SiAmericanexpress aria-label="American Express" /></span>
+            <span title="Apple Pay"><SiApplepay aria-label="Apple Pay" /></span>
           </div>
           <p className="footer-legal">
             <a href="/privacy">Privacy Policy</a>
