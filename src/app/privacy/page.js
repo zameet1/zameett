@@ -13,7 +13,7 @@ export default function Privacy() {
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Privacy Policy</p>
           <h1>Privacy <em>Policy</em></h1>
-          <p>Last updated: June 2026</p>
+          <p>Last updated: July 2026</p>
         </div>
       </header>
 
@@ -42,10 +42,10 @@ export default function Privacy() {
 
           <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Third-party services</h2>
           <p className="s-body" style={{ marginBottom: 18 }}>
-            Form submissions are delivered to us via Web3Forms, and analytics are provided by
-            Google Analytics. These providers process data on our behalf according to their own
-            privacy policies. Payment, when applicable, will be handled by a secure third-party
-            payment provider — we do not store card details on our servers.
+            Form submissions are delivered to us via Web3Forms, analytics are provided by Google
+            Analytics, and digital-product payments are processed securely by Stripe. These
+            providers process data on our behalf according to their own privacy policies. We do
+            not receive or store your full card details on our servers.
           </p>
 
           <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Cookies</h2>

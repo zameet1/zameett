@@ -1,8 +1,5 @@
-// Digital products (downloadable tech pack templates) sold via the shop.
-// No payment gateway yet — purchase happens over WhatsApp / enquiry, then the
-// file is delivered manually. Prices are starter values — adjust as needed.
-
-const WHATSAPP = "923246599699";
+// Digital products sold through Stripe Checkout. Prices are defined in cents
+// here on the server and are never accepted from the browser.
 
 export const PRODUCTS = [
   {
@@ -12,6 +9,7 @@ export const PRODUCTS = [
     tagline:
       "The most complete editable tech pack template — industry-standard layouts with dedicated pages for BOM, specs and construction.",
     price: "$22",
+    priceCents: 2200,
     badge: "Most Complete",
     cover: "/digital/p2-1.jpeg",
     gallery: ["/digital/p2-1.jpeg", "/digital/p2-2.jpeg", "/digital/p2-3.jpeg"],
@@ -29,7 +27,7 @@ export const PRODUCTS = [
       "Construction & specification layouts",
       "Fully editable, print-ready files",
     ],
-    note: "Delivered as editable files right after purchase. Message us on WhatsApp to get your copy — we'll send it over straight away.",
+    note: "Delivered as editable files to the email address used for secure Stripe Checkout.",
   },
   {
     slug: "tech-pack-template-classic",
@@ -38,6 +36,7 @@ export const PRODUCTS = [
     tagline:
       "A clean, multi-page editable tech pack template — perfect for new brands creating their first professional spec sheets.",
     price: "$14",
+    priceCents: 1400,
     cover: "/digital/p1-1.jpeg",
     gallery: ["/digital/p1-1.jpeg", "/digital/p1-2.jpeg", "/digital/p1-3.jpeg"],
     intro: [
@@ -53,7 +52,7 @@ export const PRODUCTS = [
       "Bill of Materials page",
       "Editable, print-ready layout",
     ],
-    note: "Delivered as editable files right after purchase. Message us on WhatsApp to get your copy.",
+    note: "Delivered as editable files to the email address used for secure Stripe Checkout.",
   },
   {
     slug: "tech-pack-template-blush",
@@ -62,6 +61,7 @@ export const PRODUCTS = [
     tagline:
       "A soft, elegant tech pack template for fashion design brands — professional structure with a refined blush aesthetic.",
     price: "$14",
+    priceCents: 1400,
     cover: "/digital/p3-1.jpeg",
     gallery: ["/digital/p3-1.jpeg", "/digital/p3-2.jpeg", "/digital/p3-3.jpeg"],
     intro: [
@@ -77,17 +77,10 @@ export const PRODUCTS = [
       "Bill of Materials page",
       "Editable, print-ready files",
     ],
-    note: "Delivered as editable files right after purchase. Message us on WhatsApp to get your copy.",
+    note: "Delivered as editable files to the email address used for secure Stripe Checkout.",
   },
 ];
 
 export function getProduct(slug) {
   return PRODUCTS.find((p) => p.slug === slug);
-}
-
-export function buyLink(product) {
-  const text = encodeURIComponent(
-    `Hi Zameett! I'd like to buy the "${product.name}" (${product.price}). Please share the details.`
-  );
-  return `https://wa.me/${WHATSAPP}?text=${text}`;
 }

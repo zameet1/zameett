@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import GigGallery from "@/components/GigGallery";
-import { PRODUCTS, getProduct, buyLink } from "../products";
+import { PRODUCTS, getProduct } from "../products";
 
 const siteUrl = "https://zameett.com";
 
@@ -33,8 +33,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function ProductPage({ params }) {
+export default async function ProductPage({ params, searchParams }) {
   const { slug } = await params;
+  const checkout = (await searchParams)?.checkout;
   const p = getProduct(slug);
   if (!p) notFound();
 
@@ -91,13 +92,25 @@ export default async function ProductPage({ params }) {
               </ul>
 
               <div className="gig-actions">
-                <a href={buyLink(p)} target="_blank" rel="noopener noreferrer" className="btn btn-burg">
-                  Buy on WhatsApp →
-                </a>
+                <form action="/api/stripe/checkout" method="POST">
+                  <input type="hidden" name="slug" value={p.slug} />
+                  <button type="submit" className="btn btn-burg">
+                    Buy securely with Stripe →
+                  </button>
+                </form>
                 <a href="/contact#get-in-touch" className="btn btn-outline">
                   Ask a Question
                 </a>
               </div>
+              {checkout === "cancelled" && (
+                <p className="checkout-message">Checkout was cancelled. You have not been charged.</p>
+              )}
+              {checkout === "unavailable" && (
+                <p className="checkout-message checkout-error">Secure checkout is being configured. Please try again shortly.</p>
+              )}
+              {checkout === "error" && (
+                <p className="checkout-message checkout-error">Checkout could not start. Please try again or contact us.</p>
+              )}
             </div>
           </div>
 
@@ -116,9 +129,12 @@ export default async function ProductPage({ params }) {
 
               <p className="gig-note">{p.note}</p>
 
-              <a href={buyLink(p)} target="_blank" rel="noopener noreferrer" className="btn btn-gold gig-cta">
-                Get this template — {p.price} →
-              </a>
+              <form action="/api/stripe/checkout" method="POST">
+                <input type="hidden" name="slug" value={p.slug} />
+                <button type="submit" className="btn btn-gold gig-cta">
+                  Get this template — {p.price} →
+                </button>
+              </form>
             </div>
           </div>
         </div>
