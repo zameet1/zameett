@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { SiStripe } from "react-icons/si";
 import SocialLinks from "./SocialLinks";
 
 // Link groups. On mobile each is a tap-to-open dropdown; on desktop they are
@@ -89,6 +90,9 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>© 2026 Zameett. All rights reserved.</p>
+          <p className="footer-payments" title="Digital-product payments are secured by Stripe">
+            <SiStripe aria-hidden="true" focusable="false" /> Secure payments by Stripe
+          </p>
           <p className="footer-legal">
             <a href="/privacy">Privacy Policy</a>
             <span>·</span>

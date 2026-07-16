@@ -93,7 +93,6 @@ const organizationSchema = {
     "https://www.pinterest.com/zameett/",
     "https://www.upwork.com/freelancers/~0195a91e0ec99ac93c",
     "https://www.fiverr.com/zameett",
-    "https://www.reddit.com/user/zameett_/",
   ],
 };
 

@@ -13,7 +13,7 @@ export default function Terms() {
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Terms of Service</p>
           <h1>Terms of <em>Service</em></h1>
-          <p>Last updated: June 2026</p>
+          <p>Last updated: July 2026</p>
         </div>
       </header>
 
@@ -32,9 +32,9 @@ export default function Terms() {
 
           <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Orders &amp; payment</h2>
           <p className="s-body" style={{ marginBottom: 18 }}>
-            Placing an order through the site is a request, not a completed sale. We will confirm
-            availability and send a secure payment link to complete your purchase. Production begins
-            only after payment and, where applicable, sample approval.
+            Service and manufacturing orders are confirmed with us before payment. Digital products
+            can be purchased through Stripe Checkout on their product pages. Production begins only
+            after payment and, where applicable, sample approval.
           </p>
 
           <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Digital products</h2>
