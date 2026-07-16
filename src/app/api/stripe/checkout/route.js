@@ -32,6 +32,7 @@ export async function POST(request) {
 
   const body = new URLSearchParams({
     mode: "payment",
+    submit_type: "pay",
     customer_creation: "always",
     billing_address_collection: "auto",
     success_url: `${successBaseUrl}?session_id={CHECKOUT_SESSION_ID}`,
@@ -41,6 +42,14 @@ export async function POST(request) {
     "line_items[0][price_data][unit_amount]": String(product.priceCents),
     "line_items[0][price_data][product_data][name]": product.name,
     "line_items[0][price_data][product_data][description]": product.tagline,
+    "line_items[0][price_data][product_data][images][0]": new URL(product.cover, successBaseUrl).toString(),
+    "branding_settings[display_name]": "Zameett",
+    "branding_settings[background_color]": "#FAF7F2",
+    "branding_settings[button_color]": "#5B1234",
+    "branding_settings[border_style]": "rounded",
+    "branding_settings[font_family]": "lora",
+    "custom_text[submit][message]": "Secure payment for an instant Zameett digital product. Your editable files will be delivered to the email used at checkout.",
+    "custom_text[after_submit][message]": "Thank you for choosing Zameett. Please check your email for your receipt and digital delivery details.",
     "metadata[product_slug]": product.slug,
     "metadata[product_type]": "digital",
     "payment_intent_data[metadata][product_slug]": product.slug,
@@ -53,6 +62,7 @@ export async function POST(request) {
       headers: {
         Authorization: `Bearer ${secretKey}`,
         "Content-Type": "application/x-www-form-urlencoded",
+        "Stripe-Version": "2025-09-30.clover",
       },
       body,
       cache: "no-store",

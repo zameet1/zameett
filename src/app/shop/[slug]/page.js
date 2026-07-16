@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import GigGallery from "@/components/GigGallery";
 import { PRODUCTS, getProduct } from "../products";
+import { FaBolt, FaEnvelope, FaLock, FaShieldHalved } from "react-icons/fa6";
 
 const siteUrl = "https://zameett.com";
 
@@ -102,6 +103,12 @@ export default async function ProductPage({ params, searchParams }) {
                   Ask a Question
                 </a>
               </div>
+              <div className="checkout-trust-panel" aria-label="Secure checkout benefits">
+                <div><FaShieldHalved aria-hidden="true" /><span><strong>Stripe protected</strong>Industry-standard secure checkout</span></div>
+                <div><FaBolt aria-hidden="true" /><span><strong>Instant access</strong>No shipping or waiting required</span></div>
+                <div><FaEnvelope aria-hidden="true" /><span><strong>Email delivery</strong>Files sent to your checkout email</span></div>
+              </div>
+              <p className="checkout-secure-note"><FaLock aria-hidden="true" /> Your payment details never touch our servers.</p>
               {checkout === "cancelled" && (
                 <p className="checkout-message">Checkout was cancelled. You have not been charged.</p>
               )}
@@ -132,7 +139,7 @@ export default async function ProductPage({ params, searchParams }) {
               <form action="/api/stripe/checkout" method="POST">
                 <input type="hidden" name="slug" value={p.slug} />
                 <button type="submit" className="btn btn-gold gig-cta">
-                  Get this template — {p.price} →
+                  Get this template securely — {p.price} →
                 </button>
               </form>
             </div>
