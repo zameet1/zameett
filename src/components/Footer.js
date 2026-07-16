@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { SiStripe } from "react-icons/si";
-import { FaLock, FaShieldHalved } from "react-icons/fa6";
+import { FaLock } from "react-icons/fa6";
 import SocialLinks from "./SocialLinks";
 
 // Link groups. On mobile each is a tap-to-open dropdown; on desktop they are
@@ -92,12 +92,9 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>© 2026 Zameett. All rights reserved.</p>
           <div className="footer-payment-badge" title="Digital-product payments are secured by Stripe">
-            <span className="footer-payment-icon"><SiStripe aria-hidden="true" focusable="false" /></span>
-            <span className="footer-payment-copy">
-              <strong>Secure checkout</strong>
-              <small><FaLock aria-hidden="true" /> Encrypted &amp; powered by Stripe</small>
-            </span>
-            <FaShieldHalved className="footer-payment-shield" aria-hidden="true" />
+            <FaLock aria-hidden="true" />
+            <span>Secure payments by</span>
+            <SiStripe className="footer-stripe-wordmark" aria-label="Stripe" />
           </div>
           <p className="footer-legal">
             <a href="/privacy">Privacy Policy</a>

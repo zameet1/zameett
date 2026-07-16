@@ -13,6 +13,13 @@ function productUrl(request, slug, status) {
   return url;
 }
 
+function checkoutUrl(request, slug, status) {
+  const url = productUrl(request, slug);
+  url.pathname = `/shop/${slug}/checkout`;
+  if (status) url.searchParams.set("checkout", status);
+  return url;
+}
+
 export async function POST(request) {
   const formData = await request.formData();
   const slug = String(formData.get("slug") || "");
@@ -36,7 +43,7 @@ export async function POST(request) {
     customer_creation: "always",
     billing_address_collection: "auto",
     success_url: `${successBaseUrl}?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: productUrl(request, slug, "cancelled").toString(),
+    cancel_url: checkoutUrl(request, slug, "cancelled").toString(),
     "line_items[0][quantity]": "1",
     "line_items[0][price_data][currency]": "usd",
     "line_items[0][price_data][unit_amount]": String(product.priceCents),

@@ -93,12 +93,9 @@ export default async function ProductPage({ params, searchParams }) {
               </ul>
 
               <div className="gig-actions">
-                <form action="/api/stripe/checkout" method="POST">
-                  <input type="hidden" name="slug" value={p.slug} />
-                  <button type="submit" className="btn btn-burg">
-                    Buy securely with Stripe →
-                  </button>
-                </form>
+                <a href={`/shop/${p.slug}/checkout`} className="btn btn-burg">
+                  Buy securely with Stripe →
+                </a>
                 <a href="/contact#get-in-touch" className="btn btn-outline">
                   Ask a Question
                 </a>
@@ -136,12 +133,9 @@ export default async function ProductPage({ params, searchParams }) {
 
               <p className="gig-note">{p.note}</p>
 
-              <form action="/api/stripe/checkout" method="POST">
-                <input type="hidden" name="slug" value={p.slug} />
-                <button type="submit" className="btn btn-gold gig-cta">
-                  Get this template securely — {p.price} →
-                </button>
-              </form>
+              <a href={`/shop/${p.slug}/checkout`} className="btn btn-gold gig-cta">
+                Get this template securely — {p.price} →
+              </a>
             </div>
           </div>
         </div>
