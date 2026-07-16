@@ -5,7 +5,9 @@ export const runtime = "nodejs";
 
 function productUrl(request, slug, status) {
   const configuredSite = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
-  const baseUrl = configuredSite || request.nextUrl.origin;
+  const requestOrigin = request.nextUrl.origin;
+  const isPublicOrigin = !/https?:\/\/(?:0\.0\.0\.0|127\.0\.0\.1|localhost)(?::\d+)?$/i.test(requestOrigin);
+  const baseUrl = configuredSite || (isPublicOrigin ? requestOrigin : "https://zameett.com");
   const url = new URL(`/shop/${slug}`, baseUrl);
   if (status) url.searchParams.set("checkout", status);
   return url;
