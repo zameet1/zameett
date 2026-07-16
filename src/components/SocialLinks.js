@@ -16,10 +16,12 @@ export const SOCIALS = [
   { name: "Fiverr", Icon: SiFiverr, url: "https://www.fiverr.com/zameett" },
 ];
 
-export default function SocialLinks({ className }) {
+export default function SocialLinks({ className, only }) {
+  const links = only ? SOCIALS.filter(({ name }) => only.includes(name)) : SOCIALS;
+
   return (
     <>
-      {SOCIALS.map(({ name, Icon, url }) => (
+      {links.map(({ name, Icon, url }) => (
         <a
           key={name}
           href={url}

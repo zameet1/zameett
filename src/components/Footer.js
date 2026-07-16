@@ -52,7 +52,7 @@ export default function Footer() {
               complete concept-to-doorstep service for brands, designers and boutiques worldwide.
             </p>
             <div className="footer-social">
-              <SocialLinks className="f-social-btn" />
+              <SocialLinks className="f-social-btn" only={["Instagram", "Pinterest"]} />
             </div>
           </div>
 
