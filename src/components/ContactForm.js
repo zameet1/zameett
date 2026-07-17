@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { GIGS } from "@/app/services/gigs";
+import { SOLUTIONS } from "@/app/solutions/solutions";
 
 const CUSTOM = "__custom__";
 
@@ -27,23 +28,29 @@ export default function ContactForm() {
     const params = new URLSearchParams(window.location.search);
 
     if (params.get("sent") === "1") {
-      setSent(true);
       window.history.replaceState(null, "", window.location.pathname);
-      const t = setTimeout(() => setSent(false), 8000);
-      return () => clearTimeout(t);
+      const showTimer = setTimeout(() => setSent(true), 0);
+      const hideTimer = setTimeout(() => setSent(false), 8000);
+      return () => {
+        clearTimeout(showTimer);
+        clearTimeout(hideTimer);
+      };
     }
 
     const slug = params.get("service");
     if (slug) {
       const gig = GIGS.find((g) => g.slug === slug);
-      if (gig) {
-        setService(gig.serviceValue);
+      const solution = SOLUTIONS.find((item) => item.slug === slug);
+      const selectedService = gig?.serviceValue || solution?.contactValue;
+      if (selectedService) {
         window.history.replaceState(null, "", window.location.pathname);
+        const selectTimer = setTimeout(() => setService(selectedService), 0);
+        return () => clearTimeout(selectTimer);
       }
     }
   }, []);
 
-  const gigOptions = GIGS.map((g) => g.serviceValue);
+  const gigOptions = [...new Set([...GIGS.map((g) => g.serviceValue), ...SOLUTIONS.map((item) => item.contactValue)])];
 
   return (
     <form className="contact-form" action="https://api.web3forms.com/submit" method="POST">

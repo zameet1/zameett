@@ -42,10 +42,11 @@ export default function Blog() {
                 </div>
                 <div className="dp-body">
                   <div className="dp-cat">
-                    {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                    {new Date(`${post.date}T12:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })} · {post.readTime}
                   </div>
                   <h2 style={{ fontSize: 24, marginBottom: 12 }}>{post.title}</h2>
                   <p>{post.description}</p>
+                  <span className="blog-card-link">Read practical guide →</span>
                 </div>
               </a>
             ))}

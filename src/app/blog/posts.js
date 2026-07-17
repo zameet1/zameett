@@ -1,30 +1,70 @@
-// Add one entry here for every post folder under src/app/blog/<slug>/page.mdx.
-// This manifest powers the blog index, the sitemap, and is the single
-// source of truth for each post's title/description/date shown outside
-// the post page itself.
 export const POSTS = [
   {
-    slug: "modest-fashion-manufacturer-pakistan",
-    title: "How to Choose a Modest Fashion Manufacturer in Pakistan",
-    description:
-      "What to look for in an abaya and modest wear manufacturer in Pakistan — specialisation, tech packs, MOQs, sampling and quality control — so your collection comes out right.",
-    date: "2026-06-21",
-    image: "/images/27.jpeg",
+    slug: "abaya-manufacturing-cost",
+    title: "How Much Does It Cost to Manufacture an Abaya?",
+    description: "A practical cost breakdown covering fabric, construction, embellishment, sampling, labels, quantity and freight—with a worked costing example.",
+    date: "2026-07-13",
+    image: "/services/manufacturing-1.jpeg",
+    readTime: "9 min read",
   },
   {
-    slug: "how-to-start-a-modest-fashion-brand",
-    title: "How to Start a Modest Fashion Brand: A Step-by-Step Guide",
-    description:
-      "From first concept to launch — designs, tech packs, fabric sourcing, sampling, production and delivery. A practical roadmap for new modest wear and abaya brands.",
-    date: "2026-06-14",
-    image: "/images/19.jpeg",
+    slug: "complete-abaya-manufacturing-process",
+    title: "The Complete Abaya Manufacturing Process",
+    description: "From design brief and tech pack to fabric approval, sampling, cutting, stitching, finishing, quality control and shipment.",
+    date: "2026-07-06",
+    image: "/services/manufacturing-2.jpeg",
+    readTime: "10 min read",
   },
   {
     slug: "how-to-create-a-tech-pack-for-abayas",
-    title: "How to Create a Tech Pack for Abayas",
-    description:
-      "A practical, step-by-step guide to building a manufacturer-ready tech pack for abayas — measurements, construction notes, fabric specs and what most designers get wrong.",
-    date: "2026-06-01",
+    title: "What Should an Abaya Tech Pack Include?",
+    description: "The exact drawings, measurements, construction notes, BOM, artwork and revision controls a factory needs to sample an abaya accurately.",
+    date: "2026-06-29",
     image: "/images/14.jpeg",
+    readTime: "11 min read",
+  },
+  {
+    slug: "modest-fashion-manufacturer-pakistan",
+    title: "How to Find a Modest-Fashion Manufacturer",
+    description: "A due-diligence guide for comparing specialisation, samples, MOQs, quality systems, communication and production claims before paying a deposit.",
+    date: "2026-06-22",
+    image: "/images/27.jpeg",
+    readTime: "9 min read",
+  },
+  {
+    slug: "low-moq-vs-bulk-fashion-manufacturing",
+    title: "Low MOQ vs Bulk Fashion Manufacturing",
+    description: "The real trade-offs in unit cost, cash risk, fabric buying, size depth, testing and reorders for emerging fashion brands.",
+    date: "2026-06-15",
+    image: "/services/manufacturing-3.jpeg",
+    readTime: "8 min read",
+  },
+  {
+    slug: "fabric-guide-abayas-modest-dresses",
+    title: "Fabric Guide for Abayas and Modest Dresses",
+    description: "How nida, crepe, chiffon, satin, georgette and linen blends behave in real garments—and what to test before production.",
+    date: "2026-06-08",
+    image: "/images/25.jpeg",
+    readTime: "10 min read",
+  },
+  {
+    slug: "tech-pack-mistakes-delay-production",
+    title: "Tech-Pack Mistakes That Delay Production",
+    description: "Eight specification gaps that trigger factory questions, failed samples and avoidable revisions, with a pre-handoff audit checklist.",
+    date: "2026-06-01",
+    image: "/images/techpack.jpeg",
+    readTime: "8 min read",
+  },
+  {
+    slug: "how-to-start-a-modest-fashion-brand",
+    title: "How to Start a Modest-Clothing Brand",
+    description: "A grounded launch plan covering customer, price architecture, collection size, development files, sampling, production and first-drop validation.",
+    date: "2026-05-25",
+    image: "/images/19.jpeg",
+    readTime: "12 min read",
   },
 ];
+
+export function getPost(slug) {
+  return POSTS.find((post) => post.slug === slug);
+}

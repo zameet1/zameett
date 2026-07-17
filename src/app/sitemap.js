@@ -1,6 +1,7 @@
 import { POSTS } from "./blog/posts";
 import { GIGS } from "./services/gigs";
 import { PRODUCTS } from "./shop/products";
+import { SOLUTIONS } from "./solutions/solutions";
 
 const siteUrl = "https://zameett.com";
 
@@ -21,6 +22,13 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
+  const solutionEntries = SOLUTIONS.map((solution) => ({
+    url: `${siteUrl}/solutions/${solution.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
+
   const productEntries = PRODUCTS.map((p) => ({
     url: `${siteUrl}/shop/${p.slug}`,
     lastModified: new Date(),
@@ -35,5 +43,5 @@ export default function sitemap() {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...gigEntries, ...productEntries, ...postEntries];
+  return [...staticEntries, ...solutionEntries, ...gigEntries, ...productEntries, ...postEntries];
 }

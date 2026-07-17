@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import JsonLd from "@/components/JsonLd";
 import FeaturedGigs from "@/components/FeaturedGigs";
+import { SOLUTIONS } from "../solutions/solutions";
 
 const SERVICES = [
   {
@@ -132,6 +133,29 @@ export default function Services() {
 
       {/* FEATURED GIGS */}
       <FeaturedGigs />
+
+      {/* BUYER-INTENT SERVICE GUIDES */}
+      <section className="intent-directory">
+        <div className="inner">
+          <div className="svc-head reveal">
+            <div>
+              <p className="s-tag">Services by Need</p>
+              <h2 className="s-title">Find the exact support <em>your brand needs.</em></h2>
+            </div>
+            <p className="s-body">Explore focused service pages with relevant work, process, estimated timelines, MOQ guidance and answers to common buyer questions.</p>
+          </div>
+          <div className="intent-directory-grid reveal">
+            {SOLUTIONS.map((solution) => (
+              <a href={`/solutions/${solution.slug}`} key={solution.slug}>
+                <span>{solution.eyebrow}</span>
+                <h3>{solution.keyword}</h3>
+                <p>{solution.description}</p>
+                <b>View service details →</b>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* DETAILED SERVICES */}
       <section className="services" style={{ paddingTop: 24 }}>
