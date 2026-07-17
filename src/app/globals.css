@@ -687,20 +687,27 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 
 /* Buyer-intent SEO landing pages */
 .intent-page{background:var(--ivory)}
-.intent-hero{margin-top:76px;padding:0;background:var(--burg-deep);overflow:hidden}
-.intent-hero-grid{max-width:none;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(380px,.85fr);min-height:680px}
-.intent-hero-copy{padding:78px max(48px,calc((100vw - var(--maxw))/2)) 72px max(48px,calc((100vw - var(--maxw))/2));padding-right:64px;display:flex;flex-direction:column;justify-content:center}
-.intent-hero .crumb{font:500 9px/1.5 var(--font-jost),sans-serif;letter-spacing:2px;text-transform:uppercase;color:rgba(250,247,242,.5);margin-bottom:36px}
-.intent-hero .crumb a{color:var(--gold-lt);text-decoration:underline;text-underline-offset:3px}
-.intent-hero .s-tag{color:var(--gold)}
-.intent-hero h1{font-size:clamp(44px,5.4vw,76px);line-height:1.02;color:var(--ivory);max-width:760px}
-.intent-lead{font-size:16px;line-height:1.85;color:rgba(250,247,242,.68);max-width:650px;margin-top:24px;font-weight:300}
-.intent-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
-.intent-trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:42px;color:rgba(250,247,242,.62);font:500 9px/1.4 var(--font-jost),sans-serif;letter-spacing:1.4px;text-transform:uppercase}
+.intent-hero{margin-top:76px;padding:0;background:linear-gradient(135deg,#fbf8f3 0%,#f6f0e8 100%);border-bottom:1px solid var(--border-dk);overflow:hidden;position:relative}
+.intent-hero::before{content:'';position:absolute;width:420px;height:420px;border:1px solid rgba(201,169,110,.16);border-radius:50%;right:-190px;top:-210px;pointer-events:none}
+.intent-hero-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(330px,.82fr);gap:clamp(56px,7vw,104px);align-items:center;min-height:610px;padding:64px 48px;position:relative}
+.intent-hero-copy{display:flex;flex-direction:column;justify-content:center;max-width:720px}
+.intent-hero .crumb{font:500 9px/1.5 var(--font-jost),sans-serif;letter-spacing:1.8px;text-transform:uppercase;color:#8b7b72;margin-bottom:42px}
+.intent-hero .crumb a{color:var(--burg);text-decoration:none}
+.intent-hero .crumb a:hover{color:var(--gold-deep)}
+.intent-hero .s-tag{color:var(--gold-deep);margin-bottom:18px}
+.intent-hero h1{font-size:clamp(43px,4.6vw,66px);font-weight:600;letter-spacing:-.02em;line-height:1.03;color:var(--burg);max-width:720px;text-wrap:balance}
+.intent-lead{font-size:15.5px;line-height:1.8;color:var(--mid);max-width:610px;margin-top:24px;font-weight:300}
+.intent-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:34px}
+.intent-hero .btn-gold{background:var(--burg);border-color:var(--burg);color:var(--gold-lt)}
+.intent-hero .btn-gold:hover{background:var(--burg-deep);border-color:var(--burg-deep)}
+.intent-hero .btn-outline-ivory{border-color:rgba(74,14,43,.28);color:var(--burg)}
+.intent-hero .btn-outline-ivory:hover{background:transparent;border-color:var(--gold-deep);color:var(--gold-deep)}
+.intent-trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:42px;padding-top:22px;border-top:1px solid rgba(74,14,43,.1);color:#796d67;font:500 9px/1.4 var(--font-jost),sans-serif;letter-spacing:1.25px;text-transform:uppercase}
 .intent-trust span{display:flex;align-items:center;gap:8px}
-.intent-trust span::before{content:'✓';color:var(--gold)}
-.intent-hero-image{position:relative;min-height:680px;background:var(--burg)}
-.intent-hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(53,9,32,.28),transparent 35%);pointer-events:none}
+.intent-trust span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold-deep)}
+.intent-hero-image{position:relative;width:100%;max-width:430px;justify-self:end;aspect-ratio:4/5;background:var(--burg);overflow:hidden;box-shadow:18px 18px 0 rgba(201,169,110,.13)}
+.intent-hero-image::before{content:'';position:absolute;inset:14px;border:1px solid rgba(250,247,242,.48);z-index:2;pointer-events:none}
+.intent-hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 65%,rgba(53,9,32,.16));pointer-events:none}
 .intent-hero-image img{object-fit:cover}
 .intent-overview-grid,.intent-faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
 .intent-facts{display:grid;gap:16px}
@@ -744,9 +751,9 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .gig-top{grid-template-columns:1fr;gap:32px;margin-bottom:16px}
   .gig-gallery{position:static}
   .gig-main{aspect-ratio:3/2}
-  .intent-hero-grid{grid-template-columns:1fr}
-  .intent-hero-copy{padding:64px 32px}
-  .intent-hero-image{min-height:480px}
+  .intent-hero-grid{grid-template-columns:1fr;gap:48px;padding:60px 32px 72px}
+  .intent-hero-copy{max-width:700px}
+  .intent-hero-image{justify-self:start;width:min(100%,520px);max-width:none;aspect-ratio:4/3}
   .intent-overview-grid,.intent-faq-grid{grid-template-columns:1fr;gap:46px}
   .intent-card-grid,.intent-process-grid{grid-template-columns:1fr 1fr}
 }
@@ -755,10 +762,11 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .gig-actions .btn{flex:1;text-align:center;padding:15px 18px}
   .checkout-trust-panel{grid-template-columns:1fr}
   .checkout-trust-panel>div{padding:12px 14px}
-  .intent-hero-copy{padding:52px 24px 58px}
-  .intent-hero h1{font-size:42px}
-  .intent-hero-image{min-height:360px}
-  .intent-actions .btn{width:100%;text-align:center}
+  .intent-hero-grid{padding:44px 24px 58px;gap:40px}
+  .intent-hero .crumb{margin-bottom:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .intent-hero h1{font-size:40px}
+  .intent-hero-image{width:calc(100% - 12px);aspect-ratio:4/4.6;box-shadow:12px 12px 0 rgba(201,169,110,.13)}
+  .intent-actions .btn{width:auto;text-align:center;padding:14px 24px}
   .intent-trust{display:grid;gap:10px}
   .intent-card-grid,.intent-process-grid,.intent-gallery,.intent-directory-grid{grid-template-columns:1fr}
   .intent-section-head{align-items:start;flex-direction:column}
