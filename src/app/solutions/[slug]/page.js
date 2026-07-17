@@ -89,7 +89,7 @@ export default async function SolutionPage({ params }) {
         </header>
         <section className="intent-overview">
           <div className="inner intent-overview-grid">
-            <div>
+            <div className="reveal">
               <p className="s-tag">Built Around Your Brand</p>
               <h2 className="s-title">Specialist support, without the <em>production guesswork.</em></h2>
               <p className="s-body">{solution.fit}</p>
@@ -138,8 +138,10 @@ export default async function SolutionPage({ params }) {
 
         <section className="intent-process">
           <div className="inner">
-            <p className="s-tag">The Process</p>
-            <h2 className="s-title">Four steps. <em>One accountable team.</em></h2>
+            <div className="reveal">
+              <p className="s-tag">The Process</p>
+              <h2 className="s-title">Four steps. <em>One accountable team.</em></h2>
+            </div>
             <div className="intent-process-grid">
               {solution.process.map((step, index) => (
                 <article key={step} className="reveal"><span>{index + 1}</span><p>{step}</p></article>
@@ -150,7 +152,7 @@ export default async function SolutionPage({ params }) {
 
         <section className="intent-faq">
           <div className="inner intent-faq-grid">
-            <div><p className="s-tag">Frequently Asked Questions</p><h2 className="s-title">Useful answers before you <em>request a quote.</em></h2></div>
+            <div className="reveal"><p className="s-tag">Frequently Asked Questions</p><h2 className="s-title">Useful answers before you <em>request a quote.</em></h2></div>
             <div className="intent-faq-list">
               {solution.faqs.map(([question, answer]) => (
                 <details key={question} className="reveal"><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>
@@ -159,7 +161,7 @@ export default async function SolutionPage({ params }) {
           </div>
         </section>
 
-        <section className="cta">
+        <section className="cta reveal">
           <p className="s-tag">Tell Us What You Are Building</p>
           <h2 className="s-title">Get a tailored scope, timeline and <em>honest MOQ.</em></h2>
           <p className="cta-sub">Share your designs, quantity and destination. We will review the details and respond with the clearest next step.</p>
