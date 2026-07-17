@@ -72,6 +72,7 @@ export default async function SolutionPage({ params }) {
   };
 
   const quoteHref = `/contact?service=${solution.slug}#get-in-touch`;
+  const titleLead = solution.title.slice(0, -solution.titleAccent.length);
 
   return (
     <>
@@ -83,7 +84,7 @@ export default async function SolutionPage({ params }) {
         <header className="page-hero intent-page-hero">
           <div className="inner">
             <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/services">Services</a> &nbsp;/&nbsp; {solution.keyword}</p>
-            <h1>{solution.title}</h1>
+            <h1>{titleLead}<em>{solution.titleAccent}</em></h1>
             <p>{solution.description}</p>
           </div>
         </header>

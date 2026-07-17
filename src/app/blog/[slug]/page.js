@@ -42,6 +42,7 @@ export default async function ArticlePage({ params }) {
   if (!post || !article) notFound();
 
   const published = new Date(`${post.date}T12:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+  const titleLead = post.title.slice(0, -post.titleAccent.length);
   const pageUrl = `${siteUrl}/blog/${post.slug}`;
   const articleSchema = {
     "@context": "https://schema.org", "@type": "Article", headline: post.title,
@@ -66,7 +67,7 @@ export default async function ArticlePage({ params }) {
         <header className="page-hero article-page-hero">
           <div className="inner">
             <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog">Blog</a> &nbsp;/&nbsp; Guide</p>
-            <h1>{post.title}</h1>
+            <h1>{titleLead}<em>{post.titleAccent}</em></h1>
             <p>{post.description}</p>
             <div className="article-page-meta"><span>{published}</span><span>{post.readTime}</span><span>Written by Zameett</span></div>
           </div>

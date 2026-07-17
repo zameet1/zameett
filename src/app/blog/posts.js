@@ -2,6 +2,7 @@ export const POSTS = [
   {
     slug: "abaya-manufacturing-cost",
     title: "How Much Does It Cost to Manufacture an Abaya?",
+    titleAccent: "Manufacture an Abaya?",
     description: "A practical cost breakdown covering fabric, construction, embellishment, sampling, labels, quantity and freight—with a worked costing example.",
     date: "2026-07-13",
     image: "/services/manufacturing-1.jpeg",
@@ -10,6 +11,7 @@ export const POSTS = [
   {
     slug: "complete-abaya-manufacturing-process",
     title: "The Complete Abaya Manufacturing Process",
+    titleAccent: "Abaya Manufacturing Process",
     description: "From design brief and tech pack to fabric approval, sampling, cutting, stitching, finishing, quality control and shipment.",
     date: "2026-07-06",
     image: "/services/manufacturing-2.jpeg",
@@ -18,6 +20,7 @@ export const POSTS = [
   {
     slug: "how-to-create-a-tech-pack-for-abayas",
     title: "What Should an Abaya Tech Pack Include?",
+    titleAccent: "Abaya Tech Pack Include?",
     description: "The exact drawings, measurements, construction notes, BOM, artwork and revision controls a factory needs to sample an abaya accurately.",
     date: "2026-06-29",
     image: "/images/14.jpeg",
@@ -26,6 +29,7 @@ export const POSTS = [
   {
     slug: "modest-fashion-manufacturer-pakistan",
     title: "How to Find a Modest-Fashion Manufacturer",
+    titleAccent: "Modest-Fashion Manufacturer",
     description: "A due-diligence guide for comparing specialisation, samples, MOQs, quality systems, communication and production claims before paying a deposit.",
     date: "2026-06-22",
     image: "/images/27.jpeg",
@@ -34,6 +38,7 @@ export const POSTS = [
   {
     slug: "low-moq-vs-bulk-fashion-manufacturing",
     title: "Low MOQ vs Bulk Fashion Manufacturing",
+    titleAccent: "Bulk Fashion Manufacturing",
     description: "The real trade-offs in unit cost, cash risk, fabric buying, size depth, testing and reorders for emerging fashion brands.",
     date: "2026-06-15",
     image: "/services/manufacturing-3.jpeg",
@@ -42,6 +47,7 @@ export const POSTS = [
   {
     slug: "fabric-guide-abayas-modest-dresses",
     title: "Fabric Guide for Abayas and Modest Dresses",
+    titleAccent: "Abayas and Modest Dresses",
     description: "How nida, crepe, chiffon, satin, georgette and linen blends behave in real garments—and what to test before production.",
     date: "2026-06-08",
     image: "/images/25.jpeg",
@@ -50,6 +56,7 @@ export const POSTS = [
   {
     slug: "tech-pack-mistakes-delay-production",
     title: "Tech-Pack Mistakes That Delay Production",
+    titleAccent: "Delay Production",
     description: "Eight specification gaps that trigger factory questions, failed samples and avoidable revisions, with a pre-handoff audit checklist.",
     date: "2026-06-01",
     image: "/images/techpack.jpeg",
@@ -58,6 +65,7 @@ export const POSTS = [
   {
     slug: "how-to-start-a-modest-fashion-brand",
     title: "How to Start a Modest-Clothing Brand",
+    titleAccent: "Modest-Clothing Brand",
     description: "A grounded launch plan covering customer, price architecture, collection size, development files, sampling, production and first-drop validation.",
     date: "2026-05-25",
     image: "/images/19.jpeg",

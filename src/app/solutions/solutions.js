@@ -4,6 +4,7 @@ export const SOLUTIONS = [
     keyword: "Modest fashion manufacturer",
     eyebrow: "Modest-Wear Production Partner",
     title: "A Modest Fashion Manufacturer Built for Brand Owners",
+    titleAccent: "Built for Brand Owners",
     description:
       "Design, sampling and production for abayas, kaftans, modest dresses and coordinated collections, managed in Pakistan and shipped worldwide.",
     cover: "/services/manufacturing-1.jpeg",
@@ -26,6 +27,7 @@ export const SOLUTIONS = [
     keyword: "Abaya manufacturer in Pakistan",
     eyebrow: "Specialist Abaya Production",
     title: "Abaya Manufacturer in Pakistan for Global Modest Brands",
+    titleAccent: "for Global Modest Brands",
     description:
       "Specialist abaya design and manufacturing in Pakistan, from clean everyday silhouettes to layered, embroidered and embellished collections.",
     cover: "/services/abaya-1.jpeg",
@@ -48,6 +50,7 @@ export const SOLUTIONS = [
     keyword: "Private-label modest clothing manufacturer",
     eyebrow: "Your Label, Production Ready",
     title: "Private-Label Modest Clothing Manufacturing, End to End",
+    titleAccent: "End to End",
     description:
       "Launch a branded modest collection with custom labels, packaging, sampling and production handled through one specialist team.",
     cover: "/services/manufacturing-2.jpeg",
@@ -70,6 +73,7 @@ export const SOLUTIONS = [
     keyword: "Low MOQ clothing manufacturer Pakistan",
     eyebrow: "Start Small, Scale Confidently",
     title: "Low-MOQ Clothing Manufacturer in Pakistan for Emerging Brands",
+    titleAccent: "for Emerging Brands",
     description:
       "Small-batch apparel manufacturing for fashion startups that need professional sampling, honest quantities and a clear path to scale.",
     cover: "/services/manufacturing-3.jpeg",
@@ -92,6 +96,7 @@ export const SOLUTIONS = [
     keyword: "Fashion tech-pack design service",
     eyebrow: "Factory-Ready Product Development",
     title: "Fashion Tech-Pack Design Service for Clearer Production",
+    titleAccent: "for Clearer Production",
     description:
       "Detailed, editable fashion tech packs that translate your concept into clear construction, measurements, materials and factory instructions.",
     cover: "/images/techpack.jpeg",
@@ -114,6 +119,7 @@ export const SOLUTIONS = [
     keyword: "Abaya tech-pack designer",
     eyebrow: "Technical Design for Modest Wear",
     title: "Abaya Tech-Pack Designer Who Understands the Silhouette",
+    titleAccent: "Who Understands the Silhouette",
     description:
       "Production-ready abaya tech packs covering proportion, construction, grading, embroidery and embellishment placement with modest-wear expertise.",
     cover: "/services/abaya-2.jpeg",
@@ -136,6 +142,7 @@ export const SOLUTIONS = [
     keyword: "Editable fashion tech-pack template",
     eyebrow: "Reusable Product-Development System",
     title: "Editable Fashion Tech-Pack Templates Made for Your Workflow",
+    titleAccent: "Made for Your Workflow",
     description:
       "Customisable fashion tech-pack templates with clear pages for flats, measurements, BOMs, colourways, artwork and revision tracking.",
     cover: "/digital/p1-1.jpeg",
@@ -158,6 +165,7 @@ export const SOLUTIONS = [
     keyword: "Custom textile pattern designer",
     eyebrow: "Original Prints for Distinctive Collections",
     title: "Custom Textile Pattern Designer for Fashion Brands",
+    titleAccent: "for Fashion Brands",
     description:
       "Original seamless repeats and placement prints developed around your brand, garment, colour story and production requirements.",
     cover: "/services/textile-1.jpeg",
