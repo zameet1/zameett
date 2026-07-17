@@ -676,6 +676,7 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 
 /* Buyer-intent SEO landing pages */
 .intent-page{background:var(--ivory)}
+.intent-page>section{padding-top:84px;padding-bottom:84px}
 .intent-page-hero h1{max-width:16ch}
 .intent-hero{margin-top:76px;padding:0;background:linear-gradient(135deg,#fbf8f3 0%,#f6f0e8 100%);border-bottom:1px solid var(--border-dk);overflow:hidden;position:relative}
 .intent-hero::before{content:'';position:absolute;width:420px;height:420px;border:1px solid rgba(201,169,110,.16);border-radius:50%;right:-190px;top:-210px;pointer-events:none}
@@ -754,6 +755,7 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .intent-process-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
+  .intent-page>section{padding-top:64px;padding-bottom:64px}
   .gig-grid{grid-template-columns:1fr}
   .gig-actions .btn{flex:1;text-align:center;padding:15px 18px}
   .checkout-trust-panel{grid-template-columns:1fr}

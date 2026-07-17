@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import FaqAccordion from "@/components/FaqAccordion";
 import { SOLUTIONS, getSolution } from "../solutions";
 
 const siteUrl = "https://zameett.com";
@@ -154,11 +155,7 @@ export default async function SolutionPage({ params }) {
         <section className="intent-faq">
           <div className="inner intent-faq-grid">
             <div className="reveal"><p className="s-tag">Frequently Asked Questions</p><h2 className="s-title">Useful answers before you <em>request a quote.</em></h2></div>
-            <div className="intent-faq-list">
-              {solution.faqs.map(([question, answer]) => (
-                <details key={question} className="reveal"><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>
-              ))}
-            </div>
+            <div className="reveal"><FaqAccordion items={solution.faqs} /></div>
           </div>
         </section>
 
