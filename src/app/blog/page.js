@@ -34,19 +34,19 @@ export default function Blog() {
 
       <section className="services">
         <div className="inner">
-          <div className="dp-grid">
+          <div className="gig-grid blog-grid">
             {sorted.map((post) => (
-              <a key={post.slug} href={`/blog/${post.slug}`} className="dp-card">
-                <div className="dp-thumb">
-                  <CoverImage src={post.image} alt={post.title} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+              <a key={post.slug} href={`/blog/${post.slug}`} className="gig-card reveal">
+                <div className="gig-card-img">
+                  <CoverImage src={post.image} alt={post.title} sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 33vw" />
                 </div>
-                <div className="dp-body">
+                <div className="gig-card-body">
                   <div className="dp-cat">
                     {new Date(`${post.date}T12:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })} · {post.readTime}
                   </div>
-                  <h2 style={{ fontSize: 24, marginBottom: 12 }}>{post.title}</h2>
+                  <h3>{post.title}</h3>
                   <p>{post.description}</p>
-                  <span className="blog-card-link">Read practical guide →</span>
+                  <span className="gig-card-link">Read practical guide →</span>
                 </div>
               </a>
             ))}
