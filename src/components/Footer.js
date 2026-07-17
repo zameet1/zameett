@@ -91,10 +91,13 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>© 2026 Zameett. All rights reserved.</p>
           <div className="footer-payment-methods" aria-label="Accepted payment methods">
-            <span title="Visa"><SiVisa aria-label="Visa" /></span>
-            <span title="Mastercard"><SiMastercard aria-label="Mastercard" /></span>
-            <span title="American Express"><SiAmericanexpress aria-label="American Express" /></span>
-            <span title="Apple Pay"><SiApplepay aria-label="Apple Pay" /></span>
+            <small>We accept</small>
+            <div className="footer-payment-icons">
+              <span className="payment-visa" title="Visa"><SiVisa aria-label="Visa" /></span>
+              <span className="payment-mastercard" title="Mastercard"><SiMastercard aria-label="Mastercard" /></span>
+              <span className="payment-amex" title="American Express"><SiAmericanexpress aria-label="American Express" /></span>
+              <span className="payment-apple" title="Apple Pay"><SiApplepay aria-label="Apple Pay" /></span>
+            </div>
           </div>
           <p className="footer-legal">
             <a href="/privacy">Privacy Policy</a>

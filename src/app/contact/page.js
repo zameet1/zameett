@@ -102,7 +102,7 @@ export default function Contact() {
               <div className="contact-detail">
                 <span>Follow Us</span>
                 <div className="social-row">
-                  <SocialLinks className="social-btn" />
+                  <SocialLinks className="social-btn" only={["Instagram", "Pinterest"]} />
                 </div>
               </div>
             </div>
