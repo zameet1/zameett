@@ -714,11 +714,11 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 .intent-facts article{padding:28px 30px;border:1px solid var(--border-dk);background:#fff}
 .intent-facts span,.intent-directory-grid span{display:block;font:600 9px/1.4 var(--font-jost),sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px}
 .intent-facts p{font-size:14px;line-height:1.75;color:var(--mid)}
-.intent-deliverables,.intent-faq,.intent-directory{background:var(--ivory-dk)}
-.intent-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:42px}
-.intent-card{min-height:190px;padding:30px 26px;background:var(--ivory);border:1px solid var(--border-dk)}
-.intent-card span{font:500 10px/1 var(--font-jost),sans-serif;letter-spacing:2px;color:var(--gold-deep)}
-.intent-card h3{font-size:23px;line-height:1.25;color:var(--burg);margin-top:42px}
+.intent-faq,.intent-directory{background:var(--ivory-dk)}
+.intent-deliverables{background:var(--ivory)}
+.intent-receive-grid{grid-template-columns:repeat(2,1fr)}
+.intent-receive-grid .svc-card{min-height:220px}
+.intent-receive-grid .svc-card h3{font-size:13px;line-height:1.55;max-width:32ch}
 .intent-section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
 .intent-section-head .s-title{margin-bottom:0}
 .intent-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -755,7 +755,7 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .intent-hero-copy{max-width:700px}
   .intent-hero-image{justify-self:start;width:min(100%,520px);max-width:none;aspect-ratio:4/3}
   .intent-overview-grid,.intent-faq-grid{grid-template-columns:1fr;gap:46px}
-  .intent-card-grid,.intent-process-grid{grid-template-columns:1fr 1fr}
+  .intent-process-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
   .gig-grid{grid-template-columns:1fr}
@@ -768,7 +768,7 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .intent-hero-image{width:calc(100% - 12px);aspect-ratio:4/4.6;box-shadow:12px 12px 0 rgba(201,169,110,.13)}
   .intent-actions .btn{width:auto;text-align:center;padding:14px 24px}
   .intent-trust{display:grid;gap:10px}
-  .intent-card-grid,.intent-process-grid,.intent-gallery,.intent-directory-grid{grid-template-columns:1fr}
+  .intent-process-grid,.intent-gallery,.intent-directory-grid{grid-template-columns:1fr}
   .intent-section-head{align-items:start;flex-direction:column}
   .intent-gallery-item{aspect-ratio:5/4}
 }

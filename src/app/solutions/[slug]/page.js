@@ -80,27 +80,13 @@ export default async function SolutionPage({ params }) {
       <JsonLd data={breadcrumbSchema} />
 
       <main className="intent-page">
-        <header className="intent-hero">
-          <div className="inner intent-hero-grid">
-            <div className="intent-hero-copy">
-              <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/services">Services</a> &nbsp;/&nbsp; {solution.keyword}</p>
-              <p className="s-tag">{solution.eyebrow}</p>
-              <h1>{solution.title}</h1>
-              <p className="intent-lead">{solution.description}</p>
-              <div className="intent-actions">
-                <a href={quoteHref} className="btn btn-gold">Get a Quote →</a>
-                <a href="#portfolio" className="btn btn-outline-ivory">View Relevant Work</a>
-              </div>
-              <div className="intent-trust" aria-label="Service highlights">
-                <span>Worldwide clients</span><span>Sample approval first</span><span>Clear project scope</span>
-              </div>
-            </div>
-            <div className="intent-hero-image">
-              <Image src={solution.cover} alt={solution.title} fill priority sizes="(max-width: 900px) 100vw, 44vw" />
-            </div>
+        <header className="page-hero intent-page-hero">
+          <div className="inner">
+            <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/services">Services</a> &nbsp;/&nbsp; {solution.keyword}</p>
+            <h1>{solution.title}</h1>
+            <p>{solution.description}</p>
           </div>
         </header>
-
         <section className="intent-overview">
           <div className="inner intent-overview-grid">
             <div>
@@ -115,18 +101,25 @@ export default async function SolutionPage({ params }) {
           </div>
         </section>
 
-        <section className="intent-deliverables">
+        <section className="services intent-deliverables">
           <div className="inner">
-            <p className="s-tag">What You Receive</p>
-            <h2 className="s-title">A clear scope from <em>brief to handoff.</em></h2>
-            <div className="intent-card-grid">
+            <div className="svc-head reveal">
+              <div>
+                <p className="s-tag">What You Receive</p>
+                <h2 className="s-title">A clear scope from <em>brief to handoff.</em></h2>
+              </div>
+              <p className="s-body">Every deliverable is agreed before work begins, so you know exactly what is included and what moves your collection forward.</p>
+            </div>
+            <div className="svc-grid intent-receive-grid">
               {solution.deliverables.map((item, index) => (
-                <article key={item} className="intent-card"><span>0{index + 1}</span><h3>{item}</h3></article>
+                <article key={item} className="svc-card reveal">
+                  <div className="svc-num" aria-hidden="true">0{index + 1}</div>
+                  <h3>{item}</h3>
+                </article>
               ))}
             </div>
           </div>
         </section>
-
         <section className="intent-portfolio" id="portfolio">
           <div className="inner">
             <div className="intent-section-head">
