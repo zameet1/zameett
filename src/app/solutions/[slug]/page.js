@@ -95,8 +95,8 @@ export default async function SolutionPage({ params }) {
               <p className="s-body">{solution.fit}</p>
             </div>
             <div className="intent-facts">
-              <article><span>Estimated timeline</span><p>{solution.timeline}</p></article>
-              <article><span>MOQ information</span><p>{solution.moq}</p></article>
+              <article className="reveal"><span>Estimated timeline</span><p>{solution.timeline}</p></article>
+              <article className="reveal"><span>MOQ information</span><p>{solution.moq}</p></article>
             </div>
           </div>
         </section>
@@ -122,13 +122,13 @@ export default async function SolutionPage({ params }) {
         </section>
         <section className="intent-portfolio" id="portfolio">
           <div className="inner">
-            <div className="intent-section-head">
+            <div className="intent-section-head reveal">
               <div><p className="s-tag">Relevant Portfolio</p><h2 className="s-title">Work made for <em>real production.</em></h2></div>
               <a href="/portfolio" className="btn btn-outline">Explore Full Portfolio →</a>
             </div>
             <div className="intent-gallery">
               {solution.gallery.map((image, index) => (
-                <div className="intent-gallery-item" key={image}>
+                <div className="intent-gallery-item reveal" key={image}>
                   <Image src={image} alt={`${solution.keyword} portfolio example ${index + 1}`} fill sizes="(max-width: 700px) 100vw, 33vw" />
                 </div>
               ))}
@@ -142,7 +142,7 @@ export default async function SolutionPage({ params }) {
             <h2 className="s-title">Four steps. <em>One accountable team.</em></h2>
             <div className="intent-process-grid">
               {solution.process.map((step, index) => (
-                <article key={step}><span>{index + 1}</span><p>{step}</p></article>
+                <article key={step} className="reveal"><span>{index + 1}</span><p>{step}</p></article>
               ))}
             </div>
           </div>
@@ -153,7 +153,7 @@ export default async function SolutionPage({ params }) {
             <div><p className="s-tag">Frequently Asked Questions</p><h2 className="s-title">Useful answers before you <em>request a quote.</em></h2></div>
             <div className="intent-faq-list">
               {solution.faqs.map(([question, answer]) => (
-                <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>
+                <details key={question} className="reveal"><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>
               ))}
             </div>
           </div>

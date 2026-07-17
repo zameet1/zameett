@@ -716,7 +716,7 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 .intent-facts p{font-size:14px;line-height:1.75;color:var(--mid)}
 .intent-faq,.intent-directory{background:var(--ivory-dk)}
 .intent-deliverables{background:var(--ivory)}
-.intent-receive-grid{grid-template-columns:repeat(2,1fr)}
+.intent-receive-grid{grid-template-columns:repeat(4,1fr)}
 .intent-receive-grid .svc-card{min-height:220px}
 .intent-receive-grid .svc-card h3{font-size:13px;line-height:1.55;max-width:32ch}
 .intent-section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
@@ -755,6 +755,7 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .intent-hero-copy{max-width:700px}
   .intent-hero-image{justify-self:start;width:min(100%,520px);max-width:none;aspect-ratio:4/3}
   .intent-overview-grid,.intent-faq-grid{grid-template-columns:1fr;gap:46px}
+  .intent-receive-grid{grid-template-columns:1fr 1fr}
   .intent-process-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
