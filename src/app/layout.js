@@ -41,6 +41,14 @@ export const metadata = {
     "modest fashion tech packs",
   ],
   authors: [{ name: "Zameett" }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "64x64", type: "image/x-icon" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     url: siteUrl,
