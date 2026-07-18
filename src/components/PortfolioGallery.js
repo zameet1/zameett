@@ -11,6 +11,12 @@ const ITEMS = [
   { num: "07", cat: "abaya", src: "/images/20.jpeg", alt: "Cocoa cape abaya", catLabel: "Abayas · Full Manufacturing", title: <>Cocoa <em>Cape Abaya</em></>, desc: "Draped layered abaya with woven trims and tassel ties." },
   { num: "08", cat: "bias", src: "/images/04.jpeg", alt: "Sleeveless slip edit", catLabel: "Bias Cut · Tech Packs", title: <>The <em>Sleeveless Slip Edit</em></>, desc: "A four-colour slip-dress capsule, graded and tech-packed." },
   { num: "09", cat: "embroidery", src: "/images/08.jpeg", alt: "Terracotta tribal kimono", catLabel: "Embroidery · Full Manufacturing", title: <>Terracotta <em>Tribal Kimono</em></>, desc: "Layered kimono with woven tribal panels and fringe sleeves." },
+  { num: "10", cat: "archive", src: "/images/03.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Collection Work", title: <>Collection <em>Study 10</em></>, desc: "Original modest-wear development from the Zameett studio." },
+  { num: "11", cat: "archive", src: "/images/06.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Collection Work", title: <>Collection <em>Study 11</em></>, desc: "Design, silhouette and finish developed for real production." },
+  { num: "12", cat: "archive", src: "/images/11.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Atelier Work", title: <>Collection <em>Study 12</em></>, desc: "A selected piece from our design and sampling archive." },
+  { num: "13", cat: "archive", src: "/images/19.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Sampling", title: <>Collection <em>Study 13</em></>, desc: "Modest-wear development carried from concept into garment." },
+  { num: "14", cat: "archive", src: "/images/23.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Production", title: <>Collection <em>Study 14</em></>, desc: "Production-focused work created around brand direction." },
+  { num: "15", cat: "archive", src: "/images/24.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Finished Work", title: <>Collection <em>Study 15</em></>, desc: "A finished collection reference from the Zameett archive." },
 ];
 
 const FILTERS = [
@@ -20,6 +26,7 @@ const FILTERS = [
   { cat: "scarf", label: "Shawls & Scarves" },
   { cat: "formal", label: "Formal" },
   { cat: "embroidery", label: "Embroidery & Prints" },
+  { cat: "archive", label: "Studio Archive" },
 ];
 
 export default function PortfolioGallery() {

@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import FeaturedGigs from "@/components/FeaturedGigs";
 import ShopHighlight from "@/components/ShopHighlight";
+import WorkShowcase from "@/components/WorkShowcase";
 
 export default function Home() {
   return (
@@ -77,6 +78,8 @@ export default function Home() {
         </div>
         <p className="stats-note">Figures reflect our team&rsquo;s combined experience in modest fashion design and manufacturing.</p>
       </div>
+
+      <WorkShowcase />
 
       {/* SERVICES PREVIEW */}
       <section className="services home-services">

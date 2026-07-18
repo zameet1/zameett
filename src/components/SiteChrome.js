@@ -74,7 +74,7 @@ export default function SiteChrome() {
       ".intent-directory-grid > a", ".intent-facts article", ".intent-gallery-item",
       ".intent-process-grid article", ".val", ".c-item", ".pain-item", ".p-step",
       ".shop-benefit-grid article", ".contact-step-grid article", ".contact-detail",
-      ".faq-item"
+      ".faq-item", ".work-showcase-card"
     ].join(",");
     document.querySelectorAll(cardSelector).forEach((el, index) => {
       el.classList.add("reveal", "card-reveal");

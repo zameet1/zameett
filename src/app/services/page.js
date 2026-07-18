@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import JsonLd from "@/components/JsonLd";
 import FeaturedGigs from "@/components/FeaturedGigs";
+import WorkShowcase from "@/components/WorkShowcase";
 import { SOLUTIONS } from "../solutions/solutions";
 
 const SERVICES = [
@@ -134,6 +135,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <WorkShowcase compact />
 
       {/* FEATURED GIGS */}
       <FeaturedGigs />
