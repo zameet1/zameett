@@ -61,6 +61,25 @@ export default function SiteChrome() {
   // so without JS or with reduced motion everything stays fully visible.
   useEffect(() => {
     if (!document.documentElement.classList.contains("js-reveal")) return;
+    const gridSelector = [
+      ".svc-grid.reveal", ".gig-grid.reveal", ".t-grid.reveal", ".why-grid.reveal",
+      ".sig-grid.reveal", ".intent-directory-grid.reveal", ".intent-gallery.reveal",
+      ".intent-process-grid.reveal", ".values.reveal", ".c-list.reveal",
+      ".pain-list.reveal", ".p-row.reveal", ".shop-benefit-grid.reveal",
+      ".contact-step-grid.reveal", ".contact-info-col.reveal"
+    ].join(",");
+    document.querySelectorAll(gridSelector).forEach((el) => el.classList.remove("reveal", "in"));
+    const cardSelector = [
+      ".svc-card", ".gig-card", ".t-card", ".why-card", ".sig-card",
+      ".intent-directory-grid > a", ".intent-facts article", ".intent-gallery-item",
+      ".intent-process-grid article", ".val", ".c-item", ".pain-item", ".p-step",
+      ".shop-benefit-grid article", ".contact-step-grid article", ".contact-detail",
+      ".faq-item"
+    ].join(",");
+    document.querySelectorAll(cardSelector).forEach((el, index) => {
+      el.classList.add("reveal", "card-reveal");
+      el.style.setProperty("--reveal-delay", `${(index % 4) * 70}ms`);
+    });
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
