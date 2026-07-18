@@ -74,7 +74,9 @@ export default function SiteChrome() {
       ".intent-directory-grid > a", ".intent-facts article", ".intent-gallery-item",
       ".intent-process-grid article", ".val", ".c-item", ".pain-item", ".p-step",
       ".shop-benefit-grid article", ".contact-step-grid article", ".contact-detail",
-      ".faq-item", ".work-showcase-card"
+      ".faq-item", ".work-showcase-card", ".dp-card", ".shl-card",
+      ".contact-form-panel", ".checkout-trust-panel > div", ".article-sidebar > div",
+      ".article-takeaway", ".article-field-note"
     ].join(",");
     document.querySelectorAll(cardSelector).forEach((el, index) => {
       el.classList.add("reveal", "card-reveal");
@@ -86,6 +88,12 @@ export default function SiteChrome() {
           if (e.isIntersecting) {
             e.target.classList.add("in");
             io.unobserve(e.target);
+            if (e.target.classList.contains("card-reveal")) {
+              window.setTimeout(() => {
+                e.target.classList.remove("reveal", "card-reveal", "in");
+                e.target.style.removeProperty("--reveal-delay");
+              }, 900);
+            }
           }
         });
       },
@@ -95,5 +103,25 @@ export default function SiteChrome() {
     return () => io.disconnect();
   }, [pathname]);
 
+  // Give touch users the same visual feedback that desktop users get on hover.
+  useEffect(() => {
+    const selector = [
+      ".svc-card", ".why-card", ".pain-item", ".intent-process-grid article",
+      ".contact-step-grid article", ".p-step", ".val", ".c-item",
+      ".intent-facts article", ".shop-benefit-grid article", ".t-card"
+    ].join(",");
+
+    function onCardClick(event) {
+      if (event.target.closest("a,button,input,select,textarea,summary")) return;
+      const card = event.target.closest(selector);
+      document.querySelectorAll(".card-active").forEach((item) => {
+        if (item !== card) item.classList.remove("card-active");
+      });
+      if (card) card.classList.toggle("card-active");
+    }
+
+    document.addEventListener("click", onCardClick);
+    return () => document.removeEventListener("click", onCardClick);
+  }, [pathname]);
   return null;
 }
