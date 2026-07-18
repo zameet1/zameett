@@ -10,12 +10,12 @@ const HOME_WORK = [
 ];
 
 const SERVICE_WORK = [
-  { image: "/portfolio-pdf/flat-09.webp", label: "Technical Flat", title: "Clear silhouette development", fit: "contain" },
-  { image: "/portfolio-pdf/flat-10.webp", label: "Front and Back", title: "Construction made easy to follow", fit: "contain" },
-  { image: "/portfolio-pdf/flat-11.webp", label: "Design Detail", title: "Proportion before sampling", fit: "contain" },
-  { image: "/portfolio-pdf/flat-12.webp", label: "Garment Development", title: "Sketches built for production", fit: "contain" },
-  { image: "/portfolio-pdf/flat-13.webp", label: "Technical Design", title: "Accurate design communication", fit: "contain" },
-  { image: "/portfolio-pdf/flat-14.webp", label: "Factory Handoff", title: "Details resolved before cutting", fit: "contain" },
+  { image: "/images/06.jpeg", label: "Modest Wear", title: "Proportion, drape and finish" },
+  { image: "/images/11.jpeg", label: "Atelier Work", title: "Details made production ready" },
+  { image: "/images/19.jpeg", label: "Sampling", title: "Ideas tested as real garments" },
+  { image: "/images/23.jpeg", label: "Production", title: "Quality carried through" },
+  { image: "/images/24.jpeg", label: "Finished Collection", title: "Ready for your label" },
+  { image: "/images/27.jpeg", label: "Collection Rail", title: "A complete range, ready to launch" },
 ];
 
 export default function WorkShowcase({ compact = false }) {

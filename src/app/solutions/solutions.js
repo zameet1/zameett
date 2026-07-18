@@ -8,7 +8,7 @@ export const SOLUTIONS = [
     description:
       "Design, sampling and production for abayas, kaftans, modest dresses and coordinated collections, managed in Pakistan and shipped worldwide.",
     cover: "/services/manufacturing-1.jpeg",
-    gallery: ["/portfolio-pdf/flat-01.webp", "/images/21.jpeg", "/images/25.jpeg"],
+    gallery: ["/services/manufacturing-1.jpeg", "/images/21.jpeg", "/images/25.jpeg"],
     contactValue: "Full Manufacturing (Design to Delivery)",
     fit: "Independent designers, boutique owners and growing modest-fashion labels that need one accountable partner from concept to delivery.",
     timeline: "Sampling usually takes 2–4 weeks after design approval. Production timing is confirmed with your quote and depends on quantity, fabric and embellishment.",
@@ -31,7 +31,7 @@ export const SOLUTIONS = [
     description:
       "Specialist abaya design and manufacturing in Pakistan, from clean everyday silhouettes to layered, embroidered and embellished collections.",
     cover: "/services/abaya-1.jpeg",
-    gallery: ["/portfolio-pdf/flat-02.webp", "/services/abaya-2.jpeg", "/services/abaya-3.jpeg"],
+    gallery: ["/services/abaya-1.jpeg", "/services/abaya-2.jpeg", "/services/abaya-3.jpeg"],
     contactValue: "Custom Clothing Manufacturing (Private Label)",
     fit: "Abaya labels and designers who need accurate modest proportions, fabric-aware construction and reliable communication through sampling and production.",
     timeline: "A first sample commonly takes 2–4 weeks after the design and materials are approved. Complex handwork can require additional time.",
@@ -54,7 +54,7 @@ export const SOLUTIONS = [
     description:
       "Launch a branded modest collection with custom labels, packaging, sampling and production handled through one specialist team.",
     cover: "/services/manufacturing-2.jpeg",
-    gallery: ["/portfolio-pdf/flat-03.webp", "/services/manufacturing-3.jpeg", "/images/26.jpeg"],
+    gallery: ["/services/manufacturing-2.jpeg", "/services/manufacturing-3.jpeg", "/images/26.jpeg"],
     contactValue: "Custom Clothing Manufacturing (Private Label)",
     fit: "New and established brands that want original modest garments produced under their own name without building a fragmented supplier network.",
     timeline: "Allow approximately 3–5 weeks for development and sampling, followed by a production schedule based on quantity and custom branding requirements.",
@@ -77,7 +77,7 @@ export const SOLUTIONS = [
     description:
       "Small-batch apparel manufacturing for fashion startups that need professional sampling, honest quantities and a clear path to scale.",
     cover: "/services/manufacturing-3.jpeg",
-    gallery: ["/portfolio-pdf/flat-04.webp", "/images/22.jpeg", "/images/27.jpeg"],
+    gallery: ["/services/manufacturing-3.jpeg", "/images/22.jpeg", "/images/27.jpeg"],
     contactValue: "Sampling & Production",
     fit: "Founders testing a first capsule, boutique owners launching exclusives and designers who prefer controlled inventory over a large opening order.",
     timeline: "Sampling is generally 2–4 weeks. Small-batch production timing is quoted after material availability and the final order breakdown are confirmed.",
@@ -100,7 +100,7 @@ export const SOLUTIONS = [
     description:
       "Detailed, editable fashion tech packs that translate your concept into clear construction, measurements, materials and factory instructions.",
     cover: "/images/techpack.jpeg",
-    gallery: ["/portfolio-pdf/flat-05.webp", "/images/techpack.jpeg", "/images/14.jpeg"],
+    gallery: ["/images/techpack.jpeg", "/services/abaya-1.jpeg", "/images/14.jpeg"],
     contactValue: "Design & Tech Packs Only",
     fit: "Fashion founders and designers who need a manufacturer-ready specification pack before sampling or requesting reliable production quotes.",
     timeline: "Most single-style tech packs take 5–10 business days after the brief is complete. Multi-style collections are scheduled in stages.",
@@ -123,7 +123,7 @@ export const SOLUTIONS = [
     description:
       "Production-ready abaya tech packs covering proportion, construction, grading, embroidery and embellishment placement with modest-wear expertise.",
     cover: "/services/abaya-2.jpeg",
-    gallery: ["/portfolio-pdf/flat-06.webp", "/services/abaya-1.jpeg", "/services/abaya-3.jpeg"],
+    gallery: ["/services/abaya-2.jpeg", "/services/abaya-1.jpeg", "/services/abaya-3.jpeg"],
     contactValue: "Fashion Tech Pack (Abaya / Kaftan / Modest Wear)",
     fit: "Abaya designers who need their creative intent translated accurately for factories that may not understand modest-wear drape, length and detailing.",
     timeline: "A standard abaya tech pack usually takes 5–10 business days. Multi-piece sets or heavy embellishment are scoped separately.",
@@ -146,7 +146,7 @@ export const SOLUTIONS = [
     description:
       "Customisable fashion tech-pack templates with clear pages for flats, measurements, BOMs, colourways, artwork and revision tracking.",
     cover: "/digital/p1-1.jpeg",
-    gallery: ["/portfolio-pdf/flat-07.webp", "/digital/p1-2.jpeg", "/digital/p1-3.jpeg"],
+    gallery: ["/digital/p1-1.jpeg", "/digital/p1-2.jpeg", "/digital/p1-3.jpeg"],
     contactValue: "Design & Tech Packs Only",
     fit: "In-house designers, fashion students and growing labels that want a repeatable, editable structure for future product development.",
     timeline: "A customised template is typically prepared within 3–7 business days after your format, branding and category needs are confirmed.",
@@ -169,7 +169,7 @@ export const SOLUTIONS = [
     description:
       "Original seamless repeats and placement prints developed around your brand, garment, colour story and production requirements.",
     cover: "/services/textile-1.jpeg",
-    gallery: ["/portfolio-pdf/flat-08.webp", "/services/textile-2.jpeg", "/services/textile-3.jpeg"],
+    gallery: ["/services/textile-1.jpeg", "/services/textile-2.jpeg", "/services/textile-3.jpeg"],
     contactValue: "Custom Seamless Textile Patterns",
     fit: "Fashion labels and textile buyers who want a recognisable print language instead of generic stock artwork used by competing brands.",
     timeline: "Most single-pattern projects take 5–10 business days. Collections, complex hand-drawn motifs and multiple colourways require a longer schedule.",
