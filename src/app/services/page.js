@@ -84,7 +84,7 @@ export default function Services() {
       {servicesSchema.map((s, i) => (
         <JsonLd key={i} data={s} />
       ))}
-      <header className="page-hero">
+      <header className="page-hero service-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Services</p>
           <h1>Design only, full manufacturing, or <em>everything in between.</em></h1>
@@ -93,11 +93,12 @@ export default function Services() {
             carry your collection from the first sketch all the way to your customer&rsquo;s
             doorstep. You choose your level of involvement.
           </p>
+          <div className="page-hero-proof"><span>Design only</span><span>Low-MOQ friendly</span><span>Worldwide delivery</span></div>
         </div>
       </header>
 
       {/* SERVICE PATHS */}
-      <section className="services" style={{ paddingBottom: 48 }}>
+      <section className="services services-paths premium-section" style={{ paddingBottom: 48 }}>
         <div className="inner">
           <div className="svc-head reveal">
             <div>
@@ -116,16 +117,19 @@ export default function Services() {
               <div className="svc-num" aria-hidden="true">A</div>
               <h3>Design &amp; Tech Packs Only</h3>
               <p>We create complete design concepts and manufacturer-ready tech packs. You take the files to any factory in the world. No production commitment required.</p>
+              <a className="svc-link" href="/contact?service=fashion-tech-packs#get-in-touch">Choose design only →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">B</div>
               <h3>Design + Sampling</h3>
               <p>Designs, tech packs and a physical prototype sample produced and shipped to you — so you can approve fit and finish before committing to a full run.</p>
+              <a className="svc-link" href="/contact#get-in-touch">Choose design + sampling →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">C</div>
               <h3>Full Manufacturing</h3>
               <p>The complete journey — design, sourcing, sampling, production, quality control and worldwide delivery, all handled under one roof.</p>
+              <a className="svc-link" href="/contact?service=clothing-manufacturing#get-in-touch">Choose full production →</a>
             </div>
           </div>
         </div>
@@ -135,7 +139,7 @@ export default function Services() {
       <FeaturedGigs />
 
       {/* BUYER-INTENT SERVICE GUIDES */}
-      <section className="intent-directory">
+      <section className="intent-directory services-directory premium-section">
         <div className="inner">
           <div className="svc-head reveal">
             <div>
@@ -158,7 +162,7 @@ export default function Services() {
       </section>
 
       {/* DETAILED SERVICES */}
-      <section className="services" style={{ paddingTop: 24 }}>
+      <section className="services services-capabilities premium-section" style={{ paddingTop: 24 }}>
         <div className="inner">
           <div className="svc-head reveal">
             <div>
@@ -224,7 +228,7 @@ export default function Services() {
       </div>
 
       {/* PROCESS */}
-      <section className="process" id="how-we-work">
+      <section className="process services-process" id="how-we-work">
         <div className="inner">
           <p className="s-tag">How We Work</p>
           <h2 className="s-title">A clear process. <em>Zero guesswork.</em></h2>
@@ -259,7 +263,7 @@ export default function Services() {
       </section>
 
       {/* PROBLEM */}
-      <section className="problem">
+      <section className="problem services-problem">
         <div className="inner">
           <div>
             <p className="s-tag">The Real Problem</p>
@@ -292,7 +296,7 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="cta">
+      <section className="cta page-cta">
         <p className="s-tag">Ready to Begin?</p>
         <h2 className="s-title">Tell us what you&rsquo;re making.<br /><em>We&rsquo;ll map the route.</em></h2>
         <p className="cta-sub">Share your project and we will come back with a clear path, timeline and quote within 24 hours.</p>

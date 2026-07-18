@@ -37,7 +37,7 @@ export default function Portfolio() {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
-      <header className="page-hero">
+      <header className="page-hero portfolio-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Portfolio</p>
           <h1>The <em>lookbook.</em></h1>
@@ -46,11 +46,12 @@ export default function Portfolio() {
             velvet kaftans, bias-cut pieces, embellished formals and printed capsules, delivered to
             brands and boutiques worldwide.
           </p>
+          <div className="page-hero-proof"><span>Original design</span><span>Atelier sampling</span><span>Production ready</span></div>
         </div>
       </header>
 
       {/* FEATURED */}
-      <section className="pf-feature">
+      <section className="pf-feature portfolio-feature">
         <div className="inner">
           <div className="pff-media">
             <span className="pff-badge">Featured Collection</span>
@@ -78,7 +79,7 @@ export default function Portfolio() {
       </section>
 
       {/* GALLERY */}
-      <section className="pf-section">
+      <section className="pf-section portfolio-gallery-section">
         <div className="inner">
           <PortfolioGallery />
         </div>
@@ -98,7 +99,7 @@ export default function Portfolio() {
       </div>
 
       {/* TESTIMONIAL STRIP */}
-      <section className="testimonials">
+      <section className="testimonials portfolio-testimonials">
         <div className="inner">
           <div className="t-head reveal">
             <p className="s-tag">In Their Words</p>
@@ -128,7 +129,7 @@ export default function Portfolio() {
       </section>
 
       {/* CTA */}
-      <section className="cta">
+      <section className="cta page-cta">
         <p className="s-tag">Your Collection Next</p>
         <h2 className="s-title">Let&rsquo;s add your brand <em>to this page.</em></h2>
         <p className="cta-sub">

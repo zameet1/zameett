@@ -40,7 +40,7 @@ export default function Contact() {
   return (
     <>
       <JsonLd data={faqSchema} />
-      <header className="page-hero">
+      <header className="page-hero contact-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Contact</p>
           <h1>Let&rsquo;s bring your <em>collection to life.</em></h1>
@@ -49,11 +49,12 @@ export default function Contact() {
             little as you like — design only, full manufacturing, or anything in between. We will
             take it from there.
           </p>
+          <div className="page-hero-proof"><span>Reply within 24 hours</span><span>No first-call commitment</span><span>Worldwide enquiries</span></div>
         </div>
       </header>
 
       {/* CONTACT FORM */}
-      <section className="contact-section" id="get-in-touch">
+      <section className="contact-section contact-premium" id="get-in-touch">
         <div className="inner">
           <div className="reveal">
             <p className="s-tag">Get In Touch</p>
@@ -108,14 +109,26 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="reveal">
+          <div className="reveal contact-form-panel">
+            <div className="contact-form-head"><span>Project Brief</span><h2>Tell us what you are building.</h2><p>Share what you know now. We can help define the rest together.</p></div>
             <ContactForm />
           </div>
         </div>
       </section>
 
+      <section className="contact-steps">
+        <div className="inner">
+          <p className="s-tag">What Happens Next</p>
+          <div className="contact-step-grid reveal">
+            <article><span>01</span><div><h3>We review your brief</h3><p>A specialist checks your product type, service needs, quantity and timing.</p></div></article>
+            <article><span>02</span><div><h3>We clarify the details</h3><p>We ask only the questions needed to recommend the right development route.</p></div></article>
+            <article><span>03</span><div><h3>You receive a clear path</h3><p>We outline scope, expected timeline and the next practical step for your collection.</p></div></article>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
-      <section className="faq" id="faq">
+      <section className="faq contact-faq" id="faq">
         <div className="inner">
           <div className="faq-layout">
             <div>

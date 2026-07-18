@@ -58,7 +58,7 @@ export default function Shop() {
         <JsonLd key={i} data={s} />
       ))}
 
-      <header className="page-hero">
+      <header className="page-hero shop-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Shop</p>
           <h1>Digital templates, <em>ready to download.</em></h1>
@@ -66,10 +66,11 @@ export default function Shop() {
             Editable, industry-standard tech pack templates — built by our studio so you can create
             polished, factory-ready spec sheets in minutes. Instant delivery, no subscription.
           </p>
+          <div className="page-hero-proof"><span>Instant download</span><span>Fully editable</span><span>Factory ready</span></div>
         </div>
       </header>
 
-      <section className="shop">
+      <section className="shop shop-premium">
         <div className="inner">
           <div className="svc-head reveal">
             <div>
@@ -82,7 +83,7 @@ export default function Shop() {
             </p>
           </div>
 
-          <div className="gig-grid reveal">
+          <div className="gig-grid shop-product-grid reveal">
             {PRODUCTS.map((p) => (
               <a key={p.slug} href={`/shop/${p.slug}`} className="gig-card prod-card">
                 <div className="gig-card-img">
@@ -103,6 +104,26 @@ export default function Shop() {
         </div>
       </section>
 
+      <section className="shop-benefits">
+        <div className="inner">
+          <div className="svc-head reveal">
+            <div><p className="s-tag">Built for Real Production</p><h2 className="s-title">More than a template. <em>A clearer factory handoff.</em></h2></div>
+            <p className="s-body">Every file follows the same practical structure our studio uses to communicate garments, materials and revisions with production teams.</p>
+          </div>
+          <div className="shop-benefit-grid reveal">
+            <article><span>01</span><h3>Edit with confidence</h3><p>Structured pages keep drawings, measurements, BOMs, colourways and notes organised.</p></article>
+            <article><span>02</span><h3>Brief factories clearly</h3><p>Reduce repeated questions by giving suppliers one complete, easy-to-follow source of truth.</p></article>
+            <article><span>03</span><h3>Reuse for every style</h3><p>Duplicate the editable system for future products and build a consistent development library.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta page-cta shop-cta">
+        <p className="s-tag">Need Something Custom?</p>
+        <h2 className="s-title">Prefer us to build the tech pack <em>for you?</em></h2>
+        <p className="cta-sub">Share your garment direction and our technical design team can prepare a complete factory-ready pack around your product.</p>
+        <div className="cta-btns"><a href="/contact?service=fashion-tech-packs#get-in-touch" className="btn btn-gold">Request Custom Tech Pack →</a><a href="/services/fashion-tech-packs" className="btn btn-outline-ivory">View Service</a></div>
+      </section>
       <Footer />
     </>
   );
