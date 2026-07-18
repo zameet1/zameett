@@ -26,7 +26,7 @@ export default function About() {
   return (
     <>
       {/* PAGE HERO */}
-      <header className="page-hero">
+      <header className="page-hero about-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; About</p>
           <h1>We speak <em>modest fashion</em> fluently.</h1>
@@ -35,11 +35,12 @@ export default function About() {
             modest fashion brands, independent designers and boutique owners who refuse to
             compromise on their vision.
           </p>
+          <div className="page-hero-proof"><span>Pakistan based</span><span>Modest-wear specialists</span><span>Worldwide delivery</span></div>
         </div>
       </header>
 
       {/* ABOUT */}
-      <section className="about">
+      <section className="about about-premium">
         <div className="inner">
           <div className="reveal">
             <p className="s-tag">About Zameett</p>
@@ -78,13 +79,13 @@ export default function About() {
           <div className="stat-sep"></div>
           <div className="stat"><div className="stat-num">6+</div><div className="stat-lbl">Years Team Experience</div></div>
           <div className="stat-sep"></div>
-          <div className="stat"><div className="stat-num">🌍</div><div className="stat-lbl">Worldwide Delivery</div></div>
+          <div className="stat"><div className="stat-num stat-word">Global</div><div className="stat-lbl">Worldwide Delivery</div></div>
         </div>
         <p className="stats-note">Figures reflect our team&rsquo;s combined experience in modest fashion design and manufacturing.</p>
       </div>
 
       {/* EXPERIENCE / OUR STORY */}
-      <section className="experience">
+      <section className="experience about-story">
         <div className="inner">
           <div className="exp-photos reveal">
             <div className="exp-ph tall"><CoverImage src="/images/13.jpeg" objectPosition="center 35%" alt="Zameett production floor" sizes="(max-width: 960px) 50vw, 25vw" /></div>
@@ -119,7 +120,7 @@ export default function About() {
       </section>
 
       {/* WHO WE SERVE */}
-      <section className="clients">
+      <section className="clients about-clients">
         <div className="inner">
           <div className="reveal">
             <p className="s-tag">Who We Serve</p>
@@ -165,7 +166,7 @@ export default function About() {
       </div>
 
       {/* CTA */}
-      <section className="cta">
+      <section className="cta page-cta">
         <p className="s-tag">Work With Us</p>
         <h2 className="s-title">A partner that <em>understands your craft.</em></h2>
         <p className="cta-sub">

@@ -70,7 +70,7 @@ export default async function ProductPage({ params, searchParams }) {
       <JsonLd data={productSchema} />
       <JsonLd data={breadcrumbSchema} />
 
-      <section className="gig-detail">
+      <section className="gig-detail premium-detail-page product-detail-page">
         <div className="inner">
           <p className="crumb">
             <a href="/">Home</a> &nbsp;/&nbsp; <a href="/shop">Shop</a> &nbsp;/&nbsp; {p.short}

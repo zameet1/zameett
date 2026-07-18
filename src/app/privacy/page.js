@@ -9,7 +9,7 @@ export const metadata = {
 export default function Privacy() {
   return (
     <>
-      <header className="page-hero">
+      <header className="page-hero legal-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Privacy Policy</p>
           <h1>Privacy <em>Policy</em></h1>
@@ -17,7 +17,7 @@ export default function Privacy() {
         </div>
       </header>
 
-      <section className="services">
+      <section className="services legal-page">
         <div className="inner" style={{ maxWidth: 760 }}>
           <p className="s-body" style={{ marginBottom: 18 }}>
             This Privacy Policy explains how Zameett (&ldquo;we&rdquo;, &ldquo;us&rdquo;) collects,

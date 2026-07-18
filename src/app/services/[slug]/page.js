@@ -63,7 +63,7 @@ export default async function GigPage({ params }) {
       <JsonLd data={serviceSchema} />
       <JsonLd data={breadcrumbSchema} />
 
-      <section className="gig-detail">
+      <section className="gig-detail premium-detail-page">
         <div className="inner">
           <p className="crumb">
             <a href="/">Home</a> &nbsp;/&nbsp; <a href="/services">Services</a> &nbsp;/&nbsp; {gig.short}

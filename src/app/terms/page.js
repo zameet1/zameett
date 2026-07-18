@@ -9,7 +9,7 @@ export const metadata = {
 export default function Terms() {
   return (
     <>
-      <header className="page-hero">
+      <header className="page-hero legal-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Terms of Service</p>
           <h1>Terms of <em>Service</em></h1>
@@ -17,7 +17,7 @@ export default function Terms() {
         </div>
       </header>
 
-      <section className="services">
+      <section className="services legal-page">
         <div className="inner" style={{ maxWidth: 760 }}>
           <p className="s-body" style={{ marginBottom: 18 }}>
             By using zameett.com and engaging our services, you agree to the following terms.

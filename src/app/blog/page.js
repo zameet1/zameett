@@ -21,7 +21,7 @@ export default function Blog() {
 
   return (
     <>
-      <header className="page-hero">
+      <header className="page-hero blog-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Blog</p>
           <h1>Guides for <em>modest fashion brands.</em></h1>
@@ -29,14 +29,15 @@ export default function Blog() {
             Practical, no-fluff guides on tech packs, abaya manufacturing and building a modest
             wear label — written from the floor of our own atelier.
           </p>
+          <div className="page-hero-proof"><span>Factory knowledge</span><span>Original guidance</span><span>For brand owners</span></div>
         </div>
       </header>
 
-      <section className="services">
+      <section className="services blog-index">
         <div className="inner">
           <div className="gig-grid blog-grid">
-            {sorted.map((post) => (
-              <a key={post.slug} href={`/blog/${post.slug}`} className="gig-card reveal">
+            {sorted.map((post, index) => (
+              <a key={post.slug} href={`/blog/${post.slug}`} className={`gig-card reveal${index === 0 ? " blog-featured" : ""}`}>
                 <div className="gig-card-img">
                   <CoverImage src={post.image} alt={post.title} sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 33vw" />
                 </div>
