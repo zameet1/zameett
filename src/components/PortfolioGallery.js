@@ -15,6 +15,12 @@ const ITEMS = [
   { num: "13", cat: "archive", src: "/images/19.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Sampling", title: <>Collection <em>Study 13</em></>, desc: "Modest-wear development carried from concept into garment." },
   { num: "14", cat: "archive", src: "/images/23.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Production", title: <>Collection <em>Study 14</em></>, desc: "Production-focused work created around brand direction." },
   { num: "15", cat: "archive", src: "/images/24.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Finished Work", title: <>Collection <em>Study 15</em></>, desc: "A finished collection reference from the Zameett archive." },
+  { cat: "concept", src: "/portfolio-pdf/concept-01.webp", alt: "Hand-drawn evening gown fashion concept", catLabel: "Fashion Concept · Original Sketch", title: <>Sculpted <em>Evening Gown</em></>, desc: "Original hand-rendered silhouette study for collection development.", fit: "contain" },
+  { cat: "concept", src: "/portfolio-pdf/concept-02.webp", alt: "Hand-drawn womenswear fashion concept", catLabel: "Fashion Concept · Original Sketch", title: <>Draped <em>Statement Look</em></>, desc: "Proportion and garment direction explored before technical development.", fit: "contain" },
+  { cat: "concept", src: "/portfolio-pdf/concept-03.webp", alt: "Hand-drawn modest fashion concept", catLabel: "Fashion Concept · Original Sketch", title: <>Modern <em>Modest Silhouette</em></>, desc: "A clean concept sketch developed around shape, fall and balance.", fit: "contain" },
+  { cat: "concept", src: "/portfolio-pdf/concept-04.webp", alt: "Hand-drawn fashion collection look", catLabel: "Fashion Concept · Original Sketch", title: <>Collection <em>Look Four</em></>, desc: "Hand-drawn design direction prepared for the technical stage.", fit: "contain" },
+  { cat: "concept", src: "/portfolio-pdf/concept-05.webp", alt: "Hand-drawn fashion design silhouette", catLabel: "Fashion Concept · Original Sketch", title: <>Refined <em>Column Look</em></>, desc: "An original silhouette study focused on proportion and movement.", fit: "contain" },
+  { cat: "concept", src: "/portfolio-pdf/concept-06.webp", alt: "Hand-drawn womenswear collection sketch", catLabel: "Fashion Concept · Original Sketch", title: <>Final <em>Collection Direction</em></>, desc: "Creative concept work ready to move into flats and specifications.", fit: "contain" },
   { num: "01", cat: "embroidery", src: "/images/01.jpeg", alt: "Olive embroidered kaftan", catLabel: "Embroidery · Design + Sampling", title: <>Olive <em>Embroidered Kaftan</em></>, desc: "Self-jacquard with hand-worked neckline and tassels." },
 ];
 
@@ -24,6 +30,7 @@ const FILTERS = [
   { cat: "bias", label: "Bias Cut" },
   { cat: "scarf", label: "Shawls & Scarves" },
   { cat: "formal", label: "Formal" },
+  { cat: "concept", label: "Fashion Concepts" },
   { cat: "embroidery", label: "Embroidery & Prints" },
   { cat: "archive", label: "Studio Archive" },
 ];
@@ -65,7 +72,7 @@ export default function PortfolioGallery() {
       <div className="pf-grid">
         {shown.map((item, idx) => (
           <div className="pf-item" key={item.src} onClick={() => setLightboxIdx(idx)}>
-            <div className="pf-shot">
+            <div className={`pf-shot${item.fit === "contain" ? " technical" : ""}`}>
               <span className="pf-num">{String(ITEMS.indexOf(item) + 1).padStart(2, "0")}</span>
               <span className="pf-view">View</span>
               {/* eslint-disable-next-line @next/next/no-img-element -- filtered gallery uses a controlled CSS crop and native image loading */}
