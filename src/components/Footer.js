@@ -41,13 +41,6 @@ export default function Footer() {
   return (
     <footer>
       <div className="footer-inner">
-        <div className="footer-cta">
-          <div>
-            <p>Have a collection in mind?</p>
-            <h2>Let&rsquo;s turn your direction into something production ready.</h2>
-          </div>
-          <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
-        </div>
         <div className="footer-top">
           <div className="footer-brand">
             <a href="/" className="footer-logo">

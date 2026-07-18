@@ -14,7 +14,7 @@ export default function Home() {
         </div>
         <div className="hero-inner">
           <div className="hero-content">
-            <p className="hero-eyebrow">Modest Fashion · Pakistan</p>
+            <p className="hero-eyebrow">Modest Fashion Design &amp; Manufacturing · Pakistan</p>
             <h1 className="hero-h1">
               Design.
               <br />
@@ -23,20 +23,17 @@ export default function Home() {
               <em>Deliver.</em>
             </h1>
             <p className="hero-sub">
-              From design concepts and tech packs to full manufacturing and worldwide delivery.
-              Come to us for design only — or let us handle the entire journey from sketch to
-              doorstep.
+              Design-only support, factory-ready tech packs, sampling and full modest-wear
+              manufacturing—from first sketch to worldwide delivery.
             </p>
-            <div className="hero-pills">
-              <span className="pill">Design Only</span>
-              <span className="pill">Tech Packs</span>
-              <span className="pill">Abayas</span>
-              <span className="pill">Modest Wear</span>
-              <span className="pill">Full Manufacturing</span>
+            <div className="hero-proof">
+              <div><strong>Design only</strong><span>Use your own factory</span></div>
+              <div><strong>Low-MOQ friendly</strong><span>Launch with control</span></div>
+              <div><strong>Worldwide</strong><span>Production to delivery</span></div>
             </div>
             <div className="hero-btns">
-              <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project</a>
-              <a href="/services" className="btn btn-outline-ivory">Our Services</a>
+              <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
+              <a href="/services" className="btn btn-outline-ivory">Explore Services</a>
             </div>
           </div>
         </div>
@@ -72,13 +69,11 @@ export default function Home() {
         <div className="inner">
           <div className="stat"><div className="stat-num">350+</div><div className="stat-lbl">Clients Worldwide</div></div>
           <div className="stat-sep"></div>
-          <div className="stat"><div className="stat-num">100%</div><div className="stat-lbl">End-to-End Capable</div></div>
+          <div className="stat"><div className="stat-num">6+</div><div className="stat-lbl">Years Team Experience</div></div>
           <div className="stat-sep"></div>
           <div className="stat"><div className="stat-num">3</div><div className="stat-lbl">Service Paths</div></div>
           <div className="stat-sep"></div>
-          <div className="stat"><div className="stat-num">6+</div><div className="stat-lbl">Years Team Experience</div></div>
-          <div className="stat-sep"></div>
-          <div className="stat"><div className="stat-num">🌍</div><div className="stat-lbl">Worldwide Delivery</div></div>
+          <div className="stat"><div className="stat-num stat-word">Global</div><div className="stat-lbl">Worldwide Delivery</div></div>
         </div>
         <p className="stats-note">Figures reflect our team&rsquo;s combined experience in modest fashion design and manufacturing.</p>
       </div>
