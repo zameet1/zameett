@@ -18,7 +18,7 @@ export default function ShopHighlight() {
           </p>
         </div>
 
-        <div className="gig-grid reveal">
+        <div className="gig-grid digital-product-grid reveal">
           {PRODUCTS.map((p) => (
             <a key={p.slug} href={`/shop/${p.slug}`} className="gig-card prod-card">
               <div className="gig-card-img">
