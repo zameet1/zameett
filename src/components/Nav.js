@@ -15,51 +15,73 @@ const LINKS = [
 export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const isActive = (href) => {
+    if (href === "/") return pathname === "/";
+    if (href === "/services") return pathname.startsWith("/services") || pathname.startsWith("/solutions");
+    return pathname.startsWith(href);
+  };
+
 
   return (
     <>
-      <nav>
-        <a href="/" className="logo">
+      <nav aria-label="Primary navigation">
+        <a href="/" className="logo" aria-label="Zameett home">
           Zamee<span>tt</span>
         </a>
         <ul className="nav-links">
-          {LINKS.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className={pathname === l.href ? "active" : ""}>
-                {l.label}
-              </a>
-            </li>
-          ))}
+          {LINKS.map((link) => {
+            const active = isActive(link.href);
+            return (
+              <li key={link.href}>
+                <a href={link.href} className={active ? "active" : ""} aria-current={active ? "page" : undefined}>
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
           <li>
             <a href="/contact#get-in-touch" className="nav-cta btn">
-              Get a Quote
+              Get a Quote <span aria-hidden="true">→</span>
             </a>
           </li>
         </ul>
         <button
+          type="button"
           className={`nav-toggle${open ? " open" : ""}`}
-          aria-label="Menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          onClick={() => setOpen((o) => !o)}
+          aria-controls="mobile-navigation"
+          onClick={() => setOpen((current) => !current)}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
       </nav>
-      <div className={`mobile-menu${open ? " open" : ""}`}>
-        {LINKS.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            className={pathname === l.href ? "active" : ""}
-            onClick={() => setOpen(false)}
-          >
-            {l.label}
-          </a>
-        ))}
+      <button
+        type="button"
+        className={`mobile-menu-backdrop${open ? " open" : ""}`}
+        aria-label="Close menu"
+        onClick={() => setOpen(false)}
+      />
+      <div id="mobile-navigation" className={`mobile-menu${open ? " open" : ""}`}>
+        <span className="mobile-menu-label">Navigate</span>
+        {LINKS.map((link) => {
+          const active = isActive(link.href);
+          return (
+            <a
+              key={link.href}
+              href={link.href}
+              className={active ? "active" : ""}
+              aria-current={active ? "page" : undefined}
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </a>
+          );
+        })}
         <a href="/contact#get-in-touch" onClick={() => setOpen(false)}>
-          Get a Quote
+          Get a Quote <span aria-hidden="true">→</span>
         </a>
       </div>
     </>
