@@ -208,10 +208,6 @@ export default function Home() {
           </div>
           <div className="sig-grid reveal">
             <a href="/portfolio" className="sig-card">
-              <CoverImage src="/images/09.jpeg" objectPosition="center 16%" alt="Ivory pearl-trim abaya" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Abayas</div><h3>Ivory Pearl-Trim Abaya</h3></div>
-            </a>
-            <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/16.jpeg" objectPosition="center 16%" alt="Ivory protea-print silk gown" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Prints</div><h3>Ivory Protea Print</h3></div>
             </a>
@@ -222,6 +218,10 @@ export default function Home() {
             <a href="/portfolio" className="sig-card">
               <CoverImage src="/images/08.jpeg" objectPosition="center 16%" alt="Terracotta tribal kimono" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Embroidery</div><h3>Terracotta Tribal Kimono</h3></div>
+            </a>
+            <a href="/portfolio" className="sig-card">
+              <CoverImage src="/images/09.jpeg" objectPosition="center 16%" alt="Ivory pearl-trim abaya" sizes="(max-width: 900px) 50vw, 25vw" />
+              <div className="sig-cap"><div className="c">Abayas</div><h3>Ivory Pearl-Trim Abaya</h3></div>
             </a>
           </div>
           <div className="sig-foot reveal">

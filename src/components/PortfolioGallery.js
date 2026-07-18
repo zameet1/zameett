@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 
 const ITEMS = [
-  { num: "01", cat: "embroidery", src: "/images/01.jpeg", alt: "Olive embroidered kaftan", catLabel: "Embroidery · Design + Sampling", title: <>Olive <em>Embroidered Kaftan</em></>, desc: "Self-jacquard with hand-worked neckline and tassels." },
   { num: "02", cat: "abaya", src: "/images/09.jpeg", alt: "Ivory pearl-trim abaya", catLabel: "Abayas · Full Manufacturing", title: <>Ivory <em>Pearl-Trim Abaya</em></>, desc: "Soft crepe with hand-beaded lapels and tasselled ties." },
   { num: "03", cat: "bias", src: "/images/02.jpeg", alt: "Rosewood satin maxi", catLabel: "Bias Cut · Full Manufacturing", title: <>Rosewood <em>Belted Maxi</em></>, desc: "Fluid satin maxi with pleated skirt, cut on the bias." },
   { num: "04", cat: "formal", src: "/images/07.jpeg", alt: "Onyx button-front abaya", catLabel: "Formal · Full Manufacturing", title: <>Onyx <em>Button-Front Abaya</em></>, desc: "Satin abaya with a covered-button placket and bishop sleeves." },
@@ -17,6 +16,7 @@ const ITEMS = [
   { num: "13", cat: "archive", src: "/images/19.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Sampling", title: <>Collection <em>Study 13</em></>, desc: "Modest-wear development carried from concept into garment." },
   { num: "14", cat: "archive", src: "/images/23.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Production", title: <>Collection <em>Study 14</em></>, desc: "Production-focused work created around brand direction." },
   { num: "15", cat: "archive", src: "/images/24.jpeg", alt: "Zameett modest wear studio archive piece", catLabel: "Studio Archive · Finished Work", title: <>Collection <em>Study 15</em></>, desc: "A finished collection reference from the Zameett archive." },
+  { num: "01", cat: "embroidery", src: "/images/01.jpeg", alt: "Olive embroidered kaftan", catLabel: "Embroidery · Design + Sampling", title: <>Olive <em>Embroidered Kaftan</em></>, desc: "Self-jacquard with hand-worked neckline and tassels." },
 ];
 
 const FILTERS = [
@@ -65,11 +65,11 @@ export default function PortfolioGallery() {
 
       <div className="pf-grid">
         {shown.map((item, idx) => (
-          <div className="pf-item" key={item.num} onClick={() => setLightboxIdx(idx)}>
+          <div className="pf-item" key={item.src} onClick={() => setLightboxIdx(idx)}>
             <div className="pf-shot">
-              <span className="pf-num">{item.num}</span>
+              <span className="pf-num">{String(ITEMS.indexOf(item) + 1).padStart(2, "0")}</span>
               <span className="pf-view">View</span>
-              {/* eslint-disable-next-line @next/next/no-img-element -- masonry layout needs intrinsic/organic image height, fill won't work without a fixed-size container */}
+              {/* eslint-disable-next-line @next/next/no-img-element -- filtered gallery uses a controlled CSS crop and native image loading */}
               <img src={item.src} alt={item.alt} />
             </div>
             <div className="pf-cap">
