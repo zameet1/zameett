@@ -79,7 +79,7 @@ export default function Home() {
       </div>
 
       {/* SERVICES PREVIEW */}
-      <section className="services">
+      <section className="services home-services">
         <div className="inner">
           <div className="svc-head reveal">
             <div>
@@ -105,7 +105,7 @@ export default function Home() {
                 Professional designs and manufacturer-ready tech packs — everything your factory
                 needs to execute your vision perfectly. No manufacturing commitment required.
               </p>
-              <a href="/services" className="svc-link">Learn more →</a>
+              <a href="/services/fashion-tech-packs" className="svc-link">Explore tech packs →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">02</div>
@@ -114,7 +114,7 @@ export default function Home() {
                 From mood boards to final illustrations — abayas, bias cuts, scarves, modest formal
                 and casual wear, designed with cultural understanding.
               </p>
-              <a href="/services" className="svc-link">Learn more →</a>
+              <a href="/services/fashion-tech-packs" className="svc-link">Explore design service →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">03</div>
@@ -123,7 +123,7 @@ export default function Home() {
                 Custom embroidery patterns, textile prints and embellishment placement matched to
                 your brand&rsquo;s aesthetic and quality standards.
               </p>
-              <a href="/services" className="svc-link">Learn more →</a>
+              <a href="/services/custom-textile-patterns" className="svc-link">Explore textile design →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">04</div>
@@ -132,7 +132,7 @@ export default function Home() {
                 The right fabrics for modest wear — from lightweight linens to heavy embellished
                 formals — at competitive prices that protect your margins.
               </p>
-              <a href="/services" className="svc-link">Learn more →</a>
+              <a href="/services/clothing-manufacturing" className="svc-link">Explore sourcing →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">05</div>
@@ -141,7 +141,7 @@ export default function Home() {
                 A prototype is approved before any production run begins. We never move forward
                 until you are completely satisfied — no wasted budgets.
               </p>
-              <a href="/services" className="svc-link">Learn more →</a>
+              <a href="/services/clothing-manufacturing" className="svc-link">Explore production →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">06</div>
@@ -150,7 +150,7 @@ export default function Home() {
                 Finished, quality-checked and packaged — shipped worldwide directly to you or your
                 customers. Truly end-to-end.
               </p>
-              <a href="/services" className="svc-link">Learn more →</a>
+              <a href="/services/clothing-manufacturing" className="svc-link">Explore delivery →</a>
             </div>
           </div>
           <div className="design-banner reveal">
@@ -191,7 +191,7 @@ export default function Home() {
       </div>
 
       {/* SIGNATURE PIECES */}
-      <section className="sig">
+      <section className="sig home-signature">
         <div className="inner">
           <div className="svc-head reveal">
             <div>
@@ -228,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* WHY */}
-      <section className="why">
+      <section className="why home-why">
         <div className="inner">
           <div className="why-head reveal">
             <div>
@@ -243,22 +243,22 @@ export default function Home() {
           </div>
           <div className="why-grid reveal">
             <div className="why-card">
-              <div className="w-icon">🪡</div>
+              <div className="w-icon" aria-hidden="true">01</div>
               <h3>Modest Wear Specialists</h3>
               <p>We only do modest fashion. Every design and production decision is made with deep cultural and technical industry understanding.</p>
             </div>
             <div className="why-card">
-              <div className="w-icon">🎨</div>
+              <div className="w-icon" aria-hidden="true">02</div>
               <h3>Design-Only Welcome</h3>
               <p>No manufacturing commitment needed. Come for designs and tech packs and take them to any factory you choose. We never lock you in.</p>
             </div>
             <div className="why-card">
-              <div className="w-icon">📦</div>
+              <div className="w-icon" aria-hidden="true">03</div>
               <h3>Truly End-to-End</h3>
               <p>Design to delivery under one roof when you need it. No coordinating multiple vendors. No miscommunications. No lost vision.</p>
             </div>
             <div className="why-card">
-              <div className="w-icon">✅</div>
+              <div className="w-icon" aria-hidden="true">04</div>
               <h3>Quality Guaranteed</h3>
               <p>Every piece goes through strict quality control before dispatch. We do not ship anything we would not be proud to wear ourselves.</p>
             </div>
@@ -267,7 +267,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="testimonials">
+      <section className="testimonials home-testimonials">
         <div className="inner">
           <div className="t-head reveal">
             <p className="s-tag">Client Stories</p>
@@ -298,7 +298,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="cta">
+      <section className="cta home-cta">
         <p className="s-tag">Ready to Begin?</p>
         <h2 className="s-title">Your next collection starts <em>right here.</em></h2>
         <p className="cta-sub">
@@ -309,6 +309,7 @@ export default function Home() {
           <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
           <a href="/services" className="btn btn-outline-ivory">View Services</a>
         </div>
+        <p className="home-cta-trust">Design only <span>·</span> Low-MOQ options <span>·</span> Worldwide delivery</p>
       </section>
     </div>
     <Footer />
