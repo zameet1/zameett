@@ -70,24 +70,13 @@ async function playCoinChime() {
 
     const start = context.currentTime + 0.04;
 
-    // A crisp, ascending three-note order alert: ting ... ting ... ting.
-    [
-      [0, 1318.51, 0.13, 0.46],
-      [0.2, 1567.98, 0.14, 0.54],
-      [0.4, 2093, 0.16, 0.72],
-    ].forEach(([delay, frequency, volume, duration], index) => {
-      const noteStart = start + delay;
-      addRegisterClick(context, noteStart, 0.018, 0.055, 3300 + index * 420);
-      addTone(context, noteStart, frequency, duration, volume);
-      addTone(context, noteStart + 0.006, frequency * 2, duration * 0.74, volume * 0.42);
-      addTone(context, noteStart + 0.012, frequency * 3.01, duration * 0.48, volume * 0.16);
-    });
+    // One clean premium order bell with a soft metallic shimmer.
+    addRegisterClick(context, start, 0.018, 0.045, 3600);
+    addTone(context, start, 1760, 0.82, 0.18);
+    addTone(context, start + 0.006, 3520, 0.62, 0.075);
+    addTone(context, start + 0.012, 5280, 0.36, 0.026);
 
-    // A tiny final shimmer keeps the last "ting" bright and celebratory.
-    addTone(context, start + 0.47, 2637.02, 0.55, 0.07);
-    addTone(context, start + 0.49, 3520, 0.42, 0.035);
-
-    window.setTimeout(() => context.close(), 1400);
+    window.setTimeout(() => context.close(), 1200);
     return true;
   } catch {
     await context.close();
@@ -132,7 +121,7 @@ export default function OrderCelebration({ active }) {
       </div>
       <div className="order-success-seal" aria-hidden="true"><span>✓</span></div>
       <button type="button" className="order-sound-button" onClick={play}>
-        {needsTap ? "Play order tings" : "Replay order tings"}
+        {needsTap ? "Play single ting" : "Replay single ting"}
       </button>
     </div>
   );
