@@ -67,6 +67,7 @@ export default async function CheckoutSuccess({ searchParams }) {
         product: freeOrder.name,
         amount: "$0 USD",
         type: "Free test order",
+        kind: "free",
         customerName: freeCustomer?.name || "Not available",
         customerEmail: freeCustomer?.email || "Not available",
       }
@@ -76,6 +77,7 @@ export default async function CheckoutSuccess({ searchParams }) {
           product: paidProduct?.short || "Digital product",
           amount: `${((payment.amount_total || 0) / 100).toFixed(2)} ${(payment.currency || "usd").toUpperCase()}`,
           type: "Paid Stripe order",
+          kind: "paid",
           customerName: payment.customer_details?.name || "Not available",
           customerEmail: payment.customer_details?.email || payment.customer_email || "Not available",
         }
