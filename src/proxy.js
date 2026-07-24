@@ -8,6 +8,7 @@ export async function proxy(request) {
     const canonicalUrl = request.nextUrl.clone();
     canonicalUrl.hostname = "zameett.com";
     canonicalUrl.protocol = "https:";
+    canonicalUrl.port = "";
     return NextResponse.redirect(canonicalUrl, 308);
   }
   return updateSession(request);
