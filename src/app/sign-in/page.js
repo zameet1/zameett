@@ -11,7 +11,12 @@ export const metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default async function SignInPage() {
+export default async function SignInPage({ searchParams }) {
+  const requestedNext = (await searchParams)?.next;
+  const nextPath =
+    typeof requestedNext === "string" && requestedNext.startsWith("/") && !requestedNext.startsWith("//")
+      ? requestedNext
+      : "/account";
   if (hasSupabaseConfig()) {
     const supabase = await createClient();
     const { data } = await supabase.auth.getClaims();
@@ -36,7 +41,7 @@ export default async function SignInPage() {
             <h2>Sign in to <em>your account.</em></h2>
             <p>Use Google for the quickest access, or continue securely with email.</p>
           </div>
-          <AuthForm />
+          <AuthForm nextPath={nextPath} />
         </div>
       </section>
     </main>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { createClient, hasSupabaseConfig } from "@/lib/supabase/client";
 
-export default function AuthForm() {
+export default function AuthForm({ nextPath = "/account" }) {
   const [mode, setMode] = useState("signin");
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
@@ -16,7 +16,7 @@ export default function AuthForm() {
     const supabase = createClient();
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: "https://zameett.com/auth/callback?next=/account" },
+      options: { redirectTo: `https://zameett.com/auth/callback?next=${encodeURIComponent(nextPath)}` },
     });
     if (error) {
       setMessage(error.message);
@@ -49,7 +49,7 @@ export default function AuthForm() {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
     if (error) return setMessage(error.message);
-    window.location.assign("/account");
+    window.location.assign(nextPath);
   }
 
   return (
