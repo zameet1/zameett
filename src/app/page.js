@@ -4,6 +4,14 @@ import FeaturedGigs from "@/components/FeaturedGigs";
 import ShopHighlight from "@/components/ShopHighlight";
 import WorkShowcase from "@/components/WorkShowcase";
 
+export const metadata = {
+  title: {
+    absolute: "Zameett | Modest Fashion Design & Manufacturing",
+  },
+  description:
+    "Zameett is a modest fashion design and manufacturing studio in Pakistan, offering fashion concepts, tech packs, sampling, production and worldwide delivery.",
+  alternates: { canonical: "/" },
+};
 export default function Home() {
   return (
     <>

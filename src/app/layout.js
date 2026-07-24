@@ -19,9 +19,9 @@ const jost = Jost({
 });
 
 const siteUrl = "https://zameett.com";
-const siteTitle = "Zameett — Modest Fashion Design & Manufacturing";
+const siteTitle = "Zameett | Modest Fashion Design & Manufacturing";
 const siteDescription =
-  "From design concepts and tech packs to full manufacturing and worldwide delivery. Zameett specialises exclusively in modest fashion — abayas, bias cuts, scarves and modest formal wear, crafted in Pakistan and delivered worldwide.";
+  "Zameett is a modest fashion design and manufacturing studio in Pakistan, offering fashion concepts, tech packs, sampling, production and worldwide delivery.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -30,8 +30,9 @@ export const metadata = {
     template: "%s | Zameett",
   },
   description: siteDescription,
-  alternates: { canonical: "/" },
   keywords: [
+    "Zameett",
+    "Zameett modest fashion",
     "modest fashion",
     "abaya manufacturer",
     "modest wear design",
@@ -77,35 +78,49 @@ export const viewport = {
   themeColor: "#4A0E2B",
 };
 
-const organizationSchema = {
+const siteIdentitySchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Zameett",
-  url: siteUrl,
-  description: siteDescription,
-  logo: `${siteUrl}/icon.png`,
-  image: `${siteUrl}/icon.png`,
-  email: "hello@zameett.com",
-  telephone: "+923246599699",
-  areaServed: "Worldwide",
-  address: { "@type": "PostalAddress", addressCountry: "PK" },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "sales",
-    email: "hello@zameett.com",
-    telephone: "+923246599699",
-    availableLanguage: ["English", "Urdu"],
-  },
-  // Official profiles — tells Google these accounts belong to Zameett.
-  sameAs: [
-    "https://www.instagram.com/zameett_",
-    "https://www.tiktok.com/@zameet.t",
-    "https://www.pinterest.com/zameett/",
-    "https://www.upwork.com/freelancers/~0195a91e0ec99ac93c",
-    "https://www.fiverr.com/zameett",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Zameett",
+      alternateName: "Zameett Modest Fashion",
+      url: `${siteUrl}/`,
+      description: siteDescription,
+      logo: `${siteUrl}/icon.png`,
+      image: `${siteUrl}/icon.png`,
+      email: "hello@zameett.com",
+      telephone: "+923246599699",
+      areaServed: "Worldwide",
+      address: { "@type": "PostalAddress", addressCountry: "PK" },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "hello@zameett.com",
+        telephone: "+923246599699",
+        availableLanguage: ["English", "Urdu"],
+      },
+      sameAs: [
+        "https://www.instagram.com/zameett_",
+        "https://www.tiktok.com/@zameet.t",
+        "https://www.pinterest.com/zameett/",
+        "https://www.upwork.com/freelancers/~0195a91e0ec99ac93c",
+        "https://www.fiverr.com/zameett",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: `${siteUrl}/`,
+      name: "Zameett",
+      alternateName: ["Zameett Modest Fashion", "zameett.com"],
+      description: siteDescription,
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "en",
+    },
   ],
 };
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
@@ -116,7 +131,7 @@ export default function RootLayout({ children }) {
               "try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-reveal')}}catch(e){}",
           }}
         />
-        <JsonLd data={organizationSchema} />
+        <JsonLd data={siteIdentitySchema} />
         <GoogleAnalytics />
         <Nav />
         {children}
