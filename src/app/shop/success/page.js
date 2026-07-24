@@ -4,6 +4,7 @@ import OrderCelebration from "@/components/OrderCelebration";
 import OwnerOrderNotification from "@/components/OwnerOrderNotification";
 import { getProduct } from "@/app/shop/products";
 import { decodeFreeOrders, FREE_ORDERS_COOKIE } from "@/lib/freeOrders";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
   title: "Order complete",
@@ -41,6 +42,24 @@ export default async function CheckoutSuccess({ searchParams }) {
     : null;
   const payment = freeOrder ? null : await verifyPayment(sessionId);
   const complete = Boolean(freeOrder || payment);
+  let freeCustomer = null;
+
+  if (freeOrder) {
+    const supabase = await createClient();
+    const { data: userData } = supabase
+      ? await supabase.auth.getUser()
+      : { data: null };
+    const user = userData?.user;
+
+    if (user?.id === freeOrder.userId) {
+      const metadata = user.user_metadata || {};
+      freeCustomer = {
+        name: metadata.full_name || metadata.name || user.email?.split("@")[0] || "Not available",
+        email: user.email || "Not available",
+      };
+    }
+  }
+
   const paidProduct = payment ? getProduct(payment.metadata?.product_slug) : null;
   const ownerNotification = freeOrder
     ? {
@@ -48,6 +67,8 @@ export default async function CheckoutSuccess({ searchParams }) {
         product: freeOrder.name,
         amount: "$0 USD",
         type: "Free test order",
+        customerName: freeCustomer?.name || "Not available",
+        customerEmail: freeCustomer?.email || "Not available",
       }
     : payment
       ? {
@@ -55,6 +76,8 @@ export default async function CheckoutSuccess({ searchParams }) {
           product: paidProduct?.short || "Digital product",
           amount: `${((payment.amount_total || 0) / 100).toFixed(2)} ${(payment.currency || "usd").toUpperCase()}`,
           type: "Paid Stripe order",
+          customerName: payment.customer_details?.name || "Not available",
+          customerEmail: payment.customer_details?.email || payment.customer_email || "Not available",
         }
       : null;
 

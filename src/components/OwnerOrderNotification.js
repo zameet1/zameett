@@ -28,8 +28,10 @@ export default function OwnerOrderNotification({ order }) {
           body: JSON.stringify({
             access_key: WEB3FORMS_ACCESS_KEY,
             from_name: "Zameett Order Alerts",
-            subject: `New Zameett order — ${order.product}`,
+            subject: `New Zameett order - ${order.product}`,
             email: "hello@zameett.com",
+            customer_name: order.customerName,
+            customer_email: order.customerEmail,
             order_id: order.id,
             product: order.product,
             amount: order.amount,
@@ -39,6 +41,8 @@ export default function OwnerOrderNotification({ order }) {
               `Product: ${order.product}`,
               `Amount: ${order.amount}`,
               `Order type: ${order.type}`,
+              `Customer name: ${order.customerName}`,
+              `Customer email: ${order.customerEmail}`,
             ].join("\n"),
           }),
         });
