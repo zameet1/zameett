@@ -79,7 +79,7 @@ export default function Portfolio() {
       </section>
 
       {/* GALLERY */}
-      <section className="pf-section portfolio-gallery-section">
+      <section className="pf-section portfolio-gallery-section" id="portfolio-gallery">
         <div className="inner">
           <PortfolioGallery />
         </div>
@@ -138,7 +138,7 @@ export default function Portfolio() {
         </p>
         <div className="cta-btns">
           <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
-          <a href="/services" className="btn btn-outline-ivory">View Services</a>
+          <a href="/services#service-paths" className="btn btn-outline-ivory">View Services</a>
         </div>
       </section>
       <Footer />

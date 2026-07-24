@@ -27,7 +27,7 @@ export default async function CheckoutPage({ params, searchParams }) {
 
   return (
     <>
-      <section className="premium-checkout">
+      <section className="premium-checkout" id="checkout">
         <div className="inner premium-checkout-shell">
           <div className="checkout-intro">
             <p className="checkout-eyebrow">Zameett digital studio</p>
@@ -44,7 +44,7 @@ export default async function CheckoutPage({ params, searchParams }) {
                 <p>Editable files · Instant digital delivery</p>
               </div>
             </div>
-            <a className="checkout-back" href={`/shop/${product.slug}`}>← Back to product details</a>
+            <a className="checkout-back" href={`/shop/${product.slug}#product-details`}>← Back to product details</a>
           </div>
 
           <aside className="checkout-card" aria-label="Order summary">

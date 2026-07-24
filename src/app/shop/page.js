@@ -70,7 +70,7 @@ export default function Shop() {
         </div>
       </header>
 
-      <section className="shop shop-premium">
+      <section className="shop shop-premium" id="digital-products">
         <div className="inner">
           <div className="svc-head reveal">
             <div>
@@ -85,7 +85,7 @@ export default function Shop() {
 
           <div className="gig-grid shop-product-grid reveal">
             {PRODUCTS.map((p) => (
-              <a key={p.slug} href={`/shop/${p.slug}`} className="gig-card prod-card">
+              <a key={p.slug} href={`/shop/${p.slug}#product-details`} className="gig-card prod-card">
                 <div className="gig-card-img">
                   {p.badge && <span className="prod-badge">{p.badge}</span>}
                   <CoverImage src={p.cover} alt={p.name} sizes="(max-width: 900px) 100vw, 33vw" />
@@ -122,7 +122,7 @@ export default function Shop() {
         <p className="s-tag">Need Something Custom?</p>
         <h2 className="s-title">Prefer us to build the tech pack <em>for you?</em></h2>
         <p className="cta-sub">Share your garment direction and our technical design team can prepare a complete factory-ready pack around your product.</p>
-        <div className="cta-btns"><a href="/contact?service=fashion-tech-packs#get-in-touch" className="btn btn-gold">Request Custom Tech Pack →</a><a href="/services/fashion-tech-packs" className="btn btn-outline-ivory">View Service</a></div>
+        <div className="cta-btns"><a href="/contact?service=fashion-tech-packs#get-in-touch" className="btn btn-gold">Request Custom Tech Pack →</a><a href="/services/fashion-tech-packs#service-details" className="btn btn-outline-ivory">View Service</a></div>
       </section>
       <Footer />
     </>

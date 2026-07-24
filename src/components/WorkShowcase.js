@@ -20,12 +20,12 @@ export default function WorkShowcase({ compact = false }) {
           </div>
           <div>
             <p>Original design, sampling and modest-wear production from our studio.</p>
-            <a href="/portfolio">Explore full portfolio →</a>
+            <a href="/portfolio#portfolio-gallery">Explore full portfolio →</a>
           </div>
         </div>
         <div className="work-showcase-grid">
           {WORK.map((item, index) => (
-            <a href="/portfolio" className="work-showcase-card reveal" key={item.image}>
+            <a href="/portfolio#portfolio-gallery" className="work-showcase-card reveal" key={item.image}>
               <CoverImage
                 src={item.image}
                 alt={`Zameett ${item.label.toLowerCase()} portfolio work`}

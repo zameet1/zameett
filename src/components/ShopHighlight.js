@@ -20,7 +20,7 @@ export default function ShopHighlight() {
 
         <div className="gig-grid digital-product-grid reveal">
           {PRODUCTS.map((p) => (
-            <a key={p.slug} href={`/shop/${p.slug}`} className="gig-card prod-card">
+            <a key={p.slug} href={`/shop/${p.slug}#product-details`} className="gig-card prod-card">
               <div className="gig-card-img">
                 {p.badge && <span className="prod-badge">{p.badge}</span>}
                 <CoverImage src={p.cover} alt={p.name} sizes="(max-width: 900px) 100vw, 33vw" />
@@ -38,7 +38,7 @@ export default function ShopHighlight() {
         </div>
 
         <div className="sig-foot reveal" style={{ marginTop: 36 }}>
-          <a href="/shop" className="btn btn-outline">Browse the Shop →</a>
+          <a href="/shop#digital-products" className="btn btn-outline">Browse the Shop →</a>
         </div>
       </div>
     </section>

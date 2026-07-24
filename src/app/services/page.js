@@ -99,7 +99,7 @@ export default function Services() {
       </header>
 
       {/* SERVICE PATHS */}
-      <section className="services services-paths premium-section" style={{ paddingBottom: 48 }}>
+      <section className="services services-paths premium-section" id="service-paths" style={{ paddingBottom: 48 }}>
         <div className="inner">
           <div className="svc-head reveal">
             <div>
@@ -153,7 +153,7 @@ export default function Services() {
           </div>
           <div className="intent-directory-grid reveal">
             {SOLUTIONS.map((solution) => (
-              <a href={`/solutions/${solution.slug}`} key={solution.slug}>
+              <a href={`/solutions/${solution.slug}#solution-overview`} key={solution.slug}>
                 <span>{solution.eyebrow}</span>
                 <h3>{solution.keyword}</h3>
                 <p>{solution.description}</p>
@@ -225,7 +225,7 @@ export default function Services() {
             <p className="pb-tag">Design to Delivery</p>
             <h2 className="pb-h">&ldquo;From your first design sketch to your customer&rsquo;s door.&rdquo;</h2>
             <p className="pb-p">Design only, sampling, full manufacturing, or worldwide delivery — Zameett handles whichever part of the journey you need.</p>
-            <a href="/portfolio" className="btn btn-outline-gold">See Our Work →</a>
+            <a href="/portfolio#portfolio-gallery" className="btn btn-outline-gold">See Our Work →</a>
           </div>
         </div>
       </div>
@@ -305,7 +305,7 @@ export default function Services() {
         <p className="cta-sub">Share your project and we will come back with a clear path, timeline and quote within 24 hours.</p>
         <div className="cta-btns">
           <a href="/contact#get-in-touch" className="btn btn-gold">Request a Quote →</a>
-          <a href="/portfolio" className="btn btn-outline-ivory">View Portfolio</a>
+          <a href="/portfolio#portfolio-gallery" className="btn btn-outline-ivory">View Portfolio</a>
         </div>
       </section>
       <Footer />

@@ -17,7 +17,7 @@ export default function NotFound() {
         </p>
         <div className="cta-btns">
           <a href="/" className="btn btn-gold">Back to Home →</a>
-          <a href="/portfolio" className="btn btn-outline-ivory">View Portfolio</a>
+          <a href="/portfolio#portfolio-gallery" className="btn btn-outline-ivory">View Portfolio</a>
         </div>
       </section>
       <Footer />

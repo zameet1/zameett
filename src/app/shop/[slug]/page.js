@@ -70,7 +70,7 @@ export default async function ProductPage({ params, searchParams }) {
       <JsonLd data={productSchema} />
       <JsonLd data={breadcrumbSchema} />
 
-      <section className="gig-detail premium-detail-page product-detail-page">
+      <section className="gig-detail premium-detail-page product-detail-page" id="product-details">
         <div className="inner">
           <p className="crumb">
             <a href="/">Home</a> &nbsp;/&nbsp; <a href="/shop">Shop</a> &nbsp;/&nbsp; {p.short}
@@ -93,7 +93,7 @@ export default async function ProductPage({ params, searchParams }) {
               </ul>
 
               <div className="gig-actions">
-                <a href={`/shop/${p.slug}/checkout`} className="btn btn-burg">
+                <a href={`/shop/${p.slug}/checkout#checkout`} className="btn btn-burg">
                   Buy securely with Stripe →
                 </a>
                 <a href="/contact#get-in-touch" className="btn btn-outline">
@@ -133,7 +133,7 @@ export default async function ProductPage({ params, searchParams }) {
 
               <p className="gig-note">{p.note}</p>
 
-              <a href={`/shop/${p.slug}/checkout`} className="btn btn-gold gig-cta">
+              <a href={`/shop/${p.slug}/checkout#checkout`} className="btn btn-gold gig-cta">
                 Get this template securely — {p.price} →
               </a>
             </div>

@@ -89,7 +89,7 @@ export default async function SolutionPage({ params }) {
             <p>{solution.description}</p>
           </div>
         </header>
-        <section className="intent-overview">
+        <section className="intent-overview" id="solution-overview">
           <div className="inner intent-overview-grid">
             <div className="reveal">
               <p className="s-tag">Built Around Your Brand</p>
@@ -126,7 +126,7 @@ export default async function SolutionPage({ params }) {
           <div className="inner">
             <div className="intent-section-head reveal">
               <div><p className="s-tag">Relevant Portfolio</p><h2 className="s-title">Work made for <em>real production.</em></h2></div>
-              <a href="/portfolio" className="btn btn-outline">Explore Full Portfolio →</a>
+              <a href="/portfolio#portfolio-gallery" className="btn btn-outline">Explore Full Portfolio →</a>
             </div>
             <div className="intent-gallery">
               {solution.gallery.map((image, index) => (
@@ -163,7 +163,7 @@ export default async function SolutionPage({ params }) {
           <p className="s-tag">Tell Us What You Are Building</p>
           <h2 className="s-title">Get a tailored scope, timeline and <em>honest MOQ.</em></h2>
           <p className="cta-sub">Share your designs, quantity and destination. We will review the details and respond with the clearest next step.</p>
-          <div className="cta-btns"><a href={quoteHref} className="btn btn-gold">Get a Quote →</a><a href="/services" className="btn btn-outline-ivory">View All Services</a></div>
+          <div className="cta-btns"><a href={quoteHref} className="btn btn-gold">Get a Quote →</a><a href="/services#service-paths" className="btn btn-outline-ivory">View All Services</a></div>
         </section>
       </main>
       <Footer />

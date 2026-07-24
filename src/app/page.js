@@ -34,7 +34,7 @@ export default function Home() {
             </div>
             <div className="hero-btns">
               <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
-              <a href="/services" className="btn btn-outline-ivory">Explore Services</a>
+              <a href="/services#service-paths" className="btn btn-outline-ivory">Explore Services</a>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function Home() {
                 Professional designs and manufacturer-ready tech packs — everything your factory
                 needs to execute your vision perfectly. No manufacturing commitment required.
               </p>
-              <a href="/services/fashion-tech-packs" className="svc-link">Explore tech packs →</a>
+              <a href="/services/fashion-tech-packs#service-details" className="svc-link">Explore tech packs →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">02</div>
@@ -117,7 +117,7 @@ export default function Home() {
                 From mood boards to final illustrations — abayas, bias cuts, scarves, modest formal
                 and casual wear, designed with cultural understanding.
               </p>
-              <a href="/services/fashion-tech-packs" className="svc-link">Explore design service →</a>
+              <a href="/services/fashion-tech-packs#service-details" className="svc-link">Explore design service →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">03</div>
@@ -126,7 +126,7 @@ export default function Home() {
                 Custom embroidery patterns, textile prints and embellishment placement matched to
                 your brand&rsquo;s aesthetic and quality standards.
               </p>
-              <a href="/services/custom-textile-patterns" className="svc-link">Explore textile design →</a>
+              <a href="/services/custom-textile-patterns#service-details" className="svc-link">Explore textile design →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">04</div>
@@ -135,7 +135,7 @@ export default function Home() {
                 The right fabrics for modest wear — from lightweight linens to heavy embellished
                 formals — at competitive prices that protect your margins.
               </p>
-              <a href="/services/clothing-manufacturing" className="svc-link">Explore sourcing →</a>
+              <a href="/services/clothing-manufacturing#service-details" className="svc-link">Explore sourcing →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">05</div>
@@ -144,7 +144,7 @@ export default function Home() {
                 A prototype is approved before any production run begins. We never move forward
                 until you are completely satisfied — no wasted budgets.
               </p>
-              <a href="/services/clothing-manufacturing" className="svc-link">Explore production →</a>
+              <a href="/services/clothing-manufacturing#service-details" className="svc-link">Explore production →</a>
             </div>
             <div className="svc-card">
               <div className="svc-num" aria-hidden="true">06</div>
@@ -153,7 +153,7 @@ export default function Home() {
                 Finished, quality-checked and packaged — shipped worldwide directly to you or your
                 customers. Truly end-to-end.
               </p>
-              <a href="/services/clothing-manufacturing" className="svc-link">Explore delivery →</a>
+              <a href="/services/clothing-manufacturing#service-details" className="svc-link">Explore delivery →</a>
             </div>
           </div>
           <div className="design-banner reveal">
@@ -188,7 +188,7 @@ export default function Home() {
               We specialise in modest wear — abayas, bias cuts, scarves and formal modest
               collections — crafted from Pakistan and delivered to the world.
             </p>
-            <a href="/about" className="btn btn-gold">Our Story →</a>
+            <a href="/about#our-story" className="btn btn-gold">Our Story →</a>
           </div>
         </div>
       </div>
@@ -207,25 +207,25 @@ export default function Home() {
             </p>
           </div>
           <div className="sig-grid reveal">
-            <a href="/portfolio" className="sig-card">
+            <a href="/portfolio#portfolio-gallery" className="sig-card">
               <CoverImage src="/images/16.jpeg" objectPosition="center 16%" alt="Ivory protea-print silk gown" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Prints</div><h3>Ivory Protea Print</h3></div>
             </a>
-            <a href="/portfolio" className="sig-card">
+            <a href="/portfolio#portfolio-gallery" className="sig-card">
               <CoverImage src="/images/02.jpeg" objectPosition="center 16%" alt="Rosewood belted maxi" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Bias Cut</div><h3>Rosewood Belted Maxi</h3></div>
             </a>
-            <a href="/portfolio" className="sig-card">
+            <a href="/portfolio#portfolio-gallery" className="sig-card">
               <CoverImage src="/images/08.jpeg" objectPosition="center 16%" alt="Terracotta tribal kimono" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Embroidery</div><h3>Terracotta Tribal Kimono</h3></div>
             </a>
-            <a href="/portfolio" className="sig-card">
+            <a href="/portfolio#portfolio-gallery" className="sig-card">
               <CoverImage src="/images/09.jpeg" objectPosition="center 16%" alt="Ivory pearl-trim abaya" sizes="(max-width: 900px) 50vw, 25vw" />
               <div className="sig-cap"><div className="c">Abayas</div><h3>Ivory Pearl-Trim Abaya</h3></div>
             </a>
           </div>
           <div className="sig-foot reveal">
-            <a href="/portfolio" className="btn btn-outline">View Full Lookbook →</a>
+            <a href="/portfolio#portfolio-gallery" className="btn btn-outline">View Full Lookbook →</a>
           </div>
         </div>
       </section>
@@ -310,7 +310,7 @@ export default function Home() {
         </p>
         <div className="cta-btns">
           <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
-          <a href="/services" className="btn btn-outline-ivory">View Services</a>
+          <a href="/services#service-paths" className="btn btn-outline-ivory">View Services</a>
         </div>
         <p className="home-cta-trust">Design only <span>·</span> Low-MOQ options <span>·</span> Worldwide delivery</p>
       </section>

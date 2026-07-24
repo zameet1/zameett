@@ -20,7 +20,7 @@ export default function FeaturedGigs() {
 
         <div className="gig-grid reveal">
           {GIGS.map((gig) => (
-            <a key={gig.slug} href={`/services/${gig.slug}`} className="gig-card">
+            <a key={gig.slug} href={`/services/${gig.slug}#service-details`} className="gig-card">
               <div className="gig-card-img">
                 <CoverImage src={gig.cover} alt={gig.title} sizes="(max-width: 900px) 100vw, 50vw" />
               </div>

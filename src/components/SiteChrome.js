@@ -123,5 +123,34 @@ export default function SiteChrome() {
     document.addEventListener("click", onCardClick);
     return () => document.removeEventListener("click", onCardClick);
   }, [pathname]);
+  // Re-apply hash scrolling after client-side route changes and delayed page rendering.
+  useEffect(() => {
+    let retryTimer;
+
+    function scrollToCurrentHash(attempt = 0) {
+      const hash = window.location.hash.slice(1);
+      if (!hash) return;
+      const target = document.getElementById(decodeURIComponent(hash));
+      if (target) {
+        const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+        target.scrollIntoView({ behavior, block: "start" });
+        return;
+      }
+      if (attempt < 8) {
+        retryTimer = window.setTimeout(() => scrollToCurrentHash(attempt + 1), 80);
+      }
+    }
+
+    function onHashChange() {
+      scrollToCurrentHash();
+    }
+
+    scrollToCurrentHash();
+    window.addEventListener("hashchange", onHashChange);
+    return () => {
+      window.clearTimeout(retryTimer);
+      window.removeEventListener("hashchange", onHashChange);
+    };
+  }, [pathname]);
   return null;
 }

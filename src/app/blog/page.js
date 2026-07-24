@@ -37,7 +37,7 @@ export default function Blog() {
         <div className="inner">
           <div className="gig-grid blog-grid">
             {sorted.map((post, index) => (
-              <a key={post.slug} href={`/blog/${post.slug}`} className={`gig-card reveal${index === 0 ? " blog-featured" : ""}`}>
+              <a key={post.slug} href={`/blog/${post.slug}#article`} className={`gig-card reveal${index === 0 ? " blog-featured" : ""}`}>
                 <div className="gig-card-img">
                   <CoverImage src={post.image} alt={post.title} sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 33vw" />
                 </div>

@@ -85,7 +85,7 @@ export default function About() {
       </div>
 
       {/* EXPERIENCE / OUR STORY */}
-      <section className="experience about-story">
+      <section className="experience about-story" id="our-story">
         <div className="inner">
           <div className="exp-photos reveal">
             <div className="exp-ph tall"><CoverImage src="/images/13.jpeg" objectPosition="center 35%" alt="Zameett production floor" sizes="(max-width: 960px) 50vw, 25vw" /></div>
@@ -160,7 +160,7 @@ export default function About() {
             <p className="pb-tag">Our Philosophy</p>
             <h2 className="pb-h">&ldquo;Your vision, executed with precision and cultural understanding.&rdquo;</h2>
             <p className="pb-p">Crafted from Pakistan and delivered to the world — modest wear made by people who understand it.</p>
-            <a href="/portfolio" className="btn btn-gold">See Our Work →</a>
+            <a href="/portfolio#portfolio-gallery" className="btn btn-gold">See Our Work →</a>
           </div>
         </div>
       </div>
@@ -175,7 +175,7 @@ export default function About() {
         </p>
         <div className="cta-btns">
           <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
-          <a href="/services" className="btn btn-outline-ivory">View Services</a>
+          <a href="/services#service-paths" className="btn btn-outline-ivory">View Services</a>
         </div>
       </section>
       <Footer />

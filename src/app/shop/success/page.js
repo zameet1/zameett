@@ -48,7 +48,7 @@ export default async function CheckoutSuccess({ searchParams }) {
             </p>
           )}
           <div className="gig-actions">
-            <a href="/shop" className="btn btn-burg">Return to the shop</a>
+            <a href="/shop#digital-products" className="btn btn-burg">Return to the shop</a>
             <a href="mailto:hello@zameett.com" className="btn btn-outline">Contact support</a>
           </div>
         </div>

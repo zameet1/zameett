@@ -63,7 +63,7 @@ export default async function ArticlePage({ params }) {
     <>
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
-      <main className="journal-article">
+      <main className="journal-article" id="article">
         <header className="page-hero article-page-hero">
           <div className="inner">
             <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog">Blog</a> &nbsp;/&nbsp; Guide</p>
@@ -92,7 +92,7 @@ export default async function ArticlePage({ params }) {
               <p className="s-tag">Apply This to Your Collection</p>
               <h2>Need a specialist pair of eyes on your project?</h2>
               <p>Share your designs, quantities and target timeline. We&rsquo;ll recommend the clearest next step—tech pack, sampling or full manufacturing.</p>
-              <div><a href="/contact#get-in-touch" className="btn btn-gold">Get a Quote →</a><a href="/portfolio" className="btn btn-outline-ivory">View Portfolio</a></div>
+              <div><a href="/contact#get-in-touch" className="btn btn-gold">Get a Quote →</a><a href="/portfolio#portfolio-gallery" className="btn btn-outline-ivory">View Portfolio</a></div>
             </div>
           </article>
           <aside className="article-sidebar reveal">
