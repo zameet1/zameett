@@ -11,8 +11,9 @@ export const dynamic = "force-dynamic";
 export default async function AccountPage() {
   if (!hasSupabaseConfig()) redirect("/sign-in");
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/sign-in");
+  const { data, error } = await supabase.auth.getClaims();
+  const user = data?.claims;
+  if (error || !user?.sub) redirect("/sign-in");
 
   const name = user.user_metadata?.full_name || user.user_metadata?.name || user.email?.split("@")[0] || "Customer";
 

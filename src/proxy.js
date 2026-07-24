@@ -1,6 +1,13 @@
+import { NextResponse } from "next/server";
 import { updateSession } from "@/lib/supabase/proxy";
 
 export async function proxy(request) {
+  if (request.nextUrl.hostname === "www.zameett.com") {
+    const canonicalUrl = request.nextUrl.clone();
+    canonicalUrl.hostname = "zameett.com";
+    canonicalUrl.protocol = "https:";
+    return NextResponse.redirect(canonicalUrl, 308);
+  }
   return updateSession(request);
 }
 

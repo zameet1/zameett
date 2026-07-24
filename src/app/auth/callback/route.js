@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { createServerClient } from "@supabase/ssr";
+import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from "@/lib/supabase/config";
 
 export async function GET(request) {
   const { searchParams, origin } = new URL(request.url);
@@ -7,14 +8,24 @@ export async function GET(request) {
   let next = searchParams.get("next") || "/account";
   if (!next.startsWith("/")) next = "/account";
 
-  const supabase = await createClient();
-  if (code && supabase) {
+  const canonicalOrigin = process.env.NODE_ENV === "production" ? "https://zameett.com" : origin;
+  const response = NextResponse.redirect(new URL(next, canonicalOrigin));
+  const supabase = createServerClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
+      },
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value, options }) =>
+          response.cookies.set(name, value, options)
+        );
+      },
+    },
+  });
+
+  if (code) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
-    if (!error) {
-      const forwardedHost = request.headers.get("x-forwarded-host");
-      const host = forwardedHost ? `https://${forwardedHost}` : origin;
-      return NextResponse.redirect(`${host}${next}`);
-    }
+    if (!error) return response;
   }
-  return NextResponse.redirect(`${origin}/sign-in?error=callback`);
+  return NextResponse.redirect(new URL("/sign-in?error=callback", canonicalOrigin));
 }

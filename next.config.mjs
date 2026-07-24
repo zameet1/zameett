@@ -29,7 +29,7 @@ const nextConfig = {
         // sometimes new" bug. s-maxage=0 forces the CDN to revalidate too.
         source: "/:path((?!_next/|images/).*)",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=0, s-maxage=0, must-revalidate" },
+          { key: "Cache-Control", value: "private, max-age=0, no-store, must-revalidate" },
         ],
       },
     ];

@@ -18,7 +18,7 @@ export default function AuthForm() {
     const supabase = createClient();
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${window.location.origin}/auth/callback?next=/account` },
+      options: { redirectTo: "https://zameett.com/auth/callback?next=/account" },
     });
     if (error) {
       setMessage(error.message);
@@ -40,7 +40,7 @@ export default function AuthForm() {
       const { error } = await supabase.auth.signUp({
         email,
         password,
-        options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=/account` },
+        options: { emailRedirectTo: "https://zameett.com/auth/callback?next=/account" },
       });
       setBusy(false);
       if (error) return setMessage(error.message);
