@@ -88,7 +88,7 @@ export default async function CheckoutSuccess({ searchParams }) {
       <section className="services checkout-result">
         <div className="inner checkout-result-card">
           <OrderCelebration active={complete} />
-          {payment && <OwnerOrderNotification order={ownerNotification} />}
+          {complete && <OwnerOrderNotification order={ownerNotification} />}
           <p className="s-tag">{freeOrder ? "Test order complete" : payment ? "Payment received" : "Order verification"}</p>
           <h1 className="s-title">
             {complete ? "Your order is ready in Profile." : "We could not verify this order."}
