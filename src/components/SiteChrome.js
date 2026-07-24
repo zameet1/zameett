@@ -152,5 +152,21 @@ export default function SiteChrome() {
       window.removeEventListener("hashchange", onHashChange);
     };
   }, [pathname]);
+  // Deter casual image saving while preserving normal page interaction.
+  useEffect(() => {
+    function isProtectedImage(target) {
+      return target instanceof Element && Boolean(target.closest("img, picture"));
+    }
+    function preventImageAction(event) {
+      if (isProtectedImage(event.target)) event.preventDefault();
+    }
+    document.addEventListener("contextmenu", preventImageAction);
+    document.addEventListener("dragstart", preventImageAction);
+    return () => {
+      document.removeEventListener("contextmenu", preventImageAction);
+      document.removeEventListener("dragstart", preventImageAction);
+    };
+  }, []);
+
   return null;
 }

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const ITEMS = [
   { num: "02", cat: "abaya", src: "/images/09.jpeg", alt: "Ivory pearl-trim abaya", catLabel: "Abayas · Full Manufacturing", title: <>Ivory <em>Pearl-Trim Abaya</em></>, desc: "Soft crepe with hand-beaded lapels and tasselled ties." },
@@ -68,8 +69,13 @@ export default function PortfolioGallery() {
             <div className="pf-shot">
               <span className="pf-num">{String(ITEMS.indexOf(item) + 1).padStart(2, "0")}</span>
               <span className="pf-view">View</span>
-              {/* eslint-disable-next-line @next/next/no-img-element -- filtered gallery uses a controlled CSS crop and native image loading */}
-              <img src={item.src} alt={item.alt} />
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                quality={90}
+                sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
+              />
             </div>
             <div className="pf-cap">
               <div className="pf-cat">{item.catLabel}</div>

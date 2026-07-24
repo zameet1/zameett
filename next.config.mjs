@@ -5,7 +5,10 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx"],
   // Keep Next.js image optimization on (responsive + webp = fast), but at a
   // high quality so there is no visible loss vs the originals.
-  images: { qualities: [75, 90] },
+  images: {
+    qualities: [75, 90],
+    formats: ["image/avif", "image/webp"],
+  },
   async headers() {
     return [
       {
