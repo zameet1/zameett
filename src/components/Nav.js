@@ -1,7 +1,9 @@
 "use client";
+
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiUser } from "react-icons/fi";
+import { createClient, hasSupabaseConfig } from "@/lib/supabase/client";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -16,12 +18,41 @@ const LINKS = [
 export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
   const isActive = (href) => {
     if (href === "/") return pathname === "/";
-    if (href === "/services") return pathname.startsWith("/services") || pathname.startsWith("/solutions");
+    if (href === "/services") {
+      return pathname.startsWith("/services") || pathname.startsWith("/solutions");
+    }
     return pathname.startsWith(href);
   };
 
+  useEffect(() => {
+    if (!hasSupabaseConfig()) return;
+
+    const supabase = createClient();
+    let active = true;
+
+    supabase.auth.getUser().then(({ data }) => {
+      if (active) setUser(data.user || null);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user || null);
+    });
+
+    return () => {
+      active = false;
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  const accountHref = user ? "/account" : "/sign-in";
+  const accountLabel = user ? "My Profile" : "Sign In";
+  const accountActive = pathname.startsWith("/sign-in") || pathname.startsWith("/account");
 
   return (
     <>
@@ -41,13 +72,13 @@ export default function Nav() {
             );
           })}
           <li>
-            <a href="/sign-in" className={`nav-account${pathname.startsWith("/sign-in") || pathname.startsWith("/account") ? " active" : ""}`}>
-              <FiUser aria-hidden="true" /> <span>Sign In</span>
+            <a href={accountHref} className={`nav-account${accountActive ? " active" : ""}`}>
+              <FiUser aria-hidden="true" /> <span>{accountLabel}</span>
             </a>
           </li>
           <li>
             <a href="/contact#get-in-touch" className="nav-cta btn">
-              Get a Quote <span aria-hidden="true">→</span>
+              Get a Quote <span aria-hidden="true">&rarr;</span>
             </a>
           </li>
         </ul>
@@ -86,11 +117,11 @@ export default function Nav() {
             </a>
           );
         })}
-        <a href="/sign-in" className="mobile-account-link" onClick={() => setOpen(false)}>
-          <FiUser aria-hidden="true" /> Sign In / Customer Account
+        <a href={accountHref} className="mobile-account-link" onClick={() => setOpen(false)}>
+          <FiUser aria-hidden="true" /> {user ? "My Profile / Customer Account" : "Sign In / Customer Account"}
         </a>
         <a href="/contact#get-in-touch" onClick={() => setOpen(false)}>
-          Get a Quote <span aria-hidden="true">→</span>
+          Get a Quote <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
     </>

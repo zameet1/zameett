@@ -1,5 +1,7 @@
 import CoverImage from "@/components/CoverImage";
 import AuthForm from "@/components/AuthForm";
+import { redirect } from "next/navigation";
+import { createClient, hasSupabaseConfig } from "@/lib/supabase/server";
 
 export const metadata = {
   title: "Customer Sign In",
@@ -7,7 +9,15 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function SignInPage() {
+export const dynamic = "force-dynamic";
+
+export default async function SignInPage() {
+  if (hasSupabaseConfig()) {
+    const supabase = await createClient();
+    const { data } = await supabase.auth.getClaims();
+    if (data?.claims?.sub) redirect("/account");
+  }
+
   return (
     <main className="auth-page">
       <section className="auth-shell">

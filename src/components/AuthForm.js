@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { createClient, hasSupabaseConfig } from "@/lib/supabase/client";
 
 export default function AuthForm() {
-  const router = useRouter();
   const [mode, setMode] = useState("signin");
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
@@ -51,8 +49,7 @@ export default function AuthForm() {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
     if (error) return setMessage(error.message);
-    router.push("/account");
-    router.refresh();
+    window.location.assign("/account");
   }
 
   return (
@@ -79,7 +76,7 @@ export default function AuthForm() {
           <input type="password" name="password" autoComplete={mode === "signup" ? "new-password" : "current-password"} minLength={6} required placeholder="Minimum 6 characters" />
         </label>
         <button className="btn btn-burg auth-submit" type="submit" disabled={busy}>
-          {busy ? "Please wait…" : mode === "signup" ? "Create My Account" : "Sign In"}
+          {busy ? "Please wait..." : mode === "signup" ? "Create My Account" : "Sign In"}
         </button>
       </form>
       {message && <p className="auth-message" role="status">{message}</p>}
