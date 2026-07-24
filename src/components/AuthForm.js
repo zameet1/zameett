@@ -40,11 +40,11 @@ export default function AuthForm() {
       const { error } = await supabase.auth.signUp({
         email,
         password,
-        options: { emailRedirectTo: "https://zameett.com/auth/callback?next=/account" },
+        options: { emailRedirectTo: "https://zameett.com/account" },
       });
       setBusy(false);
       if (error) return setMessage(error.message);
-      setMessage("Check your email to confirm your account, then sign in.");
+      setMessage("Check your inbox for a confirmation email from Zameett.");
       return;
     }
 
