@@ -53,7 +53,7 @@ function addRegisterClick(context, start, duration, volume, frequency) {
   source.start(start);
 }
 
-async function playCoinChime() {
+async function playChaChing() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   if (!AudioContext) return false;
 
@@ -70,13 +70,18 @@ async function playCoinChime() {
 
     const start = context.currentTime + 0.04;
 
-    // One clean premium order bell with a soft metallic shimmer.
-    addRegisterClick(context, start, 0.018, 0.045, 3600);
-    addTone(context, start, 1760, 0.82, 0.18);
-    addTone(context, start + 0.006, 3520, 0.62, 0.075);
-    addTone(context, start + 0.012, 5280, 0.36, 0.026);
+    // One compact cash-register "cha-ching": drawer click, then a bright coin bell.
+    addRegisterClick(context, start, 0.045, 0.065, 1250);
+    addTone(context, start, 740, 0.16, 0.055, "triangle");
+    addTone(context, start + 0.012, 1110, 0.13, 0.028, "triangle");
 
-    window.setTimeout(() => context.close(), 1200);
+    const ching = start + 0.16;
+    addRegisterClick(context, ching, 0.025, 0.04, 4200);
+    addTone(context, ching, 2093, 0.78, 0.17);
+    addTone(context, ching + 0.007, 3136, 0.58, 0.07);
+    addTone(context, ching + 0.014, 4186, 0.38, 0.028);
+
+    window.setTimeout(() => context.close(), 1300);
     return true;
   } catch {
     await context.close();
@@ -87,7 +92,7 @@ export default function OrderCelebration({ active }) {
   const [needsTap, setNeedsTap] = useState(false);
 
   const play = useCallback(async () => {
-    const played = await playCoinChime();
+    const played = await playChaChing();
     setNeedsTap(!played);
   }, []);
 
@@ -121,7 +126,7 @@ export default function OrderCelebration({ active }) {
       </div>
       <div className="order-success-seal" aria-hidden="true"><span>✓</span></div>
       <button type="button" className="order-sound-button" onClick={play}>
-        {needsTap ? "Play single ting" : "Replay single ting"}
+        {needsTap ? "Play cha-ching" : "Replay cha-ching"}
       </button>
     </div>
   );
