@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getProduct } from "@/app/shop/products";
 import { createClient } from "@/lib/supabase/server";
+import { sendOrderEmails } from "@/lib/orderEmails";
 import {
   decodeFreeOrders,
   encodeFreeOrders,
@@ -48,9 +49,36 @@ export async function POST(request) {
     status: "Test order complete",
     createdAt: new Date().toISOString(),
   };
+
+  const { data: userData } = await supabase.auth.getUser();
+  const user = userData?.user;
+  const metadata = user?.user_metadata || {};
+  let emailSent = false;
+
+  if (user?.email) {
+    try {
+      await sendOrderEmails({
+        id: order.id,
+        product: order.name,
+        amount: "$0 USD",
+        type: "Free test order",
+        customerName:
+          metadata.full_name ||
+          metadata.name ||
+          user.email.split("@")[0] ||
+          "Customer",
+        customerEmail: user.email,
+      });
+      emailSent = true;
+    } catch (mailError) {
+      console.error("Order email delivery failed:", mailError);
+    }
+  }
+
   const orders = [order, ...existing];
   const successUrl = new URL("/shop/success", origin);
   successUrl.searchParams.set("free_order", order.id);
+  successUrl.searchParams.set("email", emailSent ? "sent" : "failed");
   const response = NextResponse.redirect(successUrl, 303);
 
   response.cookies.set(FREE_ORDERS_COOKIE, encodeFreeOrders(orders), {

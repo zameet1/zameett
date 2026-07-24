@@ -20,9 +20,9 @@ function addTone(context, start, frequency, duration, volume, type = "sine") {
   const gain = context.createGain();
   oscillator.type = type;
   oscillator.frequency.setValueAtTime(frequency, start);
-  oscillator.frequency.exponentialRampToValueAtTime(frequency * 1.025, start + duration);
+  oscillator.frequency.exponentialRampToValueAtTime(frequency * 0.985, start + duration);
   gain.gain.setValueAtTime(0.0001, start);
-  gain.gain.exponentialRampToValueAtTime(volume, start + 0.008);
+  gain.gain.exponentialRampToValueAtTime(volume, start + 0.004);
   gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
   oscillator.connect(gain);
   gain.connect(context.destination);
@@ -30,22 +30,23 @@ function addTone(context, start, frequency, duration, volume, type = "sine") {
   oscillator.stop(start + duration);
 }
 
-function addRegisterClick(context, start, duration, volume, frequency) {
+function addCoinImpact(context, start) {
+  const duration = 0.038;
   const frameCount = Math.max(1, Math.floor(context.sampleRate * duration));
   const buffer = context.createBuffer(1, frameCount, context.sampleRate);
   const channel = buffer.getChannelData(0);
   for (let index = 0; index < frameCount; index += 1) {
-    const envelope = 1 - index / frameCount;
-    channel[index] = (Math.random() * 2 - 1) * envelope;
+    const progress = index / frameCount;
+    channel[index] = (Math.random() * 2 - 1) * Math.pow(1 - progress, 4);
   }
   const source = context.createBufferSource();
   const filter = context.createBiquadFilter();
   const gain = context.createGain();
   source.buffer = buffer;
-  filter.type = "bandpass";
-  filter.frequency.value = frequency;
-  filter.Q.value = 0.8;
-  gain.gain.setValueAtTime(volume, start);
+  filter.type = "highpass";
+  filter.frequency.value = 2200;
+  filter.Q.value = 0.7;
+  gain.gain.setValueAtTime(0.11, start);
   gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
   source.connect(filter);
   filter.connect(gain);
@@ -53,7 +54,7 @@ function addRegisterClick(context, start, duration, volume, frequency) {
   source.start(start);
 }
 
-async function playChaChing() {
+async function playCoinDrop() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   if (!AudioContext) return false;
 
@@ -70,29 +71,26 @@ async function playChaChing() {
 
     const start = context.currentTime + 0.04;
 
-    // One compact cash-register "cha-ching": drawer click, then a bright coin bell.
-    addRegisterClick(context, start, 0.045, 0.065, 1250);
-    addTone(context, start, 740, 0.16, 0.055, "triangle");
-    addTone(context, start + 0.012, 1110, 0.13, 0.028, "triangle");
+    // One original Etsy-style sale sound: a single falling coin impact and metallic shimmer.
+    addCoinImpact(context, start);
+    addTone(context, start, 1760, 0.72, 0.13);
+    addTone(context, start + 0.003, 2637, 0.56, 0.075);
+    addTone(context, start + 0.006, 3520, 0.43, 0.045, "triangle");
+    addTone(context, start + 0.01, 5274, 0.3, 0.022);
 
-    const ching = start + 0.16;
-    addRegisterClick(context, ching, 0.025, 0.04, 4200);
-    addTone(context, ching, 2093, 0.78, 0.17);
-    addTone(context, ching + 0.007, 3136, 0.58, 0.07);
-    addTone(context, ching + 0.014, 4186, 0.38, 0.028);
-
-    window.setTimeout(() => context.close(), 1300);
+    window.setTimeout(() => context.close(), 1200);
     return true;
   } catch {
     await context.close();
     return false;
   }
 }
+
 export default function OrderCelebration({ active }) {
   const [needsTap, setNeedsTap] = useState(false);
 
   const play = useCallback(async () => {
-    const played = await playChaChing();
+    const played = await playCoinDrop();
     setNeedsTap(!played);
   }, []);
 
@@ -124,9 +122,9 @@ export default function OrderCelebration({ active }) {
           </span>
         ))}
       </div>
-      <div className="order-success-seal" aria-hidden="true"><span>✓</span></div>
+      <div className="order-success-seal" aria-hidden="true"><span>{"\u2713"}</span></div>
       <button type="button" className="order-sound-button" onClick={play}>
-        {needsTap ? "Play cha-ching" : "Replay cha-ching"}
+        {needsTap ? "Play coin chime" : "Replay coin chime"}
       </button>
     </div>
   );
