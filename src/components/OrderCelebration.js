@@ -69,15 +69,31 @@ async function playCoinChime() {
     }
 
     const start = context.currentTime + 0.025;
-    addRegisterClick(context, start, 0.045, 0.17, 1450);
-    addTone(context, start + 0.035, 118, 0.1, 0.08, "square");
-    addRegisterClick(context, start + 0.085, 0.08, 0.12, 720);
-    addTone(context, start + 0.1, 1046.5, 0.18, 0.14, "triangle");
-    addTone(context, start + 0.155, 1567.98, 0.23, 0.12, "triangle");
-    addTone(context, start + 0.22, 2093, 0.34, 0.1);
-    addTone(context, start + 0.285, 2637.02, 0.48, 0.075);
 
-    window.setTimeout(() => context.close(), 1150);
+    // "Cha": a strong register lever click followed by the drawer clack.
+    addRegisterClick(context, start, 0.055, 0.28, 1850);
+    addTone(context, start + 0.018, 92, 0.13, 0.12, "square");
+    addRegisterClick(context, start + 0.075, 0.1, 0.2, 520);
+    addTone(context, start + 0.07, 185, 0.12, 0.1, "triangle");
+
+    // Loose coins landing in quick succession.
+    [
+      [0.13, 1760, 0.16],
+      [0.17, 2349.32, 0.14],
+      [0.205, 1975.53, 0.15],
+      [0.245, 2793.83, 0.13],
+      [0.285, 2093, 0.12],
+    ].forEach(([delay, frequency, volume], index) => {
+      addTone(context, start + delay, frequency, 0.2 + index * 0.025, volume, "triangle");
+      addRegisterClick(context, start + delay, 0.025, 0.075, 2600 + index * 240);
+    });
+
+    // "Ching": a longer, bright sale bell with metallic overtones.
+    addTone(context, start + 0.34, 1318.51, 0.72, 0.16);
+    addTone(context, start + 0.345, 2637.02, 0.82, 0.105);
+    addTone(context, start + 0.35, 3951.07, 0.62, 0.055);
+
+    window.setTimeout(() => context.close(), 1500);
     return true;
   } catch {
     await context.close();
@@ -121,11 +137,9 @@ export default function OrderCelebration({ active }) {
         ))}
       </div>
       <div className="order-success-seal" aria-hidden="true"><span>✓</span></div>
-      {needsTap && (
-        <button type="button" className="order-sound-button" onClick={play}>
-          Play coin sound
-        </button>
-      )}
+      <button type="button" className="order-sound-button" onClick={play}>
+        {needsTap ? "Play new cha-ching" : "Replay new cha-ching"}
+      </button>
     </div>
   );
 }
