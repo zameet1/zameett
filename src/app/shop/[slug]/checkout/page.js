@@ -13,8 +13,8 @@ export async function generateMetadata({ params }) {
   const product = getProduct(slug);
   if (!product) return {};
   return {
-    title: `Secure Checkout — ${product.short}`,
-    description: `Complete your secure Zameett purchase for ${product.name}.`,
+    title: `${product.priceCents === 0 ? "Free Test Order" : "Secure Checkout"} — ${product.short}`,
+    description: `Complete your Zameett order for ${product.name}.`,
     robots: { index: false, follow: false },
   };
 }
@@ -24,6 +24,7 @@ export default async function CheckoutPage({ params, searchParams }) {
   const status = (await searchParams)?.checkout;
   const product = getProduct(slug);
   if (!product) notFound();
+  const isFree = product.priceCents === 0;
 
   return (
     <>
@@ -31,17 +32,18 @@ export default async function CheckoutPage({ params, searchParams }) {
         <div className="inner premium-checkout-shell">
           <div className="checkout-intro">
             <p className="checkout-eyebrow">Zameett digital studio</p>
-            <h1>Designed to move your idea <em>forward.</em></h1>
+            <h1>{isFree ? <>Test your profile <em>order flow.</em></> : <>Designed to move your idea <em>forward.</em></>}</h1>
             <p className="checkout-lead">
-              You are one secure step away from a professional, editable fashion resource made
-              for real-world production.
+              {isFree
+                ? "Place this free test order to check the complete customer journey. No card or payment is required."
+                : "You are one secure step away from a professional, editable fashion resource made for real-world production."}
             </p>
             <div className="checkout-product-preview">
               <Image src={product.cover} alt="" width={232} height={184} sizes="(max-width: 560px) 88px, 116px" />
               <div>
                 <small>Your selection</small>
                 <h2>{product.short}</h2>
-                <p>Editable files · Instant digital delivery</p>
+                <p>Editable files · Digital product</p>
               </div>
             </div>
             <a className="checkout-back" href={`/shop/${product.slug}#product-details`}>← Back to product details</a>
@@ -58,17 +60,17 @@ export default async function CheckoutPage({ params, searchParams }) {
             <div className="checkout-total-row"><span>Total due today</span><strong>{product.price} USD</strong></div>
             <div className="checkout-delivery">
               <FaEnvelope aria-hidden="true" />
-              <span><strong>Instant email delivery</strong><br />Your editable files and receipt will be sent to your checkout email.</span>
+              <span><strong>{isFree ? "Profile test order" : "Instant email delivery"}</strong><br />{isFree ? "The completed order will appear in your Profile." : "Your editable files and receipt will be sent to your checkout email."}</span>
             </div>
-            <form className="checkout-pay-form" action="/api/stripe/checkout" method="POST">
+            <form className="checkout-pay-form" action={isFree ? "/api/free-order" : "/api/stripe/checkout"} method="POST">
               <input type="hidden" name="slug" value={product.slug} />
-              <button type="submit" className="btn btn-burg"><FaLock aria-hidden="true" /> Continue to secure payment</button>
+              <button type="submit" className="btn btn-burg"><FaLock aria-hidden="true" /> {isFree ? "Place free test order" : "Continue to secure payment"}</button>
             </form>
-            <p className="checkout-microcopy">Encrypted payment processing by Stripe</p>
+            <p className="checkout-microcopy">{isFree ? "No card details or payment required" : "Encrypted payment processing by Stripe"}</p>
             <div className="checkout-assurances">
-              <span><FaShieldHalved /> Secure checkout</span>
+              <span><FaShieldHalved /> {isFree ? "Login protected" : "Secure checkout"}</span>
               <span><FaBolt /> Instant access</span>
-              <span><FaEnvelope /> Email delivery</span>
+              <span><FaEnvelope /> Profile history</span>
             </div>
           </aside>
         </div>

@@ -51,7 +51,7 @@ export default function Nav() {
   }, []);
 
   const accountHref = user ? "/account" : "/sign-in";
-  const accountLabel = user ? "My Profile" : "Sign In";
+  const accountLabel = user ? "Profile" : "Sign In";
   const accountActive = pathname.startsWith("/sign-in") || pathname.startsWith("/account");
 
   return (
@@ -118,7 +118,7 @@ export default function Nav() {
           );
         })}
         <a href={accountHref} className="mobile-account-link" onClick={() => setOpen(false)}>
-          <FiUser aria-hidden="true" /> {user ? "My Profile / Customer Account" : "Sign In / Customer Account"}
+          <FiUser aria-hidden="true" /> {user ? "Profile" : "Sign In"}
         </a>
         <a href="/contact#get-in-touch" onClick={() => setOpen(false)}>
           Get a Quote <span aria-hidden="true">&rarr;</span>

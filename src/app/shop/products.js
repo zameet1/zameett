@@ -60,8 +60,9 @@ export const PRODUCTS = [
     short: "Tech Pack Template — Blush",
     tagline:
       "A soft, elegant tech pack template for fashion design brands — professional structure with a refined blush aesthetic.",
-    price: "$14",
-    priceCents: 1400,
+    price: "$0",
+    priceCents: 0,
+    badge: "Free Test",
     cover: "/digital/p3-1.jpeg",
     gallery: ["/digital/p3-1.jpeg", "/digital/p3-2.jpeg", "/digital/p3-3.jpeg"],
     intro: [

@@ -94,18 +94,18 @@ export default async function ProductPage({ params, searchParams }) {
 
               <div className="gig-actions">
                 <a href={`/shop/${p.slug}/checkout#checkout`} className="btn btn-burg">
-                  Buy securely with Stripe →
+                  {p.priceCents === 0 ? "Place free test order →" : "Buy securely with Stripe →"}
                 </a>
                 <a href="/contact#get-in-touch" className="btn btn-outline">
                   Ask a Question
                 </a>
               </div>
               <div className="checkout-trust-panel" aria-label="Secure checkout benefits">
-                <div><FaShieldHalved aria-hidden="true" /><span><strong>Stripe protected</strong>Industry-standard secure checkout</span></div>
+                <div><FaShieldHalved aria-hidden="true" /><span><strong>{p.priceCents === 0 ? "No payment" : "Stripe protected"}</strong>{p.priceCents === 0 ? "Login-protected test order" : "Industry-standard secure checkout"}</span></div>
                 <div><FaBolt aria-hidden="true" /><span><strong>Instant access</strong>No shipping or waiting required</span></div>
                 <div><FaEnvelope aria-hidden="true" /><span><strong>Email delivery</strong>Files sent to your checkout email</span></div>
               </div>
-              <p className="checkout-secure-note"><FaLock aria-hidden="true" /> Your payment details never touch our servers.</p>
+              <p className="checkout-secure-note"><FaLock aria-hidden="true" /> {p.priceCents === 0 ? "No card or payment is required for this test product." : "Your payment details never touch our servers."}</p>
               {checkout === "cancelled" && (
                 <p className="checkout-message">Checkout was cancelled. You have not been charged.</p>
               )}
@@ -134,7 +134,7 @@ export default async function ProductPage({ params, searchParams }) {
               <p className="gig-note">{p.note}</p>
 
               <a href={`/shop/${p.slug}/checkout#checkout`} className="btn btn-gold gig-cta">
-                Get this template securely — {p.price} →
+                {p.priceCents === 0 ? "Place free test order →" : <>Get this template securely — {p.price} →</>}
               </a>
             </div>
           </div>

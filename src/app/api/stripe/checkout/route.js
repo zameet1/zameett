@@ -26,7 +26,7 @@ export async function POST(request) {
   const product = getProduct(slug);
 
   // Only products in the digital shop allow-list can create a Checkout Session.
-  if (!product || !Number.isInteger(product.priceCents)) {
+  if (!product || !Number.isInteger(product.priceCents) || product.priceCents <= 0) {
     return NextResponse.json({ error: "Invalid digital product." }, { status: 400 });
   }
 
