@@ -56,19 +56,37 @@ export default function SiteChrome() {
     return () => statIO.disconnect();
   }, [pathname, animateCount]);
 
-  // Subtle scroll-reveal: fade/slide elements in as they enter the viewport.
-  // The inline script in layout adds `js-reveal` (skipped under reduced motion),
-  // so without JS or with reduced motion everything stays fully visible.
+  // Progressive enhancement only: content remains visible by default. Elements
+  // receive motion when they actually enter the viewport, even after a long read.
   useEffect(() => {
-    if (!document.documentElement.classList.contains("js-reveal")) return;
     const gridSelector = [
       ".svc-grid.reveal", ".gig-grid.reveal", ".t-grid.reveal", ".why-grid.reveal",
       ".sig-grid.reveal", ".intent-directory-grid.reveal", ".intent-gallery.reveal",
       ".intent-process-grid.reveal", ".values.reveal", ".c-list.reveal",
       ".pain-list.reveal", ".p-row.reveal", ".shop-benefit-grid.reveal",
-      ".contact-step-grid.reveal", ".contact-info-col.reveal"
+      ".contact-step-grid.reveal", ".contact-info-col.reveal",
+      ".supply-stage-grid.reveal", ".supplier-check-grid.reveal",
+      ".home-pricing-grid.reveal", ".home-trust-copy.reveal",
+      ".workflow-model-grid.reveal", ".workflow-stage-grid.reveal"
     ].join(",");
-    document.querySelectorAll(gridSelector).forEach((el) => el.classList.remove("reveal", "in"));
+    document.querySelectorAll(gridSelector).forEach((element) => element.classList.remove("reveal", "reveal-pending", "reveal-in"));
+
+    const presentationSelector = [
+      ".page-hero .inner > *", ".hero-content > *", ".blog-journal-copy > *",
+      ".blog-journal-visual", ".blog-section-heading", ".blog-editorial-copy",
+      ".blog-editorial-actions", ".about-identity .inner > div",
+      ".about-clients .inner > div", ".pff-media", ".pff-copy",
+      ".portfolio-disclosure .inner", ".photo-break .pb-content > *",
+      ".contact-steps > .inner > .s-tag", ".contact-faq .faq-layout > div",
+      ".legal-content > .legal-intro", ".legal-review-note", ".legal-contact",
+      ".premium-checkout-shell > *", ".auth-shell > *", ".auth-reset-shell > *",
+      ".shop-benefits .svc-head", ".related-products .svc-head"
+    ].join(",");
+    document.querySelectorAll(presentationSelector).forEach((element, index) => {
+      element.classList.add("reveal");
+      element.style.setProperty("--reveal-delay", `${(index % 5) * 45}ms`);
+    });
+
     const cardSelector = [
       ".svc-card", ".gig-card", ".t-card", ".why-card", ".sig-card",
       ".intent-directory-grid > a", ".intent-facts article", ".intent-gallery-item",
@@ -76,39 +94,55 @@ export default function SiteChrome() {
       ".shop-benefit-grid article", ".contact-step-grid article", ".contact-detail",
       ".faq-item", ".work-showcase-card", ".dp-card", ".shl-card",
       ".contact-form-panel", ".checkout-trust-panel > div", ".article-sidebar > div",
-      ".article-takeaway", ".article-field-note"
+      ".article-takeaway", ".article-field-note", ".pricing-guide-card",
+      ".supply-stage-grid article", ".supplier-check-card",
+      ".home-pricing-grid article", ".home-trust-copy p", ".blog-cluster-grid > a",
+      ".blog-path-step", ".about-scope-list article", ".workflow-model-card",
+      ".workflow-stage-card", ".service-pricing-card", ".service-learning-card",
+      ".product-faq details", ".legal-section"
     ].join(",");
-    document.querySelectorAll(cardSelector).forEach((el, index) => {
-      el.classList.add("reveal", "card-reveal");
-      el.style.setProperty("--reveal-delay", `${(index % 4) * 70}ms`);
+    document.querySelectorAll(cardSelector).forEach((element, index) => {
+      element.classList.add("reveal");
+      element.style.setProperty("--reveal-delay", `${(index % 4) * 55}ms`);
     });
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-            if (e.target.classList.contains("card-reveal")) {
-              window.setTimeout(() => {
-                e.target.classList.remove("reveal", "card-reveal", "in");
-                e.target.style.removeProperty("--reveal-delay");
-              }, 900);
-            }
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }
-    );
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [pathname]);
 
+    const candidates = [...document.querySelectorAll(".reveal")];
+    if (!candidates.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+
+    candidates.forEach((element) => element.classList.add("reveal-pending"));
+    const revealElement = (element) => {
+      element.classList.add("reveal-in");
+      window.setTimeout(() => {
+        element.classList.remove("reveal-pending", "reveal-in");
+        element.style.removeProperty("--reveal-delay");
+      }, 760);
+    };
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          revealElement(entry.target);
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.06, rootMargin: "0px 0px -3% 0px" },
+    );
+    candidates.forEach((element) => observer.observe(element));
+    return () => {
+      observer.disconnect();
+      candidates.forEach((element) => {
+        element.classList.remove("reveal-pending", "reveal-in");
+        element.style.removeProperty("--reveal-delay");
+      });
+    };
+  }, [pathname]);
   // Give touch users the same visual feedback that desktop users get on hover.
   useEffect(() => {
     const selector = [
       ".svc-card", ".why-card", ".pain-item", ".intent-process-grid article",
       ".contact-step-grid article", ".p-step", ".val", ".c-item",
-      ".intent-facts article", ".shop-benefit-grid article", ".t-card"
+      ".intent-facts article", ".shop-benefit-grid article", ".t-card",
+      ".workflow-model-card", ".workflow-stage-card", ".supplier-check-card",
+      ".home-pricing-grid article", ".home-trust-copy p"
     ].join(",");
 
     function onCardClick(event) {

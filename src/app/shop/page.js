@@ -13,14 +13,14 @@ export const metadata = {
   openGraph: {
     title: "Digital Tech Pack Templates | Zameett Shop",
     description:
-      "Editable, factory-ready tech pack templates for fashion brands — instant digital downloads.",
+      "Editable tech-pack templates for fashion brands — structured digital documents for adding product-specific technical information.",
     url: "/shop",
     images: [{ url: "/digital/p2-1.jpeg", width: 1200, height: 630, alt: "Zameett digital tech pack templates" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Digital Tech Pack Templates | Zameett Shop",
-    description: "Editable, factory-ready tech pack templates — instant digital downloads.",
+    description: "Editable tech-pack templates — structured instant downloads for organising product-specific technical information.",
     images: ["/digital/p2-1.jpeg"],
   },
 };
@@ -63,10 +63,10 @@ export default function Shop() {
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Shop</p>
           <h1>Digital templates, <em>ready to download.</em></h1>
           <p>
-            Editable, industry-standard tech pack templates — built by our studio so you can create
-            polished, factory-ready spec sheets in minutes. Instant delivery, no subscription.
+            Editable tech-pack templates structured by Zameett to help you organise drawings,
+            materials, measurements and construction notes. Instant delivery, no subscription.
           </p>
-          <div className="page-hero-proof"><span>Instant download</span><span>Fully editable</span><span>Factory ready</span></div>
+          <div className="page-hero-proof"><span>Instant download</span><span>Fully editable</span><span>Structured starting point</span></div>
         </div>
       </header>
 
@@ -78,8 +78,8 @@ export default function Shop() {
               <h2 className="s-title">Tech pack templates that <em>do the heavy lifting.</em></h2>
             </div>
             <p className="s-body">
-              Each template is fully editable and laid out to industry standards — technical
-              drawings, bill of materials, size charts, colourways and fabric pages, all included.
+              Each template is an editable document structure for technical drawings, bills of
+              materials, measurement specifications, colourways and fabric references. Product-specific information and professional validation are not included.
             </p>
           </div>
 
@@ -107,12 +107,12 @@ export default function Shop() {
       <section className="shop-benefits">
         <div className="inner">
           <div className="svc-head reveal">
-            <div><p className="s-tag">Built for Real Production</p><h2 className="s-title">More than a template. <em>A clearer factory handoff.</em></h2></div>
-            <p className="s-body">Every file follows the same practical structure our studio uses to communicate garments, materials and revisions with production teams.</p>
+            <div><p className="s-tag">Structured for Product Development</p><h2 className="s-title">A reusable template for <em>clearer documentation.</em></h2></div>
+            <p className="s-body">Every file provides an organised starting point for documenting garments, materials and revisions after accurate product-specific information is added.</p>
           </div>
           <div className="shop-benefit-grid reveal">
             <article><span>01</span><h3>Edit with confidence</h3><p>Structured pages keep drawings, measurements, BOMs, colourways and notes organised.</p></article>
-            <article><span>02</span><h3>Brief factories clearly</h3><p>Reduce repeated questions by giving suppliers one complete, easy-to-follow source of truth.</p></article>
+            <article><span>02</span><h3>Prepare a clearer brief</h3><p>Bring product-specific information into one consistent document for professional review and supplier discussion.</p></article>
             <article><span>03</span><h3>Reuse for every style</h3><p>Duplicate the editable system for future products and build a consistent development library.</p></article>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function Shop() {
       <section className="cta page-cta shop-cta">
         <p className="s-tag">Need Something Custom?</p>
         <h2 className="s-title">Prefer us to build the tech pack <em>for you?</em></h2>
-        <p className="cta-sub">Share your garment direction and our technical design team can prepare a complete factory-ready pack around your product.</p>
+        <p className="cta-sub">Share your garment direction and our technical design team can prepare a complete production-ready documentation pack around your product.</p>
         <div className="cta-btns"><a href="/contact?service=fashion-tech-packs#get-in-touch" className="btn btn-gold">Request Custom Tech Pack →</a><a href="/services/fashion-tech-packs#service-details" className="btn btn-outline-ivory">View Service</a></div>
       </section>
       <Footer />

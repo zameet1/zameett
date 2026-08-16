@@ -19,7 +19,7 @@ export default function WorkShowcase({ compact = false }) {
             <h2 className="s-title">See the work. <em>Then imagine your collection.</em></h2>
           </div>
           <div>
-            <p>Original design, sampling and modest-wear production from our studio.</p>
+            <p>Selected design, technical-development, sampling and modest-wear production references coordinated by Zameett.</p>
             <a href="/portfolio#portfolio-gallery">Explore full portfolio →</a>
           </div>
         </div>

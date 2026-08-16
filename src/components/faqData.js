@@ -1,36 +1,10 @@
-// Plain (non-client) data module so both the client FaqAccordion and the
-// server contact page (FAQPage JSON-LD) can import it safely.
 export const FAQS = [
-  {
-    q: "Can I come for designs only, without manufacturing?",
-    a: "Absolutely. Many of our clients only need design concepts and tech packs — they have their own manufacturer or are still deciding on production. We create complete, production-ready design files that any factory in the world can follow. There is no obligation to use our manufacturing services.",
-  },
-  {
-    q: "What is a tech pack and why do I need one?",
-    a: "A tech pack is a detailed technical document telling a manufacturer exactly how to produce your garment — measurements, construction details, fabric specifications, stitch types, embellishment placement and more. Without one, manufacturers guess — and that is exactly where designs get ruined.",
-  },
-  {
-    q: "My manufacturer ruined my designs. Can Zameett help?",
-    a: "Yes — and this is one of the most common situations we hear about. We can review what went wrong, rebuild your tech packs with clearer construction notes tailored to modest wear, or take over manufacturing entirely so your designs are in the hands of specialists.",
-  },
-  {
-    q: "What garments do you specialise in?",
-    a: "We specialise in modest fashion — abayas, bias-cut styles, scarves, modest formal and casual wear, embroidered pieces and printed modest collections. We do not produce general fashion outside the modest wear category. This focus is what makes our quality exceptional.",
-  },
-  {
-    q: "What is your minimum order quantity?",
-    a: "We are flexible and work with small brands as well as larger labels. MOQ varies by product type, fabric choice and embellishment complexity. Contact us with your project details and we will work out what makes sense together — we do not turn away small collections.",
-  },
-  {
-    q: "Do you ship internationally?",
-    a: "Yes. We ship worldwide — to you, your warehouse, or directly to your customers. All packaging and quality checks are completed before dispatch so your product arrives exactly as it left our facility.",
-  },
-  {
-    q: "How long does the full process take?",
-    a: "Design and tech pack work typically takes 1–2 weeks. Sampling takes an additional 2–3 weeks. Full production runs vary based on order size and embellishment complexity. Realistic timelines are always discussed at consultation, and you receive updates throughout the process.",
-  },
-  {
-    q: "How do I get started with Zameett?",
-    a: "Simply fill in the contact form above or email us directly. Tell us about your project — design only, full manufacturing, or anything in between — and we will schedule a consultation to understand your vision and walk you through the next steps. No pressure on the first call.",
-  },
+  { q: "Can I commission design work without manufacturing?", a: "Yes. Zameett can provide fashion concepts, technical flats, tech packs, textile prints, measurement specification charts and other agreed development files without a manufacturing commitment. Sewing patterns and pattern grading are not currently offered. Exact deliverables and file formats are confirmed in the proposal." },
+  { q: "What is a tech pack and why is it useful?", a: "A tech pack records the drawings, measurements, construction details, materials, artwork and revision information agreed for a garment. It gives the sample maker or manufacturer a clearer production reference and reduces avoidable interpretation." },
+  { q: "Can you review an existing garment or failed sample?", a: "Yes. We can review the available files, photos and feedback, identify documentation gaps and propose a clearly scoped correction route. The recommendation depends on what evidence and physical samples are available." },
+  { q: "Which apparel categories do you support?", a: "Design and technical-development services are available across womenswear, menswear, childrenswear, streetwear, activewear, dresses, outerwear and modest fashion. Our core sampling and production specialisation is modest wear; other production categories are considered after project review." },
+  { q: "What is your minimum order quantity?", a: "Flexible MOQs may be available. The final minimum depends on the garment, fabric, colour, embellishment, trim, packaging and supplier requirements, and is confirmed for the specific project." },
+  { q: "Do you arrange international delivery?", a: "International delivery options can be discussed. The available courier or freight method, charges, customs responsibility, destination restrictions and delivery estimate are confirmed for the project before dispatch." },
+  { q: "How long does development or production take?", a: "The timeline depends on style count, complexity, material availability, feedback speed, sampling rounds, quantity and capacity. The quotation provides an estimate, and dates are reconfirmed after required approvals and payments." },
+  { q: "How do I get started?", a: "Complete the quote form with your category, style count, quantity, target market and preferred delivery date. You can upload small reference files or provide a Drive or WeTransfer link. We aim to respond within one business day." },
 ];

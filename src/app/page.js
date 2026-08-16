@@ -1,329 +1,87 @@
 import Footer from "@/components/Footer";
+import AutoReviews from "@/components/AutoReviews";
 import CoverImage from "@/components/CoverImage";
-import FeaturedGigs from "@/components/FeaturedGigs";
-import ShopHighlight from "@/components/ShopHighlight";
 import WorkShowcase from "@/components/WorkShowcase";
+import ProjectBriefPanel from "@/components/ProjectBriefPanel";
+import HomePricingHighlight from "@/components/HomePricingHighlight";
+import { getPricingPackage } from "@/data/pricing";
 
 export const metadata = {
-  title: {
-    absolute: "Zameett | Modest Fashion Design & Manufacturing",
-  },
-  description:
-    "Zameett is a modest fashion design and manufacturing studio in Pakistan, offering fashion concepts, tech packs, sampling, production and worldwide delivery.",
+  title: { absolute: "Fashion Design, Tech Packs & Modest-Wear Development | Zameett" },
+  description: "Zameett helps fashion brands develop original designs, technical flats, production-ready tech packs, textile prints and specialist modest-wear projects from Pakistan.",
   alternates: { canonical: "/" },
 };
-export default function Home() {
+
+const PREMIUM_PRINTED_PACKAGE = getPricingPackage("design-techpack-print-premium-collection");
+
+const WORK_PATHS = [
+  { number: "01", title: "Design & Development", text: "Original concepts, technical flats, production-ready tech packs, textile prints and measurement documentation for multiple apparel categories.", href: "/services/fashion-tech-packs" },
+  { number: "02", title: "Sampling", text: "Prototype development, fit review, material decisions and documented corrections before any approved production route.", href: "/solutions/fashion-sampling-services" },
+  { number: "03", title: "Modest-Wear Manufacturing", text: "Reviewed sourcing, private labels, production checkpoints and dispatch for abayas, kaftans, modest dresses and coordinated collections.", href: "/services/clothing-manufacturing" },
+];
+
+
+export default function HomePage() {
   return (
     <>
-    <div className="home">
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-bg">
-          <CoverImage src="/images/21.jpeg" alt="Zameett modest wear collection" priority />
-        </div>
-        <div className="hero-inner">
-          <div className="hero-content">
-            <p className="hero-eyebrow">Modest Fashion Design &amp; Manufacturing · Pakistan</p>
-            <h1 className="hero-h1">
-              Design.
-              <br />
-              Develop.
-              <br />
-              <em>Deliver.</em>
-            </h1>
-            <p className="hero-sub">
-              Design-only support, factory-ready tech packs, sampling and full modest-wear
-              manufacturing—from first sketch to worldwide delivery.
-            </p>
-            <div className="hero-proof">
-              <div><strong>Design only</strong><span>Use your own factory</span></div>
-              <div><strong>Low-MOQ friendly</strong><span>Launch with control</span></div>
-              <div><strong>Worldwide</strong><span>Production to delivery</span></div>
-            </div>
-            <div className="hero-btns">
-              <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
-              <a href="/services#service-paths" className="btn btn-outline-ivory">Explore Services</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TICKER */}
-      <div className="ticker">
-        <div className="ticker-inner">
-          {Array.from({ length: 2 }).flatMap((_, rep) =>
-            [
-              "Design Concept",
-              "Tech Packs",
-              "Textile Sourcing",
-              "Embroidery & Prints",
-              "Abayas",
-              "Bias Cut Styles",
-              "Modest Formal Wear",
-              "Sampling",
-              "Production",
-              "Worldwide Delivery",
-            ].map((t, i) => (
-              <span key={`${rep}-${i}`}>
-                <span>{t}</span>
-                <span className="dot">◆</span>
-              </span>
-            ))
-          )}
-        </div>
-      </div>
-
-      {/* STATS */}
-      <div className="stats">
-        <div className="inner">
-          <div className="stat"><div className="stat-num">350+</div><div className="stat-lbl">Clients Worldwide</div></div>
-          <div className="stat-sep"></div>
-          <div className="stat"><div className="stat-num">6+</div><div className="stat-lbl">Years Team Experience</div></div>
-          <div className="stat-sep"></div>
-          <div className="stat"><div className="stat-num">3</div><div className="stat-lbl">Service Paths</div></div>
-          <div className="stat-sep"></div>
-          <div className="stat"><div className="stat-num stat-word">Global</div><div className="stat-lbl">Worldwide Delivery</div></div>
-        </div>
-        <p className="stats-note">Figures reflect our team&rsquo;s combined experience in modest fashion design and manufacturing.</p>
-      </div>
-
-      <WorkShowcase />
-
-      {/* SERVICES PREVIEW */}
-      <section className="services home-services">
-        <div className="inner">
-          <div className="svc-head reveal">
-            <div>
-              <p className="s-tag">What We Offer</p>
-              <h2 className="s-title">
-                Everything your brand needs,
-                <br />
-                <em>under one roof.</em>
-              </h2>
-            </div>
-            <p className="s-body">
-              Choose your path — designs and tech packs only, or full manufacturing from concept to
-              worldwide delivery. Zameett is built so you never have to compromise on quality or
-              vision.
-            </p>
-          </div>
-          <div className="svc-grid reveal">
-            <div className="svc-card featured">
-              <span className="svc-badge">Most Popular</span>
-              <div className="svc-num" aria-hidden="true">01</div>
-              <h3>Design &amp; Tech Packs Only</h3>
-              <p>
-                Professional designs and manufacturer-ready tech packs — everything your factory
-                needs to execute your vision perfectly. No manufacturing commitment required.
-              </p>
-              <a href="/services/fashion-tech-packs#service-details" className="svc-link">Explore tech packs →</a>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">02</div>
-              <h3>Design Concept &amp; Styling</h3>
-              <p>
-                From mood boards to final illustrations — abayas, bias cuts, scarves, modest formal
-                and casual wear, designed with cultural understanding.
-              </p>
-              <a href="/services/fashion-tech-packs#service-details" className="svc-link">Explore design service →</a>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">03</div>
-              <h3>Embroidery &amp; Textile Prints</h3>
-              <p>
-                Custom embroidery patterns, textile prints and embellishment placement matched to
-                your brand&rsquo;s aesthetic and quality standards.
-              </p>
-              <a href="/services/custom-textile-patterns#service-details" className="svc-link">Explore textile design →</a>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">04</div>
-              <h3>Textile Sourcing</h3>
-              <p>
-                The right fabrics for modest wear — from lightweight linens to heavy embellished
-                formals — at competitive prices that protect your margins.
-              </p>
-              <a href="/services/clothing-manufacturing#service-details" className="svc-link">Explore sourcing →</a>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">05</div>
-              <h3>Sampling &amp; Production</h3>
-              <p>
-                A prototype is approved before any production run begins. We never move forward
-                until you are completely satisfied — no wasted budgets.
-              </p>
-              <a href="/services/clothing-manufacturing#service-details" className="svc-link">Explore production →</a>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">06</div>
-              <h3>Delivery to Doorstep</h3>
-              <p>
-                Finished, quality-checked and packaged — shipped worldwide directly to you or your
-                customers. Truly end-to-end.
-              </p>
-              <a href="/services/clothing-manufacturing#service-details" className="svc-link">Explore delivery →</a>
-            </div>
-          </div>
-          <div className="design-banner reveal">
-            <div>
-              <h3>Just need designs? <em>That is perfectly fine.</em></h3>
-              <p>
-                Many clients come to Zameett only for design concepts and tech packs — they have
-                their own manufacturer or are still building their setup. We create
-                production-ready files any factory in the world can follow. No manufacturing
-                commitment, ever.
-              </p>
-            </div>
-            <a href="/contact?service=fashion-tech-packs#get-in-touch" className="btn btn-burg">Design-Only Enquiry →</a>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURED GIGS */}
-      <FeaturedGigs />
-
-      {/* SHOP / DIGITAL PRODUCTS */}
-      <ShopHighlight />
-
-      {/* PHOTO BREAK */}
-      <div className="photo-break">
-        <CoverImage src="/images/19.jpeg" objectPosition="center 22%" alt="Zameett modest wear collection — abayas and modest formal pieces crafted in Pakistan" />
-        <div className="pb-overlay">
-          <div className="pb-content">
-            <p className="pb-tag">Our Philosophy</p>
-            <h2 className="pb-h">&ldquo;Your vision, executed with precision and cultural understanding.&rdquo;</h2>
-            <p className="pb-p">
-              We specialise in modest wear — abayas, bias cuts, scarves and formal modest
-              collections — crafted from Pakistan and delivered to the world.
-            </p>
-            <a href="/about#our-story" className="btn btn-gold">Our Story →</a>
-          </div>
-        </div>
-      </div>
-
-      {/* SIGNATURE PIECES */}
-      <section className="sig home-signature">
-        <div className="inner">
-          <div className="svc-head reveal">
-            <div>
-              <p className="s-tag">Selected Work</p>
-              <h2 className="s-title">Signature <em>pieces.</em></h2>
-            </div>
-            <p className="s-body">
-              A glimpse of recent modest wear we&rsquo;ve designed and manufactured — from velvet
-              kaftans to embroidered abayas. Explore the full archive in our lookbook.
-            </p>
-          </div>
-          <div className="sig-grid reveal">
-            <a href="/portfolio#portfolio-gallery" className="sig-card">
-              <CoverImage src="/images/16.jpeg" objectPosition="center 16%" alt="Ivory protea-print silk gown" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Prints</div><h3>Ivory Protea Print</h3></div>
+      <main className="home">
+        <section className="hero">
+          <div className="hero-bg"><CoverImage src="/images/21.jpeg" alt="Zameett fashion design and modest-wear development" priority /></div>
+          <div className="hero-inner"><div className="hero-content">
+            <p className="hero-eyebrow">Fashion Design & Product Development · Pakistan</p>
+            <h1 className="hero-h1 home-hero-title">Launch Your Fashion Collection—<em>From Design to Production Support.</em></h1>
+            <p className="hero-sub">From original fashion concepts and technical flats to production-ready tech packs, textile prints and specialist modest-wear development, Zameett helps brands build clearer and more professional collections.</p>
+            <div className="hero-btns"><a href="#get-a-quote" className="btn btn-gold">Start Your Project →</a><a href="/portfolio#portfolio-gallery" className="btn btn-outline-ivory">View Our Work</a><a href="/pricing" className="btn btn-pricing-hero">View Pricing</a></div>
+            <a href="/pricing#package-design-techpack-print-premium-collection" className="home-hero-price-card" aria-label={`View the recommended Zameett ${PREMIUM_PRINTED_PACKAGE.name}`}>
+              <span>Recommended premium package</span>
+              <strong>${PREMIUM_PRINTED_PACKAGE.price.toLocaleString("en-US")} <i>USD</i></strong>
+              <small>{PREMIUM_PRINTED_PACKAGE.collectionSize} original designs, {PREMIUM_PRINTED_PACKAGE.collectionSize} professional tech packs and {PREMIUM_PRINTED_PACKAGE.collectionSize} custom textile prints for the most complete creative scope.</small>
+              <b>View recommended package <i aria-hidden="true">&rarr;</i></b>
             </a>
-            <a href="/portfolio#portfolio-gallery" className="sig-card">
-              <CoverImage src="/images/02.jpeg" objectPosition="center 16%" alt="Rosewood belted maxi" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Bias Cut</div><h3>Rosewood Belted Maxi</h3></div>
-            </a>
-            <a href="/portfolio#portfolio-gallery" className="sig-card">
-              <CoverImage src="/images/08.jpeg" objectPosition="center 16%" alt="Terracotta tribal kimono" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Embroidery</div><h3>Terracotta Tribal Kimono</h3></div>
-            </a>
-            <a href="/portfolio#portfolio-gallery" className="sig-card">
-              <CoverImage src="/images/09.jpeg" objectPosition="center 16%" alt="Ivory pearl-trim abaya" sizes="(max-width: 900px) 50vw, 25vw" />
-              <div className="sig-cap"><div className="c">Abayas</div><h3>Ivory Pearl-Trim Abaya</h3></div>
-            </a>
-          </div>
-          <div className="sig-foot reveal">
-            <a href="/portfolio#portfolio-gallery" className="btn btn-outline">View Full Lookbook →</a>
-          </div>
-        </div>
-      </section>
+          </div></div>
+        </section>
 
-      {/* WHY */}
-      <section className="why home-why">
-        <div className="inner">
-          <div className="why-head reveal">
-            <div>
-              <p className="s-tag">Why Zameett</p>
-              <h2 className="s-title">The partner your brand <em>deserves.</em></h2>
-            </div>
-            <p className="why-body">
-              We are not a generalist manufacturer. We specialise exclusively in modest fashion —
-              which means every service, every decision, every stitch is made with your specific
-              industry in mind.
-            </p>
-          </div>
+        <section className="home-trust-bar" aria-label="Zameett service assurances"><div className="inner">
+          <a href="/pricing">Packages from $60 USD →</a><span>Modest-Wear Specialists</span><span>Design-Only Available</span><span>Sample Before Bulk</span><span>Worldwide Projects</span><span>NDA Available</span>
+        </div></section>
+
+        <section className="services home-services" id="ways-to-work"><div className="inner">
+          <div className="svc-head reveal"><div><p className="s-tag">Three Ways To Work With Zameett</p><h2 className="s-title">Start with the stage <em>you need.</em></h2></div><p className="s-body">Every proposal confirms scope, formats, revisions, timing and commercial assumptions before work begins.</p></div>
+          <div className="svc-grid svc-grid-paths reveal">{WORK_PATHS.map((path) => <article className={`svc-card${path.number === "01" ? " featured" : ""}`} key={path.title}>{path.number === "01" && <span className="svc-badge">Standalone Available</span>}<div className="svc-num">{path.number}</div><h2>{path.title}</h2><p>{path.text}</p><a className="svc-link" href={path.href}>{path.number === "01" ? "Explore Fashion Tech Pack Services" : path.number === "02" ? "Explore Sampling Support" : "Explore Modest-Wear Manufacturing"} →</a></article>)}</div>
+        </div></section>
+
+        <HomePricingHighlight />
+
+        <WorkShowcase />
+
+        <section className="why home-why"><div className="inner">
+          <div className="why-head reveal"><div><p className="s-tag">Why Zameett</p><h2 className="s-title">Development decisions that remain <em>clear and controlled.</em></h2></div><p className="why-body">Design support is available across apparel categories. Our core sampling and production specialisation remains modest wear.</p></div>
           <div className="why-grid reveal">
-            <div className="why-card">
-              <div className="w-icon" aria-hidden="true">01</div>
-              <h3>Modest Wear Specialists</h3>
-              <p>We only do modest fashion. Every design and production decision is made with deep cultural and technical industry understanding.</p>
-            </div>
-            <div className="why-card">
-              <div className="w-icon" aria-hidden="true">02</div>
-              <h3>Design-Only Welcome</h3>
-              <p>No manufacturing commitment needed. Come for designs and tech packs and take them to any factory you choose. We never lock you in.</p>
-            </div>
-            <div className="why-card">
-              <div className="w-icon" aria-hidden="true">03</div>
-              <h3>Truly End-to-End</h3>
-              <p>Design to delivery under one roof when you need it. No coordinating multiple vendors. No miscommunications. No lost vision.</p>
-            </div>
-            <div className="why-card">
-              <div className="w-icon" aria-hidden="true">04</div>
-              <h3>Quality Guaranteed</h3>
-              <p>Every piece goes through strict quality control before dispatch. We do not ship anything we would not be proud to wear ourselves.</p>
-            </div>
+            <article className="why-card"><div className="w-icon">01</div><h3>Specialist modest-wear knowledge</h3><p>Coverage, proportion, drape, layering and embellishment placement are considered during technical development.</p></article>
+            <article className="why-card"><div className="w-icon">02</div><h3>Design-only is welcome</h3><p>Commission defined design or technical files without committing to Zameett manufacturing.</p></article>
+            <article className="why-card"><div className="w-icon">03</div><h3>Written approval gates</h3><p>Bulk production begins after written sample approval and confirmation of the approved specification.</p></article>
+            <article className="why-card"><div className="w-icon">04</div><h3>Documented quality checkpoints</h3><p>Every accepted production project follows documented quality checkpoints before dispatch.</p></article>
           </div>
-        </div>
-      </section>
+        </div></section>
 
-      {/* TESTIMONIALS */}
-      <section className="testimonials home-testimonials">
-        <div className="inner">
-          <div className="t-head reveal">
-            <p className="s-tag">Client Stories</p>
-            <h2 className="s-title">What our clients <em>have to say.</em></h2>
-            <p className="t-rating">★ 4.9 average from verified client reviews</p>
-          </div>
-          <div className="t-grid reveal">
-            <div className="t-card">
-              <div className="t-stars">★★★★★</div>
-              <p>&ldquo;Zameett is kind, understanding and handled multiple revisions with ease. The quality of work was very high and I love the print they made — I&rsquo;ll definitely work with them again. True dedication to customer satisfaction.&rdquo;</p>
-              <div className="t-name">dylani760</div>
-              <div className="t-role">Verified Client — United States</div>
-            </div>
-            <div className="t-card">
-              <div className="t-stars">★★★★★</div>
-              <p>&ldquo;Fast, clear and excellent communication. They took my feedback quickly and adjusted everything fast — exactly the kind of partner a growing brand needs.&rdquo;</p>
-              <div className="t-name">aloosha123</div>
-              <div className="t-role">Verified Client — United Arab Emirates</div>
-            </div>
-            <div className="t-card">
-              <div className="t-stars">★★★★★</div>
-              <p>&ldquo;Great job! The team took the time to add everything I needed and were patient with me throughout. Exactly what we needed for our collection.&rdquo;</p>
-              <div className="t-name">hassatabey</div>
-              <div className="t-role">Verified Client — United States</div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <section className="process home-process" id="process"><div className="inner">
+          <p className="s-tag">How It Works</p><h2 className="s-title">A visible path from brief <em>to handover.</em></h2>
+          <div className="p-row">
+            <div className="p-step"><div className="p-circle"><span>1</span></div><h3>Brief</h3><p>We review category, scope, quantity, destination and target timing.</p></div>
+            <div className="p-step"><div className="p-circle"><span>2</span></div><h3>Proposal</h3><p>Deliverables, revisions, fees, assumptions and exclusions are documented.</p></div>
+            <div className="p-step"><div className="p-circle"><span>3</span></div><h3>Development</h3><p>Designs, technical files or samples are prepared against the agreed brief.</p></div>
+            <div className="p-step"><div className="p-circle"><span>4</span></div><h3>Approval</h3><p>The approved version and any open conditions are confirmed in writing.</p></div>
+            <div className="p-step"><div className="p-circle"><span>5</span></div><h3>Handover</h3><p>Approved files or goods move to the agreed delivery or dispatch route.</p></div>
+          </div><div className="sig-foot reveal"><a href="/how-it-works#workflow" className="btn btn-outline">View the complete workflow →</a></div>
+        </div></section>
 
-      {/* CTA */}
-      <section className="cta home-cta">
-        <p className="s-tag">Ready to Begin?</p>
-        <h2 className="s-title">Your next collection starts <em>right here.</em></h2>
-        <p className="cta-sub">
-          Design only or the full journey — tell us your vision and we will make it a reality.
-          Pakistan-crafted, world-delivered.
-        </p>
-        <div className="cta-btns">
-          <a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a>
-          <a href="/services#service-paths" className="btn btn-outline-ivory">View Services</a>
-        </div>
-        <p className="home-cta-trust">Design only <span>·</span> Low-MOQ options <span>·</span> Worldwide delivery</p>
-      </section>
-    </div>
-    <Footer />
+        <section className="testimonials home-testimonials"><div className="inner"><div className="t-head reveal"><p className="s-tag">Client Feedback</p><h2 className="s-title">Independent feedback, <em>shown with its source where available.</em></h2></div><AutoReviews variant="home" /></div></section>
+
+        <section className="home-trust-section"><div className="inner"><div className="reveal"><p className="s-tag">Transparent Project Structure</p><h2 className="s-title">Know who is responsible <em>before work begins.</em></h2></div><div className="home-trust-copy reveal"><p>Your proposal identifies the services delivered directly by Zameett and any work performed by reviewed third-party suppliers. Capability, MOQ, sample, production, shipping and confidentiality requirements are confirmed for the specific project.</p><p>Files, approvals, revisions and supplier responsibilities are documented around the agreed scope so every project has a clearer decision trail.</p></div></div></section>
+
+        <section className="contact-section home-quote" id="get-a-quote"><div className="inner"><div className="home-quote-intro reveal"><p className="s-tag">Start Your Project</p><h2 className="s-title">Send a clear brief.<br /><em>Receive a scoped next step.</em></h2><p className="s-body">Use the same secure three-step brief as our Get a Quote page. We aim to respond within one business day; MOQ, delivery and production options are confirmed for the product and destination.</p><div className="home-quote-assurances" aria-label="Project enquiry assurances"><span>No first-call commitment</span><span>Files stay private</span><span>Worldwide enquiries</span></div></div><ProjectBriefPanel /></div></section>
+      </main>
+      <Footer />
     </>
   );
 }

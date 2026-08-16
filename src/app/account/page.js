@@ -2,6 +2,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient, hasSupabaseConfig } from "@/lib/supabase/server";
 import { decodeFreeOrders, FREE_ORDERS_COOKIE } from "@/lib/freeOrders";
+import { getProjectsForEmail } from "@/lib/clientProjects";
+import AccountActivityNotifications from "@/components/AccountActivityNotifications";
 
 export const metadata = {
   title: "Profile",
@@ -42,6 +44,8 @@ export default async function AccountPage() {
   const orders = decodeFreeOrders(cookieStore.get(FREE_ORDERS_COOKIE)?.value)
     .filter((order) => order?.userId === claims.sub)
     .slice(0, 10);
+  const projects = getProjectsForEmail(email, appMetadata.zameett_project_updates || {});
+  const totalRecords = orders.length + projects.length;
 
   return (
     <main className="account-page profile-page">
@@ -53,8 +57,8 @@ export default async function AccountPage() {
             <p>Manage your Zameett orders, downloads, profile details and project requests from one place.</p>
           </div>
           <div className="profile-summary" aria-label="Profile summary">
-            <div><strong>{orders.length}</strong><span>Orders</span></div>
-            <div><strong>{orders.length}</strong><span>Test products</span></div>
+            <div><strong>{totalRecords}</strong><span>Orders</span></div>
+            <div><strong>{projects.length}</strong><span>Active projects</span></div>
             <div><strong>{emailVerified ? "Yes" : "Pending"}</strong><span>Email verified</span></div>
           </div>
         </div>
@@ -71,24 +75,108 @@ export default async function AccountPage() {
                 <p>{email}</p>
               </div>
             </div>
-            <form action="/auth/signout" method="post">
-              <button type="submit" className="account-signout">Sign Out</button>
-            </form>
-          </article>
-
-          <article className="profile-details profile-panel">
-            <div className="profile-panel-head">
-              <div><span>Account</span><h2>Profile details</h2></div>
-              <span className={`profile-status ${emailVerified ? "verified" : ""}`}>{emailVerified ? "Verified" : "Pending"}</span>
+            <div className="profile-identity-actions">
+              <details className="profile-compact-details">
+                <summary>
+                  <span>Profile details</span>
+                  <i aria-hidden="true">+</i>
+                </summary>
+                <div className="profile-compact-details-body">
+                  <span className={`profile-status ${emailVerified ? "verified" : ""}`}>{emailVerified ? "Verified" : "Pending"}</span>
+                  <dl className="profile-detail-list">
+                    <div><dt>Email address</dt><dd>{email}</dd></div>
+                    <div><dt>Sign-in method</dt><dd>{provider}</dd></div>
+                    <div><dt>Member since</dt><dd>{joined}</dd></div>
+                    <div><dt>Last sign in</dt><dd>{lastSignIn}</dd></div>
+                  </dl>
+                </div>
+              </details>
+              <form action="/auth/signout" method="post">
+                <button type="submit" className="account-signout">Sign Out</button>
+              </form>
             </div>
-            <dl className="profile-detail-list">
-              <div><dt>Email address</dt><dd>{email}</dd></div>
-              <div><dt>Sign-in method</dt><dd>{provider}</dd></div>
-              <div><dt>Member since</dt><dd>{joined}</dd></div>
-              <div><dt>Last sign in</dt><dd>{lastSignIn}</dd></div>
-            </dl>
           </article>
 
+          <AccountActivityNotifications projects={projects} orders={orders} />
+
+          {projects.length > 0 && (
+            <article className="profile-projects profile-panel">
+              <div className="profile-panel-head">
+                <div><span>Live project</span><h2>Project progress</h2></div>
+                <span className="project-status-badge">Pending</span>
+              </div>
+              <div className="profile-project-list">
+                {projects.map((project) => (
+                  <section className="profile-project" key={project.id}>
+                    <div className="project-spotlight">
+                      <div className="project-spotlight-copy">
+                        <div className="project-topline">
+                          <span className="profile-kicker">{project.id}</span>
+                          <span className="project-status-badge">{project.status}</span>
+                        </div>
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+                        <div className="project-current-stage">
+                          <span>Current stage</span>
+                          <strong>{project.currentStage}</strong>
+                          <small>We will update your dashboard as soon as this stage moves forward.</small>
+                        </div>
+                      </div>
+                      <div
+                        className="project-progress-ring"
+                        style={{ "--project-progress": `${project.progress * 3.6}deg` }}
+                        aria-label={`${project.progress}% complete`}
+                      >
+                        <div><strong>{project.progress}%</strong><span>Complete</span></div>
+                      </div>
+                    </div>
+
+                    <div className="project-metrics">
+                      <div><span>Project value</span><strong>{project.amount}</strong>{project.paymentSummary && <small className="project-payment-summary">{project.paymentSummary}</small>}</div>
+                      <div><span>Status</span><strong>{project.status}</strong></div>
+                      <div><span>Delivery window</span><strong>{project.deliveryWindow}</strong></div>
+                      <div><span>Estimated delivery</span><strong>{formatDate(project.estimatedDelivery)}</strong></div>
+                    </div>
+
+                    <div className="project-progress-line">
+                      <div>
+                        <span>Project journey</span>
+                        <small>Last updated {formatDate(project.updatedAt)}</small>
+                      </div>
+                      <div
+                        className="project-progress-track"
+                        role="progressbar"
+                        aria-label={`${project.title} progress`}
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-valuenow={project.progress}
+                      >
+                        <span style={{ width: `${project.progress}%` }} />
+                      </div>
+                    </div>
+
+                    <ol className="project-timeline">
+                      {project.milestones.map((milestone, index) => (
+                        <li className={milestone.state} key={milestone.label}>
+                          <div className="project-step-head">
+                            <span className="project-step-mark" aria-hidden="true">
+                              {milestone.state === "complete" ? "✓" : index + 1}
+                            </span>
+                            <span className="project-step-state">
+                              {milestone.state === "complete" ? "Complete" : milestone.state === "current" ? "In progress" : "Upcoming"}
+                            </span>
+                          </div>
+                          <small>{milestone.date}</small>
+                          <h4>{milestone.label}</h4>
+                          <p>{milestone.detail}</p>
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                ))}
+              </div>
+            </article>
+          )}
           <article className="profile-orders profile-panel">
             <div className="profile-panel-head">
               <div><span>Purchases</span><h2>Orders & downloads</h2></div>
@@ -131,7 +219,7 @@ export default async function AccountPage() {
             <span className="profile-kicker">Support</span>
             <h2>Need help with an order?</h2>
             <p>Contact us from the same email used for your profile so we can identify your account quickly.</p>
-            <a href="mailto:hello@zameett.com" className="btn btn-outline">Email support →</a>
+            <div className="profile-support-actions"><a href="mailto:hello@zameett.com" className="btn btn-outline">Email support →</a><a href="mailto:hello@zameett.com?subject=Account%20deletion%20request" className="profile-delete-link">Request account deletion</a></div>
           </article>
         </div>
       </section>

@@ -1,0 +1,24 @@
+.form{position:relative}
+.honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.prefillSummary{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(270px,.75fr);gap:22px;align-items:center;margin-bottom:14px;padding:22px;border:1px solid rgba(184,139,74,.34);background:linear-gradient(135deg,var(--gold-pale),var(--surface));box-shadow:0 16px 42px rgba(69,16,43,.08);animation:briefPrefillIn .55s ease both}
+.prefillSummary>div>span{display:block;margin-bottom:6px;color:var(--gold-deep);font:700 8px/1 var(--font-jost),sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.prefillSummary strong{display:block;color:var(--burg);font:600 clamp(23px,3vw,31px)/1.05 var(--font-cormorant),serif}
+.prefillSummary p{margin-top:7px;color:var(--muted);font-size:12px;line-height:1.55}
+.prefillSummary dl{display:grid;grid-template-columns:repeat(3,1fr);margin:0;border:1px solid var(--line);background:rgba(255,255,255,.72)}
+.prefillSummary dl div{min-width:0;padding:11px;border-left:1px solid var(--line)}
+.prefillSummary dl div:first-child{border-left:0}
+.prefillSummary dt{color:var(--muted);font:600 7px/1.3 var(--font-jost),sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.prefillSummary dd{margin:5px 0 0;color:var(--burg);font:600 11px/1.35 var(--font-jost),sans-serif}
+@keyframes briefPrefillIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.progress{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-bottom:4px;border:1px solid var(--line);background:var(--line)}
+.progress button{min-width:0;min-height:58px;padding:10px;border:0;color:var(--muted);background:var(--surface);font:600 8px/1.35 var(--font-jost),sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.progress button:not(:disabled){cursor:pointer}.progress button span{display:block;margin-bottom:5px;color:var(--gold-deep);font:italic 17px/1 var(--font-cormorant),serif}
+.progress .activeStep{color:var(--gold-lt);background:var(--burg)}.progress .activeStep span{color:var(--gold)}
+.stepPanel{display:grid;gap:20px;min-width:0;padding-top:20px}.stepPanel[hidden]{display:none}
+.stepHeading{padding-bottom:18px;border-bottom:1px solid var(--line)}.stepHeading>span{color:var(--gold-deep);font:600 8px/1 var(--font-jost),sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.stepHeading h3{margin-top:7px;color:var(--burg);font-size:clamp(25px,3vw,33px);line-height:1.08}.stepHeading p{margin-top:7px;color:var(--muted);font-size:12px;line-height:1.65}
+.selectedPackage{padding:13px 15px;border-left:3px solid var(--gold);color:var(--mid);background:var(--gold-pale);font-size:12px;line-height:1.6}.selectedPackage strong{color:var(--burg)}
+.actions{display:flex;justify-content:flex-end;gap:10px;padding-top:4px}.actions button{min-width:150px}
+@media(max-width:700px){.prefillSummary{grid-template-columns:1fr;padding:18px}.prefillSummary dl{grid-template-columns:1fr}.prefillSummary dl div,.prefillSummary dl div:first-child{border-left:0;border-top:1px solid var(--line)}.prefillSummary dl div:first-child{border-top:0}}
+@media(max-width:560px){.progress button{min-height:52px;padding:8px 4px;font-size:7px;letter-spacing:.05em}.progress button span{font-size:15px}.actions{display:grid;grid-template-columns:1fr}.actions button{width:100%}}
+@media(prefers-reduced-motion:reduce){.prefillSummary{animation:none}.progress button{transition:none}}

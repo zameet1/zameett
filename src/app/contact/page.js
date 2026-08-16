@@ -1,10 +1,14 @@
-import ContactForm from "@/components/ContactForm";
+import ProjectBriefPanel from "@/components/ProjectBriefPanel";
 import FaqAccordion from "@/components/FaqAccordion";
 import { FAQS } from "@/components/faqData";
 import ScrollTopLink from "@/components/ScrollTopLink";
 import Footer from "@/components/Footer";
 import SocialLinks from "@/components/SocialLinks";
 import JsonLd from "@/components/JsonLd";
+import { GIGS } from "@/app/services/gigs";
+import { SOLUTIONS } from "@/app/solutions/solutions";
+import { getPricingPackage } from "@/data/pricing";
+import { WHATSAPP_URL } from "@/lib/contactLinks";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -19,24 +23,48 @@ const faqSchema = {
 export const metadata = {
   title: "Contact",
   description:
-    "Get in touch with Zameett for a modest fashion design or manufacturing quote — fill in the form and we'll respond within 24 hours.",
+    "Get in touch with Zameett for fashion design, technical development, sampling or modest-wear manufacturing. We aim to respond within one business day.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Zameett | Get a Modest Fashion Design & Manufacturing Quote",
     description:
-      "Design only or full manufacturing — tell us your vision and we'll respond within 24 hours with a clear path and quote.",
+      "Share your project brief and we will review the most suitable design, sampling or production route.",
     url: "/contact",
     images: [{ url: "/images/26.jpeg", width: 1200, height: 630, alt: "Hand embellishment detail on a Zameett modest wear piece" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Contact Zameett | Get a Modest Fashion Design & Manufacturing Quote",
-    description: "Design only or full manufacturing — tell us your vision and we'll respond within 24 hours.",
+    description: "Fashion design, technical development and reviewed modest-wear production support.",
     images: ["/images/26.jpeg"],
   },
 };
 
-export default function Contact() {
+function firstParam(value) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+export default async function Contact({ searchParams }) {
+  const params = await searchParams;
+  const requestedPackage = firstParam(params?.package);
+  const requestedService = firstParam(params?.service);
+  const pricingPackage = getPricingPackage(requestedPackage);
+
+  let initialService = "";
+  let initialPackageParam = "";
+
+  if (pricingPackage) {
+    initialService = pricingPackage.name;
+    initialPackageParam = pricingPackage.contactParam;
+  } else if (requestedPackage === "production-review") {
+    initialService = "Production Review";
+    initialPackageParam = "production-review";
+  } else if (requestedService) {
+    const gig = GIGS.find((item) => item.slug === requestedService);
+    const solution = SOLUTIONS.find((item) => item.slug === requestedService);
+    initialService = gig?.serviceValue || solution?.contactValue || "";
+  }
+
   return (
     <>
       <JsonLd data={faqSchema} />
@@ -45,11 +73,11 @@ export default function Contact() {
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Contact</p>
           <h1>Let&rsquo;s bring your <em>collection to life.</em></h1>
           <p>
-            Fill in the form and we will get back to you within 24 hours. Tell us as much or as
-            little as you like — design only, full manufacturing, or anything in between. We will
+            Share your brief and we aim to respond within one business day. Tell us as much or as
+            little as you like — design and technical support across apparel categories, or reviewed modest-wear sampling and manufacturing. We will
             take it from there.
           </p>
-          <div className="page-hero-proof"><span>Reply within 24 hours</span><span>No first-call commitment</span><span>Worldwide enquiries</span></div>
+          <div className="page-hero-proof"><span>Aim: one business day</span><span>No first-call commitment</span><span>Worldwide enquiries</span></div>
         </div>
       </header>
 
@@ -58,14 +86,14 @@ export default function Contact() {
         <div className="inner">
           <div className="reveal">
             <p className="s-tag">Get In Touch</p>
-            <h2 className="s-title">Talk to a <em>modest wear specialist.</em></h2>
+            <h2 className="s-title">Talk to a <em>fashion-development specialist.</em></h2>
             <p className="s-body" style={{ marginBottom: 24 }}>
-              No pressure and no commitment on the first call. We will listen to your vision and
+              The first conversation is for understanding your brief. We will review your information and
               walk you through the right next steps for your brand.
             </p>
             <div className="contact-quick">
               <a
-                href="https://wa.me/923246599699"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-burg"
@@ -77,7 +105,7 @@ export default function Contact() {
               </a>
             </div>
             <p className="contact-reply">
-              <span aria-hidden="true">⚡</span> Average reply time — within 24 hours
+              <span aria-hidden="true">⚡</span> Response target — one business day
             </p>
             <div className="contact-info-col">
               <div className="contact-detail">
@@ -86,7 +114,7 @@ export default function Contact() {
               </div>
               <div className="contact-detail">
                 <span>WhatsApp</span>
-                <a href="https://wa.me/923246599699" target="_blank" rel="noopener noreferrer">+92 324 6599699</a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">+92 324 6599699</a>
               </div>
               <div className="contact-detail">
                 <span>Based In</span>
@@ -94,14 +122,14 @@ export default function Contact() {
               </div>
               <div className="contact-detail">
                 <span>Specialisation</span>
-                <p>Modest Fashion, Abayas &amp; Modest Wear</p>
+                <p>Multi-category design · Modest-wear production specialty</p>
               </div>
               <div className="contact-detail">
                 <span>Response Time</span>
-                <p>Within 24 hours, every enquiry</p>
+                <p>We aim to reply within one business day</p>
               </div>
               <div className="contact-detail">
-                <span>Follow Us</span>
+                <span>Online</span>
                 <div className="social-row">
                   <SocialLinks className="social-btn" only={["Instagram", "Pinterest"]} />
                 </div>
@@ -109,10 +137,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="reveal contact-form-panel">
-            <div className="contact-form-head"><span>Project Brief</span><h2>Tell us what you are building.</h2><p>Share what you know now. We can help define the rest together.</p></div>
-            <ContactForm />
-          </div>
+          <ProjectBriefPanel initialService={initialService} initialPackageParam={initialPackageParam} />
         </div>
       </section>
 

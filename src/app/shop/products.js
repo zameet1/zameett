@@ -1,87 +1,58 @@
-// Digital products sold through Stripe Checkout. Prices are defined in cents
-// here on the server and are never accepted from the browser.
+const COMMON_SPECS = {
+  formats: "Adobe Illustrator (.AI) editable source and PDF reference/export",
+  illustrator: "Required for full source-file editing",
+  canva: "Not included",
+  spreadsheets: "Excel and Google Sheets versions are not included",
+  pageSize: "Document layouts are supplied in the included source file; confirm print settings before export",
+  fonts: "Font files and paid font licences are not included",
+  instructions: "Page labels and editable placeholders are included; software training is not included",
+  sampleData: "Illustrative placeholders only — not approved production measurements",
+  licence: "Single-brand commercial-use licence; resale or redistribution of the template is prohibited",
+  updates: "Future updates are not included unless stated in the order",
+  support: "Seven days of delivery/access support; customisation and technical design are separate services",
+  excluded: "Custom garment design, validated measurements, grading rules, sewing pattern, fit testing and factory approval",
+};
 
 export const PRODUCTS = [
   {
     slug: "tech-pack-template-pro",
     name: "Tech Pack Template — Pro Edition",
     short: "Tech Pack Template — Pro",
-    tagline:
-      "The most complete editable tech pack template — industry-standard layouts with dedicated pages for BOM, specs and construction.",
-    price: "$22",
-    priceCents: 2200,
-    badge: "Most Complete",
-    cover: "/digital/p2-1.jpeg",
-    gallery: ["/digital/p2-1.jpeg", "/digital/p2-2.jpeg", "/digital/p2-3.jpeg"],
-    intro: [
-      "A professional, fully editable tech pack template built to industry standards — everything a factory needs to take your design from sketch to sample without guesswork.",
-      "Just drop in your flats, fill the fields and send it to any manufacturer in the world. Clean, organised and ready to use in minutes.",
-    ],
-    listTitle: "What's inside",
-    list: [
-      "Technical drawing pages (front / back / detail views)",
-      "Dedicated Bill of Materials (BOM) page",
-      "Size chart & POM (points of measure) with grading",
-      "Colourway pages",
-      "Fabric & trim suggestion pages",
-      "Construction & specification layouts",
-      "Fully editable, print-ready files",
-    ],
-    note: "Delivered as editable files to the email address used for secure Stripe Checkout.",
+    tagline: "An editable technical-document layout with dedicated sections for drawings, materials, measurements and construction notes.",
+    price: "$22", priceCents: 2200, badge: "Most Complete",
+    cover: "/digital/p2-1.jpeg", gallery: ["/digital/p2-1.jpeg", "/digital/p2-2.jpeg", "/digital/p2-3.jpeg"],
+    intro: ["A structured starting point for organising garment-development information in Adobe Illustrator.", "Replace all sample placeholders with project-specific technical information and have measurements, patterns and construction decisions reviewed by qualified professionals before production."],
+    listTitle: "Seven core page layouts",
+    list: ["Front, back and detail drawing layouts", "Bill of Materials layout", "Measurement / POM and technical sizing layout", "Colourway layout", "Fabric and trim reference layout", "Construction-note layout", "Revision and identification fields"],
+    specs: { ...COMMON_SPECS, pages: "Seven core page layouts" },
+    note: "The template contains editable measurement and technical sizing layouts; it does not create accurate garment measurements, sewing patterns, grading rules or fit approval.",
   },
   {
     slug: "tech-pack-template-classic",
     name: "Tech Pack Template — Classic Edition",
     short: "Tech Pack Template — Classic",
-    tagline:
-      "A clean, multi-page editable tech pack template — perfect for new brands creating their first professional spec sheets.",
-    price: "$14",
-    priceCents: 1400,
-    cover: "/digital/p1-1.jpeg",
-    gallery: ["/digital/p1-1.jpeg", "/digital/p1-2.jpeg", "/digital/p1-3.jpeg"],
-    intro: [
-      "A timeless, easy-to-edit tech pack template for brands and designers who want polished, manufacturer-ready spec sheets without starting from scratch.",
-      "Includes all the core pages you need — technical details, fabric suggestions, colourways, size chart and bill of materials.",
-    ],
-    listTitle: "What's inside",
-    list: [
-      "Technical details & drawing pages",
-      "Fabric suggestion page",
-      "Colourway page",
-      "Size chart / POM page",
-      "Bill of Materials page",
-      "Editable, print-ready layout",
-    ],
-    note: "Delivered as editable files to the email address used for secure Stripe Checkout.",
+    tagline: "A clean editable layout for organising the core information used during garment development.",
+    price: "$14", priceCents: 1400,
+    cover: "/digital/p1-1.jpeg", gallery: ["/digital/p1-1.jpeg", "/digital/p1-2.jpeg", "/digital/p1-3.jpeg"],
+    intro: ["A six-layout starting point for brands that want organised technical documentation in Adobe Illustrator.", "All placeholder content must be replaced and professionally checked for the specific garment before sampling or production."],
+    listTitle: "Six core page layouts",
+    list: ["Technical drawing layout", "Fabric reference layout", "Colourway layout", "Measurement / POM layout", "Bill of Materials layout", "Construction and identification fields"],
+    specs: { ...COMMON_SPECS, pages: "Six core page layouts" },
+    note: "The template contains editable measurement and technical sizing layouts; it does not create accurate garment measurements, sewing patterns, grading rules or fit approval.",
   },
   {
     slug: "tech-pack-template-blush",
     name: "Tech Pack Template — Blush Edition",
     short: "Tech Pack Template — Blush",
-    tagline:
-      "A soft, elegant tech pack template for fashion design brands — professional structure with a refined blush aesthetic.",
-    price: "$0",
-    priceCents: 0,
-    badge: "Free Test",
-    cover: "/digital/p3-1.jpeg",
-    gallery: ["/digital/p3-1.jpeg", "/digital/p3-2.jpeg", "/digital/p3-3.jpeg"],
-    intro: [
-      "A beautifully styled, fully editable tech pack template for designers who want their documentation to look as considered as their collections.",
-      "Professional, factory-ready structure wrapped in a clean blush palette — technical drawings, fabric pages, colourways, size charts and BOM included.",
-    ],
-    listTitle: "What's inside",
-    list: [
-      "Technical drawing pages (front / back)",
-      "Fabric suggestion page with swatch slots",
-      "Colourway page",
-      "Size chart / POM with grading",
-      "Bill of Materials page",
-      "Editable, print-ready files",
-    ],
-    note: "Delivered as editable files to the email address used for secure Stripe Checkout.",
+    tagline: "An editable six-layout technical-document template with a refined blush visual system.",
+    price: "$14", priceCents: 1400,
+    cover: "/digital/p3-1.jpeg", gallery: ["/digital/p3-1.jpeg", "/digital/p3-2.jpeg", "/digital/p3-3.jpeg"],
+    intro: ["A styled Adobe Illustrator starting point for organising drawing, material, colourway and measurement information.", "The visual template does not validate garment engineering; replace every placeholder and obtain professional technical review before production."],
+    listTitle: "Six core page layouts",
+    list: ["Front and back drawing layout", "Fabric reference layout", "Colourway layout", "Measurement / POM layout", "Bill of Materials layout", "Construction and identification fields"],
+    specs: { ...COMMON_SPECS, pages: "Six core page layouts" },
+    note: "The template contains editable measurement and technical sizing layouts; it does not create accurate garment measurements, sewing patterns, grading rules or fit approval.",
   },
 ];
 
-export function getProduct(slug) {
-  return PRODUCTS.find((p) => p.slug === slug);
-}
+export function getProduct(slug) { return PRODUCTS.find((product) => product.slug === slug); }

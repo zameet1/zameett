@@ -1,64 +1,17 @@
 import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: "Terms of Service",
-  description: "The terms governing the use of the Zameett website and services.",
-  alternates: { canonical: "/terms" },
-};
-
-export default function Terms() {
-  return (
-    <>
-      <header className="page-hero legal-hero">
-        <div className="inner">
-          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Terms of Service</p>
-          <h1>Terms of <em>Service</em></h1>
-          <p>Last updated: July 2026</p>
-        </div>
-      </header>
-
-      <section className="services legal-page">
-        <div className="inner" style={{ maxWidth: 760 }}>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            By using zameett.com and engaging our services, you agree to the following terms.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Services</h2>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            Zameett provides modest fashion design and manufacturing services, including design and
-            tech packs, sampling, production, and digital products. Specific scope, pricing,
-            timelines and minimum order quantities are agreed per project before work begins.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Orders &amp; payment</h2>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            Service and manufacturing orders are confirmed with us before payment. Digital products
-            can be purchased through Stripe Checkout on their product pages. Production begins only
-            after payment and, where applicable, sample approval.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Digital products</h2>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            Digital products (tech-pack templates, patterns, guides) are licensed for your own
-            brand use and may not be resold or redistributed. Due to their nature, digital products
-            are non-refundable once delivered.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Intellectual property</h2>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            Designs we create for you become yours on full payment. Website content, branding and
-            imagery remain the property of Zameett.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Contact</h2>
-          <p className="s-body">
-            Questions about these terms? Email{" "}
-            <a href="mailto:hello@zameett.com" style={{ color: "var(--gold-deep)", textDecoration: "underline" }}>hello@zameett.com</a>.
-          </p>
-        </div>
-      </section>
-
-      <Footer />
-    </>
-  );
-}
+export const metadata = { title: "Terms of Service", description: "Terms governing Zameett design, development, sampling, manufacturing and digital products.", alternates: { canonical: "/terms" } };
+const SECTIONS = [
+  ["Quotations, scope and approval", "A quotation, statement of work or accepted proposal confirms deliverables, assumptions, exclusions, revision rounds, fees, payment schedule, timing and validity. Electronic acceptance, payment or written instruction may confirm approval. Scope changes require written confirmation and may change fees and timing."],
+  ["Payments and milestones", "Deposits and milestone payments are due as stated in the project documents. Work, file release, sample dispatch or production may pause if payment is late. Bank, processor, currency-conversion, tax or collection charges may be payable by the client where stated."],
+  ["Revisions, feedback and delay", "Included revisions apply only to the agreed brief. Additional or out-of-sequence changes are quoted separately. Client feedback delays, missing information or conflicting instructions may move the schedule. Paused projects may require a restart fee and new capacity window."],
+  ["Cancellation and refunds", "Refund eligibility depends on work completed, reserved capacity and non-recoverable supplier commitments. Completed milestones, delivered digital products, authorised materials and committed third-party costs are not ordinarily refundable. The Refund & Cancellation Policy and Digital Product Refund Policy apply."],
+  ["Sampling and bulk-production approval", "Sample type and correction rounds are project specific. Bulk production begins only after written approval of the identified sample and approved specification, confirmation of payment and material availability. Conditional approval must list every open issue."],
+  ["Manufacturing tolerances and variation", "Measurements are assessed against agreed tolerances. Fabric shade, texture, print, handwork and natural materials can vary within approved commercial limits. Material availability, supplier capacity or approved changes may affect MOQ, price and timing."],
+  ["Shipping, customs and risk", "Shipping charges, insurance, duties, taxes, brokerage and destination fees are allocated in the quotation. Delivery dates are estimates unless expressly guaranteed in writing. Customs, carrier events and force majeure may cause delay. Risk-transfer terms follow the agreed shipping term or carrier handover stated in the project documents."],
+  ["Intellectual property and confidentiality", "Rights in custom final deliverables transfer only after full payment unless stated otherwise. Pre-existing templates, methods and working assets remain with Zameett. Portfolio use requires permission or an agreement right and remains subject to confidentiality and NDA obligations."],
+  ["Third-party suppliers", "Reviewed third parties may support materials, pattern, printing, embroidery, manufacturing, testing, payment or logistics. Zameett remains responsible only to the extent stated in the project agreement and is not liable for independent third-party acts beyond the agreed management scope."],
+  ["Liability, force majeure and chargebacks", "To the extent permitted by law, liability is limited to the amount paid for the affected deliverable and excludes indirect or consequential loss. Neither party is liable for reasonable delay caused by events beyond its control. Chargebacks should not replace the documented dispute process; fraudulent or abusive disputes may be contested with project records."],
+  ["Governing process", "The parties should first attempt good-faith written resolution. Governing law, venue, arbitration or court jurisdiction should be confirmed in the signed project agreement. Where no project agreement specifies otherwise, applicable Pakistani law may apply subject to mandatory consumer and international rules."],
+];
+export default function Terms(){return <><header className="page-hero legal-hero"><div className="inner"><p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Terms</p><h1>Terms of <em>Service</em></h1><p>Last updated: July 30, 2026</p></div></header><section className="services legal-page"><div className="inner legal-content"><p className="s-body legal-intro">These terms apply to use of zameett.com and form the website-level basis for Zameett services. A signed project agreement, accepted quotation, purchase order or platform order may contain additional or controlling terms.</p>{SECTIONS.map(([title,text])=><section className="legal-section" key={title}><h2 className="s-title">{title}</h2><p className="s-body">{text}</p></section>)}<aside className="legal-review-note"><strong>Legal review:</strong> Final contractual wording, company identity, registration disclosures and dispute provisions should be reviewed by a qualified Pakistani corporate lawyer before being relied on for a material transaction.</aside><p className="legal-contact">Questions? Email <a href="mailto:hello@zameett.com">hello@zameett.com</a>.</p></div></section><Footer /></>}

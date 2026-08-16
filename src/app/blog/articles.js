@@ -1,4 +1,9 @@
-export const ARTICLES = {
+import { SEO_TECH_ARTICLES } from "./seo-articles-tech.js";
+import { SEO_DEVELOPMENT_ARTICLES } from "./seo-articles-development.js";
+import { SEO_ABAYA_ARTICLES } from "./seo-articles-abaya.js";
+import { SEO_TEXTILE_ARTICLES } from "./seo-articles-textile.js";
+
+const LEGACY_ARTICLES = {
   "abaya-manufacturing-cost": {
     intro: "There is no honest single price for manufacturing an abaya. Two garments that look similar in a campaign photograph can have very different fabric consumption, seam work and embellishment time. A useful estimate starts by separating development costs from the repeatable cost of each production unit.",
     keyTakeaway: "Ask for a line-by-line quote, not only a per-piece number. The quote should identify fabric, trims, labour, embellishment, labels, packaging and freight assumptions.",
@@ -93,4 +98,46 @@ export const ARTICLES = {
       { heading: "6. Launch with a reorder and feedback plan", paragraphs: ["Decide what evidence will trigger a reorder: sell-through by style, wait-list size, return rate and customer comments by size. Keep production lead time visible so you can reorder before the best seller disappears for a season.", "Collect structured feedback after delivery. Ask about fit, opacity, fabric feel, length and use occasion. Use the answers to revise the next tech pack rather than relying only on social engagement."], bullets: ["Product pages with exact measurements", "Clear care and fabric information", "Size and length guidance", "Launch content using the actual garments", "Post-purchase feedback and defect tracking"] },
     ],
   },
+  "private-label-vs-custom-manufacturing": {
+    intro: "Private label and custom manufacturing can both launch a clothing brand, but they create very different assets, timelines and customer expectations. The right route depends on whether speed or product distinction is the priority.",
+    keyTakeaway: "Choose private label to test merchandising and demand quickly; choose custom development when silhouette, fit, fabric or construction is central to why customers should choose your brand.",
+    sections: [
+      { heading: "1. What private label means", paragraphs: ["Private-label production starts with a supplier's existing or lightly adjusted product. Your brand may select colours, labels and packaging without funding every development decision from zero.", "It can reduce sampling time and development cost, but the same base style may be available to other buyers. Confirm exactly which elements can change and whether the supplier calls a standard product custom simply because it carries your label."] },
+      { heading: "2. What fully custom manufacturing means", paragraphs: ["Custom development begins with your brief, technical specifications and approved sample. Pattern, measurements, material, construction and details are built around the product promise.", "The result can be more defensible and consistent with the brand, but it requires clearer files, more approvals and enough budget for sampling before production."] },
+      { heading: "3. Compare the commercial trade-offs", paragraphs: ["Private label is strongest when speed, a small test and simple operations matter most. Custom is strongest when fit, modest proportions, innovation or signature detailing affects conversion and repeat purchase.", "Compare landed margin, not only unit price. Include development, labels, freight, photography changes, returns risk and the cost of holding a product that customers can find elsewhere."], bullets: ["Speed to launch", "Product exclusivity", "Sampling budget", "MOQ and colour split", "Reorder control", "Target gross margin"] },
+      { heading: "4. A hybrid route", paragraphs: ["Some founders validate packaging, channel and customer acquisition with a controlled private-label drop, then invest in custom hero styles once demand is visible.", "If you use this route, communicate accurately. Do not describe a stock base as an original in-house design, and keep a written record of which elements your business owns."], note: "Ask the supplier whether the pattern, tech pack and modified artwork can be reused with another factory before paying for development." },
+    ],
+  },
+  "garment-sampling-process-modest-fashion": {
+    intro: "Sampling is the controlled process of turning a specification into evidence. Each sample should answer a defined question about shape, fit, materials, construction or production readiness—not simply produce another garment.",
+    keyTakeaway: "Name the purpose of every sample round and close its open decisions in one revision record before the next sample begins.",
+    sections: [
+      { heading: "1. Development prototype", paragraphs: ["The first prototype tests whether the concept and technical information can become a garment. Development fabric may be used when final material is not yet available, but any difference in weight or stretch must be considered during review.", "For an abaya or modest dress, assess length, sleeve movement, opening coverage, opacity and balance as well as the flat measurements."] },
+      { heading: "2. Fit sample", paragraphs: ["The fit sample is reviewed on the intended body or form against the measurement chart. Record actual measurements before making visual comments so the team can separate a pattern issue from a sewing or fabric issue.", "Photograph front, back, side and movement views. Comments should identify the location, requested change and resulting measurement rather than use words such as looser or longer without numbers."] },
+      { heading: "3. Size set and grading", paragraphs: ["A base-size approval does not prove that the smallest and largest sizes work. A size set tests grading, proportion and construction across the range.", "Pay particular attention to sleeve width, armhole, hip ease, garment length and artwork placement because these do not always scale well through a simple mathematical rule."], bullets: ["Measure against the approved chart", "Review movement and coverage", "Check graded artwork placement", "Confirm labels and size identification"] },
+      { heading: "4. Pre-production approval", paragraphs: ["The pre-production sample should represent the bulk order closely: approved fabric, trims, labels, construction, artwork and packing decisions.", "Bulk cutting should begin only after the sample, tech pack, purchase order and open-issue list agree. Keep one sealed or clearly identified approval reference."], note: "A sample approval is a business record. Date it, name the version and list any condition still awaiting confirmation." },
+    ],
+  },
+  "fabric-sourcing-checklist-fashion-brand": {
+    intro: "A fabric name is not a specification. Before placing a material order, a brand needs enough information to predict appearance, performance, cost and compatibility with the factory process.",
+    keyTakeaway: "Approve a physical quality reference with a supplier code, composition, width, weight, colour and testing status—not a screenshot or a fabric name alone.",
+    sections: [
+      { heading: "1. Record the commercial specification", paragraphs: ["Confirm fibre composition, usable width, weight, finish, unit price, order unit and supplier quality code. Ask whether tax, delivery and packing are included.", "Width and consumption affect the real garment cost. A cheaper narrow fabric can cost more per garment than a wider quality with a higher metre price."] },
+      { heading: "2. Test the intended colour", paragraphs: ["Opacity, crocking and shade variation can change by colour. A black sample does not prove that ivory or blush will provide the same coverage.", "Approve colour under appropriate light and record the standard used. Custom dyeing should include a lab-dip or strike-off approval and an agreed tolerance."], bullets: ["Daylight appearance", "Opacity on the body", "Dry and wet rubbing", "Lot-to-lot shade", "Lining requirement"] },
+      { heading: "3. Check garment performance", paragraphs: ["Test shrinkage, seam slippage, snagging, pilling, pressing and the intended care process. If embroidery, printing or pleating is planned, test it on the actual base quality.", "Full-length modest garments can behave differently from a small swatch. Drape and hem growth should be checked on a representative sample."] },
+      { heading: "4. Confirm MOQ and replenishment", paragraphs: ["Ask whether the minimum applies per quality, colour, print or total order, and whether the fabric is stock-supported or made only for one production run.", "Record current stock, reservation terms, replacement lead time and the risk that a reorder comes from a different dye lot."], note: "Keep an approved swatch in the production file and reference its supplier quality code on the BOM and purchase order." },
+    ],
+  },
+  "production-management-fashion-brand": {
+    intro: "Production management becomes valuable when the cost of missed decisions, scattered communication and unmanaged milestones is greater than the cost of assigning clear ownership to the workflow.",
+    keyTakeaway: "A production manager does not replace the founder's approvals; they make the information, deadlines, risks and responsibilities visible enough for those approvals to happen on time.",
+    sections: [
+      { heading: "1. Warning signs that the workflow needs control", paragraphs: ["Samples arrive without a current tech pack, supplier questions sit in several chat threads, launch dates change without a revised plan, or no one can say which artwork and measurements are approved.", "These are system problems. Working longer hours will not fix them if the project has no controlled source of truth."], bullets: ["Several styles or suppliers", "Repeated sample corrections", "Custom fabric or artwork", "A fixed campaign or delivery window", "No shared approval register"] },
+      { heading: "2. What production management should own", paragraphs: ["A clear service may maintain the critical path, prepare supplier questions, track approvals, check specifications against purchase orders and coordinate agreed quality milestones.", "It should also state what remains with the brand, factory, freight provider and third-party inspectors. Hidden responsibility gaps create the most expensive surprises."] },
+      { heading: "3. What it should not promise", paragraphs: ["No manager can guarantee a launch date before materials, samples and capacity are confirmed. They also cannot turn incomplete files into a risk-free order through communication alone.", "Good management makes uncertainty visible early, proposes a decision and records the effect on cost or time."], note: "Ask to see the format of the critical path, approval register and weekly update before appointing a production manager." },
+      { heading: "4. When to keep management in-house", paragraphs: ["An in-house route can work when the collection is small, the supplier relationship is stable and someone on the team has time and technical confidence to maintain the documents.", "External support is more useful during a first custom collection, a supplier transition, rapid growth or a period when errors and delays are already consuming founder attention."] },
+    ],
+  },
 };
+
+export const ARTICLES = { ...LEGACY_ARTICLES, ...SEO_TECH_ARTICLES, ...SEO_DEVELOPMENT_ARTICLES, ...SEO_ABAYA_ARTICLES, ...SEO_TEXTILE_ARTICLES };

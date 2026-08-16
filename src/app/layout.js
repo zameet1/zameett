@@ -1,140 +1,84 @@
 import { Cormorant_Garamond, Jost } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import SiteChrome from "@/components/SiteChrome";
+import CookieConsent from "@/components/CookieConsent";
 import JsonLd from "@/components/JsonLd";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import AttributionTracker from "@/components/AttributionTracker";
+import PwaManager from "@/components/PwaManager";
+import { DEFAULT_SOCIAL_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL, createSiteIdentitySchema } from "@/lib/seo";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  style: ["normal", "italic"],
-});
-
-const jost = Jost({
-  variable: "--font-jost",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
-
-const siteUrl = "https://zameett.com";
-const siteTitle = "Zameett | Modest Fashion Design & Manufacturing";
-const siteDescription =
-  "Zameett is a modest fashion design and manufacturing studio in Pakistan, offering fashion concepts, tech packs, sampling, production and worldwide delivery.";
+const cormorant = Cormorant_Garamond({ variable: "--font-cormorant", subsets: ["latin"], weight: ["300","400","600","700"], style: ["normal","italic"] });
+const jost = Jost({ variable: "--font-jost", subsets: ["latin"], weight: ["300","400","500","600"] });
+const googleTagManagerId = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || "GTM-T7NL4P3W";
+const googleVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim() || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
+const siteTitle = "Zameett | Fashion Design & Product Development";
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: siteTitle,
-    template: "%s | Zameett",
-  },
-  description: siteDescription,
-  keywords: [
-    "Zameett",
-    "Zameett modest fashion",
-    "modest fashion",
-    "abaya manufacturer",
-    "modest wear design",
-    "tech pack design",
-    "Pakistan fashion manufacturer",
-    "bias cut modest wear",
-    "modest fashion tech packs",
-  ],
-  authors: [{ name: "Zameett" }],
+  metadataBase: new URL(SITE_URL),
+  title: { default: siteTitle, template: "%s | Zameett" },
+  description: SITE_DESCRIPTION,
+  referrer: "strict-origin-when-cross-origin",
+  manifest: "/manifest.webmanifest",
+  applicationName: SITE_NAME,
+  appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: SITE_NAME },
+  formatDetection: { email: false, address: false, telephone: false },
+  keywords: ["fashion design services","fashion tech pack design","textile print design","fashion product development","modest wear development","abaya manufacturer Pakistan","modest fashion manufacturer"],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "64x64", type: "image/x-icon" },
-      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico?v=20260809b", sizes: "any" },
+      { url: "/icon.png?v=20260809b", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico",
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: [{ url: "/favicon.ico?v=20260809b" }],
+    apple: [{ url: "/apple-icon.png?v=20260809b", sizes: "180x180", type: "image/png" }],
   },
-  openGraph: {
-    type: "website",
-    url: siteUrl,
-    title: siteTitle,
-    description: siteDescription,
-    siteName: "Zameett",
-    images: [{ url: "/images/21.jpeg", width: 1200, height: 630, alt: "Zameett modest wear collection" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
-    images: ["/images/21.jpeg"],
-  },
-  verification: {
-    // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in .env.local with the value
-    // Google Search Console gives you under Settings > Ownership verification
-    // > HTML tag. Leave unset and this meta tag simply won't render.
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
-  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
+  openGraph: { type: "website", url: SITE_URL, title: siteTitle, description: SITE_DESCRIPTION, siteName: SITE_NAME, images: [DEFAULT_SOCIAL_IMAGE] },
+  twitter: { card: "summary_large_image", title: siteTitle, description: SITE_DESCRIPTION, images: [{ url: DEFAULT_SOCIAL_IMAGE.url, alt: DEFAULT_SOCIAL_IMAGE.alt }] },
+  ...(googleVerification ? { verification: { google: googleVerification } } : {}),
 };
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#4A0E2B",
-};
+export const viewport = { width: "device-width", initialScale: 1, themeColor: "#4A0E2B" };
 
-const siteIdentitySchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-      name: "Zameett",
-      alternateName: "Zameett Modest Fashion",
-      url: `${siteUrl}/`,
-      description: siteDescription,
-      logo: `${siteUrl}/icon.png`,
-      image: `${siteUrl}/icon.png`,
-      email: "hello@zameett.com",
-      telephone: "+923246599699",
-      areaServed: "Worldwide",
-      address: { "@type": "PostalAddress", addressCountry: "PK" },
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "sales",
-        email: "hello@zameett.com",
-        telephone: "+923246599699",
-        availableLanguage: ["English", "Urdu"],
-      },
-      sameAs: [
-        "https://www.instagram.com/zameett_",
-        "https://www.tiktok.com/@zameet.t",
-        "https://www.pinterest.com/zameett/",
-        "https://www.upwork.com/freelancers/~0195a91e0ec99ac93c",
-        "https://www.fiverr.com/zameett",
-      ],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      url: `${siteUrl}/`,
-      name: "Zameett",
-      alternateName: ["Zameett Modest Fashion", "zameett.com"],
-      description: siteDescription,
-      publisher: { "@id": `${siteUrl}/#organization` },
-      inLanguage: "en",
-    },
-  ],
-};
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
+    <html lang="en" className={cormorant.variable + " " + jost.variable}>
+      <head>
+        <Script id="google-consent-default" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html:
+          "window.dataLayer=window.dataLayer||[];" +
+          "window.gtag=window.gtag||function(){dataLayer.push(arguments)};" +
+          "gtag('consent','default',{" +
+          "'analytics_storage':'denied'," +
+          "'ad_storage':'denied'," +
+          "'ad_user_data':'denied'," +
+          "'ad_personalization':'denied'," +
+          "'functionality_storage':'granted'," +
+          "'security_storage':'granted'," +
+          "'wait_for_update':500});"
+        }} />
+        <Script id="google-tag-manager" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html:
+          "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':" +
+          "new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0]," +
+          "j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=" +
+          "'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);" +
+          "})(window,document,'script','dataLayer','" + googleTagManagerId + "');"
+        }} />
+      </head>
       <body>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-reveal')}}catch(e){}",
-          }}
-        />
-        <JsonLd data={siteIdentitySchema} />
+        <noscript><iframe src={"https://www.googletagmanager.com/ns.html?id=" + googleTagManagerId} height="0" width="0" style={{ display: "none", visibility: "hidden" }} title="Google Tag Manager" /></noscript>
+        <JsonLd data={createSiteIdentitySchema()} />
         <GoogleAnalytics />
+        <AttributionTracker />
+        <PwaManager />
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         <Nav />
-        {children}
+        <div id="main-content" tabIndex={-1}>{children}</div>
+        <CookieConsent />
         <SiteChrome />
       </body>
     </html>

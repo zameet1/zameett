@@ -3,7 +3,11 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import FaqAccordion from "@/components/FaqAccordion";
+import ServicePricingHighlight from "@/components/ServicePricingHighlight";
+import { getPackagesByCategory } from "@/data/pricing";
 import { SOLUTIONS, getSolution } from "../solutions";
+
+export const dynamicParams = false;
 
 const siteUrl = "https://zameett.com";
 
@@ -40,6 +44,14 @@ export default async function SolutionPage({ params }) {
   const { slug } = await params;
   const solution = getSolution(slug);
   if (!solution) notFound();
+
+  const solutionPricingCategory = ["fashion-tech-pack-design-service", "abaya-tech-pack-designer"].includes(solution.slug)
+    ? "design-techpack"
+    : solution.slug === "custom-textile-pattern-designer"
+      ? "custom-print"
+      : null;
+  const solutionPackages = solutionPricingCategory ? getPackagesByCategory(solutionPricingCategory) : [];
+  const solutionStartingPrice = solutionPackages.length ? Math.min(...solutionPackages.map((item) => item.price)) : null;
 
   const pageUrl = `${siteUrl}/solutions/${solution.slug}`;
   const serviceSchema = {
@@ -81,12 +93,33 @@ export default async function SolutionPage({ params }) {
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
 
-      <main className="intent-page">
-        <header className="page-hero intent-page-hero">
-          <div className="inner">
-            <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/services">Services</a> &nbsp;/&nbsp; {solution.keyword}</p>
-            <h1>{titleLead}<em>{solution.titleAccent}</em></h1>
-            <p>{solution.description}</p>
+      <main className={`intent-page${solution.slug === "fashion-sampling-services" ? " intent-page-sampling" : ""}`}>
+        <header className="intent-hero">
+          <div className="inner intent-hero-grid">
+            <div className="intent-hero-copy">
+              <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/services">Services</a> &nbsp;/&nbsp; {solution.keyword}</p>
+              <p className="s-tag">{solution.eyebrow}</p>
+              <h1>{titleLead}<em>{solution.titleAccent}</em></h1>
+              <p className="intent-lead">{solution.description}</p>
+              <div className="intent-actions">
+                <a href={quoteHref} className="btn btn-gold">Request a Project Review &rarr;</a>
+                <a href="#solution-overview" className="btn btn-outline-ivory">Explore the Service</a>
+              </div>
+              <div className="intent-trust" aria-label="Service commitments">
+                <span>Project-specific scope</span>
+                <span>Documented approvals</span>
+                <span>Worldwide enquiries</span>
+              </div>
+            </div>
+            <div className="intent-hero-image">
+              <Image
+                src={solution.cover}
+                alt={`${solution.keyword} by Zameett`}
+                fill
+                priority
+                sizes="(max-width: 960px) 100vw, 38vw"
+              />
+            </div>
           </div>
         </header>
         <section className="intent-overview" id="solution-overview">
@@ -99,10 +132,21 @@ export default async function SolutionPage({ params }) {
             <div className="intent-facts">
               <article className="reveal"><span>Estimated timeline</span><p>{solution.timeline}</p></article>
               <article className="reveal"><span>MOQ information</span><p>{solution.moq}</p></article>
+              <article className="reveal"><span>Pricing approach</span><p>{solutionStartingPrice !== null ? `Published packages start at $${solutionStartingPrice} USD, with scope confirmed before payment.` : "Custom work is priced from the approved scope, not a generic package that hides material or production variables."}</p><a className="intent-fact-link" href="#service-pricing">{solutionStartingPrice !== null ? "View related packages" : "Review the quote route"} →</a></article>
             </div>
           </div>
         </section>
 
+        <ServicePricingHighlight
+          packages={solutionPackages}
+          sectionId="service-pricing"
+          eyebrow={solutionPackages.length ? "Related Published Packages" : "Transparent Quote Route"}
+          title={solutionPackages.length ? `Packages related to ${solution.keyword}.` : `Pricing for ${solution.keyword}.`}
+          description={solutionPackages.length ? "Compare defined creative scopes and starting prices before sending your brief." : "This service is quoted from the reviewed product, quantity, materials, complexity, timeline and destination."}
+          quoteHref={quoteHref}
+          customTitle={`${solution.keyword} project quote`}
+          customDescription="We review the actual requirements, confirm capability and provide written scope, timing, assumptions and commercial terms before commitment."
+        />
         <section className="services intent-deliverables">
           <div className="inner">
             <div className="svc-head reveal">
@@ -142,7 +186,7 @@ export default async function SolutionPage({ params }) {
           <div className="inner">
             <div className="reveal">
               <p className="s-tag">The Process</p>
-              <h2 className="s-title">Four steps. <em>One accountable team.</em></h2>
+              <h2 className="s-title">Four steps. <em>One coordinated development route.</em></h2>
             </div>
             <div className="intent-process-grid">
               {solution.process.map((step, index) => (

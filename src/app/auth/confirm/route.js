@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from "@/lib/supabase/config";
+import { sendWelcomeEmailOnce } from "@/lib/accountEmails";
 
 const allowedOtpTypes = new Set(["email", "signup", "invite", "magiclink"]);
 
@@ -40,12 +41,15 @@ export async function GET(request) {
     }
   );
 
-  const { error } = await supabase.auth.verifyOtp({
+  const { data, error } = await supabase.auth.verifyOtp({
     token_hash: tokenHash,
     type,
   });
 
-  if (!error) return successResponse;
+  if (!error) {
+    await sendWelcomeEmailOnce(supabase, data.user);
+    return successResponse;
+  }
 
   return NextResponse.redirect(
     new URL("/sign-in?error=confirmation", canonicalOrigin)

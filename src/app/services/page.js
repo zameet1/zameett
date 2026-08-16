@@ -1,313 +1,300 @@
+import Link from "next/link";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import JsonLd from "@/components/JsonLd";
-import FeaturedGigs from "@/components/FeaturedGigs";
-import WorkShowcase from "@/components/WorkShowcase";
-import { SOLUTIONS } from "../solutions/solutions";
+import { getPackagesByCategory } from "@/data/pricing";
+import styles from "./services.module.css";
 
-const SERVICES = [
+const TECH_PACK_PACKAGES = getPackagesByCategory("design-techpack");
+const PRINT_PACKAGES = getPackagesByCategory("custom-print");
+
+const SERVICE_ROUTES = [
   {
-    name: "Design & Tech Packs Only",
-    description:
-      "Complete design concepts, construction notes, measurements and specs — everything a factory needs to execute the vision perfectly. No manufacturing commitment required.",
+    number: "01",
+    mark: "TP",
+    label: "From $95 USD",
+    title: "Fashion Design & Tech Packs",
+    text: "Original garment concepts, technical flats and structured production documentation for sampling, factory quotation or production planning.",
+    facts: ["1, 5 or 7 styles", "AI + PDF where stated", "3-15 business days"],
+    outcome: "Original design plus factory-ready technical documentation",
+    href: "/services/fashion-tech-packs#service-details",
+    link: "Explore Tech Pack Service",
+    featured: true,
   },
   {
-    name: "Design Concept & Styling",
-    description:
-      "From mood boards to final design illustrations — abayas, bias cuts, scarves, modest formal and casual wear, designed with cultural understanding and commercial precision.",
+    number: "02",
+    mark: "PR",
+    label: "From $60 USD",
+    title: "Custom Textile Prints",
+    text: "Original seamless repeats and placement artwork developed around your garment, brand direction and intended production use.",
+    facts: ["Repeat or placement", "Editable source file", "3-7 business days"],
+    outcome: "Original artwork prepared for supplier review",
+    href: "/services/custom-textile-patterns#service-details",
+    link: "Explore Textile Print Service",
   },
   {
-    name: "Embroidery & Textile Prints",
-    description:
-      "Custom embroidery patterns, textile prints and embellishment placement designed to match a brand's aesthetic. Standalone files or applied during full production.",
+    number: "03",
+    mark: "SP",
+    label: "Project quote",
+    title: "Fashion Sampling",
+    text: "Prototype development, fit review, material decisions and documented correction rounds before an approved production route.",
+    facts: ["Capability review", "Fit checkpoints", "Written corrections"],
+    outcome: "A reviewed prototype route before bulk production",
+    href: "/solutions/fashion-sampling-services#solution-overview",
+    link: "Explore Sampling Support",
   },
   {
-    name: "Textile Sourcing",
-    description:
-      "Sourcing the right fabrics for modest wear — from lightweight linens to heavy embellished formals — from trusted suppliers at competitive prices.",
-  },
-  {
-    name: "Sampling & Production",
-    description:
-      "A prototype sample is made and sent for full approval before any production run begins.",
-  },
-  {
-    name: "Delivery to Doorstep",
-    description:
-      "Finished, quality-checked and packaged — shipped worldwide directly to the client or their customers.",
+    number: "04",
+    mark: "MW",
+    label: "Project quote",
+    title: "Modest-Wear Manufacturing",
+    text: "Reviewed sourcing, private labels, production checkpoints and dispatch for abayas, kaftans, modest dresses and coordinated collections.",
+    facts: ["Flexible reviewed MOQ", "Sample before bulk", "Worldwide coordination"],
+    outcome: "A controlled modest-wear production plan",
+    href: "/services/clothing-manufacturing#service-details",
+    link: "Explore Manufacturing",
   },
 ];
 
-const servicesSchema = SERVICES.map((s) => ({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: s.name,
-  description: s.description,
-  provider: { "@type": "Organization", name: "Zameett", url: "https://zameett.com" },
-  areaServed: "Worldwide",
-  serviceType: "Modest Fashion Design & Manufacturing",
-}));
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://zameett.com/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://zameett.com/services" },
-  ],
-};
+const ADDITIONAL_ROUTES = [
+  {
+    number: "01",
+    title: "Garment + Custom Print",
+    price: "From $210 USD",
+    text: "One coordinated package for the fashion design, professional tech pack and original textile artwork.",
+    href: "/pricing#pricing-tab-design-techpack-print",
+    link: "Compare printed-garment packages",
+  },
+  {
+    number: "02",
+    title: "Textile Artwork Only",
+    price: "From $60 USD",
+    text: "Choose artwork only when your product direction is already defined and you need an original repeat or placement print.",
+    href: "/services/custom-textile-patterns#service-packages",
+    link: "View print packages",
+  },
+  {
+    number: "03",
+    title: "Physical Sample",
+    price: "Custom quote",
+    text: "Sampling is reviewed against construction, pattern status, materials, fit requirements and delivery destination.",
+    href: "/solutions/fashion-sampling-services#solution-overview",
+    link: "Review sampling process",
+  },
+  {
+    number: "04",
+    title: "Production Support",
+    price: "Custom quote",
+    text: "MOQ, material terms, quality checkpoints, unit cost and dispatch options are confirmed for the actual garment.",
+    href: "/contact?package=production-review#get-in-touch",
+    link: "Request production review",
+  },
+];
 
 export const metadata = {
-  title: "Services",
+  title: "Fashion Design, Tech Pack Services & Modest-Wear Production",
   description:
-    "Modest wear tech pack design and abaya manufacturing services — design only, design plus sampling, or full production from concept to worldwide delivery.",
+    "Explore Zameett fashion design and professional tech-pack packages from $95 USD, custom textile prints from $60, sampling and modest-wear manufacturing support.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Modest Wear Tech Pack Design & Abaya Manufacturing Services | Zameett",
+    title: "Fashion Design & Tech Pack Services | Zameett",
     description:
-      "Three ways to work with Zameett: design and tech packs only, design plus sampling, or full abaya manufacturing from concept to worldwide delivery.",
+      "Clear service paths, published tech-pack pricing and project-specific sampling and modest-wear production support.",
     url: "/services",
-    images: [{ url: "/images/14.jpeg", width: 1200, height: 630, alt: "Modest wear tech pack and design development on tablet" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Modest Wear Tech Pack Design & Abaya Manufacturing Services | Zameett",
-    description:
-      "Design and tech packs only, design plus sampling, or full abaya manufacturing from concept to worldwide delivery.",
-    images: ["/images/14.jpeg"],
+    images: [{ url: "/images/techpack.jpeg", width: 1600, height: 1067, alt: "Zameett fashion design and tech-pack services" }],
   },
 };
+
+const servicesSchema = SERVICE_ROUTES.map((route) => {
+  const routePackages = route.number === "01" ? TECH_PACK_PACKAGES : route.number === "02" ? PRINT_PACKAGES : [];
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: route.title,
+    description: route.text,
+    provider: { "@type": "Organization", name: "Zameett", url: "https://zameett.com" },
+    areaServed: "Worldwide",
+    ...(routePackages.length
+      ? {
+          offers: routePackages.map((item) => ({
+            "@type": "Offer",
+            price: item.price,
+            priceCurrency: "USD",
+            url: "https://zameett.com/contact?package=" + item.contactParam,
+            itemOffered: { "@type": "Service", name: item.name, description: item.subtitle },
+          })),
+        }
+      : {}),
+  };
+});
 
 export default function Services() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema} />
-      {servicesSchema.map((s, i) => (
-        <JsonLd key={i} data={s} />
-      ))}
-      <header className="page-hero service-hero">
-        <div className="inner">
-          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Services</p>
-          <h1>Design only, full manufacturing, or <em>everything in between.</em></h1>
-          <p>
-            Zameett is built around flexibility. Take our designs to your own factory, or let us
-            carry your collection from the first sketch all the way to your customer&rsquo;s
-            doorstep. You choose your level of involvement.
-          </p>
-          <div className="page-hero-proof"><span>Design only</span><span>Low-MOQ friendly</span><span>Worldwide delivery</span></div>
-        </div>
-      </header>
-
-      {/* SERVICE PATHS */}
-      <section className="services services-paths premium-section" id="service-paths" style={{ paddingBottom: 48 }}>
-        <div className="inner">
-          <div className="svc-head reveal">
-            <div>
-              <p className="s-tag">Three Ways To Work With Us</p>
-              <h2 className="s-title">Pick the path that fits <em>your brand today.</em></h2>
+      {servicesSchema.map((schema) => <JsonLd key={schema.name} data={schema} />)}
+      <main>
+        <header className={styles.hero + " page-hero service-hero"}>
+          <div className={styles.heroGrid + " inner"}>
+            <div className={styles.heroCopy + " reveal"}>
+              <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; Services</p>
+              <p className="s-tag">Fashion Design & Technical Development</p>
+              <h1>From first sketch to <em>factory-ready tech pack.</em></h1>
+              <p>
+                Choose a defined creative package or request a reviewed sampling and production route.
+                Prices, core deliverables and next steps are visible before you send a brief.
+              </p>
+              <div className={styles.heroProof} aria-label="Service benefits">
+                <span>Clear starting prices</span><span>Written scope first</span><span>No payment at enquiry</span>
+              </div>
+              <div className={styles.heroActions}>
+                <Link className="btn btn-gold" href="#tech-pack-pricing">View Tech Pack Prices <span aria-hidden="true">&rarr;</span></Link>
+                <Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Send Your Brief</Link>
+              </div>
             </div>
-            <p className="s-body">
-              Whether you are launching your first capsule or scaling an established label, there
-              is a route designed for exactly where you are right now — and room to grow into the
-              others later.
-            </p>
+            <aside className={styles.heroPanel + " reveal"} aria-label="Tech pack service summary" style={{ "--reveal-delay": "90ms" }}>
+              <span className={styles.heroPanelLabel}>Most requested service</span>
+              <h2>Fashion Design + Professional Tech Pack</h2>
+              <p>One complete product starts with an original design and its own structured technical document.</p>
+              <div className={styles.heroPanelPrice}><small>Packages start at</small><strong>$95 <i>USD</i></strong></div>
+              <dl className={styles.heroPanelFacts}>
+                <div><dt>Scope</dt><dd>1, 5 or 7 styles</dd></div>
+                <div><dt>Delivery</dt><dd>From 3 business days</dd></div>
+                <div><dt>Files</dt><dd>PDF + editable AI where stated</dd></div>
+              </dl>
+              <Link href="/services/fashion-tech-packs#service-details">See exactly what a tech pack includes <span aria-hidden="true">&rarr;</span></Link>
+            </aside>
           </div>
-          <div className="svc-grid svc-grid-paths reveal">
-            <div className="svc-card featured">
-              <span className="svc-badge">Most Popular</span>
-              <div className="svc-num" aria-hidden="true">A</div>
-              <h3>Design &amp; Tech Packs Only</h3>
-              <p>We create complete design concepts and manufacturer-ready tech packs. You take the files to any factory in the world. No production commitment required.</p>
-              <a className="svc-link" href="/contact?service=fashion-tech-packs#get-in-touch">Choose design only →</a>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">B</div>
-              <h3>Design + Sampling</h3>
-              <p>Designs, tech packs and a physical prototype sample produced and shipped to you — so you can approve fit and finish before committing to a full run.</p>
-              <a className="svc-link" href="/contact#get-in-touch">Choose design + sampling →</a>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">C</div>
-              <h3>Full Manufacturing</h3>
-              <p>The complete journey — design, sourcing, sampling, production, quality control and worldwide delivery, all handled under one roof.</p>
-              <a className="svc-link" href="/contact?service=clothing-manufacturing#get-in-touch">Choose full production →</a>
-            </div>
+        </header>
+
+        <div className={styles.jumpRail} role="navigation" aria-label="Services page sections">
+          <div className="inner">
+            <Link href="#service-routes"><span>01</span>All Services</Link>
+            <Link href="#tech-pack-pricing"><span>02</span>Tech Pack Pricing</Link>
+            <Link href="#additional-services"><span>03</span>Other Pricing</Link>
+            <Link href="#how-we-work"><span>04</span>How It Works</Link>
           </div>
         </div>
-      </section>
 
-      <WorkShowcase compact />
-
-      {/* FEATURED GIGS */}
-      <FeaturedGigs />
-
-      {/* BUYER-INTENT SERVICE GUIDES */}
-      <section className="intent-directory services-directory premium-section">
-        <div className="inner">
-          <div className="svc-head reveal">
-            <div>
-              <p className="s-tag">Services by Need</p>
-              <h2 className="s-title">Find the exact support <em>your brand needs.</em></h2>
+        <section className={styles.routesSection} id="service-routes" aria-labelledby="service-routes-title">
+          <div className="inner">
+            <div className={styles.sectionHeading + " reveal"}>
+              <div><p className="s-tag">Choose Your Starting Point</p><h2 className="s-title" id="service-routes-title">See the service, price route and <em>next step together.</em></h2></div>
+              <p className="s-body">Creative services have published starting prices. Physical sampling and manufacturing receive a project-specific quote after the garment, quantity and destination are reviewed.</p>
             </div>
-            <p className="s-body">Explore focused service pages with relevant work, process, estimated timelines, MOQ guidance and answers to common buyer questions.</p>
+            <div className={styles.routeGrid}>
+              {SERVICE_ROUTES.map((route, index) => (
+                <article
+                  className={[styles.routeCard, route.featured ? styles.featuredRoute : "", "reveal"].filter(Boolean).join(" ")}
+                  style={{ "--reveal-delay": index * 65 + "ms" }}
+                  key={route.title}
+                >
+                  <div className={styles.routeTop}><span>{route.number}</span><small>{route.label}</small></div>
+                  <span className={styles.routeVisual} aria-hidden="true">{route.mark}</span>
+                  <h3>{route.title}</h3>
+                  <p>{route.text}</p>
+                  <ul>{route.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
+                  <p className={styles.routeOutcome}><span>Project outcome</span>{route.outcome}</p>
+                  <Link href={route.href}>{route.link} <span aria-hidden="true">&rarr;</span></Link>
+                </article>
+              ))}
+            </div>
           </div>
-          <div className="intent-directory-grid reveal">
-            {SOLUTIONS.map((solution) => (
-              <a href={`/solutions/${solution.slug}#solution-overview`} key={solution.slug}>
-                <span>{solution.eyebrow}</span>
-                <h3>{solution.keyword}</h3>
-                <p>{solution.description}</p>
-                <b>View service details →</b>
-              </a>
-            ))}
+        </section>
+
+        <section className={styles.pricingSection} id="tech-pack-pricing" aria-labelledby="tech-pack-pricing-title">
+          <div className="inner">
+            <div className={styles.pricingHeading}>
+              <div className="reveal">
+                <p className="s-tag">Published Tech Pack Packages</p>
+                <h2 className="s-title" id="tech-pack-pricing-title">Choose one style, a capsule or a <em>complete collection.</em></h2>
+                <p className="s-body">Each package combines original fashion design with an individual professional tech pack for every stated garment.</p>
+              </div>
+              <aside className={styles.techPackDefinition + " reveal"} style={{ "--reveal-delay": "80ms" }}>
+                <small>What is a tech pack?</small>
+                <p>A controlled reference containing technical flats, materials, construction details, measurements and placement information for sampling or manufacturer review.</p>
+                <span>Patterns, grading, physical samples and manufacturing are separate unless included in a written proposal.</span>
+              </aside>
+            </div>
+
+            <div className={styles.packageGrid}>
+              {TECH_PACK_PACKAGES.map((item, index) => (
+                <article
+                  className={[styles.packageCard, item.featured ? styles.featuredPackage : "", item.recommended ? styles.recommendedPackage : "", "reveal"].filter(Boolean).join(" ")}
+                  style={{ "--reveal-delay": index * 75 + "ms" }}
+                  key={item.slug}
+                >
+                  {item.recommended ? <span className={styles.recommendedBadge}>Recommended</span> : item.featured && <span className={styles.popularBadge}>Most popular</span>}
+                  <div className={styles.packageIndex}>0{index + 1} / {index === 0 ? "One style" : index === 1 ? "Capsule" : "Full collection"}</div>
+                  <h3>{item.name}</h3>
+                  <p className={styles.packageSubtitle}>{item.subtitle}</p>
+                  <div className={styles.packagePrice}><small>{item.priceQualifier}</small><strong>{"$" + item.price.toLocaleString("en-US")}</strong><i>USD</i></div>
+                  <p className={styles.packageDescription}>{item.description}</p>
+                  <dl className={styles.packageFacts}>
+                    <div><dt>Delivery</dt><dd>{item.delivery}</dd></div>
+                    <div><dt>Revisions</dt><dd>{item.revisions}</dd></div>
+                  </dl>
+                  <div className={styles.includedLabel}>Key deliverables</div>
+                  <ul className={styles.packageList}>{item.included.slice(0, 6).map((included) => <li key={included}>{included}</li>)}</ul>
+                  <Link className={styles.packageCta} href={"/contact?package=" + item.contactParam + "#get-in-touch"}>
+                    {item.ctaLabel} <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </article>
+              ))}
+            </div>
+
+            <div className={styles.pricingFooter + " reveal"}>
+              <p><strong>Before payment:</strong> we review complexity, confirm the exact pages and formats, and issue a written scope. Published prices cover standard-complexity work matching the listed package.</p>
+              <Link className="btn btn-outline-gold" href="/pricing#packages">Compare All Pricing & Deliverables <span aria-hidden="true">&rarr;</span></Link>
+            </div>
           </div>
+        </section>
+
+        <section className={styles.additionalSection} id="additional-services" aria-labelledby="additional-services-title">
+          <div className="inner">
+            <div className={styles.sectionHeading + " reveal"}>
+              <div><p className="s-tag">More Ways To Work Together</p><h2 className="s-title" id="additional-services-title">Need artwork, a sample or <em>production support?</em></h2></div>
+              <p className="s-body">Choose the closest route. Your enquiry form will carry the selected package or production-review request into the brief.</p>
+            </div>
+            <div className={styles.offerGrid}>
+              {ADDITIONAL_ROUTES.map((route, index) => (
+                <article className={styles.offerCard + " reveal"} style={{ "--reveal-delay": (index % 4) * 60 + "ms" }} key={route.title}>
+                  <div><span>{route.number}</span><small>{route.price}</small></div>
+                  <h3>{route.title}</h3>
+                  <p>{route.text}</p>
+                  <Link href={route.href}>{route.link} <span aria-hidden="true">&rarr;</span></Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <div className={styles.photoBreak + " photo-break"}>
+          <CoverImage src="/images/techpack.jpeg" objectPosition="center 40%" alt="Zameett fashion technical package development" />
+          <div className="pb-overlay"><div className="pb-content reveal"><p className="pb-tag">Controlled Development</p><h2 className="pb-h">One approved reference at every stage.</h2><p className="pb-p">Brief, technical documents, materials, samples and production decisions are recorded so the next step stays clear.</p><Link href="/how-it-works#workflow" className="btn btn-outline-gold">View How It Works <span aria-hidden="true">&rarr;</span></Link></div></div>
         </div>
-      </section>
 
-      {/* DETAILED SERVICES */}
-      <section className="services services-capabilities premium-section" style={{ paddingTop: 24 }}>
-        <div className="inner">
-          <div className="svc-head reveal">
-            <div>
-              <p className="s-tag">What We Offer</p>
-              <h2 className="s-title">Every capability your<br />modest collection needs.</h2>
-            </div>
-            <p className="s-body">Engage us for a single service or combine several. The team, the quoting transparency and the accountability stay exactly the same.</p>
-          </div>
-          <div className="svc-grid reveal">
-            <div className="svc-card featured">
-              <span className="svc-badge">Most Popular</span>
-              <div className="svc-num" aria-hidden="true">01</div>
-              <h3>Design &amp; Tech Packs Only</h3>
-              <p>Complete design concepts, construction notes, measurements and specs — everything your factory needs to execute your vision perfectly. No manufacturing commitment required.</p>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">02</div>
-              <h3>Design Concept &amp; Styling</h3>
-              <p>From mood boards to final design illustrations — abayas, bias cuts, scarves, modest formal and casual wear. Designed with cultural understanding and commercial precision.</p>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">03</div>
-              <h3>Embroidery &amp; Textile Prints</h3>
-              <p>Custom embroidery patterns, textile prints and embellishment placement designed to match your brand&rsquo;s aesthetic. Standalone files or applied during full production.</p>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">04</div>
-              <h3>Textile Sourcing</h3>
-              <p>We source the right fabrics for modest wear — from lightweight linens to heavy embellished formals — from trusted suppliers at competitive prices that protect your margins.</p>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">05</div>
-              <h3>Sampling &amp; Production</h3>
-              <p>A prototype sample is made and sent for your full approval before any production run begins. We never move forward until you are completely satisfied.</p>
-            </div>
-            <div className="svc-card">
-              <div className="svc-num" aria-hidden="true">06</div>
-              <h3>Delivery to Doorstep</h3>
-              <p>Finished, quality-checked and packaged — shipped worldwide directly to you or your customers. The most complete end-to-end service for modest fashion brands.</p>
+        <section className={styles.processSection + " process services-process"} id="how-we-work" aria-labelledby="services-process-title">
+          <div className="inner">
+            <div className="reveal"><p className="s-tag">How We Work</p><h2 className="s-title" id="services-process-title">Define. Develop. <em>Approve.</em></h2></div>
+            <div className="p-row">
+              <div className="p-step"><div className="p-circle"><span>1</span></div><h3>Scope</h3><p>Product, deliverables, revisions, commercial assumptions and timing are confirmed.</p></div>
+              <div className="p-step"><div className="p-circle"><span>2</span></div><h3>Develop</h3><p>Designs, specifications or a physical sample are prepared against the agreed brief.</p></div>
+              <div className="p-step"><div className="p-circle"><span>3</span></div><h3>Review</h3><p>Feedback is collected in one controlled revision or sample-correction round.</p></div>
+              <div className="p-step"><div className="p-circle"><span>4</span></div><h3>Approve</h3><p>Written approval identifies the version that controls the next project stage.</p></div>
+              <div className="p-step"><div className="p-circle"><span>5</span></div><h3>Deliver</h3><p>Approved files or goods move to the agreed handover or dispatch route.</p></div>
             </div>
           </div>
-          <div className="design-banner reveal">
-            <div>
-              <h3>Just need designs? <em>That is perfectly fine.</em></h3>
-              <p>Many of our clients come to Zameett only for design concepts and tech packs — they have their own manufacturer or are still building their production setup. We create production-ready files that any factory in the world can follow. No manufacturing commitment needed, ever.</p>
-            </div>
-            <a href="/contact?service=fashion-tech-packs#get-in-touch" className="btn btn-burg">Design-Only Enquiry →</a>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* PHOTO BREAK */}
-      <div className="photo-break">
-        <CoverImage src="/images/techpack.jpeg" objectPosition="center 40%" alt="Technical package on tablet" />
-        <div className="pb-overlay">
-          <div className="pb-content">
-            <p className="pb-tag">Design to Delivery</p>
-            <h2 className="pb-h">&ldquo;From your first design sketch to your customer&rsquo;s door.&rdquo;</h2>
-            <p className="pb-p">Design only, sampling, full manufacturing, or worldwide delivery — Zameett handles whichever part of the journey you need.</p>
-            <a href="/portfolio#portfolio-gallery" className="btn btn-outline-gold">See Our Work →</a>
+        <section className={styles.finalCta + " cta page-cta"}>
+          <div className="reveal">
+            <p className="s-tag">Start With A Clear Brief</p>
+            <h2 className="s-title">Know what you need?<br /><em>Let us confirm the right scope.</em></h2>
+            <p className="cta-sub">We aim to respond within one business day with the questions needed for an accurate proposal.</p>
+            <div className="cta-btns"><Link href="/contact#get-in-touch" className="btn btn-gold">Start Your Project <span aria-hidden="true">&rarr;</span></Link><Link href="/pricing" className="btn btn-outline-ivory">View Full Pricing</Link></div>
           </div>
-        </div>
-      </div>
-
-      {/* PROCESS */}
-      <section className="process services-process" id="how-we-work">
-        <div className="inner">
-          <p className="s-tag">How We Work</p>
-          <h2 className="s-title">A clear process. <em>Zero guesswork.</em></h2>
-          <div className="p-row">
-            <div className="p-step">
-              <div className="p-circle"><span>1</span></div>
-              <h3>Consultation</h3>
-              <p>We understand your brand, budget, timeline, and whether you need design only or full production.</p>
-            </div>
-            <div className="p-step">
-              <div className="p-circle"><span>2</span></div>
-              <h3>Design &amp; Tech Pack</h3>
-              <p>Designs and manufacturer-ready tech packs created from your approved creative brief.</p>
-            </div>
-            <div className="p-step">
-              <div className="p-circle"><span>3</span></div>
-              <h3>Fabric &amp; Materials</h3>
-              <p>Fabric options presented for approval — or files handed off if you are producing elsewhere.</p>
-            </div>
-            <div className="p-step">
-              <div className="p-circle"><span>4</span></div>
-              <h3>Sample &amp; Approval</h3>
-              <p>Prototype created and sent to you. Full production only begins after your complete approval.</p>
-            </div>
-            <div className="p-step">
-              <div className="p-circle"><span>5</span></div>
-              <h3>Production &amp; Delivery</h3>
-              <p>Full production run, strict quality control, and worldwide delivery to your doorstep.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROBLEM */}
-      <section className="problem services-problem">
-        <div className="inner">
-          <div>
-            <p className="s-tag">The Real Problem</p>
-            <h2 className="s-title">Building a modest fashion brand is <em>harder than it looks.</em></h2>
-            <p className="s-body" style={{ color: "rgba(250,247,242,0.5)" }}>
-              Most modest fashion designers and boutique owners face the same painful reality.
-              Zameett was built to solve it entirely — whether you need design support only, or a
-              trusted partner for the full journey from sketch to delivery.
-            </p>
-          </div>
-          <div className="pain-list">
-            <div className="pain-item">
-              <div className="pain-n">01</div>
-              <div><h3>Too Many Vendors</h3><p>One for fabric, one for design, one for embroidery, one for production. The coordination alone eats your time, budget and sanity.</p></div>
-            </div>
-            <div className="pain-item">
-              <div className="pain-n">02</div>
-              <div><h3>Manufacturers Ruin Designs</h3><p>You invest in beautiful tech packs — then a factory that doesn&rsquo;t understand modest wear construction ruins everything. Wrong drape, wrong proportions, wasted season.</p></div>
-            </div>
-            <div className="pain-item">
-              <div className="pain-n">03</div>
-              <div><h3>No Modest Wear Expertise</h3><p>Generic manufacturers don&rsquo;t understand the cultural nuance, modesty standards or silhouette precision behind an abaya or bias-cut scarf.</p></div>
-            </div>
-            <div className="pain-item">
-              <div className="pain-n">04</div>
-              <div><h3>No End-to-End Support</h3><p>You are left alone to manage logistics, quality control and delivery — on top of running your entire brand and creative direction.</p></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="cta page-cta">
-        <p className="s-tag">Ready to Begin?</p>
-        <h2 className="s-title">Tell us what you&rsquo;re making.<br /><em>We&rsquo;ll map the route.</em></h2>
-        <p className="cta-sub">Share your project and we will come back with a clear path, timeline and quote within 24 hours.</p>
-        <div className="cta-btns">
-          <a href="/contact#get-in-touch" className="btn btn-gold">Request a Quote →</a>
-          <a href="/portfolio#portfolio-gallery" className="btn btn-outline-ivory">View Portfolio</a>
-        </div>
-      </section>
+        </section>
+      </main>
       <Footer />
     </>
   );
