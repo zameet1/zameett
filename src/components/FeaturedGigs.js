@@ -13,8 +13,8 @@ export default function FeaturedGigs() {
             </h2>
           </div>
           <p className="s-body">
-            Two of the services brands come to us for most — tech packs built for modest wear, and
-            custom seamless textile prints. Explore each, then send an inquiry in one tap.
+            Two services brands often ask us for are tech packs built for modest wear and
+            custom seamless textile prints. Compare both, then send your enquiry.
           </p>
         </div>
 

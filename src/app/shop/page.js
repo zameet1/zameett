@@ -6,21 +6,21 @@ import { PRODUCTS } from "./products";
 const siteUrl = "https://zameett.com";
 
 export const metadata = {
-  title: "Shop — Digital Tech Pack Templates",
+  title: "Shop: Digital Tech Pack Templates",
   description:
-    "Editable, industry-standard fashion tech pack templates — instant digital downloads for brands, designers and startups. BOM, size charts, colourways and technical drawing pages included.",
+    "Editable fashion tech pack templates for brands, designers and startups. Each instant download includes structured pages for BOMs, size charts, colourways and technical drawings.",
   alternates: { canonical: "/shop" },
   openGraph: {
     title: "Digital Tech Pack Templates | Zameett Shop",
     description:
-      "Editable tech-pack templates for fashion brands — structured digital documents for adding product-specific technical information.",
+      "Editable tech-pack templates that help fashion brands organise product-specific technical information.",
     url: "/shop",
     images: [{ url: "/digital/p2-1.jpeg", width: 1200, height: 630, alt: "Zameett digital tech pack templates" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Digital Tech Pack Templates | Zameett Shop",
-    description: "Editable tech-pack templates — structured instant downloads for organising product-specific technical information.",
+    description: "Editable tech-pack templates for organising product-specific technical information. Available as instant downloads.",
     images: ["/digital/p2-1.jpeg"],
   },
 };

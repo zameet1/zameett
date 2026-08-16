@@ -116,8 +116,8 @@ export default function PricingPage() {
             <p className={styles.heroEyebrow}>Transparent Service Pricing</p>
             <h1>Choose the right scope. <em>See exactly what you receive.</em></h1>
             <p className={styles.heroLead}>
-              Compare fashion design, professional tech-pack and textile-print packages without
-              the guesswork. Every enquiry is reviewed before payment so the scope fits your project.
+              Compare prices, delivery times, revisions and included files for each package.
+              We review your brief before asking for payment, so the selected scope fits your project.
             </p>
             <div className={styles.heroActions}>
               <a href="#packages">Compare packages <span aria-hidden="true">↓</span></a>

@@ -86,7 +86,7 @@ export async function POST(request) {
     await sendHostingerMail({
       to: ["hello@zameett.com"],
       displayName: "Zameett Website",
-      subject: "New Zameett enquiry — " + fields["Service Required"],
+      subject: "New Zameett enquiry: " + fields["Service Required"],
       text: ["New project enquiry from zameett.com","",...rows].join("\n"),
       html: '<div style="font-family:Arial,sans-serif;background:#f6f0eb;padding:24px"><div style="max-width:720px;margin:auto;background:#fffaf6;padding:28px;border:1px solid #decbbd"><h1 style="color:#4b0823">New project enquiry</h1><table style="width:100%;border-collapse:collapse">' + htmlRows + "</table></div></div>",
       ...(attachments.length ? { attachments } : {}),

@@ -71,11 +71,11 @@ export default async function Contact({ searchParams }) {
       <header className="page-hero contact-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Contact</p>
-          <h1>Let&rsquo;s bring your <em>collection to life.</em></h1>
+          <h1>Tell us about <em>your collection.</em></h1>
           <p>
             Share your brief and we aim to respond within one business day. Tell us as much or as
-            little as you like — design and technical support across apparel categories, or reviewed modest-wear sampling and manufacturing. We will
-            take it from there.
+            little as you like. We provide design and technical support across apparel categories, plus reviewed modest-wear sampling and manufacturing. We will ask for any missing details and
+            recommend the next step.
           </p>
           <div className="page-hero-proof"><span>Aim: one business day</span><span>No first-call commitment</span><span>Worldwide enquiries</span></div>
         </div>
@@ -88,8 +88,8 @@ export default async function Contact({ searchParams }) {
             <p className="s-tag">Get In Touch</p>
             <h2 className="s-title">Talk to a <em>fashion-development specialist.</em></h2>
             <p className="s-body" style={{ marginBottom: 24 }}>
-              The first conversation is for understanding your brief. We will review your information and
-              walk you through the right next steps for your brand.
+              We use the first conversation to understand your brief. After reviewing it, we will
+              explain the practical next steps for your brand.
             </p>
             <div className="contact-quick">
               <a
@@ -105,7 +105,7 @@ export default async function Contact({ searchParams }) {
               </a>
             </div>
             <p className="contact-reply">
-              <span aria-hidden="true">⚡</span> Response target — one business day
+              <span aria-hidden="true">⚡</span> Response target: one business day
             </p>
             <div className="contact-info-col">
               <div className="contact-detail">
@@ -118,7 +118,7 @@ export default async function Contact({ searchParams }) {
               </div>
               <div className="contact-detail">
                 <span>Based In</span>
-                <p>Pakistan — Shipping Worldwide</p>
+                <p>Pakistan, shipping worldwide</p>
               </div>
               <div className="contact-detail">
                 <span>Specialisation</span>
@@ -147,7 +147,7 @@ export default async function Contact({ searchParams }) {
           <div className="contact-step-grid reveal">
             <article><span>01</span><div><h3>We review your brief</h3><p>A specialist checks your product type, service needs, quantity and timing.</p></div></article>
             <article><span>02</span><div><h3>We clarify the details</h3><p>We ask only the questions needed to recommend the right development route.</p></div></article>
-            <article><span>03</span><div><h3>You receive a clear path</h3><p>We outline scope, expected timeline and the next practical step for your collection.</p></div></article>
+            <article><span>03</span><div><h3>We send the next steps</h3><p>We outline the scope, expected timeline and the next practical step for your collection.</p></div></article>
           </div>
         </div>
       </section>
@@ -161,8 +161,7 @@ export default async function Contact({ searchParams }) {
               <h2 className="s-title">Questions we <em>always hear.</em></h2>
               <p className="s-body" style={{ marginBottom: 32 }}>
                 Honest answers to the most common questions from our clients. Still have something
-                on your mind? Reach out directly — we are always happy to talk through your
-                specific situation.
+                on your mind? Contact us and we can discuss your specific situation.
               </p>
               <ScrollTopLink className="btn btn-burg" targetId="get-in-touch">Ask Us Directly →</ScrollTopLink>
             </div>

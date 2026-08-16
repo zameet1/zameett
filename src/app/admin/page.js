@@ -109,10 +109,10 @@ export default async function AdminPage({ searchParams }) {
           </details>
 
           <div className="admin-stat-grid admin-stat-grid-six">
-            <article><span>Total customers</span><strong>{data.stats.customers ?? "—"}</strong><small>All registered accounts</small></article>
-            <article><span>New customers</span><strong>{data.stats.newCustomers ?? "—"}</strong><small>Joined in selected period</small></article>
-            <article><span>Active customers</span><strong>{data.stats.activeCustomers ?? "—"}</strong><small>Signed in during period</small></article>
-            <article><span>Paid digital orders</span><strong>{data.stats.paidOrders ?? "—"}</strong><small>{data.stats.orders ?? "—"} total checkouts in period</small></article>
+            <article><span>Total customers</span><strong>{data.stats.customers ?? "N/A"}</strong><small>All registered accounts</small></article>
+            <article><span>New customers</span><strong>{data.stats.newCustomers ?? "N/A"}</strong><small>Joined in selected period</small></article>
+            <article><span>Active customers</span><strong>{data.stats.activeCustomers ?? "N/A"}</strong><small>Signed in during period</small></article>
+            <article><span>Paid digital orders</span><strong>{data.stats.paidOrders ?? "N/A"}</strong><small>{data.stats.orders ?? "N/A"} total checkouts in period</small></article>
             <article className="featured"><span>Verified revenue</span><strong>{formatMoney(data.stats.revenueCents)}</strong><small>Paid orders in selected period</small></article>
             <article><span>Active projects</span><strong>{data.stats.activeProjects}</strong><small>Current client work in progress</small></article>
           </div>
@@ -133,9 +133,9 @@ export default async function AdminPage({ searchParams }) {
             <article className="admin-panel admin-audience">
               <div className="admin-panel-head"><div><span>Customer intelligence</span><h2>Audience snapshot</h2></div><b>{data.customerInsights.trackedSources}</b></div>
               <div className="admin-audience-metrics">
-                <div><strong>{data.stats.newCustomers ?? "—"}</strong><span>New customers</span></div>
-                <div><strong>{data.stats.activeCustomers ?? "—"}</strong><span>Active customers</span></div>
-                <div><strong>{data.stats.orders ?? "—"}</strong><span>Orders & checkouts</span></div>
+                <div><strong>{data.stats.newCustomers ?? "N/A"}</strong><span>New customers</span></div>
+                <div><strong>{data.stats.activeCustomers ?? "N/A"}</strong><span>Active customers</span></div>
+                <div><strong>{data.stats.orders ?? "N/A"}</strong><span>Orders & checkouts</span></div>
               </div>
               <div className="admin-source-list">
                 <span className="admin-source-title">Where customers came from</span>
@@ -154,7 +154,7 @@ export default async function AdminPage({ searchParams }) {
           <details className="admin-panel admin-collapsible" id="orders">
             <summary>
               <div><span>Commerce</span><h2>Orders & payments</h2><small>Stripe checkout sessions, customers and payment status</small></div>
-              <b>{data.stats.orders ?? "—"}</b><i aria-hidden="true">+</i>
+              <b>{data.stats.orders ?? "N/A"}</b><i aria-hidden="true">+</i>
             </summary>
             <div className="admin-collapsible-body">
               <a className="admin-external-link" href="https://dashboard.stripe.com/payments" target="_blank" rel="noreferrer">Open Stripe dashboard →</a>
@@ -172,7 +172,7 @@ export default async function AdminPage({ searchParams }) {
           <details className="admin-panel admin-collapsible" id="customers">
             <summary>
               <div><span>Accounts</span><h2>Registered customers</h2><small>Verified users, sign-in method and account activity</small></div>
-              <b>{data.stats.newCustomers ?? "—"}</b><i aria-hidden="true">+</i>
+              <b>{data.stats.newCustomers ?? "N/A"}</b><i aria-hidden="true">+</i>
             </summary>
             <div className="admin-collapsible-body">
               <a className="admin-external-link" href="https://supabase.com/dashboard/project/bcczrpjprndamwzqfowd/auth/users" target="_blank" rel="noreferrer">Open Supabase users →</a>

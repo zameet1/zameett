@@ -29,8 +29,8 @@ export default function HomePage() {
           <div className="hero-bg"><CoverImage src="/images/21.jpeg" alt="Zameett fashion design and modest-wear development" priority /></div>
           <div className="hero-inner"><div className="hero-content">
             <p className="hero-eyebrow">Fashion Design & Product Development · Pakistan</p>
-            <h1 className="hero-h1 home-hero-title">Launch Your Fashion Collection—<em>From Design to Production Support.</em></h1>
-            <p className="hero-sub">From original fashion concepts and technical flats to production-ready tech packs, textile prints and specialist modest-wear development, Zameett helps brands build clearer and more professional collections.</p>
+            <h1 className="hero-h1 home-hero-title">Develop Your Fashion Collection.<em>Get the Files and Support You Need.</em></h1>
+            <p className="hero-sub">Zameett creates original designs, technical flats, production-ready tech packs and textile prints. We also support modest-wear sampling and production, so your team can move forward with clear information.</p>
             <div className="hero-btns"><a href="#get-a-quote" className="btn btn-gold">Start Your Project →</a><a href="/portfolio#portfolio-gallery" className="btn btn-outline-ivory">View Our Work</a><a href="/pricing" className="btn btn-pricing-hero">View Pricing</a></div>
             <a href="/pricing#package-design-techpack-print-premium-collection" className="home-hero-price-card" aria-label={`View the recommended Zameett ${PREMIUM_PRINTED_PACKAGE.name}`}>
               <span>Recommended premium package</span>
@@ -55,7 +55,7 @@ export default function HomePage() {
         <WorkShowcase />
 
         <section className="why home-why"><div className="inner">
-          <div className="why-head reveal"><div><p className="s-tag">Why Zameett</p><h2 className="s-title">Development decisions that remain <em>clear and controlled.</em></h2></div><p className="why-body">Design support is available across apparel categories. Our core sampling and production specialisation remains modest wear.</p></div>
+          <div className="why-head reveal"><div><p className="s-tag">Why Zameett</p><h2 className="s-title">Make each development decision <em>with the right information.</em></h2></div><p className="why-body">Design support is available across apparel categories. Our core sampling and production specialisation remains modest wear.</p></div>
           <div className="why-grid reveal">
             <article className="why-card"><div className="w-icon">01</div><h3>Specialist modest-wear knowledge</h3><p>Coverage, proportion, drape, layering and embellishment placement are considered during technical development.</p></article>
             <article className="why-card"><div className="w-icon">02</div><h3>Design-only is welcome</h3><p>Commission defined design or technical files without committing to Zameett manufacturing.</p></article>
@@ -65,7 +65,7 @@ export default function HomePage() {
         </div></section>
 
         <section className="process home-process" id="process"><div className="inner">
-          <p className="s-tag">How It Works</p><h2 className="s-title">A visible path from brief <em>to handover.</em></h2>
+          <p className="s-tag">How It Works</p><h2 className="s-title">See what happens <em>after you send your brief.</em></h2>
           <div className="p-row">
             <div className="p-step"><div className="p-circle"><span>1</span></div><h3>Brief</h3><p>We review category, scope, quantity, destination and target timing.</p></div>
             <div className="p-step"><div className="p-circle"><span>2</span></div><h3>Proposal</h3><p>Deliverables, revisions, fees, assumptions and exclusions are documented.</p></div>
@@ -77,7 +77,7 @@ export default function HomePage() {
 
         <section className="testimonials home-testimonials"><div className="inner"><div className="t-head reveal"><p className="s-tag">Client Feedback</p><h2 className="s-title">Independent feedback, <em>shown with its source where available.</em></h2></div><AutoReviews variant="home" /></div></section>
 
-        <section className="home-trust-section"><div className="inner"><div className="reveal"><p className="s-tag">Transparent Project Structure</p><h2 className="s-title">Know who is responsible <em>before work begins.</em></h2></div><div className="home-trust-copy reveal"><p>Your proposal identifies the services delivered directly by Zameett and any work performed by reviewed third-party suppliers. Capability, MOQ, sample, production, shipping and confidentiality requirements are confirmed for the specific project.</p><p>Files, approvals, revisions and supplier responsibilities are documented around the agreed scope so every project has a clearer decision trail.</p></div></div></section>
+        <section className="home-trust-section"><div className="inner"><div className="reveal"><p className="s-tag">Transparent Project Structure</p><h2 className="s-title">Know who handles each part <em>of your project.</em></h2></div><div className="home-trust-copy reveal"><p>Your proposal identifies the services delivered directly by Zameett and any work performed by reviewed third-party suppliers. Capability, MOQ, sample, production, shipping and confidentiality requirements are confirmed for the specific project.</p><p>We record the agreed files, approvals, revisions and supplier responsibilities so everyone knows what happens next.</p></div></div></section>
 
         <section className="contact-section home-quote" id="get-a-quote"><div className="inner"><div className="home-quote-intro reveal"><p className="s-tag">Start Your Project</p><h2 className="s-title">Send a clear brief.<br /><em>Receive a scoped next step.</em></h2><p className="s-body">Use the same secure three-step brief as our Get a Quote page. We aim to respond within one business day; MOQ, delivery and production options are confirmed for the product and destination.</p><div className="home-quote-assurances" aria-label="Project enquiry assurances"><span>No first-call commitment</span><span>Files stay private</span><span>Worldwide enquiries</span></div></div><ProjectBriefPanel /></div></section>
       </main>

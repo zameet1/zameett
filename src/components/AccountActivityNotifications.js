@@ -18,7 +18,7 @@ function latestActivity(projects, orders) {
   if (project) {
     return {
       title: `${project.title} updated`,
-      body: `${project.currentStage} — ${project.progress}% complete`,
+      body: `${project.currentStage}: ${project.progress}% complete`,
       tag: `project-${project.id}-${project.updatedAt}`,
     };
   }
@@ -26,7 +26,7 @@ function latestActivity(projects, orders) {
   if (order) {
     return {
       title: "Your Zameett order",
-      body: `${order.name} — ${order.status}`,
+      body: `${order.name}: ${order.status}`,
       tag: `order-${order.id}-${order.status}`,
     };
   }

@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-// GA4 Measurement IDs are not secret — they are always visible in the page
+// GA4 Measurement IDs are not secret because they are always visible in the page
 // source on every site. Hardcoding it as a fallback sidesteps Hostinger not
 // exposing env vars at build time (static pages inline NEXT_PUBLIC_* at build).
 const DEFAULT_GA_ID = "G-VCR2ENVVJ5";

@@ -8,7 +8,7 @@ export default function CheckoutStatusMessage({ context = "product" }) {
 
   if (context === "checkout") {
     if (status === "cancelled") {
-      return <p className="checkout-message">Payment cancelled — you have not been charged.</p>;
+      return <p className="checkout-message">Payment cancelled. You have not been charged.</p>;
     }
     if (status === "consent-required") {
       return <p className="checkout-message checkout-error">Please review and accept the digital-product licence and refund terms before continuing.</p>;

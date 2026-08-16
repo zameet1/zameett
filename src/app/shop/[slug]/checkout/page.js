@@ -9,7 +9,7 @@ import CheckoutStatusMessage from "@/components/CheckoutStatusMessage";
 export const dynamicParams = false;
 
 export function generateStaticParams() { return PRODUCTS.map((product) => ({ slug: product.slug })); }
-export async function generateMetadata({ params }) { const { slug } = await params; const product = getProduct(slug); if (!product) return {}; return { title: `Secure Checkout — ${product.short}`, description: `Review the included formats and complete your Zameett order for ${product.name}.`, robots: { index: false, follow: false } }; }
+export async function generateMetadata({ params }) { const { slug } = await params; const product = getProduct(slug); if (!product) return {}; return { title: `Secure Checkout: ${product.short}`, description: `Review the included formats and complete your Zameett order for ${product.name}.`, robots: { index: false, follow: false } }; }
 export default async function CheckoutPage({ params }) {
   const { slug } = await params; const product = getProduct(slug); if (!product) notFound();
   return <><section className="premium-checkout" id="checkout"><div className="inner premium-checkout-shell">

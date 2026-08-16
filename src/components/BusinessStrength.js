@@ -1,8 +1,8 @@
 export default function BusinessStrength() {
   const strengths = [
-    ["01", "Modest-wear specialisation", "Abayas, kaftans, modest dresses, bias cuts and embellished pieces are treated as a technical category—not generic apparel."],
+    ["01", "Modest-wear specialisation", "We treat abayas, kaftans, modest dresses, bias cuts and embellished pieces as a specialist technical category, not generic apparel."],
     ["02", "Approve before bulk", "Tech packs, materials and a physical sample create an approval trail before the largest production spend begins."],
-    ["03", "Flexible service ladder", "Start with a $14 template, commission one custom tech pack, develop a sample or connect the complete production journey."],
+    ["03", "Flexible service options", "Start with a $14 template, commission one custom tech pack, develop a sample or combine the services your project needs."],
     ["04", "Supply-chain clarity", "Material minimums, product MOQ, revisions, quality checkpoints and exclusions are made visible for the actual project."],
   ];
 
@@ -10,8 +10,8 @@ export default function BusinessStrength() {
     <section className="business-strength premium-section">
       <div className="inner">
         <div className="svc-head reveal">
-          <div><p className="s-tag">Built for Fashion Founders</p><h2 className="s-title">A stronger product journey, <em>without the guesswork.</em></h2></div>
-          <p className="s-body">Zameett connects education, technical design, sampling and manufacturing so you can enter at the stage you need and keep one clear route forward.</p>
+          <div><p className="s-tag">Built for Fashion Founders</p><h2 className="s-title">Get the product details right <em>before you spend on production.</em></h2></div>
+          <p className="s-body">Use Zameett for technical design, sampling or manufacturing support. Start with the service you need now and add another stage when the project is ready.</p>
         </div>
         <div className="business-strength-grid">
           {strengths.map(([number, title, text]) => (

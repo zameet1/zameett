@@ -44,7 +44,7 @@ function normalizeDateRange(input = {}) {
     to,
     fromMs,
     toMs,
-    label: `${formatter.format(new Date(fromMs))} – ${formatter.format(new Date(toMs))}`,
+    label: `${formatter.format(new Date(fromMs))} to ${formatter.format(new Date(toMs))}`,
   };
 }
 
