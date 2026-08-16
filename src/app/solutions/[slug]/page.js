@@ -125,8 +125,8 @@ export default async function SolutionPage({ params }) {
         <section className="intent-overview" id="solution-overview">
           <div className="inner intent-overview-grid">
             <div className="reveal">
-              <p className="s-tag">Built Around Your Brand</p>
-              <h2 className="s-title">Specialist support, without the <em>production guesswork.</em></h2>
+              <p className="s-tag">Who This Service Is For</p>
+              <h2 className="s-title">Support matched to <em>your product and brief.</em></h2>
               <p className="s-body">{solution.fit}</p>
             </div>
             <div className="intent-facts">
@@ -152,9 +152,9 @@ export default async function SolutionPage({ params }) {
             <div className="svc-head reveal">
               <div>
                 <p className="s-tag">What You Receive</p>
-                <h2 className="s-title">A clear scope from <em>brief to handoff.</em></h2>
+                <h2 className="s-title">What is included <em>in your project.</em></h2>
               </div>
-              <p className="s-body">Every deliverable is agreed before work begins, so you know exactly what is included and what moves your collection forward.</p>
+              <p className="s-body">We agree every deliverable before work begins, so you know what is included and what you will receive.</p>
             </div>
             <div className="svc-grid intent-receive-grid">
               {solution.deliverables.map((item, index) => (
@@ -186,7 +186,7 @@ export default async function SolutionPage({ params }) {
           <div className="inner">
             <div className="reveal">
               <p className="s-tag">The Process</p>
-              <h2 className="s-title">Four steps. <em>One coordinated development route.</em></h2>
+              <h2 className="s-title">Four steps. <em>One agreed process.</em></h2>
             </div>
             <div className="intent-process-grid">
               {solution.process.map((step, index) => (
@@ -205,8 +205,8 @@ export default async function SolutionPage({ params }) {
 
         <section className="cta reveal">
           <p className="s-tag">Tell Us What You Are Building</p>
-          <h2 className="s-title">Get a tailored scope, timeline and <em>honest MOQ.</em></h2>
-          <p className="cta-sub">Share your designs, quantity and destination. We will review the details and respond with the clearest next step.</p>
+          <h2 className="s-title">Get a project-specific scope, timeline and <em>MOQ.</em></h2>
+          <p className="cta-sub">Share your designs, quantity and destination. We will review the details and tell you what we recommend next.</p>
           <div className="cta-btns"><a href={quoteHref} className="btn btn-gold">Get a Quote →</a><a href="/services#service-paths" className="btn btn-outline-ivory">View All Services</a></div>
         </section>
       </main>

@@ -36,7 +36,7 @@ const STAGES = [
 ];
 
 const SUPPLIER_CHECKS = [
-  ["01 · Product fit", "Category & technique", "We match the garment, construction, embellishment and expected finish to a supplier with relevant capability—not simply the lowest quote."],
+  ["01 · Product fit", "Category & technique", "We match the garment, construction, embellishment and expected finish to a supplier with relevant capability, not simply the lowest quote."],
   ["02 · Commercial fit", "MOQ, capacity & timing", "Minimums, size and colour splits, current capacity, sample timing and bulk lead time are checked against the actual collection plan."],
   ["03 · Risk fit", "Quality & documentation", "The quote, approved sample, specification files, quality checkpoints and relevant compliance evidence form one traceable decision record."],
   ["04 · Working fit", "Communication & ownership", "Responsibilities, approvals, change control and escalation routes are agreed before production so questions do not disappear inside chat threads."],
@@ -48,8 +48,8 @@ export default function SupplyChainPage() {
       <header className="page-hero supply-hero">
         <div className="inner">
           <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Supply Chain</p>
-          <h1>A clearer route from material choice to <em>finished delivery.</em></h1>
-          <p>Zameett keeps product decisions, approvals and quality expectations visible—so your collection does not depend on scattered messages or factory guesswork.</p>
+          <h1>Keep materials, suppliers and <em>delivery under control.</em></h1>
+          <p>Zameett records product decisions, approvals and quality expectations in one place. Your collection does not have to rely on scattered messages or supplier assumptions.</p>
           <div className="page-hero-proof"><span>Pakistan based</span><span>Modest-wear specialist</span><span>Worldwide projects</span></div>
         </div>
       </header>
@@ -64,7 +64,7 @@ export default function SupplyChainPage() {
 
         <section className="supply-stages premium-section" id="quality-process">
           <div className="inner">
-            <div className="svc-head reveal"><div><p className="s-tag">Six Control Stages</p><h2 className="s-title">A production workflow built around <em>approvals.</em></h2></div><p className="s-body">The exact inspection plan changes by garment and quantity, but the decision trail remains clear from the first file to the packed order.</p></div>
+            <div className="svc-head reveal"><div><p className="s-tag">Six Control Stages</p><h2 className="s-title">Six stages, each with <em>a clear approval.</em></h2></div><p className="s-body">The inspection plan changes by garment and quantity. We record each decision from the first file to the packed order.</p></div>
             <div className="supply-stage-grid">
               {STAGES.map(([number, title, text]) => <article className="reveal" key={title}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
             </div>
@@ -83,7 +83,7 @@ export default function SupplyChainPage() {
         <section className="supplier-check premium-section" id="supplier-check">
           <div className="inner">
             <div className="svc-head reveal">
-              <div><p className="s-tag">Supplier Fit, Not Guesswork</p><h2 className="s-title">Four checks before a factory becomes <em>your production route.</em></h2></div>
+              <div><p className="s-tag">How We Check Suppliers</p><h2 className="s-title">Four checks before a supplier <em>works on your order.</em></h2></div>
               <p className="s-body">A supplier is assessed for the specific product and order. Zameett does not promise one factory, one MOQ or one compliance answer for every collection.</p>
             </div>
             <div className="supplier-check-grid reveal">
@@ -97,7 +97,7 @@ export default function SupplyChainPage() {
         </section>
         <section className="services supply-links premium-section">
           <div className="inner">
-            <div className="svc-head reveal"><div><p className="s-tag">Choose the Support</p><h2 className="s-title">Use one stage or connect the <em>whole journey.</em></h2></div></div>
+            <div className="svc-head reveal"><div><p className="s-tag">Choose the Support</p><h2 className="s-title">Use one service or combine <em>the stages you need.</em></h2></div></div>
             <div className="svc-grid reveal">
               <a className="svc-card" href="/solutions/fabric-sourcing-modest-fashion#solution-overview"><div className="svc-num">01</div><h3>Fabric & Trim Sourcing</h3><p>Material choices documented against product, price and supplier constraints.</p></a>
               <a className="svc-card featured" href="/solutions/fashion-sampling-services#solution-overview"><span className="svc-badge">Approve first</span><div className="svc-num">02</div><h3>Sampling & Fitting</h3><p>Prototype, modesty checks and consolidated technical revisions before bulk.</p></a>
@@ -108,7 +108,7 @@ export default function SupplyChainPage() {
 
         <section className="cta page-cta">
           <p className="s-tag">Build a Safer Production Plan</p>
-          <h2 className="s-title">Tell us what is ready—and <em>where it is stuck.</em></h2>
+          <h2 className="s-title">Tell us what is ready. <em>Show us where it is stuck.</em></h2>
           <p className="cta-sub">We will recommend the smallest useful scope, from a material or sample review to complete production support.</p>
           <div className="cta-btns"><a href="/contact#get-in-touch" className="btn btn-gold">Discuss Your Project →</a><a href="/pricing#pricing-guide" className="btn btn-outline-ivory">View Pricing Guide</a></div>
         </section>

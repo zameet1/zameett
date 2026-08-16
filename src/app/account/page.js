@@ -140,7 +140,7 @@ export default async function AccountPage() {
 
                     <div className="project-progress-line">
                       <div>
-                        <span>Project journey</span>
+                        <span>Project progress</span>
                         <small>Last updated {formatDate(project.updatedAt)}</small>
                       </div>
                       <div

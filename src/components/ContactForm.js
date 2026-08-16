@@ -17,7 +17,7 @@ const BASE_SERVICES = [
   "Modest-Wear Manufacturing",
   "Embroidery & Textile Prints",
   "Production Review",
-  "Not Sure Yet — Let's Talk",
+  "Not sure yet. I need guidance",
 ];
 const STEP_LABELS = ["Your details", "Project scope", "References & consent"];
 
@@ -279,14 +279,14 @@ export default function ContactForm({ initialService = "", initialPackageParam =
         </div>
         <div className="form-row">
           <div className="form-group"><label htmlFor="stage">Project Stage *</label><select id="stage" name="Project Stage" required defaultValue=""><option value="" disabled>Where are you now?</option><option>Idea / mood board</option><option>Designs ready</option><option>Tech packs ready</option><option>Sampling in progress</option><option>Ready for reviewed production</option><option>Existing brand / reorder</option></select></div>
-          <div className="form-group"><label htmlFor="budget">Estimated Budget *</label><select id="budget" name="Estimated Budget" required defaultValue=""><option value="" disabled>Select a range</option><option>Under $500</option><option>$500–$1,500</option><option>$1,500–$5,000</option><option>$5,000–$15,000</option><option>$15,000+</option><option>Not sure yet</option></select></div>
+          <div className="form-group"><label htmlFor="budget">Estimated Budget *</label><select id="budget" name="Estimated Budget" required defaultValue=""><option value="" disabled>Select a range</option><option>Under $500</option><option>$500 to $1,500</option><option>$1,500 to $5,000</option><option>$5,000 to $15,000</option><option>$15,000+</option><option>Not sure yet</option></select></div>
         </div>
         <div className="form-row">
           <div className="form-group"><label htmlFor="styles">Number of Styles</label><input id="styles" type="number" name="Number of Styles" min="1" max="500" inputMode="numeric" value={numberOfStyles} onChange={(event) => setNumberOfStyles(event.target.value)} /></div>
           <div className="form-group"><label htmlFor="quantity">Required Quantity</label><input id="quantity" type="text" name="Required Quantity" maxLength="100" placeholder="Per style / colour if known" /></div>
         </div>
         <div className="form-row">
-          <div className="form-group"><label htmlFor="sizes">Target Sizes</label><input id="sizes" type="text" name="Target Sizes" maxLength="100" placeholder="e.g. XS–XL or custom lengths" /></div>
+          <div className="form-group"><label htmlFor="sizes">Target Sizes</label><input id="sizes" type="text" name="Target Sizes" maxLength="100" placeholder="e.g. XS to XL or custom lengths" /></div>
           <div className="form-group"><label htmlFor="market">Target Market / Country *</label><input id="market" type="text" name="Target Market or Country" maxLength="100" required /></div>
         </div>
         <div className="form-group"><label htmlFor="delivery">Required Delivery Date</label><input id="delivery" type="date" name="Required Delivery Date" /></div>

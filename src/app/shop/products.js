@@ -6,7 +6,7 @@ const COMMON_SPECS = {
   pageSize: "Document layouts are supplied in the included source file; confirm print settings before export",
   fonts: "Font files and paid font licences are not included",
   instructions: "Page labels and editable placeholders are included; software training is not included",
-  sampleData: "Illustrative placeholders only — not approved production measurements",
+  sampleData: "Illustrative placeholders only. These are not approved production measurements",
   licence: "Single-brand commercial-use licence; resale or redistribution of the template is prohibited",
   updates: "Future updates are not included unless stated in the order",
   support: "Seven days of delivery/access support; customisation and technical design are separate services",
@@ -16,8 +16,8 @@ const COMMON_SPECS = {
 export const PRODUCTS = [
   {
     slug: "tech-pack-template-pro",
-    name: "Tech Pack Template — Pro Edition",
-    short: "Tech Pack Template — Pro",
+    name: "Tech Pack Template: Pro Edition",
+    short: "Tech Pack Template: Pro",
     tagline: "An editable technical-document layout with dedicated sections for drawings, materials, measurements and construction notes.",
     price: "$22", priceCents: 2200, badge: "Most Complete",
     cover: "/digital/p2-1.jpeg", gallery: ["/digital/p2-1.jpeg", "/digital/p2-2.jpeg", "/digital/p2-3.jpeg"],
@@ -29,8 +29,8 @@ export const PRODUCTS = [
   },
   {
     slug: "tech-pack-template-classic",
-    name: "Tech Pack Template — Classic Edition",
-    short: "Tech Pack Template — Classic",
+    name: "Tech Pack Template: Classic Edition",
+    short: "Tech Pack Template: Classic",
     tagline: "A clean editable layout for organising the core information used during garment development.",
     price: "$14", priceCents: 1400,
     cover: "/digital/p1-1.jpeg", gallery: ["/digital/p1-1.jpeg", "/digital/p1-2.jpeg", "/digital/p1-3.jpeg"],
@@ -42,8 +42,8 @@ export const PRODUCTS = [
   },
   {
     slug: "tech-pack-template-blush",
-    name: "Tech Pack Template — Blush Edition",
-    short: "Tech Pack Template — Blush",
+    name: "Tech Pack Template: Blush Edition",
+    short: "Tech Pack Template: Blush",
     tagline: "An editable six-layout technical-document template with a refined blush visual system.",
     price: "$14", priceCents: 1400,
     cover: "/digital/p3-1.jpeg", gallery: ["/digital/p3-1.jpeg", "/digital/p3-2.jpeg", "/digital/p3-3.jpeg"],

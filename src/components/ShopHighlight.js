@@ -14,7 +14,7 @@ export default function ShopHighlight() {
           </div>
           <p className="s-body">
             Not ready for a custom project yet? Grab a ready-made, industry-standard tech pack
-            template and build professional spec sheets yourself — instant download.
+            template and build professional spec sheets yourself. Download it instantly.
           </p>
         </div>
 

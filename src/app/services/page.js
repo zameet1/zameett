@@ -138,7 +138,7 @@ export default function Services() {
             <div className={styles.heroCopy + " reveal"}>
               <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; Services</p>
               <p className="s-tag">Fashion Design & Technical Development</p>
-              <h1>From first sketch to <em>factory-ready tech pack.</em></h1>
+              <h1>Fashion design and tech packs <em>for real production.</em></h1>
               <p>
                 Choose a defined creative package or request a reviewed sampling and production route.
                 Prices, core deliverables and next steps are visible before you send a brief.

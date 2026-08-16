@@ -80,7 +80,7 @@ export default function Blog() {
     </div></section>
 
     <section className="blog-editorial-note"><div className="inner">
-      <div className="blog-editorial-copy"><p className="s-tag">From Learning to Development</p><h2 className="s-title">Ready to turn your idea into <em>clear production documents?</em></h2><p>Explore Zameett services or share your project brief for a scope matched to your product and current stage.</p></div>
+      <div className="blog-editorial-copy"><p className="s-tag">From Learning to Development</p><h2 className="s-title">Need help preparing <em>your product files?</em></h2><p>Review our services or send your brief. We will recommend the support that fits your product and current stage.</p></div>
       <div className="blog-editorial-actions"><Link className="btn btn-gold" href="/services">Explore Services</Link><Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Start Your Project</Link></div>
     </div></section>
     <Footer />
