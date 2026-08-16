@@ -31,7 +31,7 @@ export default async function SignInPage({ searchParams }) {
           <div className="auth-visual-copy">
             <span>Customer Portal</span>
             <h1>Your Zameett account, <em>all in one place.</em></h1>
-            <p>Access purchases, project updates and resources made for your brand.</p>
+            <p>Access completed digital orders, available downloads and project updates activated for your account.</p>
           </div>
         </div>
         <div className="auth-panel">
@@ -39,7 +39,7 @@ export default async function SignInPage({ searchParams }) {
           <div className="auth-intro">
             <span className="eyebrow">Welcome</span>
             <h2>Sign in to <em>your account.</em></h2>
-            <p>Use Google for the quickest access, or continue securely with email.</p>
+            <p>Use Google or email. New email accounts must be verified before access is activated.</p>
           </div>
           <AuthForm nextPath={nextPath} />
         </div>

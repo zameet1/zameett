@@ -1,61 +1,88 @@
+import Image from "next/image";
+import Link from "next/link";
 import Footer from "@/components/Footer";
-import CoverImage from "@/components/CoverImage";
+import BlogExplorer from "@/components/BlogExplorer";
+import { createPageMetadata } from "@/lib/seo";
 import { POSTS } from "./posts";
+import { BLOG_CLUSTERS } from "./category";
 
-export const metadata = {
-  title: "Blog",
-  description:
-    "Guides on modest wear tech packs, abaya manufacturing and building a modest fashion brand — from the Zameett team.",
-  alternates: { canonical: "/blog" },
-  openGraph: {
-    title: "Zameett Blog | Modest Fashion & Manufacturing Guides",
-    description:
-      "Guides on modest wear tech packs, abaya manufacturing and building a modest fashion brand.",
-    url: "/blog",
-    images: [{ url: "/images/14.jpeg", width: 1200, height: 630, alt: "Zameett blog — modest fashion manufacturing guides" }],
-  },
+const HERO_IMAGE = {
+  url: "/blog/zameett-journal-hero.webp",
+  width: 1800,
+  height: 1013,
+  alt: "Fashion development workspace with technical sketches, fabric swatches and specification sheets",
 };
+
+const CLUSTER_COPY = [
+  ["Tech Pack Library", "Specifications, technical flats, BOMs and manufacturer handoffs.", "what-is-a-tech-pack"],
+  ["Modest-Wear Studio", "Abaya development, materials, MOQ, embellishment and production.", "private-label-abaya-manufacturing"],
+  ["Brand Development", "Collection planning, sampling, sourcing and production control.", "fashion-collection-development"],
+  ["Textile Design", "Seamless repeats, placements, colourways and supplier-ready artwork.", "seamless-repeat-pattern"],
+];
+
+const LEARNING_PATHS = [
+  ["01", "Define the product", "Clarify the garment, customer, materials and commercial direction before technical development.", "fashion-collection-development", "Plan your collection"],
+  ["02", "Document the design", "Turn the concept into clear drawings, specifications, materials and construction instructions.", "what-is-a-tech-pack", "Build a tech pack"],
+  ["03", "Prepare for production", "Understand manufacturer handoff, sampling, approvals and the decisions that affect production.", "prepare-design-for-manufacturer", "Prepare the handoff"],
+];
+
+export const metadata = createPageMetadata({
+  title: "Fashion Development Blog",
+  description: "Practical guides for fashion brands on tech packs, product development, garment sampling, abaya manufacturing, production and textile print design.",
+  path: "/blog",
+  image: HERO_IMAGE,
+  keywords: ["fashion development blog", "fashion tech pack guides", "abaya manufacturing guides", "textile print design"],
+});
 
 export default function Blog() {
   const sorted = [...POSTS].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const featured = sorted.find((post) => post.slug === "what-is-a-tech-pack");
+  const ordered = featured ? [featured, ...sorted.filter((post) => post.slug !== featured.slug)] : sorted;
 
-  return (
-    <>
-      <header className="page-hero blog-hero">
-        <div className="inner">
-          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Blog</p>
-          <h1>Guides for <em>modest fashion brands.</em></h1>
-          <p>
-            Practical, no-fluff guides on tech packs, abaya manufacturing and building a modest
-            wear label — written from the floor of our own atelier.
-          </p>
-          <div className="page-hero-proof"><span>Factory knowledge</span><span>Original guidance</span><span>For brand owners</span></div>
-        </div>
-      </header>
-
-      <section className="services blog-index">
-        <div className="inner">
-          <div className="gig-grid blog-grid">
-            {sorted.map((post, index) => (
-              <a key={post.slug} href={`/blog/${post.slug}#article`} className={`gig-card reveal${index === 0 ? " blog-featured" : ""}`}>
-                <div className="gig-card-img">
-                  <CoverImage src={post.image} alt={post.title} sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 33vw" />
-                </div>
-                <div className="gig-card-body">
-                  <div className="dp-cat">
-                    {new Date(`${post.date}T12:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })} · {post.readTime}
-                  </div>
-                  <h3>{post.title}</h3>
-                  <p>{post.description}</p>
-                  <span className="gig-card-link">Read practical guide →</span>
-                </div>
-              </a>
-            ))}
+  return <>
+    <header className="blog-journal-hero">
+      <div className="inner blog-journal-hero-grid">
+        <div className="blog-journal-copy">
+          <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; Journal</p>
+          <p className="s-tag">The Zameett Journal</p>
+          <h1>Fashion knowledge for <em>better production decisions.</em></h1>
+          <p>Clear, connected guidance on technical development, fabrics, sampling and production - with specialist modest-wear context where it matters.</p>
+          <div className="blog-journal-actions">
+            <a className="btn btn-gold" href="#all-guides">Explore All Guides <span aria-hidden="true">&darr;</span></a>
+            <Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Ask About Your Project</Link>
           </div>
+          <div className="blog-journal-proof"><span>{POSTS.length} practical guides</span><span>4 specialist topics</span><span>Free to read</span></div>
         </div>
-      </section>
+        <div className="blog-journal-visual">
+          <Image src={HERO_IMAGE.url} alt={HERO_IMAGE.alt} fill priority sizes="(max-width: 900px) 100vw, 52vw" />
+          <div className="blog-visual-caption"><span>Design</span><span>Develop</span><span>Prepare</span></div>
+        </div>
+      </div>
+    </header>
 
-      <Footer />
-    </>
-  );
+    <section className="blog-cluster-intro" aria-labelledby="blog-topics-title">
+      <div className="inner">
+        <div className="blog-section-heading"><div><p className="s-tag">Choose Your Starting Point</p><h2 className="s-title" id="blog-topics-title">Explore the journal by <em>specialist topic.</em></h2></div><p>Follow one connected learning path or search the complete library below.</p></div>
+        <div className="blog-cluster-grid">{BLOG_CLUSTERS.map((cluster, index) => <Link className="reveal" href={"/blog/" + CLUSTER_COPY[index][2]} key={cluster}><span>0{index + 1}</span><small>{CLUSTER_COPY[index][0]}</small><h3>{cluster}</h3><p>{CLUSTER_COPY[index][1]}</p><b>Start exploring <i aria-hidden="true">&rarr;</i></b></Link>)}</div>
+      </div>
+    </section>
+
+    <section className="blog-learning-paths" aria-labelledby="learning-path-title">
+      <div className="inner">
+        <div className="blog-section-heading"><div><p className="s-tag">New to Fashion Production?</p><h2 className="s-title" id="learning-path-title">Follow a simple <em>three-guide path.</em></h2></div><p>Start with the commercial idea, build the technical information, then prepare a clearer manufacturer handoff.</p></div>
+        <div className="blog-learning-path-grid">{LEARNING_PATHS.map((path) => <Link className="blog-path-step reveal" href={"/blog/" + path[3]} key={path[0]}><span>{path[0]}</span><div><small>Learning step</small><h3>{path[1]}</h3><p>{path[2]}</p><b>{path[4]} <i aria-hidden="true">&rarr;</i></b></div></Link>)}</div>
+      </div>
+    </section>
+
+    <section className="services blog-index" id="all-guides"><div className="inner">
+      <div className="blog-section-heading"><div><p className="s-tag">Knowledge Library</p><h2 className="s-title">Find the guide you <em>need now.</em></h2></div><p>Search by question or filter the full library by topic. Start with our featured tech pack guide if you are unsure.</p></div>
+      <BlogExplorer posts={ordered} />
+    </div></section>
+
+    <section className="blog-editorial-note"><div className="inner">
+      <div className="blog-editorial-copy"><p className="s-tag">From Learning to Development</p><h2 className="s-title">Ready to turn your idea into <em>clear production documents?</em></h2><p>Explore Zameett services or share your project brief for a scope matched to your product and current stage.</p></div>
+      <div className="blog-editorial-actions"><Link className="btn btn-gold" href="/services">Explore Services</Link><Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Start Your Project</Link></div>
+    </div></section>
+    <Footer />
+  </>;
 }

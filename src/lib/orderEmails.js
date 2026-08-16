@@ -1,7 +1,6 @@
 import "server-only";
+import { sendHostingerMail } from "@/lib/hostingerMail";
 
-const MAILBOX_RESOURCE_ID = "AC327b2a2cee33b211206845f7ab5b";
-const MAIL_API_URL = `https://api.mail.hostinger.com/api/v1/mailboxes/${MAILBOX_RESOURCE_ID}/send`;
 
 function escapeHtml(value) {
   return String(value || "")
@@ -11,27 +10,6 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
-
-async function sendMail(message) {
-  const token = process.env.HOSTINGER_MAIL_API_TOKEN;
-  if (!token) throw new Error("Hostinger Mail API token is not configured.");
-
-  const response = await fetch(MAIL_API_URL, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(message),
-    cache: "no-store",
-  });
-
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`Hostinger Mail rejected the message (${response.status}): ${detail}`);
-  }
-}
-
 function clientEmailHtml(order) {
   const name = escapeHtml(order.customerName);
   const orderId = escapeHtml(order.id);
@@ -45,7 +23,7 @@ function clientEmailHtml(order) {
       <tr><td align="center">
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:620px;background:#fffaf6;border:1px solid #decbbd">
           <tr><td style="background:#4b0823;padding:30px 36px;text-align:center">
-            <div style="font-family:Georgia,serif;font-size:30px;letter-spacing:.06em;color:#fffaf6">Zameett</div>
+            <a href="https://zameett.com" style="display:inline-block;text-decoration:none"><img src="https://zameett.com/brand/zameett-email-logo.png" width="215" height="55" alt="Zameett" style="display:block;width:215px;max-width:100%;height:auto;border:0;margin:0 auto"></a>
             <div style="margin-top:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#c9a24f">Order confirmation</div>
           </td></tr>
           <tr><td style="padding:36px">
@@ -81,34 +59,46 @@ function clientEmailText(order) {
   ].join("\n");
 }
 
-export async function sendOrderEmails(order) {
-  const ownerHtml = `<h2>New Zameett order</h2>
-<p><strong>Order ID:</strong> ${escapeHtml(order.id)}</p>
-<p><strong>Product:</strong> ${escapeHtml(order.product)}</p>
-<p><strong>Amount:</strong> ${escapeHtml(order.amount)}</p>
-<p><strong>Order type:</strong> ${escapeHtml(order.type)}</p>
-<p><strong>Customer:</strong> ${escapeHtml(order.customerName)} (${escapeHtml(order.customerEmail)})</p>`;
+export async function sendCustomerOrderEmail(order) {
+  await sendHostingerMail({
+    to: [order.customerEmail],
+    displayName: "Zameett",
+    subject: `Your Zameett order is confirmed - ${order.id}`,
+    text: clientEmailText(order),
+    html: clientEmailHtml(order),
+  });
+}
 
-  await Promise.all([
-    sendMail({
-      to: [order.customerEmail],
-      displayName: "Zameett",
-      subject: `Your Zameett order is confirmed - ${order.id}`,
-      text: clientEmailText(order),
-      html: clientEmailHtml(order),
-    }),
-    sendMail({
-      to: ["hello@zameett.com"],
-      displayName: "Zameett Orders",
-      subject: `New Zameett order - ${order.product}`,
-      text: [
-        `Order ID: ${order.id}`,
-        `Product: ${order.product}`,
-        `Amount: ${order.amount}`,
-        `Order type: ${order.type}`,
-        `Customer: ${order.customerName} (${order.customerEmail})`,
-      ].join("\n"),
-      html: ownerHtml,
-    }),
-  ]);
+export async function sendOwnerOrderEmail(order) {
+  const id = escapeHtml(order.id);
+  const product = escapeHtml(order.product);
+  const amount = escapeHtml(order.amount);
+  const type = escapeHtml(order.type);
+  const customerName = escapeHtml(order.customerName);
+  const customerEmail = escapeHtml(order.customerEmail);
+
+  await sendHostingerMail({
+    to: ["hello@zameett.com"],
+    displayName: "Zameett Order Alerts",
+    subject: "New Zameett order - " + order.product,
+    text: [
+      "A verified order was completed on zameett.com.",
+      "",
+      "Order ID: " + order.id,
+      "Product: " + order.product,
+      "Amount: " + order.amount,
+      "Order type: " + order.type,
+      "Customer name: " + order.customerName,
+      "Customer email: " + order.customerEmail,
+    ].join("\n"),
+    html:
+      '<div style="font-family:Arial,sans-serif;background:#f6f0eb;padding:24px"><div style="max-width:620px;margin:auto;background:#fffaf6;padding:28px;border:1px solid #decbbd">' +
+      '<h1 style="color:#4b0823">New verified order</h1>' +
+      '<p><strong>Order ID:</strong> ' + id + '</p>' +
+      '<p><strong>Product:</strong> ' + product + '</p>' +
+      '<p><strong>Amount:</strong> ' + amount + '</p>' +
+      '<p><strong>Order type:</strong> ' + type + '</p>' +
+      '<p><strong>Customer:</strong> ' + customerName + ' (' + customerEmail + ')</p>' +
+      "</div></div>",
+  });
 }

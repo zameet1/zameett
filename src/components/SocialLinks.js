@@ -1,39 +1,11 @@
-import {
-  SiInstagram,
-  SiTiktok,
-  SiPinterest,
-  SiUpwork,
-  SiFiverr,
-} from "react-icons/si";
+import { SiInstagram, SiPinterest } from "react-icons/si";
 
-// Single source of truth for all social/profile links. Update URLs here and
-// they propagate to the footer, contact page, and Organization JSON-LD.
-export const SOCIALS = [
+const SOCIALS = [
   { name: "Instagram", Icon: SiInstagram, url: "https://www.instagram.com/zameett_" },
-  { name: "TikTok", Icon: SiTiktok, url: "https://www.tiktok.com/@zameet.t" },
   { name: "Pinterest", Icon: SiPinterest, url: "https://www.pinterest.com/zameett/" },
-  { name: "Upwork", Icon: SiUpwork, url: "https://www.upwork.com/freelancers/~0195a91e0ec99ac93c" },
-  { name: "Fiverr", Icon: SiFiverr, url: "https://www.fiverr.com/zameett" },
 ];
 
 export default function SocialLinks({ className, only }) {
-  const links = only ? SOCIALS.filter(({ name }) => only.includes(name)) : SOCIALS;
-
-  return (
-    <>
-      {links.map(({ name, Icon, url }) => (
-        <a
-          key={name}
-          href={url}
-          className={className}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={name}
-          title={name}
-        >
-          <Icon aria-hidden="true" focusable="false" />
-        </a>
-      ))}
-    </>
-  );
+  const allowed = only ? new Set(only) : null;
+  return SOCIALS.filter((social) => !allowed || allowed.has(social.name)).map(({ name, Icon, url }) => <a key={name} className={className} href={url} target="_blank" rel="noopener noreferrer" aria-label={name} title={name}><Icon aria-hidden="true" /></a>);
 }

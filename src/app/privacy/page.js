@@ -1,75 +1,20 @@
 import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: "Privacy Policy",
-  description: "How Zameett collects, uses and protects your personal information.",
-  alternates: { canonical: "/privacy" },
-};
-
-export default function Privacy() {
-  return (
-    <>
-      <header className="page-hero legal-hero">
-        <div className="inner">
-          <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Privacy Policy</p>
-          <h1>Privacy <em>Policy</em></h1>
-          <p>Last updated: July 2026</p>
-        </div>
-      </header>
-
-      <section className="services legal-page">
-        <div className="inner" style={{ maxWidth: 760 }}>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            This Privacy Policy explains how Zameett (&ldquo;we&rdquo;, &ldquo;us&rdquo;) collects,
-            uses and protects the information you provide when you use{" "}
-            <a href="https://zameett.com" style={{ color: "var(--gold-deep)", textDecoration: "underline" }}>zameett.com</a>.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Information we collect</h2>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            When you submit our contact or checkout forms, we collect the details you provide —
-            such as your name, email address, phone/WhatsApp number, country and any message or
-            order details. We also collect anonymous usage data (pages visited, device/browser
-            type) through Google Analytics to understand how the site is used.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>How we use it</h2>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            We use your information only to respond to your enquiry, process and follow up on
-            orders (including sending a payment link), and improve our website and services. We do
-            not sell or rent your personal information to anyone.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Third-party services</h2>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            Form submissions are delivered to us via Web3Forms, analytics are provided by Google
-            Analytics, and digital-product payments are processed securely by Stripe. These
-            providers process data on our behalf according to their own privacy policies. We do
-            not receive or store your full card details on our servers.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Cookies</h2>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            We use essential cookies for the site to function and analytics cookies to measure
-            traffic. You can disable cookies in your browser settings at any time.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Your rights</h2>
-          <p className="s-body" style={{ marginBottom: 18 }}>
-            You may request access to, correction of, or deletion of the personal information we
-            hold about you at any time by emailing{" "}
-            <a href="mailto:hello@zameett.com" style={{ color: "var(--gold-deep)", textDecoration: "underline" }}>hello@zameett.com</a>.
-          </p>
-
-          <h2 className="s-title" style={{ fontSize: 24, marginTop: 32 }}>Contact</h2>
-          <p className="s-body">
-            Questions about this policy? Email{" "}
-            <a href="mailto:hello@zameett.com" style={{ color: "var(--gold-deep)", textDecoration: "underline" }}>hello@zameett.com</a>.
-          </p>
-        </div>
-      </section>
-
-      <Footer />
-    </>
-  );
-}
+export const metadata = { title: "Privacy Policy", description: "How Zameett collects, uses, shares, stores and protects website, enquiry, account and order information.", alternates: { canonical: "/privacy" } };
+const Section = ({ title, children }) => <section className="legal-section"><h2 className="s-title">{title}</h2>{children}</section>;
+export default function Privacy() { return <>
+  <header className="page-hero legal-hero"><div className="inner"><p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Privacy Policy</p><h1>Privacy <em>Policy</em></h1><p>Last updated: July 30, 2026</p></div></header>
+  <main className="services legal-page"><div className="inner legal-content"><p className="legal-lead">This policy explains how Zameett collects and uses information when you visit zameett.com, request a quote, create an account, purchase a digital product or enable browser notifications.</p>
+    <Section title="Information you provide"><ul><li>Contact and brand details submitted through enquiry or quote forms.</li><li>Project information, reference files and links you choose to share.</li><li>Account identifiers, order records, delivery email and support messages.</li><li>Consent records, notification subscriptions and communication preferences.</li></ul></Section>
+    <Section title="Information collected automatically"><p>Essential browser storage supports security, authentication, consent choices, order continuity and dismissed interface prompts. With consent, analytics and advertising tools may receive device, browser, page, campaign and interaction information. Optional storage is denied by default through our consent setup.</p></Section>
+    <Section title="How information is used"><ul><li>Review enquiries and prepare project scopes or quotations.</li><li>Provide accounts, downloads, order updates and customer support.</li><li>Process payments and deliver digital products.</li><li>Secure, diagnose and improve the website.</li><li>Send requested account or project notifications.</li><li>Meet legal, accounting, fraud-prevention and dispute-handling obligations.</li></ul></Section>
+    <Section title="Service providers"><p>Configured providers may process information on our behalf, including form and email delivery services, Supabase for account and application data, Stripe for payments, Google for consented analytics, tag management and public review data, web-push infrastructure for notifications, Hostinger for hosting, and couriers or suppliers used for an approved project. We do not receive or store full payment-card details.</p></Section>
+    <Section title="Files and sensitive information"><p>Do not upload payment-card data, passwords, identity documents or unnecessary personal information. Website uploads are limited; large project files should use a restricted Drive or WeTransfer link. Remove access when review is complete. NDA requirements should be stated before commercially sensitive files are shared.</p></Section>
+    <Section title="Cookies and consent"><p>See our <a href="/cookie-policy">Cookie Policy</a> for categories and controls. You can revisit browser settings or clear site data; doing so may reset saved preferences.</p></Section>
+    <Section title="Retention and security"><p>Information is retained only as reasonably needed for enquiries, active work, delivery, support, record keeping, security and legal obligations. Reasonable technical and organisational controls are used, but no internet transmission or storage system can be guaranteed completely secure.</p></Section>
+    <Section title="Your choices and rights"><p>You may request access, correction or deletion of information associated with you, object to certain processing, withdraw optional consent, unsubscribe from browser notifications or request account deletion. Some records may need to be retained for payment, tax, security, legal or dispute purposes.</p></Section>
+    <Section title="International processing and external links"><p>Providers and project partners may process information outside your country. External websites operate under their own policies. Zameett does not control third-party privacy or security practices.</p></Section>
+    <Section title="Contact"><p>For privacy questions or requests, email <a href="mailto:hello@zameett.com">hello@zameett.com</a>. Identity or account verification may be required before a request is completed.</p></Section>
+    <aside className="legal-review-note"><strong>Legal review recommended.</strong><p>This policy is a practical website draft and should be reviewed against Zameett&apos;s verified legal entity, actual retention schedule and applicable Pakistani and international requirements before being treated as final legal advice.</p></aside>
+  </div></main><Footer />
+</>; }
