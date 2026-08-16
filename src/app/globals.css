@@ -2762,3 +2762,43 @@ body .blog-index .blog-guide-carousel .blog-guide-card .blog-card-footer{margin-
 }.skip-link{position:fixed;left:18px;top:12px;z-index:1200;padding:11px 16px;border-radius:8px;background:var(--burg);color:var(--gold-lt);font:600 10px/1 var(--font-jost),sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 16px 35px rgba(53,9,32,.25);transform:translateY(-150%);transition:transform .2s ease}
 .skip-link:focus{transform:translateY(0)}
 #main-content:focus{outline:none}
+/* Editorial blog index: clear vertical rows instead of a horizontal carousel */
+.blog-list-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 16px}
+.blog-list-toolbar .blog-results{margin:0;color:var(--mid);font:500 11px/1.5 var(--font-jost),sans-serif}
+.blog-list-toolbar .blog-results strong{color:var(--burg);font-size:16px}
+.blog-list-toolbar .blog-reset{border:0;background:transparent;color:var(--gold-deep);font:600 9px/1.4 var(--font-jost),sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.blog-guide-list{border-top:1px solid rgba(74,14,43,.2)}
+.blog-guide-list-item{position:relative;display:grid;grid-template-columns:42px 220px minmax(0,1fr) 125px;gap:24px;align-items:center;padding:22px 10px;border-bottom:1px solid rgba(74,14,43,.2);color:inherit;transition:background-color .25s ease,padding-inline .25s ease}
+.blog-guide-list-item:hover{padding-inline:18px;background:rgba(255,255,255,.58)}
+.blog-list-number{align-self:start;padding-top:4px;color:var(--gold-deep);font:500 13px/1 var(--font-cormorant),serif;letter-spacing:.08em}
+.blog-list-image{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:13px;background:var(--cream)}
+.blog-list-image img{transition:transform .45s ease}
+.blog-guide-list-item:hover .blog-list-image img{transform:scale(1.035)}
+.blog-list-copy{min-width:0}
+.blog-list-copy .dp-cat{margin:0 0 8px;color:var(--gold-deep);font-size:8px;letter-spacing:.13em}
+.blog-list-copy h3{margin:0;color:var(--burg);font-size:27px;line-height:1.06;transition:color .2s ease}
+.blog-list-copy p{display:-webkit-box;margin:9px 0 0;overflow:hidden;color:var(--mid);font:400 12.5px/1.65 var(--font-jost),sans-serif;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.blog-list-meta{display:grid;justify-items:end;gap:5px;text-align:right;color:var(--mid);font:500 8px/1.4 var(--font-jost),sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.blog-list-meta b{margin-top:12px;color:var(--burg);font-size:9px;letter-spacing:.1em}
+.blog-list-meta i{display:inline-block;margin-left:5px;color:var(--gold-deep);transition:transform .2s ease}
+.blog-guide-list-item:hover .blog-list-meta i{transform:translateX(4px)}
+@media(max-width:760px){
+  .blog-guide-list-item{grid-template-columns:104px minmax(0,1fr);gap:0 15px;padding:15px 0;align-items:start}
+  .blog-guide-list-item:hover{padding-inline:0;background:transparent}
+  .blog-list-number{position:absolute;z-index:2;top:22px;left:8px;padding:4px 6px;border-radius:999px;background:rgba(74,14,43,.9);color:#fff;font:600 8px/1 var(--font-jost),sans-serif}
+  .blog-list-image{grid-column:1;grid-row:1 / span 2;aspect-ratio:4/5;border-radius:11px}
+  .blog-list-image .blog-featured-label{right:auto;left:7px;bottom:7px;top:auto;font-size:6.5px;padding:5px 7px}
+  .blog-list-copy{grid-column:2;grid-row:1}
+  .blog-list-copy .dp-cat{margin-bottom:6px;font-size:7px;line-height:1.35}
+  .blog-list-copy h3{font-size:20px;line-height:1.06}
+  .blog-list-copy p{margin-top:7px;font-size:10.5px;line-height:1.5;-webkit-line-clamp:2}
+  .blog-list-meta{grid-column:2;grid-row:2;display:flex;align-items:center;justify-content:flex-start;gap:7px;margin-top:10px;text-align:left;font-size:6.8px}
+  .blog-list-meta span+span:before{content:'·';margin-right:7px}
+  .blog-list-meta b{margin:0 0 0 auto;font-size:7px}
+}
+@media(max-width:390px){
+  .blog-guide-list-item{grid-template-columns:92px minmax(0,1fr);gap:0 12px}
+  .blog-list-copy h3{font-size:18px}
+  .blog-list-copy p{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.blog-guide-list-item,.blog-list-image img,.blog-list-meta i{transition:none}}
