@@ -60,11 +60,15 @@ export default async function GigPage({ params }) {
       ["Embroidered and beaded abaya production", "/blog/embroidered-abaya-manufacturing"],
     ],
   }[gig.slug] || [];
-  const visibleFaqs = PRICING_FAQS.filter((item) =>
+  const serviceFaqs = (gig.faqs || []).map(([question, answer]) => ({ question, answer }));
+  const pricingFaqs = PRICING_FAQS.filter((item) =>
     gig.slug === "clothing-manufacturing"
       ? ["Are sampling and manufacturing included in these packages?", "Can international clients request these packages?", "What happens after I request a package?"].includes(item.question)
       : true,
-  ).slice(0, 5);
+  );
+  const visibleFaqs = [...serviceFaqs, ...pricingFaqs]
+    .filter((item, index, items) => items.findIndex((candidate) => candidate.question === item.question) === index)
+    .slice(0, 7);
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -136,10 +140,24 @@ export default async function GigPage({ params }) {
             <div className="gig-body">
               <div className="gig-desc reveal">
                 {gig.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                {(gig.bestFor || gig.timeline) && (
+                  <div className={styles.detailDecisionGrid}>
+                    {gig.bestFor && <article><span>Best for</span><p>{gig.bestFor}</p></article>}
+                    {gig.timeline && <article><span>Typical delivery route</span><p>{gig.timeline}</p></article>}
+                  </div>
+                )}
+                {gig.specialistLink && <Link className={styles.specialistRoute} href={gig.specialistLink.href}>{gig.specialistLink.label}<span aria-hidden="true">&rarr;</span></Link>}
                 <h2>{gig.listTitle}</h2>
                 <ul className="gig-list">{gig.list.map((item) => <li key={item}>{item}</li>)}</ul>
                 <h2>{gig.whyTitle}</h2>
                 <ul className="gig-list">{gig.why.map((item) => <li key={item}>{item}</li>)}</ul>
+                {gig.process?.length ? (
+                  <div className={styles.detailProcess}>
+                    <p className="s-tag">Four-Step Process</p>
+                    <h2>From first reference to an approved technical handoff.</h2>
+                    <ol>{gig.process.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>
+                  </div>
+                ) : null}
                 <p className="gig-note">{gig.note}</p>
                 <Link href={"/contact?service=" + gig.slug + "#get-in-touch"} className="btn btn-gold gig-cta">Start Your Project <span aria-hidden="true">&rarr;</span></Link>
               </div>
