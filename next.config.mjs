@@ -26,6 +26,7 @@ const nextConfig = {
       { source: "/home", destination: "/", permanent: true },
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/solutions/garment-sampling-fitting-service", destination: "/solutions/fashion-sampling-services", permanent: true },
+      { source: "/solutions/fashion-tech-pack-design-service", destination: "/services/fashion-tech-packs", permanent: true },
       { source: "/blog/garment-sampling-process-modest-fashion", destination: "/blog/types-of-garment-samples", permanent: true },
     ];
   },
