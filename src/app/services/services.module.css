@@ -121,6 +121,18 @@
 .detailPriceSignal span{display:block;color:var(--gold-deep);font:700 7px/1.3 var(--font-jost),sans-serif;letter-spacing:.11em;text-transform:uppercase}
 .detailPriceSignal strong{display:block;margin-top:6px;color:var(--burg);font:700 18px/1.15 var(--font-cormorant),serif}
 .detailPackageCard{transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}
+.detailDecisionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:34px 0}
+.detailDecisionGrid article{padding:22px;border:1px solid var(--line);background:rgba(255,250,244,.7)}
+.detailDecisionGrid span{display:block;margin-bottom:9px;color:var(--gold-deep);font:700 9px/1.3 var(--font-jost),sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.detailDecisionGrid p{margin:0;color:var(--ink-soft);font:400 14px/1.7 var(--font-jost),sans-serif}
+.specialistRoute{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 34px;padding:17px 20px;border-left:3px solid var(--gold);background:var(--burg);color:var(--ivory);font:600 11px/1.5 var(--font-jost),sans-serif;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
+.specialistRoute span{color:var(--gold);font-size:18px;transition:transform .25s ease}
+.detailProcess{margin:44px 0 32px;padding:34px;background:#f6eee5}
+.detailProcess>h2{max-width:680px;margin:0 0 25px}
+.detailProcess ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:0;padding:0;background:var(--line);list-style:none}
+.detailProcess li{display:grid;grid-template-columns:auto 1fr;gap:13px;padding:20px;background:#fffaf4}
+.detailProcess li>span{color:var(--gold-deep);font:600 12px/1.6 var(--font-jost),sans-serif;letter-spacing:.12em}
+.detailProcess li p{margin:0;color:var(--ink-soft);font:400 13px/1.65 var(--font-jost),sans-serif}
 
 @media(hover:hover) and (pointer:fine){
   .jumpRail a:hover{color:var(--ivory);background:var(--burg)}
@@ -175,6 +187,9 @@
   .detailPriceSignal{grid-template-columns:minmax(0,1fr)}
   .detailPriceSignal>div{padding:11px 0}
   .detailPriceSignal>div+div{padding-left:0;border-top:1px solid var(--line);border-left:0}
+  .detailDecisionGrid,.detailProcess ol{grid-template-columns:minmax(0,1fr)}
+  .detailProcess{padding:24px 18px}
+  .specialistRoute{align-items:flex-start}
 }
 @media(prefers-reduced-motion:reduce){
   .routeCard,.packageCard,.offerCard,.detailPackageCard,.heroPanel>a span,.routeCard>a span,.offerCard>a span,.packageCta span{transition:none}

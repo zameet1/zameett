@@ -2,16 +2,31 @@
 export const GIGS = [
   {
     slug: "fashion-tech-packs",
-    title: "Fashion Tech Packs & Technical Design",
+    title: "Fashion Tech Pack Services & Technical Design",
     short: "Fashion Tech Packs",
-    tagline: "Clear, production-ready technical documentation for modest wear and wider apparel categories.",
+    tagline: "Custom fashion tech packs from $95, with technical flats, materials, construction and measurement documentation defined for your product.",
     serviceValue: "Fashion Tech Pack & Technical Design",
     cover: "/services/abaya-1.jpeg",
     gallery: ["/services/abaya-1.jpeg", "/services/abaya-2.jpeg", "/services/abaya-3.jpeg"],
     intro: [
-      "Modest garments often require specialist attention to proportion, drape, layering and embellishment placement. Our tech packs document these decisions clearly so your manufacturer has an accurate production reference.",
-      "Technical-design support is also available for womenswear, menswear, childrenswear, streetwear, activewear, dresses and outerwear. Scope and deliverable formats are confirmed in the proposal for each project.",
-      "Send a sketch, reference images or an existing specification and we will define the pages, measurements and source formats required before work begins.",
+      "A professional tech pack gives your manufacturer one controlled reference for quoting, sampling and production questions. Zameett translates your design direction into clear technical flats, materials, construction details, measurements and artwork information within the agreed scope.",
+      "Technical-development support is available for womenswear, menswear, childrenswear, streetwear, activewear, dresses, outerwear and modest fashion. Abaya and kaftan projects can also follow our specialist modest-wear route.",
+      "Send a sketch, reference images or an existing specification. Before payment, we confirm the required pages, revision allowance, source files, timeline and any information still needed from you.",
+    ],
+    bestFor: "Fashion founders, independent designers and growing brands that need reliable technical documentation before requesting factory quotations or beginning sampling.",
+    timeline: "Published packages begin at three business days for a standard single-style scope. Collection timelines and complex products follow the delivery schedule confirmed in writing.",
+    specialistLink: { label: "Developing an abaya or kaftan? View specialist abaya tech-pack support", href: "/solutions/abaya-tech-pack-designer" },
+    process: [
+      "Share your sketch, reference images, target customer and any existing measurements.",
+      "We clarify fit, construction, materials, artwork, sizing scope and required file formats.",
+      "Review the draft technical flats and specification pages through the included revision process.",
+      "Receive the approved production PDF and editable source files stated in your package or proposal.",
+    ],
+    faqs: [
+      ["What do I need to start a fashion tech pack?", "A sketch, reference images or a clear written concept is enough for an initial review. Existing measurements, logos, colour references and material preferences help define the final scope."],
+      ["Can my own manufacturer use the completed tech pack?", "Yes. The completed pack is prepared as a clear reference for a professional apparel manufacturer to review, quote and sample. Factory questions or extra clarification are handled only where included in the package or written proposal."],
+      ["Are editable source files included?", "Editable Adobe Illustrator files are included in the published fashion design and tech-pack packages. Any additional export formats are confirmed in the written scope before work begins."],
+      ["Does the service include sewing patterns or grading?", "No. Zameett provides measurement specification charts and technical sizing documentation within the agreed scope, but sewing-pattern development and pattern grading are not included."],
     ],
     listTitle: "A project may include",
     list: [
