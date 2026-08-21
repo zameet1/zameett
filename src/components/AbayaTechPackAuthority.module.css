@@ -1,0 +1,32 @@
+.section{position:relative;overflow:hidden;padding:clamp(72px,9vw,116px) var(--gutter);background:radial-gradient(circle at 92% 2%,rgba(201,169,110,.16),transparent 28%),linear-gradient(180deg,var(--ivory),var(--ivory-dk))}
+.section::before{position:absolute;left:-90px;top:210px;width:230px;height:230px;border:1px solid rgba(201,169,110,.14);border-radius:50%;content:"";pointer-events:none}
+.heading{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.66fr);gap:clamp(42px,8vw,105px);align-items:end;margin-bottom:clamp(38px,5vw,60px)}
+.eyebrow{margin:0 0 17px;color:var(--gold-deep);font:700 8px/1.4 var(--font-jost),sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.heading h2,.handoff h2,.guidesHeading h2{max-width:15ch;margin:0;color:var(--burg);font:600 clamp(40px,4.7vw,63px)/.98 var(--font-cormorant),serif;letter-spacing:-.03em;text-wrap:balance}
+.heading>p{max-width:590px;margin:0;color:var(--muted);font-size:14px;line-height:1.82}
+.decisionGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.decisionCard{position:relative;min-width:0;min-height:260px;padding:clamp(26px,3vw,36px);overflow:hidden;border:1px solid var(--line);border-radius:var(--radius-md);background:rgba(255,255,255,.8);box-shadow:0 24px 58px -48px rgba(53,9,32,.5);transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s ease,box-shadow .3s ease}
+.decisionCard::after{position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,var(--burg),var(--gold));content:"";transform:scaleX(0);transform-origin:left;transition:transform .32s ease}
+.decisionCard>span{color:rgba(74,14,43,.25);font:600 30px/1 var(--font-cormorant),serif}
+.decisionCard h3{margin:28px 0 12px;color:var(--burg);font:600 clamp(24px,2.3vw,31px)/1.04 var(--font-cormorant),serif}
+.decisionCard p{margin:0;color:var(--muted);font-size:11px;line-height:1.75}
+.handoff{display:grid;grid-template-columns:minmax(0,.9fr) minmax(320px,.72fr);gap:clamp(42px,8vw,100px);align-items:end;margin-top:clamp(46px,6vw,70px);padding:clamp(32px,5vw,58px);border:1px solid rgba(201,169,110,.3);border-radius:var(--radius-lg);background:radial-gradient(circle at 88% 15%,rgba(201,169,110,.16),transparent 28%),linear-gradient(140deg,var(--burg-deep),#4a0e2b);box-shadow:0 34px 80px -50px rgba(0,0,0,.9)}
+.handoff>div:first-child>span{color:var(--gold);font:700 8px/1.4 var(--font-jost),sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.handoff h2{margin-top:18px;color:var(--ivory);font-size:clamp(35px,4vw,50px)}
+.handoffCopy>p{margin:0;color:rgba(250,247,242,.68);font-size:13px;line-height:1.8}
+.handoffCopy>div{display:grid;gap:10px;margin-top:25px}
+.handoffCopy a{display:flex;min-height:48px;align-items:center;justify-content:space-between;gap:18px;padding:14px 17px;border:1px solid rgba(232,213,176,.3);border-radius:8px;color:var(--gold-lt);font:700 8px/1.35 var(--font-jost),sans-serif;letter-spacing:.1em;text-transform:uppercase;transition:color .25s ease,background-color .25s ease,transform .25s ease}
+.handoffCopy a:last-child{color:var(--burg-deep);background:var(--gold-lt)}
+.guides{margin-top:clamp(64px,8vw,94px);padding-top:clamp(45px,6vw,70px);border-top:1px solid var(--line)}
+.guidesHeading{margin-bottom:30px}
+.guidesHeading h2{font-size:clamp(34px,3.8vw,48px)}
+.guideGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.guideCard{display:flex;min-width:0;min-height:215px;flex-direction:column;padding:25px;border:1px solid var(--line);border-radius:var(--radius-md);color:var(--ink);background:var(--surface);box-shadow:var(--shadow-sm);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.guideCard>span{color:var(--gold-deep);font:700 7px/1.35 var(--font-jost),sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.guideCard h3{margin:20px 0;color:var(--burg);font:600 clamp(22px,2vw,27px)/1.05 var(--font-cormorant),serif}
+.guideCard b{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line);color:var(--gold-deep);font:700 8px/1.3 var(--font-jost),sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.guideCard i{font-size:15px;font-style:normal}
+@media(hover:hover) and (pointer:fine){.decisionCard:hover{transform:translateY(-5px);border-color:rgba(201,169,110,.7);box-shadow:0 30px 68px -44px rgba(53,9,32,.45)}.decisionCard:hover::after{transform:scaleX(1)}.handoffCopy a:hover{transform:translateY(-2px);background:rgba(255,255,255,.07)}.handoffCopy a:last-child:hover{color:var(--burg-deep);background:var(--gold)}.guideCard:hover{transform:translateY(-5px);border-color:rgba(201,169,110,.7);box-shadow:0 26px 58px -38px rgba(53,9,32,.42)}}
+@media(max-width:980px){.heading,.handoff{grid-template-columns:minmax(0,1fr)}.heading{gap:22px}.decisionGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.guideGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.decisionCard{min-height:235px}}
+@media(max-width:640px){.section{padding:62px 20px}.heading h2{max-width:100%;font-size:clamp(37px,10.5vw,46px)}.heading>p{font-size:13px;line-height:1.75}.decisionGrid,.guideGrid{grid-template-columns:minmax(0,1fr)}.decisionCard{min-height:0;padding:25px 22px}.decisionCard h3{margin-top:20px}.handoff{gap:25px;padding:29px 22px;border-radius:15px}.handoff h2{max-width:100%;font-size:36px}.handoffCopy>div{gap:9px}.guides{margin-top:60px;padding-top:44px}.guideCard{min-height:170px;padding:23px 21px}}
+@media(prefers-reduced-motion:reduce){.decisionCard,.decisionCard::after,.handoffCopy a,.guideCard{transition:none!important;transform:none!important}}

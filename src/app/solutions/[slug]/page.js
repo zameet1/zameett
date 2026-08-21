@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import FaqAccordion from "@/components/FaqAccordion";
 import ServicePricingHighlight from "@/components/ServicePricingHighlight";
+import AbayaTechPackAuthority from "@/components/AbayaTechPackAuthority";
 import { getPackagesByCategory } from "@/data/pricing";
 import { SOLUTIONS, getSolution } from "../solutions";
 
@@ -21,9 +22,9 @@ export async function generateMetadata({ params }) {
   if (!solution) return {};
 
   return {
-    title: solution.keyword,
+    title: solution.seoTitle || solution.keyword,
     description: solution.description,
-    keywords: [solution.keyword, "modest fashion Pakistan", "Zameett"],
+    keywords: solution.keywords || [solution.keyword, "modest fashion Pakistan", "Zameett"],
     alternates: { canonical: `/solutions/${solution.slug}` },
     openGraph: {
       title: `${solution.title} | Zameett`,
@@ -64,6 +65,20 @@ export default async function SolutionPage({ params }) {
     provider: { "@type": "Organization", name: "Zameett", url: siteUrl },
     areaServed: "Worldwide",
     availableChannel: { "@type": "ServiceChannel", serviceUrl: `${siteUrl}/contact` },
+    serviceType: solution.keyword,
+    ...(solutionPackages.length ? {
+      offers: solutionPackages.map((item) => ({
+        "@type": "Offer",
+        price: item.price,
+        priceCurrency: "USD",
+        url: `${siteUrl}/contact?package=${encodeURIComponent(item.contactParam)}`,
+        itemOffered: {
+          "@type": "Service",
+          name: item.name,
+          description: item.subtitle,
+        },
+      })),
+    } : {}),
   };
   const faqSchema = {
     "@context": "https://schema.org",
@@ -106,9 +121,7 @@ export default async function SolutionPage({ params }) {
                 <a href="#solution-overview" className="btn btn-outline-ivory">Explore the Service</a>
               </div>
               <div className="intent-trust" aria-label="Service commitments">
-                <span>Project-specific scope</span>
-                <span>Documented approvals</span>
-                <span>Worldwide enquiries</span>
+                {(solution.trustPoints || ["Project-specific scope", "Documented approvals", "Worldwide enquiries"]).map((item) => <span key={item}>{item}</span>)}
               </div>
             </div>
             <div className="intent-hero-image">
@@ -136,6 +149,7 @@ export default async function SolutionPage({ params }) {
             </div>
           </div>
         </section>
+        {solution.slug === "abaya-tech-pack-designer" && <AbayaTechPackAuthority />}
 
         <ServicePricingHighlight
           packages={solutionPackages}
