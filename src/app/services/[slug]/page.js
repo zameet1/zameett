@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import GigGallery from "@/components/GigGallery";
 import ServicePricingHighlight from "@/components/ServicePricingHighlight";
+import TechPackServiceExperience from "@/components/TechPackServiceExperience";
 import { PRICING_FAQS, getPackagesByCategory } from "@/data/pricing";
 import { GIGS, getGig } from "../gigs";
 import styles from "../services.module.css";
@@ -133,6 +134,7 @@ export default async function GigPage({ params }) {
                 {gig.pdf && <a className="gig-pdf-dl" href={gig.pdf} download>&#8681; Download portfolio (PDF)</a>}
               </div>
             </div>
+            {gig.slug === "fashion-tech-packs" && <TechPackServiceExperience />}
             <div className="gig-body">
               <div className="gig-desc reveal">
                 {gig.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}

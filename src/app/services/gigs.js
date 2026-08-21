@@ -2,9 +2,9 @@
 export const GIGS = [
   {
     slug: "fashion-tech-packs",
-    title: "Fashion Tech Packs & Technical Design",
+    title: "Fashion Tech Pack Services & Technical Design",
     short: "Fashion Tech Packs",
-    tagline: "Clear, production-ready technical documentation for modest wear and wider apparel categories.",
+    tagline: "Professional fashion design and production-ready tech packs for clothing brands preparing to sample, quote or manufacture.",
     serviceValue: "Fashion Tech Pack & Technical Design",
     cover: "/services/abaya-1.jpeg",
     gallery: ["/services/abaya-1.jpeg", "/services/abaya-2.jpeg", "/services/abaya-3.jpeg"],
