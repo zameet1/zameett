@@ -5,6 +5,8 @@ import JsonLd from "@/components/JsonLd";
 import GigGallery from "@/components/GigGallery";
 import ServicePricingHighlight from "@/components/ServicePricingHighlight";
 import TechPackServiceExperience from "@/components/TechPackServiceExperience";
+import ModestWearDevelopment, { MODEST_WEAR_FAQS } from "@/components/ModestWearDevelopment";
+import { createPageMetadata } from "@/lib/seo";
 import { PRICING_FAQS, getPackagesByCategory } from "@/data/pricing";
 import { GIGS, getGig } from "../gigs";
 import styles from "../services.module.css";
@@ -21,18 +23,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const gig = getGig(slug);
   if (!gig) return {};
-  return {
-    title: gig.title,
-    description: gig.tagline,
-    alternates: { canonical: "/services/" + gig.slug },
-    openGraph: {
-      title: gig.title + " | Zameett",
-      description: gig.tagline,
-      url: "/services/" + gig.slug,
-      images: [{ url: gig.cover, width: 1600, height: 1132, alt: gig.title }],
-    },
-    twitter: { card: "summary_large_image", title: gig.title + " | Zameett", description: gig.tagline, images: [gig.cover] },
-  };
+  return createPageMetadata({ title: gig.title, description: gig.tagline, path: "/services/" + gig.slug, image: { url: gig.cover, width: 1600, height: 1132, alt: gig.title } });
 }
 
 export default async function GigPage({ params }) {
@@ -61,11 +52,7 @@ export default async function GigPage({ params }) {
       ["Embroidered and beaded abaya production", "/blog/embroidered-abaya-manufacturing"],
     ],
   }[gig.slug] || [];
-  const visibleFaqs = PRICING_FAQS.filter((item) =>
-    gig.slug === "clothing-manufacturing"
-      ? ["Are sampling and manufacturing included in these packages?", "Can international clients request these packages?", "What happens after I request a package?"].includes(item.question)
-      : true,
-  ).slice(0, 5);
+  const visibleFaqs = gig.slug === "clothing-manufacturing" ? MODEST_WEAR_FAQS : PRICING_FAQS.slice(0, 5);
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -74,7 +61,7 @@ export default async function GigPage({ params }) {
     description: gig.tagline,
     provider: { "@type": "Organization", name: "Zameett", url: siteUrl },
     areaServed: "Worldwide",
-    serviceType: "Fashion design and product development",
+    serviceType: gig.slug === "clothing-manufacturing" ? "Modest wear product development, sampling and manufacturing support" : "Fashion design and product development",
     image: siteUrl + gig.cover,
     ...(packages.length ? {
       offers: packages.map((item) => ({
@@ -148,6 +135,8 @@ export default async function GigPage({ params }) {
             </div>
           </div>
         </section>
+
+        {gig.slug === "clothing-manufacturing" && <ModestWearDevelopment />}
 
         <ServicePricingHighlight
           packages={packages}

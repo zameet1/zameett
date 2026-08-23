@@ -63,16 +63,16 @@ export const GIGS = [
   },
   {
     slug: "clothing-manufacturing",
-    title: "Modest-Wear Sampling & Manufacturing",
-    short: "Modest-Wear Manufacturing",
-    tagline: "Reviewed sampling and production support for abayas, kaftans, modest dresses and coordinated collections.",
+    title: "Modest Wear Product Development & Manufacturing",
+    short: "Modest Wear Development",
+    tagline: "Specialist design, technical development, sampling and project-specific manufacturing support for abayas, kaftans, modest dresses and coordinated collections.",
     serviceValue: "Modest-Wear Sampling & Manufacturing",
     cover: "/services/manufacturing-1.jpeg",
     gallery: ["/services/manufacturing-1.jpeg", "/services/manufacturing-2.jpeg", "/services/manufacturing-3.jpeg"],
     intro: [
-      "Zameett specialises in modest-wear sampling and manufacturing, including abayas, kaftans, modest dresses, scarves and coordinated collections. For other apparel categories, we provide fashion design, technical flats, tech packs, textile print design and product-development support.",
-      "Our fashion design, technical design and tech-pack services are available for a broad range of apparel categories. Other sampling or production categories may be considered after a capability, quantity and timeline review.",
-      "Flexible MOQs are available. Final minimum quantity depends on the garment, fabric, colour, embellishment and supplier requirements.",
+      "Zameett helps modest-fashion brands move from an early idea or existing design into a clearly documented, sample-reviewed product. The route can include concept refinement, technical documentation, textile artwork, material sourcing, sampling and production coordination, depending on the brief.",
+      "Our design and technical-development services support apparel categories beyond modest wear. Sampling and manufacturing specialisation is primarily abayas, kaftans, modest dresses, scarves, layering pieces and coordinated modest collections; every physical-production enquiry is reviewed for capability and fit.",
+      "Manufacturing MOQ is project-specific. Garment construction, fabric, colour split, embellishment, trims, packaging and supplier requirements all affect the workable quantity, quotation and schedule.",
     ],
     listTitle: "Production support may include",
     list: [
@@ -91,7 +91,7 @@ export const GIGS = [
       "Sample review before bulk cutting",
       "Clear production and dispatch checkpoints",
     ],
-    note: "MOQ, capacity, lead time, shipping, duties and delivery options are confirmed for each product and destination before an order is accepted.",
+    note: "Scope, deliverables, revisions, MOQ, capacity, timeline, payment terms, shipping assumptions and exclusions are confirmed in writing before payment. Bulk production proceeds only after the required sample and specification approvals.",
   },
 ];
 
