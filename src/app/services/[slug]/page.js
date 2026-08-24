@@ -6,6 +6,7 @@ import GigGallery from "@/components/GigGallery";
 import ServicePricingHighlight from "@/components/ServicePricingHighlight";
 import TechPackServiceExperience from "@/components/TechPackServiceExperience";
 import ModestWearDevelopment, { MODEST_WEAR_FAQS } from "@/components/ModestWearDevelopment";
+import TextilePatternDevelopment, { TEXTILE_PATTERN_FAQS } from "@/components/TextilePatternDevelopment";
 import { createPageMetadata } from "@/lib/seo";
 import { PRICING_FAQS, getPackagesByCategory } from "@/data/pricing";
 import { GIGS, getGig } from "../gigs";
@@ -52,7 +53,7 @@ export default async function GigPage({ params }) {
       ["Embroidered and beaded abaya production", "/blog/embroidered-abaya-manufacturing"],
     ],
   }[gig.slug] || [];
-  const visibleFaqs = gig.slug === "clothing-manufacturing" ? MODEST_WEAR_FAQS : PRICING_FAQS.slice(0, 5);
+  const visibleFaqs = gig.slug === "clothing-manufacturing" ? MODEST_WEAR_FAQS : gig.slug === "custom-textile-patterns" ? TEXTILE_PATTERN_FAQS : PRICING_FAQS.slice(0, 5);
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -61,7 +62,7 @@ export default async function GigPage({ params }) {
     description: gig.tagline,
     provider: { "@type": "Organization", name: "Zameett", url: siteUrl },
     areaServed: "Worldwide",
-    serviceType: gig.slug === "clothing-manufacturing" ? "Modest wear product development, sampling and manufacturing support" : "Fashion design and product development",
+    serviceType: gig.slug === "clothing-manufacturing" ? "Modest wear product development, sampling and manufacturing support" : gig.slug === "custom-textile-patterns" ? "Custom textile pattern design, seamless repeats and placement artwork" : "Fashion design and product development",
     image: siteUrl + gig.cover,
     ...(packages.length ? {
       offers: packages.map((item) => ({
@@ -96,7 +97,7 @@ export default async function GigPage({ params }) {
     <>
       <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <main>
-        <section className={`gig-detail premium-detail-page${gig.slug === "clothing-manufacturing" ? " modest-wear-detail-page" : ""}`} id="service-details">
+        <section className={`gig-detail premium-detail-page${gig.slug === "clothing-manufacturing" ? " modest-wear-detail-page" : gig.slug === "custom-textile-patterns" ? " textile-pattern-detail-page" : ""}`} id="service-details">
           <div className="inner">
             <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/services">Services</Link> &nbsp;/&nbsp; {gig.short}</p>
             <div className="gig-top reveal">
@@ -137,6 +138,7 @@ export default async function GigPage({ params }) {
         </section>
 
         {gig.slug === "clothing-manufacturing" && <ModestWearDevelopment />}
+        {gig.slug === "custom-textile-patterns" && <TextilePatternDevelopment />}
 
         <ServicePricingHighlight
           packages={packages}
