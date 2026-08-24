@@ -145,7 +145,7 @@ export default async function SolutionPage({ params }) {
             <div className="intent-facts">
               <article className="reveal"><span>Estimated timeline</span><p>{solution.timeline}</p></article>
               <article className="reveal"><span>MOQ information</span><p>{solution.moq}</p></article>
-              <article className="reveal"><span>Pricing approach</span><p>{solutionStartingPrice !== null ? `Published packages start at $${solutionStartingPrice} USD, with scope confirmed before payment.` : "Custom work is priced from the approved scope, not a generic package that hides material or production variables."}</p><a className="intent-fact-link" href="#service-pricing">{solutionStartingPrice !== null ? "View related packages" : "Review the quote route"} →</a></article>
+              <article className="reveal"><span>Pricing approach</span><p>{solutionStartingPrice !== null ? `Published packages start at $${solutionStartingPrice} USD, with scope confirmed before payment.` : solution.pricing || "Custom work is priced from the approved scope, not a generic package that hides material or production variables."}</p><a className="intent-fact-link" href="#service-pricing">{solutionStartingPrice !== null ? "View related packages" : "Review the quote route"} →</a></article>
             </div>
           </div>
         </section>
@@ -159,7 +159,7 @@ export default async function SolutionPage({ params }) {
           description={solutionPackages.length ? "Compare defined creative scopes and starting prices before sending your brief." : "This service is quoted from the reviewed product, quantity, materials, complexity, timeline and destination."}
           quoteHref={quoteHref}
           customTitle={`${solution.keyword} project quote`}
-          customDescription="We review the actual requirements, confirm capability and provide written scope, timing, assumptions and commercial terms before commitment."
+          customDescription={solution.quoteDescription || "We review the actual requirements, confirm capability and provide written scope, timing, assumptions and commercial terms before commitment."}
         />
         <section className="services intent-deliverables">
           <div className="inner">
@@ -209,6 +209,15 @@ export default async function SolutionPage({ params }) {
             </div>
           </div>
         </section>
+
+        {solution.resources?.length ? (
+          <section className="service-learning-section" aria-labelledby="solution-learning-title">
+            <div className="inner">
+              <div className="svc-head reveal"><div><p className="s-tag">Prepare Before You Sample</p><h2 className="s-title" id="solution-learning-title">Useful guides for a <em>clearer handoff.</em></h2></div><p className="s-body">Review the files, sample stages and production decisions that help make physical development more controlled.</p></div>
+              <div className="service-learning-grid">{solution.resources.map(([label, href]) => <a className="reveal" key={href} href={href}>{label}<span aria-hidden="true">&rarr;</span></a>)}</div>
+            </div>
+          </section>
+        ) : null}
 
         <section className="intent-faq">
           <div className="inner intent-faq-grid">
