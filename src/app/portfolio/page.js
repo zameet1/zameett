@@ -9,7 +9,7 @@ const breadcrumbSchema = { "@context": "https://schema.org", "@type": "Breadcrum
   { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://zameett.com/portfolio" },
 ] };
 
-export const metadata = { title: "Portfolio", description: "Selected Zameett fashion design, technical development, sampling and modest-wear portfolio references.", alternates: { canonical: "/portfolio" }, openGraph: { title: "Fashion Design & Modest-Wear Portfolio | Zameett", description: "Selected fashion design, technical-development, sampling and modest-wear references from Zameett.", url: "/portfolio", images: [{ url: "/images/velvet-caftan.jpeg", width: 1200, height: 630, alt: "Maroon velvet caftan development reference" }] } };
+export const metadata = { title: "Portfolio", description: "Selected Zameett fashion design, technical development, sampling and modest-wear portfolio references.", alternates: { canonical: "/portfolio" }, openGraph: { title: "Fashion Design & Modest-Wear Portfolio | Zameett", description: "Selected fashion design, technical-development, sampling and modest-wear references from Zameett.", url: "/portfolio", images: [{ url: "/images/velvet-caftan.jpeg", width: 877, height: 1280, alt: "Maroon velvet caftan development reference" }] }, twitter: { card: "summary_large_image", title: "Fashion Design & Modest-Wear Portfolio | Zameett", description: "Selected fashion design, technical-development, sampling and modest-wear references from Zameett.", images: ["/images/velvet-caftan.jpeg"] } };
 
 export default function Portfolio() { return <>
   <JsonLd data={breadcrumbSchema} />

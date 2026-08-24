@@ -12,8 +12,9 @@ export const metadata = {
     title: "Zameett Supply Chain & Quality Control",
     description: "A transparent look at material sourcing, sample approval, production control and shipment readiness for modest-fashion collections.",
     url: "/supply-chain",
-    images: [{ url: "/services/manufacturing-2.jpeg", width: 1200, height: 630, alt: "Zameett modest-fashion supply chain" }],
+    images: [{ url: "/services/manufacturing-2.jpeg", width: 1600, height: 1132, alt: "Zameett modest-fashion supply chain" }],
   },
+  twitter: { card: "summary_large_image", title: "Zameett Supply Chain & Quality Control", description: "A transparent look at material sourcing, sample approval, production control and shipment readiness for modest-fashion collections.", images: ["/services/manufacturing-2.jpeg"] },
 };
 
 const serviceSchema = {

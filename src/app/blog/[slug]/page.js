@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
       title: socialTitle, description: post.description, url: canonical, type: "article",
       publishedTime: post.date, modifiedTime: post.updatedDate || post.date,
       authors: ["Zameett Editorial Team"],
-      images: [{ url: image, width: 1200, height: 630, alt: post.imageAlt || post.title }],
+      images: [{ url: image, alt: post.imageAlt || post.title }],
     },
     twitter: { card: "summary_large_image", title: socialTitle, description: post.description, images: [{ url: image, alt: post.imageAlt || post.title }] },
   };

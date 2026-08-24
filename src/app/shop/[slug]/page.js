@@ -13,13 +13,14 @@ export const dynamicParams = false;
 
 const siteUrl = "https://zameett.com";
 export function generateStaticParams() { return PRODUCTS.map((product) => ({ slug: product.slug })); }
-export async function generateMetadata({ params }) { const { slug } = await params; const product = getProduct(slug); if (!product) return {}; return { title: product.name, description: product.tagline, alternates: { canonical: `/shop/${product.slug}` }, openGraph: { title: `${product.name} | Zameett`, description: product.tagline, url: `/shop/${product.slug}`, images: [{ url: product.cover, width: 1200, height: 630, alt: product.name }] } }; }
+export async function generateMetadata({ params }) { const { slug } = await params; const product = getProduct(slug); if (!product) return {}; return { title: product.name, description: product.tagline, alternates: { canonical: `/shop/${product.slug}` }, openGraph: { title: `${product.name} | Zameett`, description: product.tagline, url: `/shop/${product.slug}`, images: [{ url: product.cover, width: 1600, height: 1132, alt: product.name }] }, twitter: { card: "summary_large_image", title: `${product.name} | Zameett`, description: product.tagline, images: [product.cover] } }; }
 
 export default async function ProductPage({ params }) {
   const { slug } = await params; const product = getProduct(slug); if (!product) notFound();
   const productSchema = { "@context": "https://schema.org", "@type": "Product", name: product.name, description: product.tagline, image: `${siteUrl}${product.cover}`, brand: { "@type": "Brand", name: "Zameett" }, offers: { "@type": "Offer", price: product.price.replace(/[^0-9.]/g, ""), priceCurrency: "USD", availability: "https://schema.org/InStock", url: `${siteUrl}/shop/${product.slug}` } };
+  const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` }, { "@type": "ListItem", position: 2, name: "Shop", item: `${siteUrl}/shop` }, { "@type": "ListItem", position: 3, name: product.name, item: `${siteUrl}/shop/${product.slug}` }] };
   const related = PRODUCTS.filter((item) => item.slug !== product.slug);
-  return <><JsonLd data={productSchema} />
+  return <><JsonLd data={[productSchema, breadcrumbSchema]} />
     <section className="gig-detail premium-detail-page product-detail-page" id="product-details"><div className="inner">
       <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/shop">Shop</a> &nbsp;/&nbsp; {product.short}</p>
       <div className="gig-top"><GigGallery images={product.gallery} alt={product.name} /><div className="gig-info">

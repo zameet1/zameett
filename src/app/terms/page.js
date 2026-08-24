@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Terms of Service", description: "Terms governing Zameett design, development, sampling, manufacturing and digital products.", alternates: { canonical: "/terms" } };
+export const metadata = createPageMetadata({ title: "Terms of Service", description: "Terms governing Zameett design, development, sampling, manufacturing and digital products.", path: "/terms" });
 const SECTIONS = [
   ["Quotations, scope and approval", "A quotation, statement of work or accepted proposal confirms deliverables, assumptions, exclusions, revision rounds, fees, payment schedule, timing and validity. Electronic acceptance, payment or written instruction may confirm approval. Scope changes require written confirmation and may change fees and timing."],
   ["Payments and milestones", "Deposits and milestone payments are due as stated in the project documents. Work, file release, sample dispatch or production may pause if payment is late. Bank, processor, currency-conversion, tax or collection charges may be payable by the client where stated."],

@@ -13,6 +13,7 @@ export const metadata = {
     url: "/faq",
     images: [{ url: "/services/abaya-1.jpeg", width: 1600, height: 1132, alt: "Zameett fashion development" }],
   },
+  twitter: { card: "summary_large_image", title: "Zameett Frequently Asked Questions", description: "Clear answers about fashion development, technical documentation, sampling and modest-wear production support.", images: ["/services/abaya-1.jpeg"] },
 };
 
 const structuredData = [

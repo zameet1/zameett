@@ -96,7 +96,7 @@ export default async function GigPage({ params }) {
     <>
       <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <main>
-        <section className="gig-detail premium-detail-page" id="service-details">
+        <section className={`gig-detail premium-detail-page${gig.slug === "clothing-manufacturing" ? " modest-wear-detail-page" : ""}`} id="service-details">
           <div className="inner">
             <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/services">Services</Link> &nbsp;/&nbsp; {gig.short}</p>
             <div className="gig-top reveal">

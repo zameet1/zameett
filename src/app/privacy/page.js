@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Privacy Policy", description: "How Zameett collects, uses, shares, stores and protects website, enquiry, account and order information.", alternates: { canonical: "/privacy" } };
+export const metadata = createPageMetadata({ title: "Privacy Policy", description: "How Zameett collects, uses, shares, stores and protects website, enquiry, account and order information.", path: "/privacy" });
 const Section = ({ title, children }) => <section className="legal-section"><h2 className="s-title">{title}</h2>{children}</section>;
 export default function Privacy() { return <>
   <header className="page-hero legal-hero"><div className="inner"><p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Privacy Policy</p><h1>Privacy <em>Policy</em></h1><p>Last updated: July 30, 2026</p></div></header>

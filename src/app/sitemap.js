@@ -9,7 +9,7 @@ function entry(path, lastModified, changeFrequency, priority) {
   return { url: SITE_URL + path, lastModified, changeFrequency, priority };
 }
 export default function sitemap() {
-  const siteUpdated = new Date("2026-08-09T00:00:00Z");
+  const siteUpdated = new Date("2026-08-23T00:00:00Z");
   const policyUpdated = new Date("2026-07-30T00:00:00Z");
   const entries = [
     ...PUBLIC_STATIC_ROUTES.map((route) => entry(route, siteUpdated, route === "/blog" ? "weekly" : "monthly", route === "" ? 1 : ["/services","/portfolio","/contact","/pricing"].includes(route) ? 0.9 : 0.7)),

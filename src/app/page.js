@@ -5,12 +5,11 @@ import WorkShowcase from "@/components/WorkShowcase";
 import ProjectBriefPanel from "@/components/ProjectBriefPanel";
 import HomePricingHighlight from "@/components/HomePricingHighlight";
 import { getPricingPackage } from "@/data/pricing";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: { absolute: "Fashion Design, Tech Packs & Modest-Wear Development | Zameett" },
-  description: "Zameett helps fashion brands develop original designs, technical flats, production-ready tech packs, textile prints and specialist modest-wear projects from Pakistan.",
-  alternates: { canonical: "/" },
-};
+const homeTitle = "Fashion Design, Tech Packs & Modest-Wear Development | Zameett";
+const homeDescription = "Zameett helps fashion brands develop original designs, technical flats, production-ready tech packs, textile prints and specialist modest-wear projects from Pakistan.";
+export const metadata = { ...createPageMetadata({ title: homeTitle, description: homeDescription, path: "/" }), title: { absolute: homeTitle } };
 
 const PREMIUM_PRINTED_PACKAGE = getPricingPackage("design-techpack-print-premium-collection");
 
