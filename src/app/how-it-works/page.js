@@ -4,15 +4,16 @@ import JsonLd from "@/components/JsonLd";
 const siteUrl = "https://zameett.com";
 
 export const metadata = {
-  title: "How Zameett Works",
+  title: "How It Works",
   description: "A transparent fashion-development workflow for design, tech packs, sourcing, sampling, reviewed production management and dispatch.",
   alternates: { canonical: "/how-it-works" },
   openGraph: {
     title: "How Zameett Works | Design to Delivery",
     description: "See the stages, approvals and responsibilities behind a Zameett modest-fashion project.",
     url: "/how-it-works",
-    images: [{ url: "/services/manufacturing-1.jpeg", width: 1200, height: 630, alt: "Zameett modest-fashion development workflow" }],
+    images: [{ url: "/services/manufacturing-1.jpeg", width: 1600, height: 1132, alt: "Zameett modest-fashion development workflow" }],
   },
+  twitter: { card: "summary_large_image", title: "How Zameett Works | Design to Delivery", description: "See the stages, approvals and responsibilities behind a Zameett modest-fashion project.", images: ["/services/manufacturing-1.jpeg"] },
 };
 
 const MODELS = [

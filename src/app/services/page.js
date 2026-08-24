@@ -103,6 +103,7 @@ export const metadata = {
     url: "/services",
     images: [{ url: "/images/techpack.jpeg", width: 1600, height: 1067, alt: "Zameett fashion design and tech-pack services" }],
   },
+  twitter: { card: "summary_large_image", title: "Fashion Design & Tech Pack Services | Zameett", description: "Clear service paths, published tech-pack pricing and project-specific sampling and modest-wear production support.", images: ["/images/techpack.jpeg"] },
 };
 
 const servicesSchema = SERVICE_ROUTES.map((route) => {

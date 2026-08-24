@@ -25,6 +25,9 @@ const nextConfig = {
       { source: "/:path*", has: [{ type: "host", value: "www.zameett.com" }], destination: "https://zameett.com/:path*", permanent: true },
       { source: "/home", destination: "/", permanent: true },
       { source: "/index.html", destination: "/", permanent: true },
+      { source: "/solutions/modest-fashion-manufacturer", destination: "/services/clothing-manufacturing", permanent: true },
+      { source: "/solutions/fashion-tech-pack-design-service", destination: "/services/fashion-tech-packs", permanent: true },
+      { source: "/solutions/custom-textile-pattern-designer", destination: "/services/custom-textile-patterns", permanent: true },
       { source: "/solutions/garment-sampling-fitting-service", destination: "/solutions/fashion-sampling-services", permanent: true },
       { source: "/blog/garment-sampling-process-modest-fashion", destination: "/blog/types-of-garment-samples", permanent: true },
     ];

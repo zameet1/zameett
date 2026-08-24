@@ -15,7 +15,7 @@ export const metadata = {
     description:
       "Editable tech-pack templates that help fashion brands organise product-specific technical information.",
     url: "/shop",
-    images: [{ url: "/digital/p2-1.jpeg", width: 1200, height: 630, alt: "Zameett digital tech pack templates" }],
+    images: [{ url: "/digital/p2-1.jpeg", width: 1600, height: 1132, alt: "Zameett digital tech pack templates" }],
   },
   twitter: {
     card: "summary_large_image",

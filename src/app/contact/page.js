@@ -30,7 +30,7 @@ export const metadata = {
     description:
       "Share your project brief and we will review the most suitable design, sampling or production route.",
     url: "/contact",
-    images: [{ url: "/images/26.jpeg", width: 1200, height: 630, alt: "Hand embellishment detail on a Zameett modest wear piece" }],
+    images: [{ url: "/images/26.jpeg", width: 1245, height: 848, alt: "Hand embellishment detail on a Zameett modest wear piece" }],
   },
   twitter: {
     card: "summary_large_image",

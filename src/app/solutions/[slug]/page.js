@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
       title: `${solution.title} | Zameett`,
       description: solution.description,
       url: `/solutions/${solution.slug}`,
-      images: [{ url: solution.cover, width: 1200, height: 630, alt: solution.title }],
+      images: [{ url: solution.cover, width: 1600, height: 1132, alt: solution.title }],
     },
     twitter: {
       card: "summary_large_image",
