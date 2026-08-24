@@ -1151,6 +1151,8 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .blog-index .blog-featured .gig-card-img{min-height:0;aspect-ratio:16/10}
   .modest-wear-detail-page .gig-info{grid-row:1}
   .modest-wear-detail-page .gig-gallery{grid-row:2}
+  .textile-pattern-detail-page .gig-info{grid-row:1}
+  .textile-pattern-detail-page .gig-gallery{grid-row:2}
   .premium-detail-page .gig-info{padding:28px 12px 22px}
   .premium-detail-page .gig-body{padding:42px 32px}
 }
