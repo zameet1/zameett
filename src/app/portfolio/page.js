@@ -3,19 +3,48 @@ import AutoReviews from "@/components/AutoReviews";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import JsonLd from "@/components/JsonLd";
+import { PORTFOLIO_ITEMS } from "@/data/portfolio";
 
 const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
   { "@type": "ListItem", position: 1, name: "Home", item: "https://zameett.com/" },
   { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://zameett.com/portfolio" },
 ] };
 
+const portfolioSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://zameett.com/portfolio#webpage",
+  url: "https://zameett.com/portfolio",
+  name: "Fashion Design & Modest-Wear Portfolio",
+  description: "Selected Zameett fashion design, technical development, sampling and modest-wear portfolio references.",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    numberOfItems: PORTFOLIO_ITEMS.length,
+    itemListElement: PORTFOLIO_ITEMS.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://zameett.com/portfolio#${item.slug}`,
+      item: {
+        "@type": "CreativeWork",
+        name: `${item.titleLead} ${item.titleEmphasis}`,
+        description: item.desc,
+        image: `https://zameett.com${item.src}`,
+        creator: { "@id": "https://zameett.com/#organization" },
+      },
+    })),
+  },
+};
+
 export const metadata = { title: "Portfolio", description: "Selected Zameett fashion design, technical development, sampling and modest-wear portfolio references.", alternates: { canonical: "/portfolio" }, openGraph: { title: "Fashion Design & Modest-Wear Portfolio | Zameett", description: "Selected fashion design, technical-development, sampling and modest-wear references from Zameett.", url: "/portfolio", images: [{ url: "/images/velvet-caftan.jpeg", width: 877, height: 1280, alt: "Maroon velvet caftan development reference" }] }, twitter: { card: "summary_large_image", title: "Fashion Design & Modest-Wear Portfolio | Zameett", description: "Selected fashion design, technical-development, sampling and modest-wear references from Zameett.", images: ["/images/velvet-caftan.jpeg"] } };
 
 export default function Portfolio() { return <>
   <JsonLd data={breadcrumbSchema} />
+  <JsonLd data={portfolioSchema} />
   <header className="page-hero portfolio-hero"><div className="inner"><p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Portfolio</p><h1>Selected <em>development work.</em></h1><p>A curated set of fashion concepts, technical-development references, samples and finished modest-wear directions.</p><div className="page-hero-proof"><span>Design direction</span><span>Technical development</span><span>Sampling references</span></div></div></header>
   <section className="pf-feature portfolio-feature"><div className="inner"><div className="pff-media"><span className="pff-badge">Featured Development Reference</span><CoverImage src="/images/velvet-caftan.jpeg" alt="Maroon velvet caftan gown" objectPosition="center 22%" sizes="(max-width: 960px) 100vw, 55vw" priority /></div><div className="pff-copy"><p className="s-tag">Luxury Velvet Kaftan</p><h2>From concept to <em>sample direction.</em></h2><p><strong>Brief:</strong> Develop a formal modest silhouette with a rich evening finish and controlled embellishment placement.</p><p><strong>Zameett&apos;s role:</strong> Design direction, material review, detail placement and sample-stage development as shown in the approved project scope.</p><p><strong>Development focus:</strong> Drape, border scale, waist treatment, coverage and a finish suitable for formal styling.</p><div className="pff-meta"><div className="m"><b>Velvet</b><span>Material direction</span></div><div className="m"><b>Gota</b><span>Border detail</span></div><div className="m"><b>Sample</b><span>Approval stage</span></div></div></div></div></section>
   <section className="portfolio-disclosure"><div className="inner"><p><strong>Portfolio note:</strong> Selected projects are displayed with client permission or as Zameett studio references. Some branding and commercially sensitive details have been removed to protect client confidentiality. The role label on each item explains the work represented; not every project includes every service.</p></div></section>
+  <section className="services" aria-labelledby="portfolio-evidence-heading"><div className="inner intent-overview-grid"><div className="reveal"><p className="s-tag">Evidence Standards</p><h2 className="s-title" id="portfolio-evidence-heading">Know what each <em>reference demonstrates.</em></h2><p className="s-body">Every portfolio card now separates the type of reference from Zameett&apos;s stated role. Client identities, confidential files and commercial outcomes remain unpublished unless a source and permission are available.</p></div><div className="intent-facts"><article className="reveal"><span>Development reference</span><p>Shows public visual evidence of the design, technical, print or sample-stage work described in that card&apos;s role label.</p></article><article className="reveal"><span>Studio reference</span><p>Shows a Zameett-created study or internal development example. It is not presented as a named client commission.</p></article><article className="reveal"><span>Outcome claims</span><p>Portfolio images demonstrate visible work, not sales, production volume or client results. Those claims will be added only when they can be sourced and published with permission.</p></article></div></div></section>
   <section className="pf-section portfolio-gallery-section" id="portfolio-gallery"><div className="inner"><PortfolioGallery /></div></section>
   <div className="photo-break"><CoverImage src="/images/13.jpeg" objectPosition="center 30%" alt="Fashion garment development workspace" /><div className="pb-overlay"><div className="pb-content"><p className="pb-tag">Controlled Development</p><h2 className="pb-h">A clear record from brief to approval.</h2><p className="pb-p">The project proposal identifies which stages Zameett performs directly and where reviewed specialist suppliers or facilities are involved.</p><a href="/contact#get-in-touch" className="btn btn-gold">Start Your Project →</a></div></div></div>
   <section className="testimonials portfolio-testimonials"><div className="inner"><div className="t-head reveal"><p className="s-tag">Client Feedback</p><h2 className="s-title">What clients say about <em>the working process.</em></h2></div><AutoReviews /></div></section>
