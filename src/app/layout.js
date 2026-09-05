@@ -6,6 +6,7 @@ import SiteChrome from "@/components/SiteChrome";
 import CookieConsent from "@/components/CookieConsent";
 import JsonLd from "@/components/JsonLd";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import OpenAIAdsPixel from "@/components/OpenAIAdsPixel";
 import AttributionTracker from "@/components/AttributionTracker";
 import PwaManager from "@/components/PwaManager";
 import { DEFAULT_SOCIAL_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL, createSiteIdentitySchema } from "@/lib/seo";
@@ -73,6 +74,7 @@ export default function RootLayout({ children }) {
         <noscript><iframe src={"https://www.googletagmanager.com/ns.html?id=" + googleTagManagerId} height="0" width="0" style={{ display: "none", visibility: "hidden" }} title="Google Tag Manager" /></noscript>
         <JsonLd data={createSiteIdentitySchema()} />
         <GoogleAnalytics />
+        <OpenAIAdsPixel />
         <AttributionTracker />
         <PwaManager />
         <a className="skip-link" href="#main-content">Skip to main content</a>

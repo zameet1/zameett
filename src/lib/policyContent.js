@@ -95,7 +95,7 @@ export const POLICIES = {
     sections: [
       { title: "Essential storage", paragraphs: ["Essential storage supports security, sign-in, session continuity, consent choices, orders and locally dismissed interface prompts. It cannot be disabled through the website banner."] },
       { title: "Analytics", paragraphs: ["Analytics is denied by default and activated only after consent. It helps us understand page usage, device categories and marketing performance."] },
-      { title: "Advertising", paragraphs: ["Advertising storage is denied by default and is activated only if selected. It may help measure campaigns and relevant advertising."] },
+      { title: "Advertising", paragraphs: ["Advertising storage is denied by default and is activated only if selected. Google and OpenAI advertising measurement tools may then help attribute enquiries and measure campaign performance."] },
       { title: "Managing choices", paragraphs: ["Use the cookie banner when first visiting. You may also clear site data or block cookies in browser settings. Clearing storage may reset your consent choice."] },
     ],
   },
