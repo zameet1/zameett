@@ -16,3 +16,18 @@ export function trackAnalyticsEvent(eventName, parameters = {}) {
     window.dataLayer.push({ event: eventName, ...safeParameters });
   }
 }
+
+export function trackOpenAIAdsCustomEvent(customEventName) {
+  if (
+    typeof window === "undefined" ||
+    typeof window.oaiq !== "function" ||
+    !/^[a-z0-9](?:[a-z0-9_-]{0,62}[a-z0-9])?$/.test(customEventName)
+  ) return;
+
+  window.oaiq(
+    "measure",
+    "custom",
+    { type: "custom" },
+    { custom_event_name: customEventName },
+  );
+}
