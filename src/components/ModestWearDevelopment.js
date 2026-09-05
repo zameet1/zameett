@@ -60,7 +60,7 @@ export default function ModestWearDevelopment() {
 
         <div className={`${styles.quote} reveal`}>
           <div><span>Project-specific quotation</span><h2>Your timeline and MOQ follow the approved scope.</h2></div>
-          <div><p>Send your styles, intended quantities, size and colour split, materials, embellishment, packaging, target date and destination. We will review feasibility and confirm the scope before payment.</p><div><Link href="/pricing">Review design pricing</Link><Link href="/portfolio">View selected work</Link><Link href="/contact?service=clothing-manufacturing#get-in-touch">Request a project review <span aria-hidden="true">&rarr;</span></Link></div></div>
+          <div><p>Send your styles, intended quantities, size and colour split, materials, embellishment, packaging, target date and destination. We will review feasibility and confirm the scope before payment.</p><div><Link href="/services/fashion-tech-packs">Explore technical development</Link><Link href="/solutions/fashion-sampling-services">Explore sampling support</Link><Link href="/pricing">Review design pricing</Link><Link href="/portfolio">View selected work</Link><Link href="/contact?service=clothing-manufacturing#get-in-touch">Request a project review <span aria-hidden="true">&rarr;</span></Link></div></div>
         </div>
       </div>
     </section>

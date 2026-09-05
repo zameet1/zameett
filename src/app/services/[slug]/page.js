@@ -60,6 +60,7 @@ export default async function GigPage({ params }) {
     "@type": "Service",
     name: gig.title,
     description: gig.tagline,
+    url: siteUrl + "/services/" + gig.slug,
     provider: { "@type": "Organization", name: "Zameett", url: siteUrl },
     areaServed: "Worldwide",
     serviceType: gig.slug === "clothing-manufacturing" ? "Modest wear product development, sampling and manufacturing support" : gig.slug === "custom-textile-patterns" ? "Custom textile pattern design, seamless repeats and placement artwork" : "Fashion design and product development",
