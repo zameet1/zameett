@@ -206,14 +206,16 @@ export default function ContactForm({ initialService = "", initialPackageParam =
         <input id="website" name="Website" type="text" tabIndex="-1" autoComplete="off" />
       </div>
 
-      {(selectedPricingPackage || packageParam === "production-review") && (
+      {(service || selectedPricingPackage || packageParam === "production-review") && (
         <aside className={styles.prefillSummary} aria-label="Selected request summary">
           <div>
             <span>Selected request</span>
-            <strong>{selectedPricingPackage?.name || "Production Review"}</strong>
+            <strong>{selectedPricingPackage?.name || (packageParam === "production-review" ? "Production Review" : service)}</strong>
             <p>
               {selectedPricingPackage?.subtitle ||
-                "Sampling and manufacturing requirements reviewed around your product and quantity."}
+                (packageParam === "production-review"
+                  ? "Sampling and manufacturing requirements reviewed around your product and quantity."
+                  : "This service was selected from the page you visited. You can confirm or change it in project scope.")}
             </p>
           </div>
           {selectedPricingPackage && (

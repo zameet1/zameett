@@ -7,6 +7,19 @@ export default function SiteChrome() {
   const [navShadow, setNavShadow] = useState(false);
 
   useEffect(() => {
+    const main = document.getElementById("main-content");
+    if (!main || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    main.classList.remove("page-transition-in");
+    const frame = window.requestAnimationFrame(() => main.classList.add("page-transition-in"));
+    const timer = window.setTimeout(() => main.classList.remove("page-transition-in"), 560);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timer);
+      main.classList.remove("page-transition-in");
+    };
+  }, [pathname]);
+
+  useEffect(() => {
     function onScroll() {
       setNavShadow(window.scrollY > 40);
     }
@@ -160,6 +173,7 @@ export default function SiteChrome() {
   // Re-apply hash scrolling after client-side route changes and delayed page rendering.
   useEffect(() => {
     let retryTimer;
+    let arrivalTimer;
 
     function scrollToCurrentHash(attempt = 0) {
       const hash = window.location.hash.slice(1);
@@ -168,6 +182,10 @@ export default function SiteChrome() {
       if (target) {
         const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
         target.scrollIntoView({ behavior, block: "start" });
+        target.classList.remove("hash-target-active");
+        window.requestAnimationFrame(() => target.classList.add("hash-target-active"));
+        window.clearTimeout(arrivalTimer);
+        arrivalTimer = window.setTimeout(() => target.classList.remove("hash-target-active"), 1100);
         return;
       }
       if (attempt < 8) {
@@ -183,6 +201,7 @@ export default function SiteChrome() {
     window.addEventListener("hashchange", onHashChange);
     return () => {
       window.clearTimeout(retryTimer);
+      window.clearTimeout(arrivalTimer);
       window.removeEventListener("hashchange", onHashChange);
     };
   }, [pathname]);

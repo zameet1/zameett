@@ -38,7 +38,7 @@
 
 /* == RESET == */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
 section[id],main[id]{scroll-margin-top:96px}
 body{font-family:var(--font-jost),sans-serif;font-weight:300;color:var(--charcoal);background:var(--ivory);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:var(--font-cormorant),serif}
@@ -1831,6 +1831,10 @@ img{-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none}
 .reveal-pending{opacity:1;transform:none}
 .reveal-pending.reveal-in{animation:safe-reveal-in .58s cubic-bezier(.2,.7,.2,1) var(--reveal-delay,0ms) both}
 @keyframes safe-reveal-in{from{opacity:.01;transform:translateY(16px)}to{opacity:1;transform:none}}
+#main-content.page-transition-in{animation:page-transition-in .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes page-transition-in{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hash-target-active{animation:hash-target-arrival 1s ease-out both}
+@keyframes hash-target-arrival{0%{outline:1px solid rgba(201,169,110,0);outline-offset:12px}28%{outline-color:rgba(201,169,110,.72);outline-offset:5px}100%{outline-color:rgba(201,169,110,0);outline-offset:0}}
 
 /* Compact install and notification prompt. It never blocks the page. */
 .app-install-overlay.app-install-toast{inset:auto 18px 18px auto;display:block;width:auto;padding:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;pointer-events:none;animation:none}
@@ -1862,7 +1866,7 @@ img{-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none}
 .supplier-check-card{background:rgba(255,253,249,.94)}
 @media(max-width:900px){.workflow-model-grid,.workflow-stage-grid,.supplier-check-grid{grid-template-columns:1fr 1fr}.workflow-checklist{grid-template-columns:1fr}.workflow-decision{grid-template-columns:1fr}}
 @media(max-width:560px){.app-install-overlay.app-install-toast{left:10px;right:10px;bottom:10px}.app-install-toast .app-install-dialog{width:100%;min-height:106px;padding:17px 46px 16px 66px}.app-install-toast .app-install-mark{left:13px;top:17px;width:40px}.app-install-toast .app-install-dialog h2{font-size:19px}.app-install-toast .app-install-dialog p{font-size:10px}.workflow-model-grid,.workflow-stage-grid,.supplier-check-grid{grid-template-columns:1fr}.workflow-model-card,.workflow-stage-card,.supplier-check-card{padding:25px}.workflow-stage-card{min-height:0}.workflow-decision{padding:27px 24px}}
-@media(prefers-reduced-motion:reduce){.reveal-pending,.app-install-toast .app-install-dialog{opacity:1;transform:none;transition:none;animation:none}}
+@media(prefers-reduced-motion:reduce){.reveal-pending,.app-install-toast .app-install-dialog,#main-content.page-transition-in,.hash-target-active{opacity:1;transform:none;transition:none;animation:none}}
 .route-error{min-height:70vh;display:grid;place-content:center;justify-items:center;gap:14px;padding:120px 24px;text-align:center;background:var(--ivory)}
 .route-error>span{color:var(--gold-deep);font:600 9px/1 var(--font-jost),sans-serif;letter-spacing:2px;text-transform:uppercase}.route-error h1{max-width:700px;margin:0;color:var(--burg);font-size:clamp(38px,6vw,68px);line-height:1}.route-error p{max-width:540px;color:var(--mid);font:300 13px/1.7 var(--font-jost),sans-serif}.route-error>div{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}.route-error button{border:0}
 
