@@ -27,7 +27,6 @@ export function requestAppInstall() {
 
 export default function PwaManager() {
   const promptRef = useRef(null);
-  const autoOfferTimerRef = useRef(null);
   const [dialog, setDialog] = useState(null);
 
   const launchNativePrompt = async () => {
@@ -101,15 +100,6 @@ export default function PwaManager() {
     function onBeforeInstall(event) {
       event.preventDefault();
       promptRef.current = event;
-
-      // Never persist dismissal across visits. If the app is removed, Chrome can
-      // emit beforeinstallprompt again and Zameett will offer installation again.
-      if (!isStandalone() && !sessionStorage.getItem("zameett-install-offer-seen")) {
-        autoOfferTimerRef.current = window.setTimeout(() => {
-          sessionStorage.setItem("zameett-install-offer-seen", "1");
-          setDialog("available");
-        }, 1800);
-      }
     }
 
     async function onInstallRequest() {
@@ -137,7 +127,6 @@ export default function PwaManager() {
     window.addEventListener("zameett:install-app", onInstallRequest);
 
     return () => {
-      if (autoOfferTimerRef.current) window.clearTimeout(autoOfferTimerRef.current);
       window.removeEventListener("beforeinstallprompt", onBeforeInstall);
       window.removeEventListener("appinstalled", onInstalled);
       window.removeEventListener("zameett:install-app", onInstallRequest);
