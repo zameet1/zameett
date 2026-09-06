@@ -107,8 +107,12 @@ const LEGACY_POSTS = [
     description: "Use this fabric sourcing checklist to confirm composition, opacity, drape, width, shrinkage, colour, MOQ and lead time before ordering.",
     primaryKeyword: "fabric sourcing checklist",
     date: "2026-07-18",
+    updatedDate: "2026-09-06",
     image: "/images/25.jpeg",
-    readTime: "8 min read",
+    readTime: "10 min read",
+    serviceHref: "/supply-chain",
+    serviceLabel: "Fabric sourcing and quality support",
+    related: ["fabric-guide-abayas-modest-dresses", "prepare-design-for-manufacturer", "production-management-fashion-brand"],
   },
   {
     slug: "production-management-fashion-brand",
