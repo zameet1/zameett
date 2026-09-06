@@ -2,6 +2,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
+const PENDING_HASH_KEY = "zameett_pending_hash_target";
+const PENDING_HASH_TTL = 10000;
+
 export default function SiteChrome() {
   const pathname = usePathname();
   const [navShadow, setNavShadow] = useState(false);
@@ -175,11 +178,56 @@ export default function SiteChrome() {
     let retryTimer;
     let arrivalTimer;
 
+    function rememberHashTarget(event) {
+      const anchor = event.target.closest?.("a[href]");
+      if (!anchor || anchor.target === "_blank" || anchor.hasAttribute("download")) return;
+      const url = new URL(anchor.href, window.location.href);
+      if (url.origin !== window.location.origin || !url.hash) return;
+      try {
+        sessionStorage.setItem(PENDING_HASH_KEY, JSON.stringify({
+          pathname: url.pathname,
+          search: url.search,
+          hash: url.hash,
+          expiresAt: Date.now() + PENDING_HASH_TTL,
+        }));
+      } catch {
+        // Navigation still works when browser storage is unavailable.
+      }
+    }
+
+    function pendingHashForCurrentUrl() {
+      try {
+        const pending = JSON.parse(sessionStorage.getItem(PENDING_HASH_KEY) || "null");
+        if (!pending || pending.expiresAt < Date.now()) {
+          sessionStorage.removeItem(PENDING_HASH_KEY);
+          return "";
+        }
+        if (pending.pathname === window.location.pathname && pending.search === window.location.search) return pending.hash;
+      } catch {
+        return "";
+      }
+      return "";
+    }
+
     function scrollToCurrentHash(attempt = 0) {
-      const hash = window.location.hash.slice(1);
-      if (!hash) return;
-      const target = document.getElementById(decodeURIComponent(hash));
+      const requestedHash = window.location.hash || pendingHashForCurrentUrl();
+      if (!requestedHash) return;
+      let hash;
+      try {
+        hash = decodeURIComponent(requestedHash.slice(1));
+      } catch {
+        return;
+      }
+      const target = document.getElementById(hash);
       if (target) {
+        if (!window.location.hash) {
+          window.history.replaceState(window.history.state, "", window.location.pathname + window.location.search + requestedHash);
+        }
+        try {
+          sessionStorage.removeItem(PENDING_HASH_KEY);
+        } catch {
+          // Ignore unavailable browser storage.
+        }
         const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
         target.scrollIntoView({ behavior, block: "start" });
         target.classList.remove("hash-target-active");
@@ -198,10 +246,12 @@ export default function SiteChrome() {
     }
 
     scrollToCurrentHash();
+    document.addEventListener("click", rememberHashTarget, true);
     window.addEventListener("hashchange", onHashChange);
     return () => {
       window.clearTimeout(retryTimer);
       window.clearTimeout(arrivalTimer);
+      document.removeEventListener("click", rememberHashTarget, true);
       window.removeEventListener("hashchange", onHashChange);
     };
   }, [pathname]);
