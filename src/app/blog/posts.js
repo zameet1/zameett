@@ -97,7 +97,11 @@ const LEGACY_POSTS = [
     primaryKeyword: "private label vs custom manufacturing",
     date: "2026-07-20",
     image: "/services/manufacturing-2.jpeg",
-    readTime: "8 min read",
+    readTime: "13 min read",
+    updatedDate: "2026-09-09",
+    serviceHref: "/services/clothing-manufacturing",
+    serviceLabel: "Clothing development and manufacturing support",
+    related: ["prepare-design-for-manufacturer", "low-moq-vs-bulk-fashion-manufacturing", "types-of-garment-samples"],
   },
   {
     slug: "garment-sampling-process-modest-fashion",
