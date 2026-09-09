@@ -124,13 +124,17 @@ const LEGACY_POSTS = [
   },
   {
     slug: "production-management-fashion-brand",
-    title: "When Does a Fashion Brand Need Production Management?",
-    titleAccent: "Need Production Management?",
-    description: "Learn the warning signs, responsibilities and control systems that help a fashion brand decide when production management is worthwhile.",
+    title: "Fashion Production Management: When Does a Brand Need It?",
+    titleAccent: "When Does a Brand Need It?",
+    description: "Decide when fashion production management is worthwhile, what it should control, which approval gates matter and how to scope support clearly.",
     primaryKeyword: "fashion production management",
     date: "2026-07-17",
+    updatedDate: "2026-09-09",
     image: "/services/manufacturing-3.jpeg",
-    readTime: "8 min read",
+    readTime: "12 min read",
+    serviceHref: "/solutions/fashion-production-management",
+    serviceLabel: "Fashion production management support",
+    related: ["fashion-collection-development", "types-of-garment-samples", "fabric-sourcing-checklist-fashion-brand"],
   },];
 
 const BLOG_IMAGE_OVERRIDES = {
