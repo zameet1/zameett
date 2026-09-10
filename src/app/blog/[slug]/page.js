@@ -102,6 +102,16 @@ export default async function ArticlePage({ params }) {
           </div>
           <aside className="article-takeaway reveal"><span>Key takeaway</span><p>{article.keyTakeaway}</p></aside>
 
+          {article.comparison && <section className="article-comparison reveal" aria-labelledby="article-comparison-title">
+            <div className="article-comparison-heading"><p className="s-tag">Decision comparison</p><h2 id="article-comparison-title">{article.comparison.title}</h2><p>{article.comparison.description}</p></div>
+            <div className="article-comparison-scroll" tabIndex="0" role="region" aria-label={article.comparison.title}>
+              <table>
+                <thead><tr>{article.comparison.columns.map((column) => <th key={column} scope="col">{column}</th>)}</tr></thead>
+                <tbody>{article.comparison.rows.map((row) => <tr key={row[0]}>{row.map((cell, index) => index === 0 ? <th key={cell} scope="row">{cell}</th> : <td key={cell}>{cell}</td>)}</tr>)}</tbody>
+              </table>
+            </div>
+          </section>}
+
           {article.sections.map((section, index) => <section key={section.heading} id={sectionId(section.heading)} className="reveal">
             <h2>{section.heading}</h2>
             {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
