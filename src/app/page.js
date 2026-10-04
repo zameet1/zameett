@@ -8,15 +8,23 @@ import { getPricingPackage } from "@/data/pricing";
 import { createPageMetadata } from "@/lib/seo";
 
 const homeTitle = "Fashion Design, Tech Packs & Modest-Wear Development | Zameett";
-const homeDescription = "Zameett helps fashion brands develop original designs, technical flats, production-ready tech packs, textile prints and specialist modest-wear projects from Pakistan.";
+const homeDescription = "Fashion design, fashion technical drawings, production-ready tech packs, textile print design and specialist modest-wear manufacturing support from Zameett.";
 export const metadata = { ...createPageMetadata({ title: homeTitle, description: homeDescription, path: "/" }), title: { absolute: homeTitle } };
 
 const PREMIUM_PRINTED_PACKAGE = getPricingPackage("design-techpack-print-premium-collection");
 
 const WORK_PATHS = [
-  { number: "01", title: "Design & Development", text: "Original concepts, technical flats, production-ready tech packs, textile prints and measurement documentation for multiple apparel categories.", href: "/services/fashion-tech-packs" },
+  { number: "01", title: "Design & Development", text: "Original fashion concepts, technical drawings, production-ready tech packs, textile prints and measurement documentation for multiple apparel categories.", href: "/services/fashion-tech-packs" },
   { number: "02", title: "Sampling", text: "Prototype development, fit review, material decisions and documented corrections before any approved production route.", href: "/solutions/fashion-sampling-services" },
   { number: "03", title: "Modest-Wear Manufacturing", text: "Reviewed sourcing, private labels, production checkpoints and dispatch for abayas, kaftans, modest dresses and coordinated collections.", href: "/services/clothing-manufacturing" },
+];
+
+const CORE_SERVICE_LINKS = [
+  { label: "Fashion Design", note: "Original concepts and collection direction", href: "/services/fashion-tech-packs" },
+  { label: "Tech Pack", note: "Production-ready garment specifications", href: "/services/fashion-tech-packs" },
+  { label: "Textile Print Design", note: "Custom repeat patterns and colourways", href: "/services/custom-textile-patterns" },
+  { label: "Fashion Technical Drawing", note: "Flats that communicate construction clearly", href: "/blog/fashion-technical-flat-drawings" },
+  { label: "Clothing Manufacturer", note: "Project-scoped modest-wear production support", href: "/services/clothing-manufacturing" },
 ];
 
 
@@ -29,7 +37,7 @@ export default function HomePage() {
           <div className="hero-inner"><div className="hero-content">
             <p className="hero-eyebrow">Fashion Design & Product Development · Pakistan</p>
             <h1 className="hero-h1 home-hero-title">Develop Your Fashion Collection.<em>Get the Files and Support You Need.</em></h1>
-            <p className="hero-sub">Zameett creates original designs, technical flats, production-ready tech packs and textile prints. We also support modest-wear sampling and production, so your team can move forward with clear information.</p>
+            <p className="hero-sub">Zameett provides fashion design, fashion technical drawings, production-ready tech packs and custom textile print design. Our sampling and clothing manufacturing specialisation is modest wear and abayas, with scope confirmed for each project.</p>
             <div className="hero-btns"><a href="#get-a-quote" className="btn btn-gold">Start Your Project →</a><a href="/portfolio#portfolio-gallery" className="btn btn-outline-ivory">View Our Work</a><a href="/pricing" className="btn btn-pricing-hero">View Pricing</a></div>
             <a href="/pricing#package-design-techpack-print-premium-collection" className="home-hero-price-card" aria-label={`View the recommended Zameett ${PREMIUM_PRINTED_PACKAGE.name}`}>
               <span>Recommended premium package</span>
@@ -42,6 +50,25 @@ export default function HomePage() {
 
         <section className="home-trust-bar" aria-label="Zameett service assurances"><div className="inner">
           <a href="/pricing">Packages from $60 USD →</a><span>Modest-Wear Specialists</span><span>Design-Only Available</span><span>Sample Before Bulk</span><span>Worldwide Projects</span><span>NDA Available</span>
+        </div></section>
+
+        <section className="home-core-services" aria-labelledby="home-core-services-title"><div className="inner">
+          <div className="home-core-services-head reveal">
+            <p className="s-tag">Core Fashion Development Services</p>
+            <h2 className="s-title" id="home-core-services-title">Find the specialist support <em>your collection needs.</em></h2>
+            <p className="s-body">Choose a focused design service or follow a connected route from concept to an approved modest-wear production scope.</p>
+          </div>
+          <nav className="home-core-services-grid reveal" aria-label="Core fashion development services">
+            {CORE_SERVICE_LINKS.map((service, index) => (
+              <a href={service.href} key={service.label}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{service.label}</strong>
+                <small>{service.note}</small>
+                <b aria-hidden="true">→</b>
+              </a>
+            ))}
+          </nav>
+          <p className="home-core-services-note">Design and technical-development services are available across apparel categories. Sampling and manufacturing specialisation is primarily modest wear and abayas; MOQ, materials, colour, embellishment, trims, packaging and supplier requirements are confirmed before payment.</p>
         </div></section>
 
         <section className="services home-services" id="ways-to-work"><div className="inner">
