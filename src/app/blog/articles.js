@@ -491,6 +491,7 @@ const LEGACY_ARTICLES = {
       ["Compare the main garment sample stages", "/blog/types-of-garment-samples"],
       ["Use the fabric sourcing checklist", "/blog/fabric-sourcing-checklist-fashion-brand"],
       ["Prepare your design for a manufacturer", "/blog/prepare-design-for-manufacturer"],
+      ["Build a production-ready fashion tech pack", "/services/fashion-tech-packs"],
       ["Review supply-chain and quality support", "/supply-chain"],
       ["Review fashion production management support", "/solutions/fashion-production-management"],
       ["Send your production brief", "/contact?service=fashion-production-management#get-in-touch"],
