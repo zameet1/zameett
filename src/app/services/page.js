@@ -49,7 +49,7 @@ const SERVICE_ROUTES = [
     label: "Project quote",
     title: "Modest-Wear Manufacturing",
     text: "Reviewed sourcing, private labels, production checkpoints and dispatch for abayas, kaftans, modest dresses and coordinated collections.",
-    facts: ["Flexible reviewed MOQ", "Sample before bulk", "Worldwide coordination"],
+    facts: ["Project-specific MOQ", "Sample before bulk", "Worldwide coordination"],
     outcome: "A controlled modest-wear production plan",
     href: "/services/clothing-manufacturing#service-details",
     link: "Explore Manufacturing",
