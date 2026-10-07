@@ -34,9 +34,10 @@ export const GIGS = [
   },
   {
     slug: "custom-textile-patterns",
-    title: "Custom Textile Pattern Design & Placement Prints",
-    short: "Custom Textile Patterns",
+    title: "Custom Textile Print Design & Placement Artwork",
+    short: "Textile Print Design",
     tagline: "Original seamless repeats, placement prints and colourways developed for apparel brands and prepared around the intended supplier workflow.",
+    metaDescription: "Custom textile print design for fashion brands: seamless repeats, placement artwork and colourways. Packages from $60 USD; scope is confirmed before payment.",
     serviceValue: "Custom Textile Patterns & Artwork",
     cover: "/services/textile-1.jpeg",
     gallery: ["/services/textile-1.jpeg", "/services/textile-2.jpeg", "/services/textile-3.jpeg"],

@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const gig = getGig(slug);
   if (!gig) return {};
-  return createPageMetadata({ title: gig.title, description: gig.tagline, path: "/services/" + gig.slug, image: { url: gig.cover, width: 1600, height: 1132, alt: gig.title } });
+  return createPageMetadata({ title: gig.title, description: gig.metaDescription || gig.tagline, path: "/services/" + gig.slug, image: { url: gig.cover, width: 1600, height: 1132, alt: gig.title } });
 }
 
 export default async function GigPage({ params }) {
@@ -59,7 +59,7 @@ export default async function GigPage({ params }) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: gig.title,
-    description: gig.tagline,
+    description: gig.metaDescription || gig.tagline,
     url: siteUrl + "/services/" + gig.slug,
     provider: { "@type": "Organization", name: "Zameett", url: siteUrl },
     areaServed: "Worldwide",
