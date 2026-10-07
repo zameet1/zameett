@@ -61,7 +61,7 @@ export default function TextilePatternDevelopment() {
 
         <div className={`${styles.quote} reveal`}>
           <div><span>Published packages or custom quotation</span><h2>Complexity and handoff requirements define the scope.</h2></div>
-          <div><p>Use a published package for standard-complexity artwork with a complete brief. For a coordinated collection, complex engineered placement, extra colourways or unusual supplier requirements, request a tailored review before payment.</p><div><Link href="/pricing#pricing-tab-custom-print">Review textile pricing</Link><Link href="/portfolio">View selected work</Link><Link href="/contact?service=custom-textile-patterns#get-in-touch">Request an artwork review <span aria-hidden="true">&rarr;</span></Link></div></div>
+          <div><p>Use a published package for standard-complexity artwork with a complete brief. For a coordinated collection, complex engineered placement, extra colourways or unusual supplier requirements, request a tailored review before payment.</p><div><Link href="/services/fashion-tech-packs">Add garment technical development</Link><Link href="/pricing#pricing-tab-custom-print">Review textile pricing</Link><Link href="/portfolio#portfolio-gallery">View selected work</Link><Link href="/blog/prepare-textile-print-for-production">Prepare artwork for production</Link><Link href="/contact?service=custom-textile-patterns#get-in-touch">Request an artwork review <span aria-hidden="true">&rarr;</span></Link></div></div>
         </div>
       </div>
     </section>
