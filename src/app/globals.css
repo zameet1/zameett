@@ -752,7 +752,7 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
 .intent-hero{margin-top:76px;padding:0;background:linear-gradient(135deg,#fbf8f3 0%,#f6f0e8 100%);border-bottom:1px solid var(--border-dk);overflow:hidden;position:relative}
 .intent-hero::before{content:'';position:absolute;width:420px;height:420px;border:1px solid rgba(201,169,110,.16);border-radius:50%;right:-190px;top:-210px;pointer-events:none}
 .intent-hero-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(330px,.82fr);gap:clamp(56px,7vw,104px);align-items:center;min-height:610px;padding:64px 48px;position:relative}
-.intent-hero-copy{display:flex;flex-direction:column;justify-content:center;max-width:720px}
+.intent-hero-copy{display:flex;flex-direction:column;justify-content:center;min-width:0;max-width:720px}
 .intent-hero .crumb{font:500 9px/1.5 var(--font-jost),sans-serif;letter-spacing:1.8px;text-transform:uppercase;color:#8b7b72;margin-bottom:42px}
 .intent-hero .crumb a{color:var(--burg);text-decoration:none}
 .intent-hero .crumb a:hover{color:var(--gold-deep)}
@@ -836,7 +836,7 @@ footer{background:linear-gradient(180deg,#140A10 0%,#0E0608 100%);padding:72px 4
   .checkout-trust-panel>div{padding:12px 14px}
   .intent-hero-grid{padding:44px 24px 58px;gap:40px}
   .intent-hero .crumb{margin-bottom:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .intent-hero h1{font-size:40px}
+  .intent-hero h1{max-width:100%;font-size:40px;overflow-wrap:anywhere}
   .intent-hero-image{width:calc(100% - 12px);aspect-ratio:4/4.6;box-shadow:12px 12px 0 rgba(201,169,110,.13)}
   .intent-actions .btn{width:auto;text-align:center;padding:14px 24px}
   .intent-trust{display:grid;gap:10px}
