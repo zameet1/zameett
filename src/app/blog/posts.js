@@ -82,8 +82,8 @@ const LEGACY_POSTS = [
     image: "/images/25.jpeg",
     readTime: "16 min read",
     updatedDate: "2026-09-26",
-    serviceHref: "/services/clothing-manufacturing",
-    serviceLabel: "Modest-wear development and manufacturing support",
+    serviceHref: "/solutions/fabric-sourcing-modest-fashion",
+    serviceLabel: "Fabric sourcing for modest-wear collections",
     related: ["fabric-sourcing-checklist-fashion-brand", "types-of-garment-samples", "abaya-manufacturer-moq"],
   },
   {
@@ -149,8 +149,8 @@ const LEGACY_POSTS = [
     updatedDate: "2026-09-30",
     image: "/images/25.jpeg",
     readTime: "16 min read",
-    serviceHref: "/supply-chain",
-    serviceLabel: "Fabric sourcing and quality support",
+    serviceHref: "/solutions/fabric-sourcing-modest-fashion",
+    serviceLabel: "Fabric sourcing for modest fashion",
     related: ["fabric-guide-abayas-modest-dresses", "prepare-design-for-manufacturer", "production-management-fashion-brand"],
   },
   {
