@@ -126,8 +126,8 @@ const LEGACY_POSTS = [
     updatedDate: "2026-09-09",
     image: "/services/manufacturing-2.jpeg",
     readTime: "12 min read",
-    serviceHref: "/services/clothing-manufacturing",
-    serviceLabel: "Modest-wear development and manufacturing",
+    serviceHref: "/solutions/private-label-modest-clothing-manufacturer",
+    serviceLabel: "Private-label modest-wear development",
     related: ["how-to-start-a-modest-fashion-brand", "prepare-design-for-manufacturer", "low-moq-vs-bulk-fashion-manufacturing"],
   },
   {
