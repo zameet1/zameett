@@ -101,7 +101,7 @@ export default function HomePage() {
           </div><div className="sig-foot reveal"><a href="/how-it-works#workflow" className="btn btn-outline">View the complete workflow →</a></div>
         </div></section>
 
-        <section className="testimonials home-testimonials"><div className="inner"><div className="t-head reveal"><p className="s-tag">Client Feedback</p><h2 className="s-title">Independent feedback, <em>shown with its source where available.</em></h2></div><AutoReviews variant="home" /></div></section>
+        <section className="testimonials home-testimonials"><div className="inner"><div className="t-head reveal"><p className="s-tag">Trust & Evidence</p><h2 className="s-title">Start with proof <em>you can inspect.</em></h2></div><AutoReviews /></div></section>
 
         <section className="home-trust-section"><div className="inner"><div className="reveal"><p className="s-tag">Transparent Project Structure</p><h2 className="s-title">Know who handles each part <em>of your project.</em></h2></div><div className="home-trust-copy reveal"><p>Your proposal identifies the services delivered directly by Zameett and any work performed by reviewed third-party suppliers. Capability, MOQ, sample, production, shipping and confidentiality requirements are confirmed for the specific project.</p><p>We record the agreed files, approvals, revisions and supplier responsibilities so everyone knows what happens next.</p></div></div></section>
 

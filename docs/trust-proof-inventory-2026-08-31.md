@@ -1,6 +1,6 @@
 # Zameett trust and proof inventory
 
-Reviewed: 2026-08-31
+Reviewed: 2026-10-12
 
 This inventory records only evidence that is public on `zameett.com` or directly represented in the repository. It is not permission to publish client identities, confidential files, sales outcomes, production volumes, reviews, certifications or other claims without a source and publication clearance.
 
@@ -12,7 +12,7 @@ This inventory records only evidence that is public on `zameett.com` or directly
 | Tech-pack proof | Service deliverables, workflow, package scope and related educational guides | Process proof only | Published scope, files and workflow | Add a redacted, permission-cleared tech-pack excerpt or case study |
 | Sampling and manufacturing proof | Visible garment and sample references plus documented approval and quality-checkpoint process | Process and visual proof | The role and stage described on each reference; the published workflow | Add sourced sample-to-approval records; do not infer production volume, factory ownership or performance |
 | Founder authority | Public About and Founders pages describe roles and working approach | Moderate | The role and biography currently published | Add verifiable external profiles or credentials only when links are available |
-| Reviews | Four fallback testimonials are shown as client feedback with public source links unavailable; the Google Places integration can show sourced reviews when configured | Weak | Only that the displayed text is client feedback and no public source is currently available | Obtain public review URLs or remove/replace unsourceable testimonials; never add review schema until sources are verifiable |
+| Reviews | Unsourceable fallback testimonials were removed from the homepage and portfolio on 2026-10-12; the Google Places integration renders sourced reviews only when a verified feed is configured | No public reviews currently shown | None until a public source is connected | Obtain verified public review URLs or configure the existing Google Places route; never add review schema until sources are verifiable |
 | Pricing and commercial terms | Published package prices, revisions, file formats, exclusions and quote routes | Strong | The exact current terms on `/pricing` and related service pages | Keep aligned with proposals; pricing changes require owner approval |
 | Search performance | A URL-inspection checklist exists, but no current Search Console performance export is present | Unavailable | None | Export queries, pages, clicks, impressions, CTR, position, index coverage and Core Web Vitals monthly |
 | Enquiries and conversions | Contact and analytics implementation exists, but no enquiry or conversion export is present in the workspace | Unavailable | None | Export anonymised enquiry counts, selected service, source/medium and qualified status; do not expose personal data |

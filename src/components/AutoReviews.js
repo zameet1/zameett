@@ -3,11 +3,11 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-const FALLBACK_REVIEWS = [
-  { id: "client-01", name: "Independent Designer", rating: 5, text: "Zameett translated the ideas clearly, added useful perspective and kept the work organised.", role: "Client feedback · Design development · Source link not published" },
-  { id: "client-02", name: "Fashion Brand Founder", rating: 5, text: "The communication was patient and the revision process was handled carefully.", role: "Client feedback · Textile design · Source link not published" },
-  { id: "client-03", name: "Boutique Owner", rating: 5, text: "Clear communication and quick responses made the development process easier to manage.", role: "Client feedback · Technical design · Source link not published" },
-  { id: "client-04", name: "Independent Brand Owner", rating: 5, text: "The work was organised and the team took time to include the details needed for the collection.", role: "Client feedback · Product development · Source link not published" },
+const EVIDENCE_LINKS = [
+  { label: "Published work", title: "Portfolio references", text: "Review 14 selected references with a stated work type, Zameett role and evidence standard.", href: "/portfolio#portfolio-gallery", cta: "Inspect the portfolio" },
+  { label: "Commercial scope", title: "Pricing and deliverables", text: "Compare published starting prices, files, revision rounds, timing assumptions and exclusions.", href: "/pricing", cta: "Compare the scope" },
+  { label: "Approval route", title: "Development workflow", text: "Follow the documented route from brief and proposal through development, approval and handover.", href: "/how-it-works#workflow", cta: "Review the workflow" },
+  { label: "Production controls", title: "Supply chain and quality", text: "See how supplier responsibilities, checkpoints and project-specific production decisions are recorded.", href: "/supply-chain", cta: "View the controls" },
 ];
 
 function stars(rating) {
@@ -24,7 +24,6 @@ export default function AutoReviews() {
     () => googleData?.configured && googleData.reviews?.length ? googleData.reviews : [],
     [googleData],
   );
-  const reviews = useMemo(() => liveReviews.length ? liveReviews : FALLBACK_REVIEWS, [liveReviews]);
 
   useEffect(() => {
     let active = true;
@@ -54,7 +53,7 @@ export default function AutoReviews() {
       track.removeEventListener("scroll", updateCarouselState);
       observer.disconnect();
     };
-  }, [reviews.length, updateCarouselState]);
+  }, [liveReviews.length, updateCarouselState]);
 
   function move(direction) {
     const track = trackRef.current;
@@ -65,8 +64,20 @@ export default function AutoReviews() {
     track.scrollBy({ left: direction * distance, behavior: "smooth" });
   }
 
+  if (!liveReviews.length) return <>
+    <p className="t-rating">Verified public review sources are not connected yet. Until they are, start with evidence you can inspect directly.</p>
+    <div className="trust-evidence-grid reveal">
+      {EVIDENCE_LINKS.map((item, index) => <a className="trust-evidence-card" href={item.href} key={item.title}>
+        <span>{String(index + 1).padStart(2, "0")} · {item.label}</span>
+        <strong>{item.title}</strong>
+        <p>{item.text}</p>
+        <b>{item.cta} →</b>
+      </a>)}
+    </div>
+  </>;
+
   return <>
-    <p className="t-rating">{liveReviews.length ? `★ ${googleData.rating?.toFixed(1) || "5.0"} Google rating · ${liveReviews.length} sourced reviews` : "Selected client feedback · Public source links not currently available"}</p>
+    <p className="t-rating">★ {googleData.rating?.toFixed(1) || "5.0"} Google rating · {liveReviews.length} sourced reviews</p>
     <div className="review-carousel">
       <div className="review-carousel-toolbar">
         <span>Swipe or use the arrows</span>
@@ -76,15 +87,14 @@ export default function AutoReviews() {
         </div>
       </div>
       <div className="review-carousel-track reveal" ref={trackRef} role="region" aria-roledescription="carousel" aria-label="Client feedback">
-        {reviews.map((review) => {
-          const live = liveReviews.includes(review);
+        {liveReviews.map((review) => {
           return <article className="t-card" key={review.id}>
-            {live && review.photoUri && <img className="google-review-avatar" src={review.photoUri} alt="" referrerPolicy="no-referrer" />}
+            {review.photoUri && <img className="google-review-avatar" src={review.photoUri} alt="" referrerPolicy="no-referrer" />}
             <div className="t-stars" aria-label={`${review.rating} out of 5 stars`}>{stars(review.rating)}</div>
             <p>“{review.text}”</p>
             <div className="t-name">{review.name}</div>
-            <div className="t-role">{live ? review.relativeTime || "Google review" : review.role}</div>
-            {live && review.mapsUri && <a className="google-review-link" href={review.mapsUri} target="_blank" rel="noreferrer">View Google source →</a>}
+            <div className="t-role">{review.relativeTime || "Google review"}</div>
+            {review.mapsUri && <a className="google-review-link" href={review.mapsUri} target="_blank" rel="noreferrer">View Google source →</a>}
           </article>;
         })}
       </div>
