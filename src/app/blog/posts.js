@@ -68,8 +68,8 @@ const LEGACY_POSTS = [
     updatedDate: "2026-09-10",
     image: "/services/manufacturing-3.jpeg",
     readTime: "12 min read",
-    serviceHref: "/services/clothing-manufacturing",
-    serviceLabel: "Project-specific modest-wear production support",
+    serviceHref: "/solutions/low-moq-clothing-manufacturer-pakistan",
+    serviceLabel: "Project-specific low-MOQ modest-wear review",
     related: ["abaya-manufacturer-moq", "private-label-vs-custom-manufacturing", "how-to-start-a-modest-fashion-brand"],
   },
   {
