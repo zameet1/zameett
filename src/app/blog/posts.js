@@ -11,8 +11,8 @@ const LEGACY_POSTS = [
     image: "/services/manufacturing-1.jpeg",
     readTime: "16 min read",
     updatedDate: "2026-09-27",
-    serviceHref: "/services/clothing-manufacturing",
-    serviceLabel: "Project-specific modest-wear manufacturing support",
+    serviceHref: "/solutions/abaya-manufacturer-pakistan",
+    serviceLabel: "Project-specific abaya manufacturing review",
     related: ["abaya-manufacturer-moq", "embroidered-abaya-manufacturing", "private-label-abaya-manufacturing"],
   },
   {
@@ -25,8 +25,8 @@ const LEGACY_POSTS = [
     image: "/services/manufacturing-2.jpeg",
     readTime: "17 min read",
     updatedDate: "2026-09-28",
-    serviceHref: "/services/clothing-manufacturing",
-    serviceLabel: "Project-specific modest-wear development and production support",
+    serviceHref: "/solutions/abaya-manufacturer-pakistan",
+    serviceLabel: "Abaya development and manufacturing review",
     related: ["how-to-create-a-tech-pack-for-abayas", "fabric-guide-abayas-modest-dresses", "private-label-abaya-manufacturing"],
   },
   {
