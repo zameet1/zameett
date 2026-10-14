@@ -156,10 +156,16 @@ export default async function SolutionPage({ params }) {
           sectionId="service-pricing"
           eyebrow={solutionPackages.length ? "Related Published Packages" : "Transparent Quote Route"}
           title={solutionPackages.length ? `Packages related to ${solution.keyword}.` : `Pricing for ${solution.keyword}.`}
-          description={solutionPackages.length ? "Compare defined creative scopes and starting prices before sending your brief." : "This service is quoted from the reviewed product, quantity, materials, complexity, timeline and destination."}
+          description={solutionPackages.length ? "Compare defined creative scopes and starting prices before sending your brief." : solution.pricingSectionDescription || "This service is quoted from the reviewed product, quantity, materials, complexity, timeline and destination."}
           quoteHref={quoteHref}
           customTitle={`${solution.keyword} project quote`}
           customDescription={solution.quoteDescription || "We review the actual requirements, confirm capability and provide written scope, timing, assumptions and commercial terms before commitment."}
+          customChecklist={solution.pricingChecklist}
+          customQuoteNote={solution.pricingQuoteNote}
+          customCtaLabel={solution.pricingCtaLabel}
+          customFooterDescription={solution.pricingFooterDescription}
+          footerHref={solution.pricingFooterHref}
+          footerLabel={solution.pricingFooterLabel}
         />
         <section className="services intent-deliverables">
           <div className="inner">
@@ -213,7 +219,7 @@ export default async function SolutionPage({ params }) {
         {solution.resources?.length ? (
           <section className="service-learning-section" aria-labelledby="solution-learning-title">
             <div className="inner">
-              <div className="svc-head reveal"><div><p className="s-tag">Prepare Before You Sample</p><h2 className="s-title" id="solution-learning-title">Useful guides for a <em>clearer handoff.</em></h2></div><p className="s-body">Review the files, sample stages and production decisions that help make physical development more controlled.</p></div>
+              <div className="svc-head reveal"><div><p className="s-tag">{solution.resourceEyebrow || "Prepare Before You Sample"}</p><h2 className="s-title" id="solution-learning-title">{solution.resourceTitleLead || "Useful guides for a "}<em>{solution.resourceTitleAccent || "clearer handoff."}</em></h2></div><p className="s-body">{solution.resourceDescription || "Review the files, sample stages and production decisions that help make physical development more controlled."}</p></div>
               <div className="service-learning-grid">{solution.resources.map(([label, href]) => <a className="reveal" key={href} href={href}>{label}<span aria-hidden="true">&rarr;</span></a>)}</div>
             </div>
           </section>
@@ -227,10 +233,10 @@ export default async function SolutionPage({ params }) {
         </section>
 
         <section className="cta reveal">
-          <p className="s-tag">Tell Us What You Are Building</p>
-          <h2 className="s-title">Get a project-specific scope, timeline and <em>MOQ.</em></h2>
-          <p className="cta-sub">Share your designs, quantity and destination. We will review the details and tell you what we recommend next.</p>
-          <div className="cta-btns"><a href={quoteHref} className="btn btn-gold">Get a Quote →</a><a href="/services#service-paths" className="btn btn-outline-ivory">View All Services</a></div>
+          <p className="s-tag">{solution.ctaEyebrow || "Tell Us What You Are Building"}</p>
+          <h2 className="s-title">{solution.ctaTitleLead || "Get a project-specific scope, timeline and "}<em>{solution.ctaTitleAccent || "MOQ."}</em></h2>
+          <p className="cta-sub">{solution.ctaDescription || "Share your designs, quantity and destination. We will review the details and tell you what we recommend next."}</p>
+          <div className="cta-btns"><a href={quoteHref} className="btn btn-gold">{solution.ctaPrimaryLabel || "Get a Quote"} →</a><a href={solution.ctaSecondaryHref || "/services#service-paths"} className="btn btn-outline-ivory">{solution.ctaSecondaryLabel || "View All Services"}</a></div>
         </section>
       </main>
       <Footer />

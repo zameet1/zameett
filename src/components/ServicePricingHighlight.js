@@ -9,6 +9,12 @@ export default function ServicePricingHighlight({
   quoteHref = "/contact#get-in-touch",
   customTitle = "Project-specific quote",
   customDescription = "Physical development and production are quoted after the product, quantity, materials, complexity and destination have been reviewed.",
+  customChecklist = ["Scope and capability review", "MOQ and timeline confirmation", "Written inclusions and commercial terms"],
+  customQuoteNote = "No hidden generic production price",
+  customCtaLabel = "Request project review",
+  customFooterDescription = "Custom quotes are based on the reviewed scope, required materials, quantity, complexity and delivery assumptions.",
+  footerHref = "/pricing#packages",
+  footerLabel = "Compare all pricing & deliverables",
 }) {
   return (
     <section className="service-pricing-showcase" id={sectionId} aria-labelledby={`${sectionId}-title`}>
@@ -37,12 +43,12 @@ export default function ServicePricingHighlight({
         ) : (
           <article className="service-custom-quote reveal">
             <div><span>Reviewed before commitment</span><h3>{customTitle}</h3><p>{customDescription}</p></div>
-            <ul><li>Scope and capability review</li><li>MOQ and timeline confirmation</li><li>Written inclusions and commercial terms</li></ul>
-            <div><strong>Custom quote</strong><small>No hidden generic production price</small><Link href={quoteHref}>Request project review <span aria-hidden="true">&rarr;</span></Link></div>
+            <ul>{customChecklist.map((item) => <li key={item}>{item}</li>)}</ul>
+            <div><strong>Custom quote</strong><small>{customQuoteNote}</small><Link href={quoteHref}>{customCtaLabel} <span aria-hidden="true">&rarr;</span></Link></div>
           </article>
         )}
 
-        <div className="service-pricing-foot reveal"><p>{packages.length ? "Published prices cover standard complexity matching the stated scope. Final fit is confirmed before payment." : "Custom quotes are based on the reviewed scope, required materials, quantity, complexity and delivery assumptions."}</p><Link href="/pricing#packages">Compare all pricing &amp; deliverables <span aria-hidden="true">&rarr;</span></Link></div>
+        <div className="service-pricing-foot reveal"><p>{packages.length ? "Published prices cover standard complexity matching the stated scope. Final fit is confirmed before payment." : customFooterDescription}</p><Link href={footerHref}>{footerLabel} <span aria-hidden="true">&rarr;</span></Link></div>
       </div>
     </section>
   );
