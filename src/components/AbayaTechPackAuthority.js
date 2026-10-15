@@ -17,6 +17,12 @@ const guides = [
   ["Control every material", "Bill of Materials in Fashion", "/blog/bill-of-materials-fashion"],
 ];
 
+const briefItems = [
+  ["01", "Garment direction", "Share the clearest sketch, reference or existing garment available, plus the abaya type, opening, sleeve, length, layering and intended customer."],
+  ["02", "Technical decisions", "Add any known size scope, fabric and lining direction, colourways, trims, closures, print, embroidery, beadwork or other placement requirements."],
+  ["03", "Handover needs", "Tell us the required file format, supplier questions, target timing and whether the pack is for quotation, sampling or an existing development route."],
+];
+
 export default function AbayaTechPackAuthority() {
   return (
     <section className={styles.section} id="abaya-tech-pack-specialist" aria-labelledby="abaya-tech-pack-specialist-title">
@@ -56,6 +62,30 @@ export default function AbayaTechPackAuthority() {
               <Link href="/pricing#package-design-techpack-starter">Compare packages from $95</Link>
               <Link href="/contact?service=abaya-tech-pack-designer#get-in-touch">Send your abaya brief <span aria-hidden="true">&rarr;</span></Link>
             </div>
+          </div>
+        </div>
+
+        <div className={styles.brief} aria-labelledby="abaya-tech-pack-brief-title">
+          <div className={`${styles.briefHeading} reveal`}>
+            <div>
+              <p className={styles.eyebrow}>What to send for a scope review</p>
+              <h2 id="abaya-tech-pack-brief-title">A clearer brief creates a more accurate proposal.</h2>
+            </div>
+            <p>Unknown details can stay open for review. We identify the decisions that need clarification instead of treating references as an approved specification.</p>
+          </div>
+          <div className={styles.briefGrid}>
+            {briefItems.map(([number, title, description], index) => (
+              <article className={`${styles.briefCard} reveal`} style={{ "--reveal-delay": `${index * 55}ms` }} key={title}>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+          <div className={`${styles.nextRoutes} reveal`} aria-label="Related next steps">
+            <Link href="/portfolio#portfolio-gallery">View relevant portfolio work</Link>
+            <Link href="/solutions/fashion-sampling-services">Plan a garment sample</Link>
+            <Link href="/services/clothing-manufacturing">Review modest-wear manufacturing</Link>
           </div>
         </div>
 

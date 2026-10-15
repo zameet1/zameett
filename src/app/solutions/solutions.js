@@ -213,6 +213,13 @@ export const SOLUTIONS = [
       "Review the technical flats and specification through consolidated feedback.",
       "Receive the checked final pack for supplier quotation or sampling. Manufacturing is scoped separately.",
     ],
+    ctaEyebrow: "Prepare Your Abaya Brief",
+    ctaTitleLead: "Request an abaya tech-pack ",
+    ctaTitleAccent: "scope review.",
+    ctaDescription: "Share your sketch or references, garment type, size scope, fabric and embellishment direction, required files and target timing. We confirm the included pages, revisions, delivery estimate and price before payment.",
+    ctaPrimaryLabel: "Send Your Abaya Brief",
+    ctaSecondaryHref: "/services/fashion-tech-packs",
+    ctaSecondaryLabel: "Compare Tech-Pack Services",
     faqs: [
       ["What do I need to provide?", "A sketch or visual references, the target customer, garment direction and any available size information are helpful. We clarify missing decisions before confirming the scope."],
       ["Can you document hand embroidery and beadwork?", "Yes. Placement, scale, artwork and application notes can be documented within the agreed scope. Physical testing and supplier execution remain separate stages."],
@@ -220,6 +227,8 @@ export const SOLUTIONS = [
       ["Do you design kaftans and bisht styles too?", "Yes. Kaftans, bisht-inspired pieces and related modest silhouettes can be reviewed and scoped according to their construction and detailing."],
       ["Can you answer manufacturer questions?", "The included clarification support is stated in the selected package or proposal. New design changes outside the approved scope are quoted separately."],
       ["Are sampling and manufacturing included?", "No. The tech-pack package is a design and technical-documentation service. Sampling or modest-wear manufacturing can be reviewed separately, with project-specific MOQ and timing."],
+      ["What is confirmed before payment?", "The written scope confirms the styles, included pages, measurement and size scope, artwork or colourways, final file formats, revision rounds, delivery estimate, assumptions, exclusions and price before payment."],
+      ["Does a tech pack guarantee a supplier quote or approved sample?", "No. A clear tech pack gives suppliers a controlled basis for review, quotation and sampling, but each supplier must confirm capability, materials and commercial terms. Pattern development, physical sampling, fit review and approved production specifications remain separate controls."],
     ],
   },
   {
