@@ -5,6 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import FaqAccordion from "@/components/FaqAccordion";
 import ServicePricingHighlight from "@/components/ServicePricingHighlight";
 import AbayaTechPackAuthority from "@/components/AbayaTechPackAuthority";
+import SamplingStageGuide from "@/components/SamplingStageGuide";
 import { getPackagesByCategory } from "@/data/pricing";
 import { SOLUTIONS, getSolution } from "../solutions";
 
@@ -150,6 +151,7 @@ export default async function SolutionPage({ params }) {
           </div>
         </section>
         {solution.slug === "abaya-tech-pack-designer" && <AbayaTechPackAuthority />}
+        {solution.slug === "fashion-sampling-services" && <SamplingStageGuide />}
 
         <ServicePricingHighlight
           packages={solutionPackages}
