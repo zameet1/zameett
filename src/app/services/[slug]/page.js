@@ -51,6 +51,8 @@ export default async function GigPage({ params }) {
       ["Private-label abaya manufacturing guide", "/blog/private-label-abaya-manufacturing"],
       ["How abaya MOQ works", "/blog/abaya-manufacturer-moq"],
       ["Embroidered and beaded abaya production", "/blog/embroidered-abaya-manufacturing"],
+      ["Understand the full abaya manufacturing process", "/blog/complete-abaya-manufacturing-process"],
+      ["Plan the right garment sample stages", "/solutions/fashion-sampling-services"],
     ],
   }[gig.slug] || [];
   const visibleFaqs = gig.slug === "clothing-manufacturing" ? MODEST_WEAR_FAQS : gig.slug === "custom-textile-patterns" ? TEXTILE_PATTERN_FAQS : PRICING_FAQS.slice(0, 5);
@@ -117,6 +119,7 @@ export default async function GigPage({ params }) {
                 <ul className="gig-highlights">{gig.list.slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
                 <div className="gig-actions">
                   <Link href={"/contact?service=" + gig.slug + "#get-in-touch"} className="btn btn-burg">Send Enquiry <span aria-hidden="true">&rarr;</span></Link>
+                  {gig.slug === "clothing-manufacturing" && <a href="#modest-wear-development" className="btn btn-outline">Explore Development Route</a>}
                   {startingPrice !== null && <a href="#service-packages" className="btn btn-outline">{"View Packages From $" + startingPrice}</a>}
                   {gig.pdf && <a href={gig.pdf} target="_blank" rel="noopener noreferrer" className="btn btn-outline">View Portfolio PDF</a>}
                 </div>
