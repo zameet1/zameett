@@ -100,7 +100,7 @@
 .pricingFooter p{max-width:800px;color:rgba(250,247,242,.63);font-size:12px;line-height:1.75}
 .pricingFooter p strong{color:var(--gold-lt)}
 
-.offerGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.offerGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .offerCard{display:flex;min-width:0;min-height:300px;flex-direction:column;padding:clamp(24px,2.6vw,34px);border:1px solid var(--line);border-radius:var(--radius-md);background:var(--paper);box-shadow:var(--shadow-sm);transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease,background-color .28s ease}
 .offerCard>div{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .offerCard>div>span{color:rgba(74,14,43,.28);font:500 30px/1 var(--font-cormorant),serif}

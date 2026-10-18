@@ -89,21 +89,37 @@ const ADDITIONAL_ROUTES = [
     href: "/contact?package=production-review#get-in-touch",
     link: "Request production review",
   },
+  {
+    number: "05",
+    title: "Fabric & Trim Sourcing",
+    price: "Project quote",
+    text: "Build a product-specific material brief, compare practical supplier routes and record swatch, MOQ and sampling conditions before purchase.",
+    href: "/solutions/fabric-sourcing-modest-fashion#solution-overview",
+    link: "Explore fabric sourcing",
+  },
+  {
+    number: "06",
+    title: "Production Management",
+    price: "Project quote",
+    text: "Keep the critical path, supplier questions, approvals, quality checkpoints and shipment readiness visible in one agreed workflow.",
+    href: "/solutions/fashion-production-management#solution-overview",
+    link: "Explore production management",
+  },
 ];
 
 export const metadata = {
   title: "Fashion Design, Tech Pack Services & Modest-Wear Production",
   description:
-    "Explore Zameett fashion design and professional tech-pack packages from $95 USD, custom textile prints from $60, sampling and modest-wear manufacturing support.",
+    "Explore Zameett fashion design, professional tech packs, textile prints, sampling, fabric sourcing and modest-wear production support.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Fashion Design & Tech Pack Services | Zameett",
     description:
-      "Clear service paths, published tech-pack pricing and project-specific sampling and modest-wear production support.",
+      "Clear service paths for tech packs, textile prints, sampling, fabric sourcing and project-specific modest-wear production support.",
     url: "/services",
     images: [{ url: "/images/techpack.jpeg", width: 1600, height: 1067, alt: "Zameett fashion design and tech-pack services" }],
   },
-  twitter: { card: "summary_large_image", title: "Fashion Design & Tech Pack Services | Zameett", description: "Clear service paths, published tech-pack pricing and project-specific sampling and modest-wear production support.", images: ["/images/techpack.jpeg"] },
+  twitter: { card: "summary_large_image", title: "Fashion Design & Tech Pack Services | Zameett", description: "Clear service paths for tech packs, textile prints, sampling, fabric sourcing and project-specific modest-wear production support.", images: ["/images/techpack.jpeg"] },
 };
 
 const servicesSchema = SERVICE_ROUTES.map((route) => {
@@ -171,7 +187,7 @@ export default function Services() {
           <div className="inner">
             <Link href="#service-routes"><span>01</span>All Services</Link>
             <Link href="#tech-pack-pricing"><span>02</span>Tech Pack Pricing</Link>
-            <Link href="#additional-services"><span>03</span>Other Pricing</Link>
+            <Link href="#additional-services"><span>03</span>Specialist Support</Link>
             <Link href="#how-we-work"><span>04</span>How It Works</Link>
           </div>
         </div>
@@ -253,8 +269,8 @@ export default function Services() {
         <section className={styles.additionalSection} id="additional-services" aria-labelledby="additional-services-title">
           <div className="inner">
             <div className={styles.sectionHeading + " reveal"}>
-              <div><p className="s-tag">More Ways To Work Together</p><h2 className="s-title" id="additional-services-title">Need artwork, a sample or <em>production support?</em></h2></div>
-              <p className="s-body">Choose the closest route. Your enquiry form will carry the selected package or production-review request into the brief.</p>
+              <div><p className="s-tag">More Ways To Work Together</p><h2 className="s-title" id="additional-services-title">Need artwork, materials, samples or <em>production support?</em></h2></div>
+              <p className="s-body">Choose the closest route. Defined creative packages show their starting price; physical development, sourcing and production support are reviewed around the actual project.</p>
             </div>
             <div className={styles.offerGrid}>
               {ADDITIONAL_ROUTES.map((route, index) => (
