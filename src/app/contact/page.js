@@ -23,19 +23,19 @@ const faqSchema = {
 export const metadata = {
   title: "Contact",
   description:
-    "Get in touch with Zameett for fashion design, technical development, sampling or modest-wear manufacturing. We aim to respond within one business day.",
+    "Contact Zameett for fashion design, technical development, fabric sourcing, sampling, production management or modest-wear manufacturing support.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Zameett | Get a Modest Fashion Design & Manufacturing Quote",
     description:
-      "Share your project brief and we will review the most suitable design, sampling or production route.",
+      "Share your brief for design, sourcing, sampling, production management or modest-wear manufacturing support.",
     url: "/contact",
     images: [{ url: "/images/26.jpeg", width: 1245, height: 848, alt: "Hand embellishment detail on a Zameett modest wear piece" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Contact Zameett | Get a Modest Fashion Design & Manufacturing Quote",
-    description: "Fashion design, technical development and reviewed modest-wear production support.",
+    description: "Fashion design, technical development, sourcing and reviewed modest-wear production support.",
     images: ["/images/26.jpeg"],
   },
 };
@@ -75,7 +75,7 @@ export default async function Contact({ searchParams }) {
           <p>
             Share your brief and we aim to respond within one business day. Tell us as much or as
             little as you like. We provide design and technical support across apparel categories, plus reviewed modest-wear sampling and manufacturing. We will ask for any missing details and
-            recommend the next step.
+            recommend the next step. Fabric sourcing and production-management support are also reviewed around the specific brief.
           </p>
           <div className="page-hero-proof"><span>Aim: one business day</span><span>No first-call commitment</span><span>Worldwide enquiries</span></div>
         </div>
