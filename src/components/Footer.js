@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SiAmericanexpress, SiApplepay, SiMastercard, SiVisa } from "react-icons/si";
 import { WHATSAPP_URL } from "@/lib/contactLinks";
 import SocialLinks from "./SocialLinks";
+import { SHOP_ENABLED } from "@/lib/siteFlags";
 
 const GROUPS = [
   { title: "Explore", links: [
@@ -12,7 +13,7 @@ const GROUPS = [
     { label: "About Zameett", href: "/about" },
   ] },
   { title: "Resources", links: [
-    { label: "Blog & Guides", href: "/blog" }, { label: "Digital Shop", href: "/shop" },
+    { label: "Blog & Guides", href: "/blog" }, ...(SHOP_ENABLED ? [{ label: "Digital Shop", href: "/shop" }] : []),
     { label: "FAQ", href: "/faq" }, { label: "Supply Chain & QC", href: "/supply-chain" },
   ] },
   { title: "Policies", links: [
