@@ -4,7 +4,7 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 export const FREE_ORDERS_COOKIE = "zameett_free_orders";
 
 function signingKey() {
-  return process.env.FREE_ORDER_COOKIE_SECRET || process.env.STRIPE_SECRET_KEY || "";
+  return process.env.FREE_ORDER_COOKIE_SECRET || "";
 }
 function signature(payload) {
   const key = signingKey();

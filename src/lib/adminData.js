@@ -150,66 +150,17 @@ async function getSupabaseCustomers() {
   }
 }
 
-async function getStripeOrders() {
-  const secretKey = process.env.STRIPE_SECRET_KEY;
-  if (!secretKey) {
-    return { connected: false, orders: [], message: "Stripe secret key is not configured." };
-  }
-
-  try {
-    const params = new URLSearchParams({ limit: "100" });
-    const response = await fetch(`https://api.stripe.com/v1/checkout/sessions?${params}`, {
-      headers: {
-        Authorization: `Bearer ${secretKey}`,
-        "Stripe-Version": "2025-09-30.clover",
-      },
-      cache: "no-store",
-    });
-    if (!response.ok) throw new Error(`Stripe request failed (${response.status})`);
-
-    const payload = await response.json();
-    const orders = (payload.data || []).map((session) => ({
-      id: session.id,
-      email: session.customer_details?.email || session.customer_email || "Not provided",
-      customerName: session.customer_details?.name || session.customer_details?.email?.split("@")[0] || "Customer",
-      product: session.metadata?.product_slug || "Digital product",
-      amount: session.amount_total || 0,
-      currency: (session.currency || "usd").toUpperCase(),
-      paymentStatus: session.payment_status || "unpaid",
-      checkoutStatus: session.status || "unknown",
-      createdAt: session.created ? new Date(session.created * 1000).toISOString() : null,
-    })).filter((order) => dateValue(order.createdAt) >= ACTIVITY_RESET_AT)
-      .sort((a, b) => dateValue(b.createdAt) - dateValue(a.createdAt));
-
-    return { connected: true, orders, message: "Live Stripe checkout data connected." };
-  } catch (error) {
-    return { connected: false, orders: [], message: error instanceof Error ? error.message : "Stripe order data is unavailable." };
-  }
-}
-
 export async function getAdminDashboardData(dateRange = {}) {
   const range = normalizeDateRange(dateRange);
-  const [customerData, stripeData] = await Promise.all([
-    getSupabaseCustomers(),
-    getStripeOrders(),
-  ]);
+  const customerData = await getSupabaseCustomers();
   const projects = getAllClientProjects(customerData.projectUpdatesByEmail);
   const customers = customerData.customers.filter((customer) => isWithinRange(customer.joinedAt, range));
   const activeCustomers = customerData.customers.filter((customer) => isWithinRange(customer.lastSignInAt, range));
-  const orders = stripeData.orders.filter((order) => isWithinRange(order.createdAt, range));
-  const paidOrders = orders.filter((order) => order.paymentStatus === "paid");
-  const revenueCents = paidOrders.reduce((sum, order) => sum + order.amount, 0);
   const sourceMap = new Map();
   customers.forEach((customer) => sourceMap.set(customer.source, (sourceMap.get(customer.source) || 0) + 1));
   const sources = [...sourceMap.entries()].map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count);
 
   const activity = [
-    ...orders.map((order) => ({
-      type: "order",
-      title: `${order.customerName} · ${order.product}`,
-      detail: `${order.paymentStatus} · ${(order.amount / 100).toFixed(2)} ${order.currency}`,
-      date: order.createdAt,
-    })),
     ...customers.filter((customer) => {
       const email = customer.email.toLowerCase();
       return email !== ADMIN_EMAIL && dateValue(customer.joinedAt) >= ACTIVITY_RESET_AT;
@@ -234,9 +185,6 @@ export async function getAdminDashboardData(dateRange = {}) {
       customers: customerData.connected ? customerData.customers.length : null,
       newCustomers: customerData.connected ? customers.length : null,
       activeCustomers: customerData.connected ? activeCustomers.length : null,
-      orders: stripeData.connected ? orders.length : null,
-      paidOrders: stripeData.connected ? paidOrders.length : null,
-      revenueCents: stripeData.connected ? revenueCents : null,
       activeProjects: projects.filter((project) => project.status.toLowerCase() !== "completed").length,
     },
     customerInsights: {
@@ -245,7 +193,6 @@ export async function getAdminDashboardData(dateRange = {}) {
     },
     customers,
     allCustomers: customerData.customers,
-    orders,
     projects,
     activity,
     inventory: {
@@ -257,7 +204,6 @@ export async function getAdminDashboardData(dateRange = {}) {
     connections: [
       { name: "Website authentication", connected: hasSupabaseConfig(), detail: "Supabase sign-in and customer sessions" },
       { name: "Customer directory", connected: customerData.connected, detail: customerData.message },
-      { name: "Stripe orders", connected: stripeData.connected, detail: stripeData.message },
       { name: "Google Analytics", connected: true, detail: process.env.NEXT_PUBLIC_GA_ID || "G-VCR2ENVVJ5 tracking installed" },
       { name: "Google Ads", connected: true, detail: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-18258289518 tracking installed" },
       { name: "Google Reviews", connected: Boolean(process.env.GOOGLE_PLACES_API_KEY && process.env.GOOGLE_PLACE_ID), detail: process.env.GOOGLE_PLACES_API_KEY && process.env.GOOGLE_PLACE_ID ? "Automatic Google Maps review sync active" : "Add Places API key and Google Place ID to enable automatic reviews" },
