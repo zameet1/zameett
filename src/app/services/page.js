@@ -253,7 +253,7 @@ export default function Services() {
                   <div className={styles.includedLabel}>Key deliverables</div>
                   <ul className={styles.packageList}>{item.included.slice(0, 6).map((included) => <li key={included}>{included}</li>)}</ul>
                   <a className={styles.packageCta} href={item.checkoutUrl} target="_blank" rel="noopener noreferrer" aria-label={`Buy ${item.name} on Whop (opens in a new tab)`}>
-                    Buy on Whop <span aria-hidden="true">&nearr;</span>
+                    Buy on Whop <span aria-hidden="true">↗</span>
                   </a>
                 </article>
               ))}

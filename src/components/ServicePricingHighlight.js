@@ -36,7 +36,7 @@ export default function ServicePricingHighlight({
                 <p>{item.description}</p>
                 <dl><div><dt>Delivery</dt><dd>{item.delivery}</dd></div><div><dt>Revisions</dt><dd>{item.revisions}</dd></div></dl>
                 <ul>{(item.premiumHighlights || item.included.slice(0, 4)).map((included) => <li key={included}>{included}</li>)}</ul>
-                <div className="service-pricing-actions"><a href={item.checkoutUrl} target="_blank" rel="noopener noreferrer" aria-label={`Buy ${item.name} on Whop (opens in a new tab)`}>Buy on Whop <span aria-hidden="true">&nearr;</span></a><Link href={`/pricing#package-${item.slug}`}>Full details</Link></div>
+                <div className="service-pricing-actions"><a href={item.checkoutUrl} target="_blank" rel="noopener noreferrer" aria-label={`Buy ${item.name} on Whop (opens in a new tab)`}>Buy on Whop <span aria-hidden="true">↗</span></a><Link href={`/pricing#package-${item.slug}`}>Full details</Link></div>
               </article>
             ))}
           </div>
