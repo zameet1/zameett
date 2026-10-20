@@ -91,7 +91,7 @@ function PackageCard({ pricingPackage, index }) {
         aria-label={`Buy ${pricingPackage.name} on Whop (opens in a new tab)`}
         onClick={trackCheckout}
       >
-        Buy on Whop <span className={styles.ctaPrice}>${pricingPackage.price.toLocaleString("en-US")} USD</span><span aria-hidden="true">&nearr;</span>
+        Buy on Whop <span className={styles.ctaPrice}>${pricingPackage.price.toLocaleString("en-US")} USD</span><span aria-hidden="true">↗</span>
       </a>
       <Link className={styles.packageHelp} href={contactUrl}>Confirm scope or ask a question first</Link>
     </article>
