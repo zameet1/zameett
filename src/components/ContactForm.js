@@ -54,6 +54,30 @@ function getPackagePrefill(packageParam) {
   };
 }
 
+function getServicePrefill(serviceValue) {
+  if (serviceValue === "Fabric & Trim Sourcing") {
+    return {
+      productCategory: "",
+      projectRoute: "Fabric / trim sourcing",
+      numberOfStyles: "",
+    };
+  }
+
+  if (serviceValue === "Production Management") {
+    return {
+      productCategory: "",
+      projectRoute: "Production management / coordination",
+      numberOfStyles: "",
+    };
+  }
+
+  return {
+    productCategory: "",
+    projectRoute: "",
+    numberOfStyles: "",
+  };
+}
+
 function validCurrentStep(form, step) {
   const controls = [...form.querySelectorAll('[data-form-step="' + step + '"] input, [data-form-step="' + step + '"] select, [data-form-step="' + step + '"] textarea')];
   const invalid = controls.find((control) => !control.checkValidity());
@@ -74,10 +98,16 @@ export default function ContactForm({ initialService = "", initialPackageParam =
   const [submitError, setSubmitError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [started, setStarted] = useState(false);
-  const initialPrefill = useMemo(
-    () => getPackagePrefill(initialPackageParam),
-    [initialPackageParam],
-  );
+  const initialPrefill = useMemo(() => {
+    const packagePrefill = getPackagePrefill(initialPackageParam);
+    const servicePrefill = getServicePrefill(initialService);
+    return {
+      ...packagePrefill,
+      productCategory: packagePrefill.productCategory || servicePrefill.productCategory,
+      projectRoute: packagePrefill.projectRoute || servicePrefill.projectRoute,
+      numberOfStyles: packagePrefill.numberOfStyles || servicePrefill.numberOfStyles,
+    };
+  }, [initialPackageParam, initialService]);
   const [productCategory, setProductCategory] = useState(initialPrefill.productCategory);
   const [projectRoute, setProjectRoute] = useState(initialPrefill.projectRoute);
   const [numberOfStyles, setNumberOfStyles] = useState(initialPrefill.numberOfStyles);
@@ -106,8 +136,14 @@ export default function ContactForm({ initialService = "", initialPackageParam =
     [],
   );
 
-  function applyPackagePrefill(nextPackageParam) {
-    const prefill = getPackagePrefill(nextPackageParam);
+  function applyRequestPrefill(nextService, nextPackageParam) {
+    const packagePrefill = getPackagePrefill(nextPackageParam);
+    const servicePrefill = getServicePrefill(nextService);
+    const prefill = {
+      productCategory: packagePrefill.productCategory || servicePrefill.productCategory,
+      projectRoute: packagePrefill.projectRoute || servicePrefill.projectRoute,
+      numberOfStyles: packagePrefill.numberOfStyles || servicePrefill.numberOfStyles,
+    };
     setProductCategory(prefill.productCategory);
     setProjectRoute(prefill.projectRoute);
     setNumberOfStyles(prefill.numberOfStyles);
@@ -118,7 +154,7 @@ export default function ContactForm({ initialService = "", initialPackageParam =
     const nextPackage = PRICING_PACKAGES.find((item) => item.name === nextService);
     setService(nextService);
     setPackageParam(nextPackage?.contactParam || "");
-    applyPackagePrefill(nextPackage?.contactParam || "");
+    applyRequestPrefill(nextService, nextPackage?.contactParam || "");
   }
 
   function markStarted() {
@@ -278,7 +314,7 @@ export default function ContactForm({ initialService = "", initialPackageParam =
         {service === CUSTOM && <div className="form-group"><label htmlFor="custom-service">Custom Request *</label><input id="custom-service" type="text" name="Custom Service" maxLength="160" value={customService} onChange={(event) => setCustomService(event.target.value)} required /></div>}
         <div className="form-row">
           <div className="form-group"><label htmlFor="category">Product Category *</label><input id="category" type="text" name="Product Category" maxLength="120" placeholder="e.g. abayas, dresses, activewear" value={productCategory} onChange={(event) => setProductCategory(event.target.value)} required /></div>
-          <div className="form-group"><label htmlFor="route">Project Route *</label><select id="route" name="Project Route" required value={projectRoute} onChange={(event) => setProjectRoute(event.target.value)}><option value="" disabled>Select a route</option><option>Design / technical development only</option><option>Sample development</option><option>Sampling and manufacturing</option><option>Not sure yet</option></select></div>
+          <div className="form-group"><label htmlFor="route">Project Route *</label><select id="route" name="Project Route" required value={projectRoute} onChange={(event) => setProjectRoute(event.target.value)}><option value="" disabled>Select a route</option><option>Design / technical development only</option><option>Fabric / trim sourcing</option><option>Sample development</option><option>Sampling and manufacturing</option><option>Production management / coordination</option><option>Not sure yet</option></select></div>
         </div>
         <div className="form-row">
           <div className="form-group"><label htmlFor="stage">Project Stage *</label><select id="stage" name="Project Stage" required defaultValue=""><option value="" disabled>Where are you now?</option><option>Idea / mood board</option><option>Designs ready</option><option>Tech packs ready</option><option>Sampling in progress</option><option>Ready for reviewed production</option><option>Existing brand / reorder</option></select></div>
