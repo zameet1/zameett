@@ -19,11 +19,6 @@ function formatDate(value, withTime = false) {
   }).format(date);
 }
 
-function formatMoney(cents, currency = "USD") {
-  if (cents === null || cents === undefined) return "Connect";
-  return new Intl.NumberFormat("en", { style: "currency", currency }).format(cents / 100);
-}
-
 function titleCase(value) {
   return String(value || "").replace(/[-_]/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
@@ -57,7 +52,6 @@ export default async function AdminPage({ searchParams }) {
   const data = await getAdminDashboardData({ from: dateParam(query?.from), to: dateParam(query?.to) });
   const datePresets = getDatePresets();
   const missingConnections = data.connections.filter((item) => !item.connected).length;
-  const stripeConnected = data.connections.find((item) => item.name === "Stripe orders")?.connected;
 
   return (
     <main className="admin-page">
@@ -66,7 +60,7 @@ export default async function AdminPage({ searchParams }) {
           <div>
             <span className="eyebrow">Private owner access</span>
             <h1>Zameett <em>control centre.</em></h1>
-            <p>Orders, customers, live projects, website content and connected services in one secure dashboard.</p>
+            <p>Customers, live projects, website content and connected services in one secure dashboard.</p>
           </div>
           <div className="admin-owner-card">
             <span className="admin-owner-avatar" aria-hidden="true">{owner.name.charAt(0).toUpperCase()}</span>
@@ -79,7 +73,7 @@ export default async function AdminPage({ searchParams }) {
       <div className="admin-toolbar">
         <div className="inner">
           <div className="admin-section-nav" aria-label="Admin sections">
-            <a href="#overview">Overview</a><a href="#activity">Activity</a><a href="#orders">Orders</a>
+            <a href="#overview">Overview</a><a href="#activity">Activity</a>
             <a href="#customers">Customers</a><a href="#projects">Projects</a><a href="#website">Website</a>
           </div>
           <span>Updated {formatDate(data.generatedAt, true)}</span>
@@ -96,7 +90,7 @@ export default async function AdminPage({ searchParams }) {
           <details className="admin-date-popover">
             <summary><span>Date filter</span><strong>{data.range.label}</strong><i aria-hidden="true">+</i></summary>
             <div className="admin-date-panel">
-              <div className="admin-date-copy"><span>Reporting period</span><strong>Select the dates you need.</strong><small>Dashboard totals, activity, customers, orders and sources will update together.</small></div>
+              <div className="admin-date-copy"><span>Reporting period</span><strong>Select the dates you need.</strong><small>Dashboard totals, activity, customers and sources will update together.</small></div>
               <form method="get" className="admin-date-form">
                 <label><span>From</span><input type="date" name="from" defaultValue={data.range.from} max={data.range.to} /></label>
                 <label><span>To</span><input type="date" name="to" defaultValue={data.range.to} min={data.range.from} /></label>
@@ -108,12 +102,10 @@ export default async function AdminPage({ searchParams }) {
             </div>
           </details>
 
-          <div className="admin-stat-grid admin-stat-grid-six">
+          <div className="admin-stat-grid">
             <article><span>Total customers</span><strong>{data.stats.customers ?? "N/A"}</strong><small>All registered accounts</small></article>
             <article><span>New customers</span><strong>{data.stats.newCustomers ?? "N/A"}</strong><small>Joined in selected period</small></article>
             <article><span>Active customers</span><strong>{data.stats.activeCustomers ?? "N/A"}</strong><small>Signed in during period</small></article>
-            <article><span>Paid digital orders</span><strong>{data.stats.paidOrders ?? "N/A"}</strong><small>{data.stats.orders ?? "N/A"} total checkouts in period</small></article>
-            <article className="featured"><span>Verified revenue</span><strong>{formatMoney(data.stats.revenueCents)}</strong><small>Paid orders in selected period</small></article>
             <article><span>Active projects</span><strong>{data.stats.activeProjects}</strong><small>Current client work in progress</small></article>
           </div>
 
@@ -124,10 +116,10 @@ export default async function AdminPage({ searchParams }) {
               <div className="admin-panel-head"><div><span>Latest events</span><h2>Recent activity</h2></div><b>{data.activity.length}</b></div>
               {data.activity.length ? <div className="admin-activity-list">{data.activity.map((item, index) => (
                 <div className={`admin-activity ${item.type}`} key={`${item.type}-${item.title}-${index}`}>
-                  <i aria-hidden="true">{item.type === "order" ? "$" : item.type === "customer" ? "C" : "P"}</i>
+                  <i aria-hidden="true">{item.type === "customer" ? "C" : "P"}</i>
                   <div><strong>{item.title}</strong><span>{item.detail}</span></div><time>{formatDate(item.date, true)}</time>
                 </div>
-              ))}</div> : <div className="admin-empty"><strong>No activity available yet.</strong><p>New orders, signups and project updates will appear here.</p></div>}
+              ))}</div> : <div className="admin-empty"><strong>No activity available yet.</strong><p>New signups and project updates will appear here.</p></div>}
             </article>
 
             <article className="admin-panel admin-audience">
@@ -135,7 +127,7 @@ export default async function AdminPage({ searchParams }) {
               <div className="admin-audience-metrics">
                 <div><strong>{data.stats.newCustomers ?? "N/A"}</strong><span>New customers</span></div>
                 <div><strong>{data.stats.activeCustomers ?? "N/A"}</strong><span>Active customers</span></div>
-                <div><strong>{data.stats.orders ?? "N/A"}</strong><span>Orders & checkouts</span></div>
+                <div><strong>{data.stats.activeProjects}</strong><span>Active projects</span></div>
               </div>
               <div className="admin-source-list">
                 <span className="admin-source-title">Where customers came from</span>
@@ -148,26 +140,8 @@ export default async function AdminPage({ searchParams }) {
 
           <div className="admin-detail-heading">
             <div><span>Detailed records</span><h2>Open only what you need.</h2></div>
-            <p>Orders, customers, projects and website tools stay minimized until you click a section.</p>
+            <p>Customers, projects and website tools stay minimized until you click a section.</p>
           </div>
-
-          <details className="admin-panel admin-collapsible" id="orders">
-            <summary>
-              <div><span>Commerce</span><h2>Orders & payments</h2><small>Stripe checkout sessions, customers and payment status</small></div>
-              <b>{data.stats.orders ?? "N/A"}</b><i aria-hidden="true">+</i>
-            </summary>
-            <div className="admin-collapsible-body">
-              <a className="admin-external-link" href="https://dashboard.stripe.com/payments" target="_blank" rel="noreferrer">Open Stripe dashboard →</a>
-              {data.orders.length ? <div className="admin-record-list">{data.orders.map((order) => (
-                <div className="admin-record" key={order.id}>
-                  <div className="admin-record-primary"><span>{order.id}</span><strong>{titleCase(order.product)}</strong><small>{formatDate(order.createdAt, true)}</small></div>
-                  <div><span>Customer</span><strong>{order.customerName}</strong><small>{order.email}</small></div>
-                  <div><span>Payment</span><strong>{formatMoney(order.amount, order.currency)}</strong><small>{titleCase(order.paymentStatus)}</small></div>
-                  <b className={`admin-record-status ${order.paymentStatus === "paid" ? "complete" : "pending"}`}>{titleCase(order.checkoutStatus)}</b>
-                </div>
-              ))}</div> : <div className="admin-empty"><strong>{stripeConnected ? "No Stripe orders yet." : "Stripe order data is not connected."}</strong><p>Paid digital-product checkouts will appear here automatically.</p></div>}
-            </div>
-          </details>
 
           <details className="admin-panel admin-collapsible" id="customers">
             <summary>
