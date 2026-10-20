@@ -18,11 +18,12 @@ function PackageCard({ pricingPackage, index }) {
   const additionalInclusions = pricingPackage.included.slice(3);
   const tierLabel = TIER_LABELS[pricingPackage.category]?.[index] || "Fixed-scope service";
 
-  function trackSelection() {
-    trackAnalyticsEvent("package_select", {
+  function trackCheckout() {
+    trackAnalyticsEvent("begin_checkout", {
       package_slug: pricingPackage.slug,
       package_category: pricingPackage.category,
       starting_price_usd: pricingPackage.price,
+      checkout_provider: "whop",
     });
   }
 
@@ -82,10 +83,17 @@ function PackageCard({ pricingPackage, index }) {
         <ul>{pricingPackage.exclusions.map((item) => <li key={item}>{item}</li>)}</ul>
       </details>
 
-      <Link className={styles.packageCta} href={contactUrl} onClick={trackSelection}>
-        {pricingPackage.recommended ? "Choose Recommended Premium" : "Select this package"} <span className={styles.ctaPrice}>from ${pricingPackage.price.toLocaleString("en-US")} USD</span><span aria-hidden="true">&rarr;</span>
-      </Link>
-      <Link className={styles.packageHelp} href="/contact#get-in-touch">Not sure? Ask us to recommend one</Link>
+      <a
+        className={styles.packageCta}
+        href={pricingPackage.checkoutUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Buy ${pricingPackage.name} on Whop (opens in a new tab)`}
+        onClick={trackCheckout}
+      >
+        Buy on Whop <span className={styles.ctaPrice}>${pricingPackage.price.toLocaleString("en-US")} USD</span><span aria-hidden="true">&nearr;</span>
+      </a>
+      <Link className={styles.packageHelp} href={contactUrl}>Confirm scope or ask a question first</Link>
     </article>
   );
 }
@@ -259,7 +267,7 @@ export default function PricingExplorer() {
                 <div className={styles.panelSummary} aria-label={category.label + " summary"}>
                   <span><strong>{packages.length}</strong> package levels</span>
                   <span><strong>${startingPrice}</strong> starting price</span>
-                  <span><strong>No payment</strong> at enquiry</span>
+                  <span><strong>Whop checkout</strong> for approved scopes</span>
                 </div>
                 {category.id === "design-techpack-print" ? <p className={styles.printNote}>Each print is delivered as a seamless repeat or placement artwork according to the approved project direction.</p> : null}
               </div>

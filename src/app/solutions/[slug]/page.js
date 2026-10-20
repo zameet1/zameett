@@ -72,7 +72,7 @@ export default async function SolutionPage({ params }) {
         "@type": "Offer",
         price: item.price,
         priceCurrency: "USD",
-        url: `${siteUrl}/contact?package=${encodeURIComponent(item.contactParam)}`,
+        url: item.checkoutUrl,
         itemOffered: {
           "@type": "Service",
           name: item.name,

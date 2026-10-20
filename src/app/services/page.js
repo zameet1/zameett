@@ -137,7 +137,7 @@ const servicesSchema = SERVICE_ROUTES.map((route) => {
             "@type": "Offer",
             price: item.price,
             priceCurrency: "USD",
-            url: "https://zameett.com/contact?package=" + item.contactParam,
+            url: item.checkoutUrl,
             itemOffered: { "@type": "Service", name: item.name, description: item.subtitle },
           })),
         }
@@ -252,9 +252,9 @@ export default function Services() {
                   </dl>
                   <div className={styles.includedLabel}>Key deliverables</div>
                   <ul className={styles.packageList}>{item.included.slice(0, 6).map((included) => <li key={included}>{included}</li>)}</ul>
-                  <Link className={styles.packageCta} href={"/contact?package=" + item.contactParam + "#get-in-touch"}>
-                    {item.ctaLabel} <span aria-hidden="true">&rarr;</span>
-                  </Link>
+                  <a className={styles.packageCta} href={item.checkoutUrl} target="_blank" rel="noopener noreferrer" aria-label={`Buy ${item.name} on Whop (opens in a new tab)`}>
+                    Buy on Whop <span aria-hidden="true">&nearr;</span>
+                  </a>
                 </article>
               ))}
             </div>

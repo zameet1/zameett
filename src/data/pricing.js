@@ -81,6 +81,7 @@ export const PRICING_PACKAGES = [
     revisions: "1 consolidated revision round",
     ctaLabel: "Request Starter Package",
     contactParam: "design-techpack-starter",
+    checkoutUrl: "https://whop.com/zameett/starter-package-1-design-1-tech-pack/",
     featured: false,
   },
   {
@@ -112,6 +113,7 @@ export const PRICING_PACKAGES = [
     revisions: "2 consolidated revision rounds",
     ctaLabel: "Start Your Capsule Collection",
     contactParam: "design-techpack-collection",
+    checkoutUrl: "https://whop.com/zameett/collection-package-5-designs-5-tech-packs/",
     featured: true,
   },
   {
@@ -149,6 +151,7 @@ export const PRICING_PACKAGES = [
     revisions: "5 consolidated revision rounds",
     ctaLabel: "Discuss Your Premium Collection",
     contactParam: "design-techpack-premium-collection",
+    checkoutUrl: "https://whop.com/zameett/premium-collection-7-designs-7-tech-packs/",
     featured: false,
     recommended: true,
     recommendation: "Recommended for a complete seven-style collection",
@@ -185,6 +188,7 @@ export const PRICING_PACKAGES = [
     revisions: "1 consolidated revision round",
     ctaLabel: "Request Print Starter Package",
     contactParam: "design-techpack-print-starter",
+    checkoutUrl: "https://whop.com/zameett/print-starter-design-tech-pack-print/",
     featured: false,
   },
   {
@@ -218,6 +222,7 @@ export const PRICING_PACKAGES = [
     revisions: "3 consolidated revision rounds",
     ctaLabel: "Start Your Printed Collection",
     contactParam: "design-techpack-print-collection",
+    checkoutUrl: "https://whop.com/zameett/print-collection-designs-tech-packs-prints/",
     featured: true,
   },
   {
@@ -257,6 +262,7 @@ export const PRICING_PACKAGES = [
     revisions: "5 consolidated revision rounds",
     ctaLabel: "Discuss Your Printed Collection",
     contactParam: "design-techpack-print-premium-collection",
+    checkoutUrl: "https://whop.com/zameett/premium-printed-collection-package/",
     featured: false,
     recommended: true,
     recommendation: "Recommended as Zameett's most complete creative package",
@@ -285,6 +291,7 @@ export const PRICING_PACKAGES = [
     revisions: "1 consolidated revision round",
     ctaLabel: "Request Simple Print",
     contactParam: "custom-print-simple",
+    checkoutUrl: "https://whop.com/zameett/simple-custom-textile-print/",
     featured: false,
   },
   {
@@ -313,6 +320,7 @@ export const PRICING_PACKAGES = [
     revisions: "2 consolidated revision rounds",
     ctaLabel: "Request Detailed Print",
     contactParam: "custom-print-detailed",
+    checkoutUrl: "https://whop.com/zameett/detailed-custom-textile-print/",
     featured: true,
   },
   {
@@ -341,6 +349,7 @@ export const PRICING_PACKAGES = [
     revisions: "3 consolidated revision rounds",
     ctaLabel: "Request Luxury Print",
     contactParam: "custom-print-highly-detailed",
+    checkoutUrl: "https://whop.com/zameett/highly-detailed-custom-textile-print/",
     featured: false,
     recommended: true,
     recommendation: "Recommended for luxury and highly detailed artwork",
