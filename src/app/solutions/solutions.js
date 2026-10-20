@@ -1,3 +1,5 @@
+import { SHOP_ENABLED } from "../../lib/siteFlags.js";
+
 export const SOLUTIONS = [
   {
     slug: "abaya-manufacturer-pakistan",
@@ -286,7 +288,7 @@ export const SOLUTIONS = [
       ["Build a clearer fashion bill of materials", "/blog/bill-of-materials-fashion"],
       ["Understand fashion technical flat drawings", "/blog/fashion-technical-flat-drawings"],
       ["Compare completed tech-pack design services", "/services/fashion-tech-packs"],
-      ["Browse ready-made digital products", "/shop"],
+      ...(SHOP_ENABLED ? [["Browse ready-made digital products", "/shop"]] : []),
       ["Review the digital product licence", "/digital-product-licence"],
     ],
     ctaEyebrow: "Build Your Internal Tech-Pack System",

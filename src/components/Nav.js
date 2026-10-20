@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FiChevronDown, FiUser } from "react-icons/fi";
 import { createClient, hasSupabaseConfig } from "@/lib/supabase/client";
+import { SHOP_ENABLED } from "@/lib/siteFlags";
 
 const DESKTOP_LINKS = [
 
@@ -32,7 +33,7 @@ const MOBILE_GROUPS = [
     label: "Resources",
     links: [
       { href: "/blog", label: "Blog & Guides" },
-      { href: "/shop", label: "Digital Shop" },
+      ...(SHOP_ENABLED ? [{ href: "/shop", label: "Digital Shop" }] : []),
       { href: "/faq", label: "FAQ" },
     ],
   },
@@ -110,10 +111,10 @@ export default function Nav() {
             return <li key={link.href}><InternalLink href={link.href} className={active ? "active" : ""} aria-current={active ? "page" : undefined}>{link.label}</InternalLink></li>;
           })}
           <li className="nav-resources">
-            <button type="button" className={pathname.startsWith("/blog") || pathname.startsWith("/shop") ? "active" : ""} aria-haspopup="true">Resources <FiChevronDown aria-hidden="true" /></button>
+            <button type="button" className={pathname.startsWith("/blog") || (SHOP_ENABLED && pathname.startsWith("/shop")) ? "active" : ""} aria-haspopup="true">Resources <FiChevronDown aria-hidden="true" /></button>
             <div className="nav-resources-menu">
               <a href="/blog">Blog & Guides</a>
-              <a href="/shop">Digital Shop</a>
+              {SHOP_ENABLED && <a href="/shop">Digital Shop</a>}
               <a href="/faq">FAQ</a>
             </div>
           </li>

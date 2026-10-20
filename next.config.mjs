@@ -1,4 +1,5 @@
 import createMDX from "@next/mdx";
+import { SHOP_ENABLED } from "./src/lib/siteFlags.js";
 
 const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
@@ -22,6 +23,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      ...(SHOP_ENABLED ? [] : [{ source: "/shop", destination: "/pricing", permanent: false }]),
       { source: "/:path*", has: [{ type: "host", value: "www.zameett.com" }], destination: "https://zameett.com/:path*", permanent: true },
       { source: "/home", destination: "/", permanent: true },
       { source: "/index.html", destination: "/", permanent: true },
