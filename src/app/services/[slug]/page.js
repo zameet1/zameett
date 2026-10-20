@@ -72,7 +72,7 @@ export default async function GigPage({ params }) {
         "@type": "Offer",
         price: item.price,
         priceCurrency: "USD",
-        url: siteUrl + "/contact?package=" + item.contactParam,
+        url: item.checkoutUrl,
         itemOffered: { "@type": "Service", name: item.name, description: item.subtitle },
       })),
     } : {}),
