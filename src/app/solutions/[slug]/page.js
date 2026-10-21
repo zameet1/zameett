@@ -191,13 +191,13 @@ export default async function SolutionPage({ params }) {
         <section className="intent-portfolio" id="portfolio">
           <div className="inner">
             <div className="intent-section-head reveal">
-              <div><p className="s-tag">Relevant Portfolio</p><h2 className="s-title">Work made for <em>real production.</em></h2></div>
-              <a href="/portfolio#portfolio-gallery" className="btn btn-outline">Explore Full Portfolio →</a>
+              <div><p className="s-tag">{solution.galleryEyebrow || "Relevant Portfolio"}</p><h2 className="s-title">{solution.galleryTitleLead || "Work made for "}<em>{solution.galleryTitleAccent || "real production."}</em></h2></div>
+              <a href={solution.galleryCtaHref || "/portfolio#portfolio-gallery"} className="btn btn-outline">{solution.galleryCtaLabel || "Explore Full Portfolio"} →</a>
             </div>
             <div className="intent-gallery">
               {solution.gallery.map((image, index) => (
                 <div className="intent-gallery-item reveal" key={image}>
-                  <Image src={image} alt={`${solution.keyword} portfolio example ${index + 1}`} fill sizes="(max-width: 700px) 100vw, 33vw" />
+                  <Image src={image} alt={`${solution.galleryAlt || `${solution.keyword} portfolio example`} ${index + 1}`} fill sizes="(max-width: 700px) 100vw, 33vw" />
                 </div>
               ))}
             </div>

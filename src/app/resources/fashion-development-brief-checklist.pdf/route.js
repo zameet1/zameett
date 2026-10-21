@@ -21,6 +21,7 @@ export async function GET() {
         'attachment; filename="Zameett-Fashion-Development-Brief-Checklist.pdf"',
       "Content-Length": String(bytes.length),
       "Cache-Control": "public, max-age=86400, s-maxage=604800",
+      Link: '<https://zameett.com/resources/fashion-development-brief-checklist>; rel="canonical"',
     },
   });
 }

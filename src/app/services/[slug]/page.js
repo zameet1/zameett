@@ -39,6 +39,7 @@ export default async function GigPage({ params }) {
     "fashion-tech-packs": [
       ["Prepare your fashion development brief", "/resources/fashion-development-brief-checklist"],
       ["What is a tech pack?", "/blog/what-is-a-tech-pack"],
+      ["Create a clothing tech pack in 12 steps", "/blog/how-to-create-a-tech-pack"],
       ["How much does a tech pack cost?", "/blog/tech-pack-cost"],
       ["See a production-ready tech pack structure", "/blog/tech-pack-example"],
       ["Understand the fashion BOM", "/blog/bill-of-materials-fashion"],
@@ -50,6 +51,7 @@ export default async function GigPage({ params }) {
     ],
     "clothing-manufacturing": [
       ["Private-label abaya manufacturing guide", "/blog/private-label-abaya-manufacturing"],
+      ["How to compare modest-fashion manufacturers", "/blog/modest-fashion-manufacturer-pakistan"],
       ["How abaya MOQ works", "/blog/abaya-manufacturer-moq"],
       ["Embroidered and beaded abaya production", "/blog/embroidered-abaya-manufacturing"],
       ["Understand the full abaya manufacturing process", "/blog/complete-abaya-manufacturing-process"],

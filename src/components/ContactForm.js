@@ -55,6 +55,14 @@ function getPackagePrefill(packageParam) {
 }
 
 function getServicePrefill(serviceValue) {
+  if (serviceValue === "Custom Editable Tech-Pack Template") {
+    return {
+      productCategory: "",
+      projectRoute: "Design / technical development only",
+      numberOfStyles: "",
+    };
+  }
+
   if (serviceValue === "Fabric & Trim Sourcing") {
     return {
       productCategory: "",
