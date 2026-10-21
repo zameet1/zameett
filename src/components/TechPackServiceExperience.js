@@ -64,7 +64,10 @@ export default function TechPackServiceExperience() {
         <strong>A clear boundary protects your project.</strong>
         <p>
           Sewing-pattern development, grading, physical samples and manufacturing are separate unless they are
-          specifically included in a written Zameett proposal.
+          specifically included in a written Zameett proposal. For an abaya-specific completed pack, review the
+          {" "}<Link href="/solutions/abaya-tech-pack-designer">abaya tech-pack design service</Link>. For a reusable
+          internal framework instead, review the {" "}
+          <Link href="/solutions/editable-fashion-tech-pack-template">custom editable template service</Link>.
         </p>
       </div>
 

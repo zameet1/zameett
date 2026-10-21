@@ -26,6 +26,13 @@ const process = [
   ["04", "Production control", "When manufacturing is included, MOQ and bulk terms are confirmed for the approved product, followed by agreed quality, packing and dispatch checkpoints."],
 ];
 
+const specialistRoutes = [
+  ["Abaya development", "Review an abaya-specific route from technical files and sampling through an approved production scope.", "/solutions/abaya-manufacturer-pakistan"],
+  ["Private-label modest wear", "Define the product, branding, packaging and supplier responsibilities for a private-label collection.", "/solutions/private-label-modest-clothing-manufacturer"],
+  ["Small-batch feasibility", "Assess a proposed quantity against the garment, materials, colours, trims, packaging and supplier route.", "/solutions/low-moq-clothing-manufacturer-pakistan"],
+  ["Garment sampling", "Choose the physical sample stage and approval record needed before a later production decision.", "/solutions/fashion-sampling-services"],
+];
+
 const responsibilities = [
   ["Zameett scope", "Design refinement, technical-development review and supplier coordination are delivered only where they are named in the written proposal."],
   ["Reviewed supplier scope", "Fabric, sampling, embellishment, garment production, packing or dispatch may be performed by reviewed third-party suppliers when included in the agreed route."],
@@ -64,6 +71,23 @@ export default function ModestWearDevelopment() {
         <div className={styles.process} id="development-process">
           <div className={`${styles.processHeading} reveal`}><p className={styles.eyebrow}>Four-step process</p><h2>Decide, develop, approve, then produce.</h2></div>
           <div className={styles.processGrid}>{process.map(([number, title, description], index) => <article className={`${styles.processCard} reveal`} style={{ "--reveal-delay": `${index * 55}ms` }} key={title}><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+        </div>
+
+        <div className={styles.routes} id="specialist-modest-wear-routes">
+          <div className={`${styles.routesHeading} reveal`}>
+            <div><p className={styles.eyebrow}>Choose the right starting point</p><h2>Specialist routes for the stage you are in.</h2></div>
+            <p>Use the closest route to understand the decisions and information needed. Capability, scope, MOQ, quotation and timing are still confirmed for the actual project before payment.</p>
+          </div>
+          <div className={styles.routesGrid}>
+            {specialistRoutes.map(([title, description, href], index) => (
+              <Link className={`${styles.routeCard} reveal`} style={{ "--reveal-delay": `${index * 55}ms` }} href={href} key={href}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <strong>Review this route <i aria-hidden="true">&rarr;</i></strong>
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className={styles.responsibility} id="production-responsibilities">
