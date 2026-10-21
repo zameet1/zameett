@@ -14,6 +14,7 @@ const GROUPS = [
   ] },
   { title: "Resources", links: [
     { label: "Blog & Guides", href: "/blog" }, ...(SHOP_ENABLED ? [{ label: "Digital Shop", href: "/shop" }] : []),
+    { label: "Free Project Checklist", href: "/resources/fashion-development-brief-checklist" },
     { label: "FAQ", href: "/faq" }, { label: "Supply Chain & QC", href: "/supply-chain" },
   ] },
   { title: "Policies", links: [

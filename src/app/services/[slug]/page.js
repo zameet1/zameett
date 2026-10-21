@@ -37,6 +37,7 @@ export default async function GigPage({ params }) {
   const startingPrice = packages.length ? Math.min(...packages.map((item) => item.price)) : null;
   const learningLinks = {
     "fashion-tech-packs": [
+      ["Prepare your fashion development brief", "/resources/fashion-development-brief-checklist"],
       ["What is a tech pack?", "/blog/what-is-a-tech-pack"],
       ["How much does a tech pack cost?", "/blog/tech-pack-cost"],
       ["See a production-ready tech pack structure", "/blog/tech-pack-example"],

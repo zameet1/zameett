@@ -4,6 +4,7 @@ import CoverImage from "@/components/CoverImage";
 import WorkShowcase from "@/components/WorkShowcase";
 import ProjectBriefPanel from "@/components/ProjectBriefPanel";
 import HomePricingHighlight from "@/components/HomePricingHighlight";
+import FashionBriefChecklistPromo from "@/components/FashionBriefChecklistPromo";
 import { getPricingPackage } from "@/data/pricing";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -79,6 +80,8 @@ export default function HomePage() {
         <HomePricingHighlight />
 
         <WorkShowcase />
+
+        <FashionBriefChecklistPromo />
 
         <section className="why home-why"><div className="inner">
           <div className="why-head reveal"><div><p className="s-tag">Why Zameett</p><h2 className="s-title">Make each development decision <em>with the right information.</em></h2></div><p className="why-body">Design support is available across apparel categories. Our core sampling and production specialisation remains modest wear.</p></div>
