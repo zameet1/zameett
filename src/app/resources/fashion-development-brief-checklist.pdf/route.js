@@ -1,15 +1,14 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 export async function GET() {
   const bytes = await readFile(
     path.join(
       process.cwd(),
-      "public",
-      "resources",
+      "private-resources",
       "fashion-development-brief-checklist.pdf",
     ),
   );
