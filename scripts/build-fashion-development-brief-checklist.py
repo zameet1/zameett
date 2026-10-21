@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the public Zameett Fashion Development Brief Checklist PDF."""
+"""Build the private source file for the public Zameett checklist download."""
 
 from pathlib import Path
 
@@ -9,7 +9,7 @@ from reportlab.pdfgen import canvas
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "public" / "resources" / "fashion-development-brief-checklist.pdf"
+OUTPUT = ROOT / "private-resources" / "fashion-development-brief-checklist.pdf"
 
 BURGUNDY = colors.HexColor("#4A0E2B")
 BURGUNDY_DEEP = colors.HexColor("#350920")

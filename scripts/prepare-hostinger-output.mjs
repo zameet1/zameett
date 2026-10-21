@@ -42,6 +42,12 @@ await cp(path.join(projectRoot, "public"), path.join(buildRoot, "public"), {
   force: true,
 });
 
+await cp(
+  path.join(projectRoot, "private-resources"),
+  path.join(buildRoot, "private-resources"),
+  { recursive: true, force: true },
+);
+
 // Hostinger's manual archive deployments do not always persist dashboard
 // variables. Keep a deployment-only environment file beside the runtime when
 // one is supplied; it is never served from the public directory.
