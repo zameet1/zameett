@@ -7,7 +7,8 @@ const MAX_BODY_BYTES = 6 * 1024 * 1024;
 const MAX_FILES_BYTES = 5 * 1024 * 1024;
 const ALLOWED_FILE_TYPES = new Set(["application/pdf","image/jpeg","image/png","application/zip","application/x-zip-compressed"]);
 const REQUIRED_FIELDS = ["First Name","Last Name","Email","Product Category","Project Route","Project Stage","Estimated Budget","Service Required","Target Market or Country","Message","Privacy Consent"];
-const FIELD_NAMES = ["Package","First Name","Last Name","Email","Phone","Brand Name","Service Required","Custom Service","Product Category","Project Route","Project Stage","Estimated Budget","Number of Styles","Required Quantity","Target Sizes","Target Market or Country","Required Delivery Date","Preferred Communication","NDA Required","How Did You Hear About Us","Google Drive or WeTransfer Link","Message","Privacy Consent"];
+const ATTRIBUTION_FIELD_NAMES = ["Enquiry Page","Attribution Source","Attribution Medium","Attribution Campaign","Attribution Campaign ID","Attribution Term","Attribution Content","Latest Paid Source","Latest Paid Medium","Google Click ID","Google GBRAID","Google WBRAID","First Landing Page","Attribution Referrer","Attribution Recorded At","Latest Paid Touch At"];
+const FIELD_NAMES = ["Package","First Name","Last Name","Email","Phone","Brand Name","Service Required","Custom Service","Product Category","Project Route","Project Stage","Estimated Budget","Number of Styles","Required Quantity","Target Sizes","Target Market or Country","Required Delivery Date","Preferred Communication","NDA Required","How Did You Hear About Us","Google Drive or WeTransfer Link","Message","Privacy Consent",...ATTRIBUTION_FIELD_NAMES];
 
 const rateStore = globalThis.__zameettContactRateStore || new Map();
 globalThis.__zameettContactRateStore = rateStore;

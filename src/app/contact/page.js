@@ -4,6 +4,7 @@ import { FAQS } from "@/components/faqData";
 import ScrollTopLink from "@/components/ScrollTopLink";
 import Footer from "@/components/Footer";
 import SocialLinks from "@/components/SocialLinks";
+import TrackedContactLink from "@/components/TrackedContactLink";
 import JsonLd from "@/components/JsonLd";
 import { GIGS } from "@/app/services/gigs";
 import { SOLUTIONS } from "@/app/solutions/solutions";
@@ -92,17 +93,24 @@ export default async function Contact({ searchParams }) {
               explain the practical next steps for your brand.
             </p>
             <div className="contact-quick">
-              <a
+              <TrackedContactLink
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-burg"
+                channel="whatsapp"
+                eventLocation="contact_quick_actions"
               >
                 Chat on WhatsApp →
-              </a>
-              <a href="mailto:hello@zameett.com" className="btn btn-outline">
+              </TrackedContactLink>
+              <TrackedContactLink
+                href="mailto:hello@zameett.com"
+                className="btn btn-outline"
+                channel="email"
+                eventLocation="contact_quick_actions"
+              >
                 Email Us
-              </a>
+              </TrackedContactLink>
             </div>
             <p className="contact-reply">
               <span aria-hidden="true">⚡</span> Response target: one business day
@@ -110,11 +118,25 @@ export default async function Contact({ searchParams }) {
             <div className="contact-info-col">
               <div className="contact-detail">
                 <span>Email</span>
-                <a href="mailto:hello@zameett.com">hello@zameett.com</a>
+                <TrackedContactLink
+                  href="mailto:hello@zameett.com"
+                  channel="email"
+                  eventLocation="contact_details"
+                >
+                  hello@zameett.com
+                </TrackedContactLink>
               </div>
               <div className="contact-detail">
                 <span>WhatsApp</span>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">+92 324 6599699</a>
+                <TrackedContactLink
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  channel="whatsapp"
+                  eventLocation="contact_details"
+                >
+                  +92 324 6599699
+                </TrackedContactLink>
               </div>
               <div className="contact-detail">
                 <span>Based In</span>

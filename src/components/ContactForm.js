@@ -5,6 +5,8 @@ import { GIGS } from "@/app/services/gigs";
 import { SOLUTIONS } from "@/app/solutions/solutions";
 import { PRICING_PACKAGES } from "@/data/pricing";
 import { trackAnalyticsEvent, trackOpenAIAdsCustomEvent } from "@/lib/analytics";
+import { attributionToContactFields, readBrowserAttribution } from "@/lib/attribution";
+import TrackedContactLink from "./TrackedContactLink";
 import styles from "./ContactForm.module.css";
 
 const CUSTOM = "__custom__";
@@ -204,7 +206,12 @@ export default function ContactForm({ initialService = "", initialPackageParam =
     setSubmitError("");
     setSent(false);
     try {
-      const response = await fetch("/api/contact", { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
+      const formData = new FormData(form);
+      formData.set("Enquiry Page", window.location.pathname);
+      Object.entries(attributionToContactFields(readBrowserAttribution())).forEach(([name, value]) => {
+        formData.set(name, value);
+      });
+      const response = await fetch("/api/contact", { method: "POST", body: formData, headers: { Accept: "application/json" } });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || "Your enquiry could not be sent.");
 
@@ -368,7 +375,7 @@ export default function ContactForm({ initialService = "", initialPackageParam =
         {step > 1 && <button type="button" className="btn btn-outline" onClick={() => goToStep(step - 1)}>← Back</button>}
         {step < 3 ? <button type="button" className="btn btn-burg" onClick={() => goToStep(step + 1)}>Continue →</button> : <button type="submit" className="btn btn-burg contact-submit" disabled={submitting}>{submitting ? "Sending…" : "Send Enquiry →"}</button>}
       </div>
-      {submitError && <p className="form-error" role="alert">{submitError} You can also email <a href="mailto:hello@zameett.com">hello@zameett.com</a>.</p>}
+      {submitError && <p className="form-error" role="alert">{submitError} You can also email <TrackedContactLink href="mailto:hello@zameett.com" channel="email" eventLocation="contact_form_error">hello@zameett.com</TrackedContactLink>.</p>}
       {sent && <p className="form-success" role="status">✓ Thank you. Your enquiry has been sent. We aim to respond within one business day.</p>}
     </form>
   );
