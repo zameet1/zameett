@@ -35,6 +35,7 @@ export default async function GigPage({ params }) {
   const category = gig.slug === "fashion-tech-packs" ? "design-techpack" : gig.slug === "custom-textile-patterns" ? "custom-print" : null;
   const packages = category ? getPackagesByCategory(category) : [];
   const startingPrice = packages.length ? Math.min(...packages.map((item) => item.price)) : null;
+  const contactAnchor = gig.slug === "fashion-tech-packs" ? "project-brief-form" : "get-in-touch";
   const learningLinks = {
     "fashion-tech-packs": [
       ["Prepare your fashion development brief", "/resources/fashion-development-brief-checklist"],
@@ -98,36 +99,44 @@ export default async function GigPage({ params }) {
       acceptedAnswer: { "@type": "Answer", text: item.answer },
     })),
   };
+  const serviceActions = (
+    <div className="gig-actions">
+      <Link href={`/contact?service=${gig.slug}#${contactAnchor}`} className="btn btn-burg">Send Enquiry <span aria-hidden="true">&rarr;</span></Link>
+      {gig.slug === "clothing-manufacturing" && <a href="#modest-wear-development" className="btn btn-outline">Explore Development Route</a>}
+      {startingPrice !== null && <a href="#service-packages" className="btn btn-outline">{"View Packages From $" + startingPrice}</a>}
+      {gig.pdf && <a href={gig.pdf} target="_blank" rel="noopener noreferrer" className="btn btn-outline">View Portfolio PDF</a>}
+    </div>
+  );
+  const serviceInfo = (
+    <div className="gig-info">
+      <p className="s-tag">Featured Service</p>
+      <h1 className="gig-title">{gig.title}</h1>
+      <p className="gig-tagline">{gig.tagline}</p>
+      {startingPrice !== null && (
+        <div className={styles.detailPriceSignal} aria-label="Published package summary">
+          <div><span>Packages from</span><strong>{"$" + startingPrice + " USD"}</strong></div>
+          <div><span>Package choices</span><strong>{packages.length} clear scopes</strong></div>
+          <div><span>Pricing</span><strong>Confirmed before payment</strong></div>
+        </div>
+      )}
+      {gig.slug === "fashion-tech-packs" && serviceActions}
+      <ul className="gig-highlights">{gig.list.slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
+      {gig.slug !== "fashion-tech-packs" && serviceActions}
+      {gig.pdf && <a className="gig-pdf-dl" href={gig.pdf} download>&#8681; Download portfolio (PDF)</a>}
+    </div>
+  );
 
   return (
     <>
       <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <main>
-        <section className={`gig-detail premium-detail-page${gig.slug === "clothing-manufacturing" ? " modest-wear-detail-page" : gig.slug === "custom-textile-patterns" ? " textile-pattern-detail-page" : ""}`} id="service-details">
+        <section className={`gig-detail premium-detail-page${gig.slug === "clothing-manufacturing" ? " modest-wear-detail-page" : gig.slug === "custom-textile-patterns" ? " textile-pattern-detail-page" : gig.slug === "fashion-tech-packs" ? " tech-pack-detail-page" : ""}`} id="service-details">
           <div className="inner">
             <p className="crumb"><Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/services">Services</Link> &nbsp;/&nbsp; {gig.short}</p>
             <div className="gig-top reveal">
+              {gig.slug === "fashion-tech-packs" && serviceInfo}
               <GigGallery images={gig.gallery} alt={gig.title} />
-              <div className="gig-info">
-                <p className="s-tag">Featured Service</p>
-                <h1 className="gig-title">{gig.title}</h1>
-                <p className="gig-tagline">{gig.tagline}</p>
-                {startingPrice !== null && (
-                  <div className={styles.detailPriceSignal} aria-label="Published package summary">
-                    <div><span>Packages from</span><strong>{"$" + startingPrice + " USD"}</strong></div>
-                    <div><span>Package choices</span><strong>{packages.length} clear scopes</strong></div>
-                    <div><span>Pricing</span><strong>Confirmed before payment</strong></div>
-                  </div>
-                )}
-                <ul className="gig-highlights">{gig.list.slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
-                <div className="gig-actions">
-                  <Link href={"/contact?service=" + gig.slug + "#get-in-touch"} className="btn btn-burg">Send Enquiry <span aria-hidden="true">&rarr;</span></Link>
-                  {gig.slug === "clothing-manufacturing" && <a href="#modest-wear-development" className="btn btn-outline">Explore Development Route</a>}
-                  {startingPrice !== null && <a href="#service-packages" className="btn btn-outline">{"View Packages From $" + startingPrice}</a>}
-                  {gig.pdf && <a href={gig.pdf} target="_blank" rel="noopener noreferrer" className="btn btn-outline">View Portfolio PDF</a>}
-                </div>
-                {gig.pdf && <a className="gig-pdf-dl" href={gig.pdf} download>&#8681; Download portfolio (PDF)</a>}
-              </div>
+              {gig.slug !== "fashion-tech-packs" && serviceInfo}
             </div>
             {gig.slug === "fashion-tech-packs" && <TechPackServiceExperience />}
             <div className="gig-body">
@@ -138,7 +147,7 @@ export default async function GigPage({ params }) {
                 <h2>{gig.whyTitle}</h2>
                 <ul className="gig-list">{gig.why.map((item) => <li key={item}>{item}</li>)}</ul>
                 <p className="gig-note">{gig.note}</p>
-                <Link href={"/contact?service=" + gig.slug + "#get-in-touch"} className="btn btn-gold gig-cta">Start Your Project <span aria-hidden="true">&rarr;</span></Link>
+                <Link href={`/contact?service=${gig.slug}#${contactAnchor}`} className="btn btn-gold gig-cta">Start Your Project <span aria-hidden="true">&rarr;</span></Link>
               </div>
             </div>
           </div>

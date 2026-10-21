@@ -8,11 +8,13 @@ export default function ProjectBriefPanel({ initialService = "", initialPackageP
         <h2>Tell us what you are building.</h2>
         <p>Share what you know now. We can help define the rest together.</p>
       </div>
-      <ContactForm
-        key={`${initialService}:${initialPackageParam}`}
-        initialService={initialService}
-        initialPackageParam={initialPackageParam}
-      />
+      <div id="project-brief-form" className="project-brief-form-anchor" tabIndex={-1}>
+        <ContactForm
+          key={`${initialService}:${initialPackageParam}`}
+          initialService={initialService}
+          initialPackageParam={initialPackageParam}
+        />
+      </div>
     </div>
   );
 }
