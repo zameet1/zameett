@@ -8,6 +8,11 @@ const securityHeaders = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(self)" },
 ];
 const noIndexHeader = { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive, nosnippet" };
+const checklistPdfHeaders = [
+  { key: "Content-Disposition", value: 'attachment; filename="Zameett-Fashion-Development-Brief-Checklist.pdf"' },
+  { key: "Cache-Control", value: "public, max-age=86400, s-maxage=604800" },
+  { key: "Link", value: '<https://zameett.com/resources/fashion-development-brief-checklist>; rel="canonical"' },
+];
 const privateRoutes = ["/api/:path*","/auth/:path*","/account","/account/:path*","/admin","/admin/:path*","/sign-in","/reset-password","/shop/success","/shop/:slug/checkout"];
 
 const nextConfig = {
@@ -18,6 +23,7 @@ const nextConfig = {
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      { source: "/resources/fashion-development-brief-checklist.pdf", headers: checklistPdfHeaders },
       ...privateRoutes.map((source) => ({ source, headers: [noIndexHeader] })),
     ];
   },
