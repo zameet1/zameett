@@ -2,6 +2,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import JsonLd from "@/components/JsonLd";
+import FashionBriefChecklistPromo from "@/components/FashionBriefChecklistPromo";
 import { getPackagesByCategory } from "@/data/pricing";
 import styles from "./services.module.css";
 
@@ -217,6 +218,8 @@ export default function Services() {
             </div>
           </div>
         </section>
+
+        <FashionBriefChecklistPromo />
 
         <section className={styles.pricingSection} id="tech-pack-pricing" aria-labelledby="tech-pack-pricing-title">
           <div className="inner">

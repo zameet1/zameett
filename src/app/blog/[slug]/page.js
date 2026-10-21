@@ -149,7 +149,7 @@ export default async function ArticlePage({ params }) {
 
         <aside className="article-sidebar reveal">
           <div><span>In this guide</span><ol>{article.sections.map((section) => <li key={section.heading}><a href={"#" + sectionId(section.heading)}>{section.heading.replace(/^\d+\.\s*/, "")}</a></li>)}</ol></div>
-          <div className="article-sidebar-card"><span>Project checklist</span><p>Prepare the information needed for a clearer development or production quote.</p><a href="/resources/fashion-development-brief-checklist.pdf" download>Download checklist &rarr;</a></div>
+          <div className="article-sidebar-card"><span>Project checklist</span><p>Prepare the information needed for a clearer development or production quote.</p><Link href="/resources/fashion-development-brief-checklist">Open free checklist &rarr;</Link></div>
           <div className="article-sidebar-card"><span>Relevant service</span><p>{post.serviceLabel || "Compare Zameett service paths."}</p><Link href={post.serviceHref || "/services"}>View service &rarr;</Link></div>
         </aside>
       </div>
