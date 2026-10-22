@@ -9,8 +9,8 @@ const securityHeaders = [
 ];
 const noIndexHeader = { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive, nosnippet" };
 const checklistPdfHeaders = [
-  { key: "Content-Disposition", value: 'attachment; filename="Zameett-Fashion-Development-Brief-Checklist.pdf"' },
-  { key: "Cache-Control", value: "public, max-age=86400, s-maxage=604800" },
+  { key: "Content-Disposition", value: 'attachment; filename="Zameett-Fashion-Product-Development-Brief-Checklist.pdf"' },
+  { key: "Cache-Control", value: "no-store" },
   { key: "Link", value: '<https://zameett.com/resources/fashion-development-brief-checklist>; rel="canonical"' },
 ];
 const privateRoutes = ["/api/:path*","/auth/:path*","/account","/account/:path*","/admin","/admin/:path*","/sign-in","/reset-password","/shop/success","/shop/:slug/checkout"];

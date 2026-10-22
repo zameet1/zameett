@@ -43,7 +43,7 @@ def draw_footer(pdf, page_number):
     pdf.line(MARGIN, y + 13, PAGE_W - MARGIN, y + 13)
     pdf.setFillColor(MUTED)
     pdf.setFont("Helvetica", 6.8)
-    pdf.drawString(MARGIN, y, "Zameett Fashion Development Brief Checklist")
+    pdf.drawString(MARGIN, y, "Zameett Fashion Product Development Brief Checklist")
     pdf.drawRightString(PAGE_W - MARGIN, y, f"Page {page_number}")
 
 
@@ -96,31 +96,33 @@ def option_grid(pdf, items, y_start, rows, left_x=MARGIN, right_x=None, row_gap=
 def build_pdf():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     pdf = canvas.Canvas(str(OUTPUT), pagesize=A4, pageCompression=1, invariant=1)
-    pdf.setTitle("Zameett Fashion Development Brief Checklist")
+    pdf.setTitle("Zameett Fashion Product Development Brief Checklist")
     pdf.setAuthor("Zameett")
     pdf.setSubject("Free project-planning checklist for fashion design and product development")
-    pdf.setKeywords("fashion development brief, tech pack checklist, sampling brief, modest wear development")
+    pdf.setKeywords("fashion product development brief, tech pack checklist, sampling brief, modest wear development, Saudi fashion brand checklist")
 
     # Page 1
     draw_header(pdf)
     pdf.setFillColor(INK)
     pdf.setFont("Helvetica", 25)
-    pdf.drawString(MARGIN, PAGE_H - 126, "Fashion Development Brief Checklist")
-    body_text(pdf, "Use this worksheet before requesting fashion design, technical development, sampling or production support.", MARGIN, PAGE_H - 148, 8.4)
-    body_text(pdf, "Complete what you know now; open decisions can be reviewed before the scope is confirmed.", MARGIN, PAGE_H - 161, 8.4)
+    pdf.drawString(MARGIN, PAGE_H - 126, "Fashion Product Development Brief")
+    pdf.setFont("Helvetica", 18)
+    pdf.drawString(MARGIN, PAGE_H - 148, "Checklist")
+    body_text(pdf, "Use this worksheet before requesting fashion design, technical development, sampling or production support.", MARGIN, PAGE_H - 169, 8.4)
+    body_text(pdf, "Complete what you know now; open decisions can be reviewed before the scope is confirmed.", MARGIN, PAGE_H - 182, 8.4)
 
-    section_title(pdf, 1, "Brand and contact", PAGE_H - 201)
+    section_title(pdf, 1, "Brand and contact", PAGE_H - 216)
     gap = 10
     box_w = (CONTENT_W - gap) / 2
     left = MARGIN
     right = MARGIN + box_w + gap
-    field_box(pdf, left, PAGE_H - 214, box_w, 49, "Brand / company name")
-    field_box(pdf, right, PAGE_H - 214, box_w, 49, "Contact name and role")
-    field_box(pdf, left, PAGE_H - 273, box_w, 49, "Email and WhatsApp")
-    field_box(pdf, right, PAGE_H - 273, box_w, 49, "Website / social profile")
+    field_box(pdf, left, PAGE_H - 229, box_w, 46, "Brand / company name")
+    field_box(pdf, right, PAGE_H - 229, box_w, 46, "Contact name and role")
+    field_box(pdf, left, PAGE_H - 284, box_w, 46, "Email and WhatsApp")
+    field_box(pdf, right, PAGE_H - 284, box_w, 46, "Website / social profile")
 
-    section_title(pdf, 2, "Required service route", PAGE_H - 353)
-    body_text(pdf, "Select the closest route. Zameett will confirm the appropriate scope after reviewing the brief.", MARGIN, PAGE_H - 371)
+    section_title(pdf, 2, "Required service route", PAGE_H - 357)
+    body_text(pdf, "Select the closest route. Zameett will confirm the appropriate scope after reviewing the brief.", MARGIN, PAGE_H - 375)
     option_grid(pdf, [
         "Fashion design / concepts",
         "Textile print development",
@@ -130,7 +132,7 @@ def build_pdf():
         "Fabric and trim sourcing",
         "Modest-wear sampling / manufacturing",
         "Not sure - recommend a route",
-    ], PAGE_H - 392, 4)
+    ], PAGE_H - 396, 4)
 
     section_title(pdf, 3, "Collection outline", PAGE_H - 486)
     field_box(pdf, left, PAGE_H - 500, box_w, 43, "Product category")
@@ -160,7 +162,7 @@ def build_pdf():
         "Colour standards selected",
         "Packaging selected",
         "Modesty / coverage requirements",
-        "Pattern or grading information available",
+        "Pattern / grading files supplied, if available",
     ], PAGE_H - 159, 6)
     field_box(pdf, MARGIN + 118, PAGE_H - 270, CONTENT_W - 236, 54, "Key garment details, materials and non-negotiable requirements")
 
@@ -209,6 +211,59 @@ def build_pdf():
     body_text(pdf, "This checklist is a planning aid, not a quotation, production specification, legal agreement or guarantee.", MARGIN, PAGE_H - 784, 6.9)
     body_text(pdf, "Final scope, formats, revisions, MOQ, costs, responsibilities and timeline are confirmed in the written proposal.", MARGIN, PAGE_H - 795, 6.9)
     draw_footer(pdf, 2)
+    pdf.showPage()
+
+    # Page 3: optional Saudi Arabia and GCC planning module
+    draw_header(pdf)
+    pdf.setFillColor(INK)
+    pdf.setFont("Helvetica", 23)
+    pdf.drawString(MARGIN, PAGE_H - 120, "Saudi Arabia and GCC Project Notes")
+    body_text(pdf, "Use this optional market module when the collection is intended for Saudi Arabia or another GCC destination.", MARGIN, PAGE_H - 143, 8.2)
+    body_text(pdf, "It supports a clearer brief; it does not replace current regulatory, customs, tax or legal advice.", MARGIN, PAGE_H - 156, 8.2)
+
+    section_title(pdf, 8, "Market and customer decisions", PAGE_H - 196)
+    option_grid(pdf, [
+        "Target country, city and channel named",
+        "Customer and use occasion defined",
+        "Indoor / outdoor conditions considered",
+        "Fabric, lining, opacity and care reviewed",
+        "Coverage, movement and length reviewed",
+        "Size and length evidence identified",
+        "Arabic / English information owner named",
+        "Importer, freight and duties owner named",
+        "SAR retail and landed-cost assumptions noted",
+        "Sample and revision approval owner named",
+    ], PAGE_H - 219, 5)
+
+    field_box(pdf, left, PAGE_H - 319, box_w, 55, "Market, customer, city, channel and use occasion")
+    field_box(pdf, right, PAGE_H - 319, box_w, 55, "Launch window and timing assumptions")
+    field_box(pdf, left, PAGE_H - 385, box_w, 55, "Coverage, opacity, climate and material requirements")
+    field_box(pdf, right, PAGE_H - 385, box_w, 55, "Size, garment length and measurement evidence")
+    field_box(pdf, left, PAGE_H - 451, box_w, 55, "Arabic / English product information, labels and packaging")
+    field_box(pdf, right, PAGE_H - 451, box_w, 55, "Importer, freight, duties and final destination")
+
+    section_title(pdf, 9, "Verification before sale", PAGE_H - 537)
+    body_text(pdf, "Confirm current Saudi requirements for the actual product and commercial route with the relevant authorities,", MARGIN, PAGE_H - 557, 7.7)
+    body_text(pdf, "importer and qualified advisers. Record who owns each check instead of assuming the supplier or designer covers it.", MARGIN, PAGE_H - 570, 7.7)
+    option_grid(pdf, [
+        "Import and customs route checked",
+        "Textile and product rules checked",
+        "Fibre, care and origin information checked",
+        "Consumer and tax responsibilities checked",
+        "Packaging and language route checked",
+        "Evidence and approval owner recorded",
+    ], PAGE_H - 596, 3)
+
+    pdf.setFillColor(GOLD)
+    pdf.setFont("Helvetica-Bold", 7.4)
+    pdf.drawString(MARGIN, PAGE_H - 683, "SCOPE NOTE")
+    body_text(pdf, "Zameett is based in Pakistan and works with international projects. Capability, sample stages, supplier roles,", MARGIN, PAGE_H - 702, 7.1)
+    body_text(pdf, "manufacturing MOQ, costs, delivery assumptions and responsibilities are confirmed for the specific project before payment.", MARGIN, PAGE_H - 715, 7.1)
+    pdf.setFillColor(BURGUNDY)
+    pdf.setFont("Helvetica", 16)
+    pdf.drawString(MARGIN, PAGE_H - 753, "Review your next step at zameett.com")
+    body_text(pdf, "Fashion tech packs | Modest-wear sampling | Project-specific manufacturing support", MARGIN, PAGE_H - 771, 7.1)
+    draw_footer(pdf, 3)
     pdf.save()
 
 
