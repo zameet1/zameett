@@ -223,6 +223,13 @@ export const SOLUTIONS = [
     ctaPrimaryLabel: "Send Your Abaya Brief",
     ctaSecondaryHref: "/services/fashion-tech-packs",
     ctaSecondaryLabel: "Compare Tech-Pack Services",
+    resources: [
+      ["Prepare a Saudi or GCC fashion development brief", "/resources/fashion-development-brief-checklist#saudi-arabia-projects"],
+      ["Learn what a complete tech pack includes", "/blog/what-is-a-tech-pack"],
+      ["Review a production-ready tech pack structure", "/blog/tech-pack-example"],
+      ["Plan the right garment sample stages", "/solutions/fashion-sampling-services"],
+      ["Compare fashion tech pack services", "/services/fashion-tech-packs"],
+    ],
     faqs: [
       ["What do I need to provide?", "A sketch or visual references, the target customer, garment direction and any available size information are helpful. We clarify missing decisions before confirming the scope."],
       ["Can you document hand embroidery and beadwork?", "Yes. Placement, scale, artwork and application notes can be documented within the agreed scope. Physical testing and supplier execution remain separate stages."],
@@ -352,6 +359,7 @@ export const SOLUTIONS = [
     ctaSecondaryHref: "/blog/types-of-garment-samples",
     ctaSecondaryLabel: "Compare Sample Types",
     resources: [
+      ["Prepare a Saudi or GCC fashion development brief", "/resources/fashion-development-brief-checklist#saudi-arabia-projects"],
       ["Understand the main garment sample types", "/blog/types-of-garment-samples"],
       ["Prepare a design for manufacturer review", "/blog/prepare-design-for-manufacturer"],
       ["Review a production-ready tech pack structure", "/blog/tech-pack-example"],

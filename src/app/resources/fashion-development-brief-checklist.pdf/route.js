@@ -17,9 +17,9 @@ export async function GET() {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition":
-        'attachment; filename="Zameett-Fashion-Development-Brief-Checklist.pdf"',
+        'attachment; filename="Zameett-Fashion-Product-Development-Brief-Checklist.pdf"',
       "Content-Length": String(bytes.length),
-      "Cache-Control": "public, max-age=86400, s-maxage=604800",
+      "Cache-Control": "no-store",
       Link: '<https://zameett.com/resources/fashion-development-brief-checklist>; rel="canonical"',
     },
   });

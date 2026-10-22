@@ -26,7 +26,7 @@ export default function FashionBriefChecklistPromo() {
             <Link href="/resources/fashion-development-brief-checklist">
               Use the free checklist <span aria-hidden="true">&rarr;</span>
             </Link>
-            <a href="/resources/fashion-development-brief-checklist.pdf" download>
+            <a href="/resources/fashion-development-brief-checklist.pdf?v=20261022" download>
               Download PDF <span aria-hidden="true">&darr;</span>
             </a>
           </div>
@@ -47,7 +47,7 @@ export default function FashionBriefChecklistPromo() {
               </div>
             ))}
           </div>
-          <div className={styles.previewFoot}><span>PDF · 2 pages</span><span>Free download</span></div>
+          <div className={styles.previewFoot}><span>PDF · 3 pages</span><span>Free download</span></div>
         </div>
       </div>
     </section>

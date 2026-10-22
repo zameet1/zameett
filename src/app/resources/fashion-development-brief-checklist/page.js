@@ -6,8 +6,9 @@ import styles from "./page.module.css";
 
 const pagePath = "/resources/fashion-development-brief-checklist";
 const pdfPath = "/resources/fashion-development-brief-checklist.pdf";
-const title = "Fashion Development Brief Checklist | Free PDF";
-const description = "Download Zameett's free fashion development brief checklist to organise garment ideas, references, materials, quantities and project requirements before requesting a quote.";
+const pdfDownloadPath = `${pdfPath}?v=20261022`;
+const title = "Fashion Product Development Brief Checklist | Free PDF";
+const description = "Plan garment categories, materials, technical files, sample approvals, quantities, timing and destination before requesting fashion product-development support.";
 
 export const metadata = createPageMetadata({
   title,
@@ -32,6 +33,15 @@ const routes = [
   ["Modest-wear development", "Discuss project-specific sampling and production support for abayas and modest garments.", "/services/clothing-manufacturing"],
 ];
 
+const saudiConsiderations = [
+  ["01", "Customer, city and channel", "Name the Saudi customer, sales channel and intended city or destination instead of treating the whole market as one audience."],
+  ["02", "Climate and wearing context", "Separate outdoor heat, air-conditioned interiors, daily wear, occasion wear and seasonal launch needs before choosing fabric or lining."],
+  ["03", "Coverage, opacity and movement", "Record garment length, sleeve reach, opening coverage, layering, opacity, movement and closure expectations for the actual product."],
+  ["04", "Sizes and length strategy", "Use approved measurements, representative samples or customer evidence. Do not assume one generic size or length route fits every Saudi brand."],
+  ["05", "Labels and product information", "Name who will confirm Arabic and English product information, fibre, care, country-of-origin, packaging and other market requirements."],
+  ["06", "Landed cost and approvals", "Record the SAR retail target, sample and revision owner, importer, freight, duties, final destination and launch-window assumptions."],
+];
+
 const resourceSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -42,8 +52,8 @@ const resourceSchema = {
   isPartOf: { "@type": "WebSite", name: "Zameett", url: absoluteUrl("/") },
   mainEntity: {
     "@type": "CreativeWork",
-    name: "Zameett Fashion Development Brief Checklist",
-    description: "A free planning checklist for fashion design, technical development, sampling and project-quotation preparation.",
+    name: "Zameett Fashion Product Development Brief Checklist",
+    description: "A free planning checklist for fashion product development, technical documentation, sampling and project-quotation preparation, including Saudi Arabia and GCC market prompts.",
     url: absoluteUrl(pdfPath),
     encodingFormat: "application/pdf",
     isAccessibleForFree: true,
@@ -54,7 +64,7 @@ const resourceSchema = {
 const breadcrumbSchema = createBreadcrumbSchema([
   { name: "Home", path: "/" },
   { name: "Resources", path: "/blog" },
-  { name: "Fashion Development Brief Checklist", path: pagePath },
+  { name: "Fashion Product Development Brief Checklist", path: pagePath },
 ]);
 
 export default function FashionDevelopmentBriefChecklistPage() {
@@ -70,18 +80,18 @@ export default function FashionDevelopmentBriefChecklistPage() {
               <h1>Prepare a clearer brief <em>before the project begins.</em></h1>
               <p className={styles.lede}>
                 Organise the information a fashion designer, technical developer, sampling team or
-                reviewed supplier route may need. Complete what you know now and use the checklist
-                to identify the decisions still open.
+                reviewed supplier route may need. Complete what you know now, use the checklist to
+                identify open decisions and review the optional Saudi Arabia and GCC planning module.
               </p>
               <div className={styles.heroActions}>
-                <a className="btn btn-gold" href={pdfPath} download>Download Free PDF <span aria-hidden="true">&darr;</span></a>
+                <a className="btn btn-gold" href={pdfDownloadPath} download>Download Free PDF <span aria-hidden="true">&darr;</span></a>
                 <Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Send Your Brief</Link>
               </div>
-              <div className={styles.heroNotes} role="list" aria-label="Resource details"><span role="listitem">No sign-up</span><span role="listitem">Two-page PDF</span><span role="listitem">Worldwide projects</span></div>
+              <div className={styles.heroNotes} role="list" aria-label="Resource details"><span role="listitem">No sign-up</span><span role="listitem">Three-page PDF</span><span role="listitem">Worldwide projects</span></div>
             </div>
 
-            <div className={`${styles.document} reveal`} style={{ "--reveal-delay": "90ms" }} role="img" aria-label="Fashion Development Brief Checklist preview">
-              <div className={styles.documentHeader}><small>Zameett project resource</small><strong>Fashion Development<br />Brief Checklist</strong></div>
+            <div className={`${styles.document} reveal`} style={{ "--reveal-delay": "90ms" }} role="img" aria-label="Fashion Product Development Brief Checklist preview">
+              <div className={styles.documentHeader}><small>Zameett project resource</small><strong>Fashion Product Development<br />Brief Checklist</strong></div>
               <div className={styles.documentRows}>
                 {["Brand & contact", "Collection outline", "Product decisions", "Materials & trims", "Files to share", "Commercial checkpoints"].map((item, index) => (
                   <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong><i aria-hidden="true" /></div>
@@ -119,6 +129,35 @@ export default function FashionDevelopmentBriefChecklistPage() {
           </div>
         </section>
 
+        <section className={styles.saudi} id="saudi-arabia-projects" aria-labelledby="saudi-projects-title">
+          <div className={`inner ${styles.saudiGrid}`}>
+            <div className={`${styles.saudiIntro} reveal`}>
+              <p className={styles.eyebrow}>Saudi Arabia &amp; GCC planning module</p>
+              <h2 id="saudi-projects-title">Prepare for the market, <em>not only the garment.</em></h2>
+              <p>
+                Zameett is based in Pakistan and works with international projects. For a collection
+                intended for Saudi Arabia, the brief should identify the customer, climate, modest-wear
+                requirements, commercial route and final destination before sampling or production is scoped.
+              </p>
+              <div className={styles.saudiLinks}>
+                <Link href="/solutions/abaya-tech-pack-designer">Review abaya tech-pack requirements <span aria-hidden="true">&rarr;</span></Link>
+                <Link href="/solutions/fashion-sampling-services">Plan a garment sampling route <span aria-hidden="true">&rarr;</span></Link>
+              </div>
+            </div>
+            <div className={styles.saudiCards}>
+              {saudiConsiderations.map(([number, heading, text], index) => (
+                <article className="reveal" style={{ "--reveal-delay": `${index * 45}ms` }} key={heading}>
+                  <span>{number}</span><div><h3>{heading}</h3><p>{text}</p></div>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className={`inner ${styles.saudiNote} reveal`}>
+            <strong>Market requirements must be verified for the actual route.</strong>
+            <p>This planning module is not regulatory, customs or legal advice. The brand and its importer should confirm current Saudi import, textile, labelling, consumer, tax and product-information requirements with the relevant authorities and qualified advisers before sale.</p>
+          </div>
+        </section>
+
         <section className={styles.next} aria-labelledby="checklist-next-title">
           <div className="inner">
             <div className={`${styles.sectionHeading} reveal`}><div><p className={styles.eyebrow}>Choose the closest next step</p><h2 id="checklist-next-title">Use the brief with the <em>right service route.</em></h2></div><p>Every project is scoped around its actual garment, files, materials and intended outcome.</p></div>
@@ -137,7 +176,7 @@ export default function FashionDevelopmentBriefChecklistPage() {
         </section>
 
         <section className={styles.finalCta}>
-          <div className="inner reveal"><p className={styles.eyebrow}>Ready when your brief is</p><h2>Download it now, then send the details <em>when you are ready.</em></h2><div><a className="btn btn-gold" href={pdfPath} download>Download Free PDF</a><Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Start Your Project</Link></div></div>
+          <div className="inner reveal"><p className={styles.eyebrow}>Ready when your brief is</p><h2>Download it now, then send the details <em>when you are ready.</em></h2><div><a className="btn btn-gold" href={pdfDownloadPath} download>Download Free PDF</a><Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Start Your Project</Link></div></div>
         </section>
       </main>
       <Footer />

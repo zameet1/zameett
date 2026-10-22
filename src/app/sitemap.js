@@ -15,7 +15,7 @@ function entry(path, { lastModified, changeFrequency, priority }) {
   };
 }
 export default function sitemap() {
-  const checklistUpdated = "2026-10-21";
+  const checklistUpdated = "2026-10-22";
   const entries = [
     ...PUBLIC_STATIC_ROUTES.filter((route) => SHOP_ENABLED || route !== "/shop").map((route) => entry(route, {
       ...(route === "/resources/fashion-development-brief-checklist" ? { lastModified: checklistUpdated } : {}),

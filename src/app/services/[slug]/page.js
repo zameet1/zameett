@@ -51,6 +51,7 @@ export default async function GigPage({ params }) {
       ["Prepare textile artwork for production", "/blog/prepare-textile-print-for-production"],
     ],
     "clothing-manufacturing": [
+      ["Prepare your fashion product-development brief", "/resources/fashion-development-brief-checklist#saudi-arabia-projects"],
       ["Private-label abaya manufacturing guide", "/blog/private-label-abaya-manufacturing"],
       ["How to compare modest-fashion manufacturers", "/blog/modest-fashion-manufacturer-pakistan"],
       ["How abaya MOQ works", "/blog/abaya-manufacturer-moq"],
