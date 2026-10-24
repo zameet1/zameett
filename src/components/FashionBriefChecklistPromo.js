@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TrackedDownloadLink from "./TrackedDownloadLink";
 import styles from "./FashionBriefChecklistPromo.module.css";
 
 const checklistSections = [
@@ -26,9 +27,13 @@ export default function FashionBriefChecklistPromo() {
             <Link href="/resources/fashion-development-brief-checklist">
               Use the free checklist <span aria-hidden="true">&rarr;</span>
             </Link>
-            <a href="/resources/fashion-development-brief-checklist.pdf?v=20261022" download>
+            <TrackedDownloadLink
+              href="/resources/fashion-development-brief-checklist.pdf?v=20261022"
+              linkLocation="fashion_brief_promo"
+              resourceName="fashion_development_brief_checklist"
+            >
               Download PDF <span aria-hidden="true">&darr;</span>
-            </a>
+            </TrackedDownloadLink>
           </div>
           <small>No sign-up required. Complete only what you know; missing details can be reviewed during scope confirmation.</small>
         </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import TrackedDownloadLink from "@/components/TrackedDownloadLink";
 import { absoluteUrl, createBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
@@ -84,7 +85,14 @@ export default function FashionDevelopmentBriefChecklistPage() {
                 identify open decisions and review the optional Saudi Arabia and GCC planning module.
               </p>
               <div className={styles.heroActions}>
-                <a className="btn btn-gold" href={pdfDownloadPath} download>Download Free PDF <span aria-hidden="true">&darr;</span></a>
+                <TrackedDownloadLink
+                  className="btn btn-gold"
+                  href={pdfDownloadPath}
+                  linkLocation="resource_hero"
+                  resourceName="fashion_development_brief_checklist"
+                >
+                  Download Free PDF <span aria-hidden="true">&darr;</span>
+                </TrackedDownloadLink>
                 <Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Send Your Brief</Link>
               </div>
               <div className={styles.heroNotes} role="list" aria-label="Resource details"><span role="listitem">No sign-up</span><span role="listitem">Three-page PDF</span><span role="listitem">Worldwide projects</span></div>
@@ -176,7 +184,7 @@ export default function FashionDevelopmentBriefChecklistPage() {
         </section>
 
         <section className={styles.finalCta}>
-          <div className="inner reveal"><p className={styles.eyebrow}>Ready when your brief is</p><h2>Download it now, then send the details <em>when you are ready.</em></h2><div><a className="btn btn-gold" href={pdfDownloadPath} download>Download Free PDF</a><Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Start Your Project</Link></div></div>
+          <div className="inner reveal"><p className={styles.eyebrow}>Ready when your brief is</p><h2>Download it now, then send the details <em>when you are ready.</em></h2><div><TrackedDownloadLink className="btn btn-gold" href={pdfDownloadPath} linkLocation="resource_final_cta" resourceName="fashion_development_brief_checklist">Download Free PDF</TrackedDownloadLink><Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Start Your Project</Link></div></div>
         </section>
       </main>
       <Footer />

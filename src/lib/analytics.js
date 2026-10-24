@@ -1,3 +1,5 @@
+import { readBrowserConsent } from "@/lib/attribution";
+
 const ALLOWED_PARAMETER_TYPES = new Set(["string", "number", "boolean"]);
 
 export function trackAnalyticsEvent(eventName, parameters = {}) {
@@ -30,4 +32,24 @@ export function trackOpenAIAdsCustomEvent(customEventName) {
     { type: "custom" },
     { custom_event_name: customEventName },
   );
+}
+
+export function trackWhopEvent(eventName, parameters = {}) {
+  if (
+    typeof window === "undefined" ||
+    typeof window.whop?.track !== "function" ||
+    !readBrowserConsent().advertising ||
+    !/^[a-z0-9](?:[a-z0-9_-]{0,248}[a-z0-9])?$/.test(eventName)
+  ) return;
+
+  const safeParameters = Object.fromEntries(
+    Object.entries(parameters).filter(([, value]) => ALLOWED_PARAMETER_TYPES.has(typeof value)),
+  );
+
+  if (Object.keys(safeParameters).length) {
+    window.whop.track(eventName, safeParameters);
+    return;
+  }
+
+  window.whop.track(eventName);
 }

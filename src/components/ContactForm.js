@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { GIGS } from "@/app/services/gigs";
 import { SOLUTIONS } from "@/app/solutions/solutions";
 import { PRICING_PACKAGES } from "@/data/pricing";
-import { trackAnalyticsEvent, trackOpenAIAdsCustomEvent } from "@/lib/analytics";
+import { trackAnalyticsEvent, trackOpenAIAdsCustomEvent, trackWhopEvent } from "@/lib/analytics";
 import { attributionToContactFields, readBrowserAttribution } from "@/lib/attribution";
 import TrackedContactLink from "./TrackedContactLink";
 import styles from "./ContactForm.module.css";
@@ -224,6 +224,7 @@ export default function ContactForm({ initialService = "", initialPackageParam =
         send_to: GOOGLE_ADS_LEAD_CONVERSION,
       });
       trackOpenAIAdsCustomEvent("lead_form_submit");
+      trackWhopEvent("lead");
       form.reset();
       setService("");
       setPackageParam("");
