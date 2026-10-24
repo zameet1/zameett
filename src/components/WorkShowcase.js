@@ -25,7 +25,7 @@ export default function WorkShowcase({ compact = false }) {
         </div>
         <div className="work-showcase-grid">
           {WORK.map((item, index) => (
-            <a href="/portfolio#portfolio-gallery" className="work-showcase-card reveal" key={item.image}>
+            <article className="work-showcase-card reveal" key={item.image}>
               <CoverImage
                 src={item.image}
                 alt={`Zameett ${item.label.toLowerCase()} portfolio work`}
@@ -33,7 +33,7 @@ export default function WorkShowcase({ compact = false }) {
               />
               <span className="work-showcase-index">{String(index + 1).padStart(2, "0")}</span>
               <div><small>{item.label}</small><h3>{item.title}</h3></div>
-            </a>
+            </article>
           ))}
         </div>
       </div>

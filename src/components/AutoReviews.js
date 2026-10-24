@@ -65,7 +65,7 @@ export default function AutoReviews() {
   }
 
   if (!liveReviews.length) return <>
-    <p className="t-rating">Verified public review sources are not connected yet. Until they are, start with evidence you can inspect directly.</p>
+    <p className="t-rating">Review the work, scope, workflow and production controls before you decide.</p>
     <div className="trust-evidence-grid reveal">
       {EVIDENCE_LINKS.map((item, index) => <a className="trust-evidence-card" href={item.href} key={item.title}>
         <span>{String(index + 1).padStart(2, "0")} · {item.label}</span>

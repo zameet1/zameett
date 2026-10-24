@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { GIGS } from "@/app/services/gigs";
-import { SOLUTIONS } from "@/app/solutions/solutions";
 import { PRICING_PACKAGES } from "@/data/pricing";
 import { trackAnalyticsEvent, trackOpenAIAdsCustomEvent, trackWhopEvent } from "@/lib/analytics";
 import { attributionToContactFields, readBrowserAttribution } from "@/lib/attribution";
@@ -12,14 +10,13 @@ import styles from "./ContactForm.module.css";
 const CUSTOM = "__custom__";
 const GOOGLE_ADS_LEAD_CONVERSION = "AW-18258289518/UDVqCKWikNYcEO7GnYJE";
 const MAX_FILES_BYTES = 5 * 1024 * 1024;
-const BASE_SERVICES = [
-  "Fashion Design & Product Development",
-  "Design & Tech Packs Only",
-  "Sampling",
+const SERVICE_CHOICES = [
+  "Fashion Design & Tech Packs",
+  "Textile Print Design",
+  "Sampling & Fit Review",
   "Modest-Wear Manufacturing",
-  "Embroidery & Textile Prints",
-  "Production Review",
-  "Not sure yet. I need guidance",
+  "Supply Chain or Quality Support",
+  "Not sure — help me choose",
 ];
 const STEP_LABELS = ["Your details", "Project scope", "References & consent"];
 
@@ -57,10 +54,34 @@ function getPackagePrefill(packageParam) {
 }
 
 function getServicePrefill(serviceValue) {
-  if (serviceValue === "Custom Editable Tech-Pack Template") {
+  if (["Custom Editable Tech-Pack Template", "Fashion Design & Tech Packs"].includes(serviceValue)) {
     return {
       productCategory: "",
       projectRoute: "Design / technical development only",
+      numberOfStyles: "",
+    };
+  }
+
+  if (serviceValue === "Textile Print Design") {
+    return {
+      productCategory: "Textile print / surface pattern",
+      projectRoute: "Design / technical development only",
+      numberOfStyles: "",
+    };
+  }
+
+  if (serviceValue === "Sampling & Fit Review") {
+    return {
+      productCategory: "",
+      projectRoute: "Sample development",
+      numberOfStyles: "",
+    };
+  }
+
+  if (serviceValue === "Modest-Wear Manufacturing") {
+    return {
+      productCategory: "Modest wear / abaya",
+      projectRoute: "Sampling and manufacturing",
       numberOfStyles: "",
     };
   }
@@ -73,7 +94,7 @@ function getServicePrefill(serviceValue) {
     };
   }
 
-  if (serviceValue === "Production Management") {
+  if (["Production Management", "Supply Chain or Quality Support"].includes(serviceValue)) {
     return {
       productCategory: "",
       projectRoute: "Production management / coordination",
@@ -136,15 +157,12 @@ export default function ContactForm({ initialService = "", initialPackageParam =
     }, 140);
     return () => window.clearTimeout(scrollTimer);
   }, []);
-  const serviceOptions = useMemo(
-    () => [...new Set([
-      ...PRICING_PACKAGES.map((item) => item.name),
-      ...GIGS.map((item) => item.serviceValue),
-      ...SOLUTIONS.map((item) => item.contactValue),
-      ...BASE_SERVICES,
-    ])],
-    [],
-  );
+  const serviceOptions = useMemo(() => {
+    if (service && !SERVICE_CHOICES.includes(service) && service !== CUSTOM) {
+      return [service, ...SERVICE_CHOICES];
+    }
+    return SERVICE_CHOICES;
+  }, [service]);
 
   function applyRequestPrefill(nextService, nextPackageParam) {
     const packagePrefill = getPackagePrefill(nextPackageParam);
@@ -320,9 +338,9 @@ export default function ContactForm({ initialService = "", initialPackageParam =
         </div>
         {packageParam && <p className={styles.selectedPackage}>Package, service and applicable scope fields are pre-filled below. Please confirm the remaining project details.</p>}
         <div className="form-group">
-          <label htmlFor="service">Service Required *</label>
+          <label htmlFor="service">What do you need help with? *</label>
           <select id="service" name="Service Required" required value={service} onChange={handleServiceChange}>
-            <option value="" disabled>What do you need?</option>
+            <option value="" disabled>Choose the closest option</option>
             {serviceOptions.map((option) => <option key={option} value={option}>{option}</option>)}
             <option value={CUSTOM}>Custom / something else</option>
           </select>
@@ -355,18 +373,19 @@ export default function ContactForm({ initialService = "", initialPackageParam =
           <div className="form-group"><label htmlFor="communication">Preferred Communication</label><select id="communication" name="Preferred Communication" defaultValue="Email"><option>Email</option><option>WhatsApp</option><option>Video call</option></select></div>
           <div className="form-group"><label htmlFor="nda">NDA Required?</label><select id="nda" name="NDA Required" defaultValue="No"><option>No</option><option>Yes</option><option>Discuss first</option></select></div>
         </div>
-        <div className="form-row">
-          <div className="form-group"><label htmlFor="heard">How Did You Hear About Us?</label><select id="heard" name="How Did You Hear About Us" defaultValue=""><option value="">Select</option><option>Google</option><option>Instagram</option><option>Pinterest</option><option>Fiverr</option><option>Referral</option><option>Other</option></select></div>
-          <div className="form-group"><label htmlFor="large-files">Large File Link</label><input id="large-files" type="url" name="Google Drive or WeTransfer Link" maxLength="500" placeholder="https://" /></div>
-        </div>
-        <fieldset className="contact-files">
-          <legend>Optional Reference Files</legend><p>PDF, JPG, PNG or ZIP. Maximum 5 MB total.</p>
-          <div className="form-row">
-            <div className="form-group"><label htmlFor="references">References</label><input id="references" type="file" name="Reference File" accept=".pdf,.jpg,.jpeg,.png,.zip,application/pdf,image/jpeg,image/png,application/zip" /></div>
-            <div className="form-group"><label htmlFor="sketch">Sketch</label><input id="sketch" type="file" name="Sketch File" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" /></div>
-          </div>
-          <div className="form-group"><label htmlFor="tech-pack">Existing Tech Pack</label><input id="tech-pack" type="file" name="Tech Pack File" accept=".pdf,.zip,application/pdf,application/zip" /></div>
-        </fieldset>
+        <div className="form-group"><label htmlFor="heard">How Did You Hear About Us?</label><select id="heard" name="How Did You Hear About Us" defaultValue=""><option value="">Select</option><option>Google</option><option>Instagram</option><option>Pinterest</option><option>Fiverr</option><option>Referral</option><option>Other</option></select></div>
+        <details className={styles.optionalFiles}>
+          <summary>Add optional references or files <span aria-hidden="true">+</span></summary>
+          <div className="form-group"><label htmlFor="large-files">Google Drive or WeTransfer Link</label><input id="large-files" type="url" name="Google Drive or WeTransfer Link" maxLength="500" placeholder="https://" /></div>
+          <fieldset className="contact-files">
+            <legend>Upload small files</legend><p>PDF, JPG, PNG or ZIP. Maximum 5 MB total.</p>
+            <div className="form-row">
+              <div className="form-group"><label htmlFor="references">References</label><input id="references" type="file" name="Reference File" accept=".pdf,.jpg,.jpeg,.png,.zip,application/pdf,image/jpeg,image/png,application/zip" /></div>
+              <div className="form-group"><label htmlFor="sketch">Sketch</label><input id="sketch" type="file" name="Sketch File" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" /></div>
+            </div>
+            <div className="form-group"><label htmlFor="tech-pack">Existing Tech Pack</label><input id="tech-pack" type="file" name="Tech Pack File" accept=".pdf,.zip,application/pdf,application/zip" /></div>
+          </fieldset>
+        </details>
         {fileError && <p className="form-error" role="alert">{fileError}</p>}
         <div className="form-group"><label htmlFor="message">Project Details *</label><textarea id="message" name="Message" maxLength="4000" required placeholder="Describe your collection, fabrics, quantities, target customer and important constraints." /></div>
         <label className="form-consent"><input type="checkbox" name="Privacy Consent" value="Accepted" required /><span>I have read the <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and consent to Zameett using these details to respond to my enquiry. *</span></label>

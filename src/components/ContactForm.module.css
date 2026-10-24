@@ -18,7 +18,11 @@
 .stepHeading{padding-bottom:18px;border-bottom:1px solid var(--line)}.stepHeading>span{color:var(--gold-deep);font:600 8px/1 var(--font-jost),sans-serif;letter-spacing:.15em;text-transform:uppercase}
 .stepHeading h3{margin-top:7px;color:var(--burg);font-size:clamp(25px,3vw,33px);line-height:1.08}.stepHeading p{margin-top:7px;color:var(--muted);font-size:12px;line-height:1.65}
 .selectedPackage{padding:13px 15px;border-left:3px solid var(--gold);color:var(--mid);background:var(--gold-pale);font-size:12px;line-height:1.6}.selectedPackage strong{color:var(--burg)}
+.optionalFiles{border:1px solid var(--line);background:rgba(255,255,255,.46)}
+.optionalFiles summary{display:flex;min-height:54px;align-items:center;justify-content:space-between;gap:16px;padding:13px 15px;color:var(--burg);cursor:pointer;font:700 9px/1.4 var(--font-jost),sans-serif;letter-spacing:.09em;list-style:none;text-transform:uppercase}
+.optionalFiles summary::-webkit-details-marker{display:none}.optionalFiles summary span{display:grid;width:25px;height:25px;flex:0 0 auto;place-items:center;border-radius:50%;color:var(--ivory);background:var(--burg);font-size:16px;transition:transform .2s ease}.optionalFiles[open] summary span{transform:rotate(45deg)}
+.optionalFiles>div,.optionalFiles>fieldset{margin:0 15px 15px}.optionalFiles>fieldset{padding-top:15px;border-top:1px solid var(--line)}
 .actions{display:flex;justify-content:flex-end;gap:10px;padding-top:4px}.actions button{min-width:150px}
 @media(max-width:700px){.prefillSummary{grid-template-columns:1fr;padding:18px}.prefillSummary dl{grid-template-columns:1fr}.prefillSummary dl div,.prefillSummary dl div:first-child{border-left:0;border-top:1px solid var(--line)}.prefillSummary dl div:first-child{border-top:0}}
 @media(max-width:560px){.progress button{min-height:52px;padding:8px 4px;font-size:7px;letter-spacing:.05em}.progress button span{font-size:15px}.actions{display:grid;grid-template-columns:1fr}.actions button{width:100%}}
-@media(prefers-reduced-motion:reduce){.prefillSummary{animation:none}.progress button{transition:none}}
+@media(prefers-reduced-motion:reduce){.prefillSummary{animation:none}.progress button,.optionalFiles summary span{transition:none}}

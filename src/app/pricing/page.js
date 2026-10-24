@@ -59,7 +59,7 @@ const pricingSchema = {
       "@type": "Offer",
       price: pricingPackage.price,
       priceCurrency: "USD",
-      url: pricingPackage.checkoutUrl,
+      url: `${siteUrl}/pricing#package-${pricingPackage.slug}`,
       itemOffered: {
         "@type": "Service",
         name: pricingPackage.name,
