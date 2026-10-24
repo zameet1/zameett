@@ -95,7 +95,8 @@
 .packageList li{position:relative;padding-left:18px;color:var(--mid);font-size:11px;line-height:1.6}
 .packageList li+li{margin-top:7px}
 .packageList li::before{position:absolute;left:0;color:var(--gold-deep);content:"\2713"}
-.packageCta{display:flex;min-height:50px;align-items:center;justify-content:space-between;gap:15px;margin-top:auto;padding:14px 17px;color:var(--gold-lt);background:var(--burg);font:700 8px/1.4 var(--font-jost),sans-serif;letter-spacing:.1em;text-transform:uppercase;transition:background-color .25s ease}
+.packageCta{display:flex;min-height:50px;align-items:center;justify-content:space-between;gap:15px;margin-top:auto;padding:14px 17px;color:var(--gold-lt);background:var(--burg);font:700 9.5px/1.4 var(--font-jost),sans-serif;letter-spacing:.09em;text-transform:uppercase;transition:background-color .25s ease}
+.packagePayLink{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:11px;color:var(--muted);font:600 10px/1.45 var(--font-jost),sans-serif;letter-spacing:.03em;text-align:center;text-decoration:underline;text-decoration-color:rgba(201,169,110,.7);text-underline-offset:4px}
 .pricingFooter{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center;margin-top:30px;padding:clamp(24px,3vw,34px);border:1px solid rgba(232,213,176,.2);border-radius:var(--radius-md);background:rgba(20,4,12,.24)}
 .pricingFooter p{max-width:800px;color:rgba(250,247,242,.63);font-size:12px;line-height:1.75}
 .pricingFooter p strong{color:var(--gold-lt)}
@@ -127,7 +128,7 @@
   .jumpRail a:hover span{color:var(--gold)}
   .routeCard:hover,.packageCard:hover,.offerCard:hover,.detailPackageCard:hover{transform:translateY(-6px);border-color:rgba(201,169,110,.72);box-shadow:0 30px 74px -38px rgba(53,9,32,.38)}
   .routeCard:hover::after{transform:scaleX(1)}
-  .heroPanel>a:hover span,.routeCard>a:hover span,.offerCard>a:hover span,.packageCta:hover span{transform:translateX(4px)}
+  .heroPanel>a:hover span,.routeCard>a:hover span,.offerCard>a:hover span,.packageCta:hover span,.packagePayLink:hover span{transform:translateX(4px)}
   .packageCta:hover{background:var(--burg-deep)}
 }
 
@@ -177,7 +178,7 @@
   .detailPriceSignal>div+div{padding-left:0;border-top:1px solid var(--line);border-left:0}
 }
 @media(prefers-reduced-motion:reduce){
-  .routeCard,.packageCard,.offerCard,.detailPackageCard,.heroPanel>a span,.routeCard>a span,.offerCard>a span,.packageCta span{transition:none}
+  .routeCard,.packageCard,.offerCard,.detailPackageCard,.heroPanel>a span,.routeCard>a span,.offerCard>a span,.packageCta span,.packagePayLink span{transition:none}
 }
 
 /* PREMIUM SERVICES EXPERIENCE V2 */

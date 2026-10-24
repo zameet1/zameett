@@ -83,17 +83,19 @@ function PackageCard({ pricingPackage, index }) {
         <ul>{pricingPackage.exclusions.map((item) => <li key={item}>{item}</li>)}</ul>
       </details>
 
+      <Link className={styles.packageCta} href={contactUrl}>
+        Confirm This Package <span className={styles.ctaPrice}>From ${pricingPackage.price.toLocaleString("en-US")} USD</span><span aria-hidden="true">→</span>
+      </Link>
       <a
-        className={styles.packageCta}
+        className={styles.packageHelp}
         href={pricingPackage.checkoutUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Buy ${pricingPackage.name} on Whop (opens in a new tab)`}
+        aria-label={`Pay for the approved ${pricingPackage.name} package on Whop (opens in a new tab)`}
         onClick={trackCheckout}
       >
-        Buy on Whop <span className={styles.ctaPrice}>${pricingPackage.price.toLocaleString("en-US")} USD</span><span aria-hidden="true">↗</span>
+        Already approved? Pay on Whop <span aria-hidden="true">↗</span>
       </a>
-      <Link className={styles.packageHelp} href={contactUrl}>Confirm scope or ask a question first</Link>
     </article>
   );
 }
