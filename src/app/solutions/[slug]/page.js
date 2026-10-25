@@ -72,7 +72,7 @@ export default async function SolutionPage({ params }) {
         "@type": "Offer",
         price: item.price,
         priceCurrency: "USD",
-        url: item.checkoutUrl,
+        url: `${siteUrl}/pricing#package-${item.slug}`,
         itemOffered: {
           "@type": "Service",
           name: item.name,
