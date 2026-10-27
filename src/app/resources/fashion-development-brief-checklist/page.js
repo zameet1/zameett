@@ -2,7 +2,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import TrackedDownloadLink from "@/components/TrackedDownloadLink";
-import { absoluteUrl, createBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import { ORGANIZATION_ID, WEBSITE_ID, absoluteUrl, createBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 const pagePath = "/resources/fashion-development-brief-checklist";
@@ -50,15 +50,16 @@ const resourceSchema = {
   description,
   url: absoluteUrl(pagePath),
   inLanguage: "en",
-  isPartOf: { "@type": "WebSite", name: "Zameett", url: absoluteUrl("/") },
+  isPartOf: { "@id": WEBSITE_ID },
   mainEntity: {
     "@type": "CreativeWork",
+    "@id": absoluteUrl(pdfPath) + "#resource",
     name: "Zameett Fashion Product Development Brief Checklist",
     description: "A free planning checklist for fashion product development, technical documentation, sampling and project-quotation preparation, including Saudi Arabia and GCC market prompts.",
     url: absoluteUrl(pdfPath),
     encodingFormat: "application/pdf",
     isAccessibleForFree: true,
-    provider: { "@type": "Organization", name: "Zameett", url: absoluteUrl("/") },
+    provider: { "@id": ORGANIZATION_ID },
   },
 };
 

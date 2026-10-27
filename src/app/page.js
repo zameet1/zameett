@@ -46,8 +46,8 @@ export default function HomePage() {
           <div className="hero-bg"><CoverImage src="/images/21.jpeg" alt="Zameett fashion design and modest-wear development" priority /></div>
           <div className="hero-inner"><div className="hero-content">
             <p className="hero-eyebrow">Fashion Design & Product Development · Pakistan</p>
-            <h1 className="hero-h1 home-hero-title">Build Your Fashion Collection.<em>Know Exactly What Comes Next.</em></h1>
-            <p className="hero-sub">Start with original fashion design, technical drawings, tech packs or textile prints. For modest wear and abayas, Zameett can also support sampling and manufacturing after reviewing your brief.</p>
+            <h1 className="hero-h1 home-hero-title">Fashion Design &amp; Tech Packs.<em>Build Your Collection With Clarity.</em></h1>
+            <p className="hero-sub">Zameett provides original fashion design, technical drawings, production-ready tech packs and textile print design for clothing brands. We also review sampling and manufacturing briefs mainly for modest wear and abayas, with project-specific scope and MOQ confirmed before payment.</p>
             <div className="hero-btns"><a href="#ways-to-work" className="btn btn-gold">Choose Your Service →</a><a href="/portfolio#portfolio-gallery" className="btn btn-outline-ivory">View Portfolio</a></div>
             <a href="/pricing" className="home-hero-quiet-link">Compare packages from $60 USD <span aria-hidden="true">→</span></a>
           </div></div>

@@ -1,6 +1,13 @@
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { SITE_URL, createBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import {
+  AHAD_MUBASHIR_ID,
+  ORGANIZATION_ID,
+  SITE_URL,
+  ZAMEET_MUBASHIR_ID,
+  createBreadcrumbSchema,
+  createPageMetadata,
+} from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Meet the Co-Founders",
@@ -10,6 +17,7 @@ export const metadata = createPageMetadata({
 
 const founders = [
   {
+    schemaId: AHAD_MUBASHIR_ID,
     initials: "AM",
     name: "Ahad Mubashir",
     role: "Co-Founder & Strategy / Operations Lead",
@@ -17,6 +25,7 @@ const founders = [
     responsibilities: ["Business strategy and service planning", "Client journey and project coordination", "Ecommerce and marketplace operations", "Growth systems and digital-platform management"],
   },
   {
+    schemaId: ZAMEET_MUBASHIR_ID,
     initials: "ZM",
     name: "Zameet Mubashir",
     role: "Co-Founder & Lead Fashion Designer",
@@ -29,12 +38,13 @@ const peopleSchema = {
   "@context": "https://schema.org",
   "@graph": founders.map((founder) => ({
     "@type": "Person",
+    "@id": founder.schemaId,
     name: founder.name,
     jobTitle: founder.role,
     description: founder.bio,
-    worksFor: { "@id": SITE_URL + "/#organization" },
+    worksFor: { "@id": ORGANIZATION_ID },
     workLocation: { "@type": "Place", name: "Lahore, Pakistan" },
-    url: SITE_URL + "/about/founders#" + founder.initials.toLowerCase(),
+    url: founder.schemaId,
   })),
 };
 

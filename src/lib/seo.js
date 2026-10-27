@@ -7,6 +7,8 @@ export const PUBLIC_STATIC_ROUTES = ["","/about","/about/founders","/services","
 export const PRIVATE_CRAWL_PATHS = ["/api/","/account","/admin","/auth/","/reset-password","/sign-in","/shop/success","/shop/*/checkout"];
 export const ORGANIZATION_ID = SITE_URL + "/#organization";
 export const WEBSITE_ID = SITE_URL + "/#website";
+export const AHAD_MUBASHIR_ID = SITE_URL + "/about/founders#ahad-mubashir";
+export const ZAMEET_MUBASHIR_ID = SITE_URL + "/about/founders#zameet-mubashir";
 
 export function absoluteUrl(path = "/") {
   if (path instanceof URL) return path.toString();
@@ -37,7 +39,22 @@ export function createSiteIdentitySchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Organization", "@id": ORGANIZATION_ID, name: SITE_NAME, alternateName: "Zameett Fashion Development", url: SITE_URL + "/", description: SITE_DESCRIPTION, logo: absoluteUrl("/icon.svg"), image: absoluteUrl(DEFAULT_SOCIAL_IMAGE.url), email: "hello@zameett.com", areaServed: "Worldwide", address: { "@type": "PostalAddress", addressCountry: "PK" }, contactPoint: { "@type": "ContactPoint", contactType: "customer support and sales", email: "hello@zameett.com" }, sameAs: VERIFIED_SOCIAL_PROFILES },
+      {
+        "@type": "Organization",
+        "@id": ORGANIZATION_ID,
+        name: SITE_NAME,
+        alternateName: "Zameett Fashion Development",
+        url: SITE_URL + "/",
+        description: SITE_DESCRIPTION,
+        logo: absoluteUrl("/icon.svg"),
+        image: absoluteUrl(DEFAULT_SOCIAL_IMAGE.url),
+        email: "hello@zameett.com",
+        areaServed: "Worldwide",
+        address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+        contactPoint: { "@type": "ContactPoint", contactType: "customer support and sales", email: "hello@zameett.com" },
+        founder: [{ "@id": AHAD_MUBASHIR_ID }, { "@id": ZAMEET_MUBASHIR_ID }],
+        sameAs: VERIFIED_SOCIAL_PROFILES,
+      },
       { "@type": "WebSite", "@id": WEBSITE_ID, url: SITE_URL + "/", name: SITE_NAME, alternateName: ["Zameett Fashion Development","zameett.com"], description: SITE_DESCRIPTION, publisher: { "@id": ORGANIZATION_ID }, inLanguage: "en" },
     ],
   };

@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import PricingExplorer from "@/components/PricingExplorer";
+import { ORGANIZATION_ID } from "@/lib/seo";
 import {
   IMPORTANT_INFORMATION,
   OPTIONAL_ADDONS,
@@ -47,10 +48,13 @@ const breadcrumbSchema = {
 const pricingSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": siteUrl + "/pricing#service",
   name: "Zameett fashion design and technical-development packages",
   description:
     "Fixed-scope fashion design, production-ready tech-pack and custom textile-print services for fashion brands worldwide.",
-  provider: { "@type": "Organization", name: "Zameett", url: siteUrl },
+  url: siteUrl + "/pricing",
+  mainEntityOfPage: siteUrl + "/pricing",
+  provider: { "@id": ORGANIZATION_ID },
   areaServed: "Worldwide",
   hasOfferCatalog: {
     "@type": "OfferCatalog",

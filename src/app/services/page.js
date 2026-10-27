@@ -4,6 +4,7 @@ import CoverImage from "@/components/CoverImage";
 import JsonLd from "@/components/JsonLd";
 import FashionBriefChecklistPromo from "@/components/FashionBriefChecklistPromo";
 import { getPackagesByCategory } from "@/data/pricing";
+import { ORGANIZATION_ID, canonicalUrl } from "@/lib/seo";
 import styles from "./services.module.css";
 
 const TECH_PACK_PACKAGES = getPackagesByCategory("design-techpack");
@@ -125,12 +126,15 @@ export const metadata = {
 
 const servicesSchema = SERVICE_ROUTES.map((route) => {
   const routePackages = route.number === "01" ? TECH_PACK_PACKAGES : route.number === "02" ? PRINT_PACKAGES : [];
+  const serviceUrl = canonicalUrl(route.href);
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": serviceUrl + "#service",
     name: route.title,
     description: route.text,
-    provider: { "@type": "Organization", name: "Zameett", url: "https://zameett.com" },
+    url: serviceUrl,
+    provider: { "@id": ORGANIZATION_ID },
     areaServed: "Worldwide",
     ...(routePackages.length
       ? {
