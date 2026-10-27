@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import { ORGANIZATION_ID } from "@/lib/seo";
 
 const siteUrl = "https://zameett.com";
 
@@ -20,9 +21,11 @@ export const metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": `${siteUrl}/supply-chain#service`,
   name: "Modest fashion supply chain and production support",
   url: `${siteUrl}/supply-chain`,
-  provider: { "@type": "Organization", name: "Zameett", url: siteUrl },
+  mainEntityOfPage: `${siteUrl}/supply-chain`,
+  provider: { "@id": ORGANIZATION_ID },
   areaServed: "Worldwide",
   serviceType: ["Fabric sourcing", "Garment sampling", "Production management", "Quality control"],
 };

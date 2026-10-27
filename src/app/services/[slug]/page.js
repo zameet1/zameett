@@ -7,7 +7,7 @@ import ServicePricingHighlight from "@/components/ServicePricingHighlight";
 import TechPackServiceExperience from "@/components/TechPackServiceExperience";
 import ModestWearDevelopment, { MODEST_WEAR_FAQS } from "@/components/ModestWearDevelopment";
 import TextilePatternDevelopment, { TEXTILE_PATTERN_FAQS } from "@/components/TextilePatternDevelopment";
-import { createPageMetadata } from "@/lib/seo";
+import { ORGANIZATION_ID, createPageMetadata } from "@/lib/seo";
 import { PRICING_FAQS, getPackagesByCategory } from "@/data/pricing";
 import { GIGS, getGig } from "../gigs";
 import styles from "../services.module.css";
@@ -61,14 +61,17 @@ export default async function GigPage({ params }) {
     ],
   }[gig.slug] || [];
   const visibleFaqs = gig.slug === "clothing-manufacturing" ? MODEST_WEAR_FAQS : gig.slug === "custom-textile-patterns" ? TEXTILE_PATTERN_FAQS : PRICING_FAQS.slice(0, 5);
+  const pageUrl = siteUrl + "/services/" + gig.slug;
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": pageUrl + "#service",
     name: gig.title,
     description: gig.metaDescription || gig.tagline,
-    url: siteUrl + "/services/" + gig.slug,
-    provider: { "@type": "Organization", name: "Zameett", url: siteUrl },
+    url: pageUrl,
+    mainEntityOfPage: pageUrl,
+    provider: { "@id": ORGANIZATION_ID },
     areaServed: "Worldwide",
     serviceType: gig.slug === "clothing-manufacturing" ? "Modest wear product development, sampling and manufacturing support" : gig.slug === "custom-textile-patterns" ? "Custom textile pattern design, seamless repeats and placement artwork" : "Fashion design and product development",
     image: siteUrl + gig.cover,
@@ -88,7 +91,7 @@ export default async function GigPage({ params }) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl + "/" },
       { "@type": "ListItem", position: 2, name: "Services", item: siteUrl + "/services" },
-      { "@type": "ListItem", position: 3, name: gig.title, item: siteUrl + "/services/" + gig.slug },
+      { "@type": "ListItem", position: 3, name: gig.title, item: pageUrl },
     ],
   };
   const faqSchema = {

@@ -2,6 +2,7 @@
 export const GIGS = [
   {
     slug: "fashion-tech-packs",
+    updatedDate: "2026-10-26",
     title: "Fashion Tech Pack Services & Technical Design",
     short: "Fashion Tech Packs",
     tagline: "Professional fashion design and production-ready tech packs for clothing brands preparing to sample, quote or manufacture.",
@@ -34,6 +35,7 @@ export const GIGS = [
   },
   {
     slug: "custom-textile-patterns",
+    updatedDate: "2026-10-26",
     title: "Custom Textile Print Design & Placement Artwork",
     short: "Textile Print Design",
     tagline: "Original seamless repeats, placement prints and colourways developed for apparel brands and prepared around the intended supplier workflow.",
@@ -67,6 +69,7 @@ export const GIGS = [
   },
   {
     slug: "clothing-manufacturing",
+    updatedDate: "2026-10-22",
     title: "Modest Wear Product Development & Manufacturing",
     short: "Modest Wear Development",
     tagline: "Specialist design, technical development, sampling and project-specific manufacturing support for abayas, kaftans, modest dresses and coordinated collections.",

@@ -23,8 +23,8 @@ export default function sitemap() {
       priority: route === "" ? 1 : ["/services","/portfolio","/contact","/pricing"].includes(route) ? 0.9 : 0.7,
     })),
     ...Object.keys(POLICIES).map((slug) => entry("/" + slug, { changeFrequency: "yearly", priority: 0.4 })),
-    ...GIGS.map((gig) => entry("/services/" + gig.slug, { changeFrequency: "monthly", priority: 0.8 })),
-    ...SOLUTIONS.map((solution) => entry("/solutions/" + solution.slug, { changeFrequency: "monthly", priority: 0.8 })),
+    ...GIGS.map((gig) => entry("/services/" + gig.slug, { lastModified: gig.updatedDate, changeFrequency: "monthly", priority: 0.8 })),
+    ...SOLUTIONS.map((solution) => entry("/solutions/" + solution.slug, { lastModified: solution.updatedDate, changeFrequency: "monthly", priority: 0.8 })),
     ...(SHOP_ENABLED ? PRODUCTS.map((product) => entry("/shop/" + product.slug, { changeFrequency: "monthly", priority: 0.7 })) : []),
     ...POSTS.map((post) => entry("/blog/" + post.slug, { lastModified: post.updatedDate || post.date, changeFrequency: "monthly", priority: 0.6 })),
   ];

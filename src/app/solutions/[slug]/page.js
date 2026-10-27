@@ -7,6 +7,7 @@ import ServicePricingHighlight from "@/components/ServicePricingHighlight";
 import AbayaTechPackAuthority from "@/components/AbayaTechPackAuthority";
 import SamplingStageGuide from "@/components/SamplingStageGuide";
 import { getPackagesByCategory } from "@/data/pricing";
+import { ORGANIZATION_ID } from "@/lib/seo";
 import { SOLUTIONS, getSolution } from "../solutions";
 
 export const dynamicParams = false;
@@ -59,11 +60,13 @@ export default async function SolutionPage({ params }) {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": pageUrl + "#service",
     name: solution.keyword,
     description: solution.description,
     url: pageUrl,
+    mainEntityOfPage: pageUrl,
     image: `${siteUrl}${solution.cover}`,
-    provider: { "@type": "Organization", name: "Zameett", url: siteUrl },
+    provider: { "@id": ORGANIZATION_ID },
     areaServed: "Worldwide",
     availableChannel: { "@type": "ServiceChannel", serviceUrl: `${siteUrl}/contact` },
     serviceType: solution.keyword,

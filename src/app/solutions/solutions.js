@@ -3,6 +3,7 @@ import { SHOP_ENABLED } from "../../lib/siteFlags.js";
 export const SOLUTIONS = [
   {
     slug: "abaya-manufacturer-pakistan",
+    updatedDate: "2026-10-21",
     keyword: "Abaya manufacturer in Pakistan",
     seoTitle: "Abaya Manufacturer in Pakistan for Modest Brands",
     keywords: [
@@ -62,6 +63,7 @@ export const SOLUTIONS = [
   },
   {
     slug: "private-label-modest-clothing-manufacturer",
+    updatedDate: "2026-10-11",
     keyword: "Private-label modest clothing manufacturer",
     seoTitle: "Private-Label Modest Clothing Manufacturer",
     keywords: [
@@ -120,6 +122,7 @@ export const SOLUTIONS = [
   },
   {
     slug: "low-moq-clothing-manufacturer-pakistan",
+    updatedDate: "2026-10-12",
     keyword: "Low MOQ clothing manufacturer Pakistan",
     seoTitle: "Low-MOQ Clothing Manufacturer in Pakistan",
     keywords: [
@@ -178,6 +181,7 @@ export const SOLUTIONS = [
   },
   {
     slug: "abaya-tech-pack-designer",
+    updatedDate: "2026-10-26",
     keyword: "Abaya tech pack designer",
     seoTitle: "Abaya Tech Pack Design Services for Fashion Brands",
     keywords: [
@@ -243,6 +247,7 @@ export const SOLUTIONS = [
   },
   {
     slug: "editable-fashion-tech-pack-template",
+    updatedDate: "2026-10-21",
     keyword: "Custom editable fashion tech-pack template design",
     seoTitle: "Custom Editable Tech Pack Template Design Service",
     keywords: [
@@ -325,6 +330,7 @@ export const SOLUTIONS = [
   },
   {
     slug: "fashion-sampling-services",
+    updatedDate: "2026-10-22",
     keyword: "Garment sampling and fitting service",
     seoTitle: "Garment Sampling & Fitting Services",
     keywords: [
@@ -379,6 +385,7 @@ export const SOLUTIONS = [
   },
   {
     slug: "fabric-sourcing-modest-fashion",
+    updatedDate: "2026-10-10",
     keyword: "Fabric sourcing for modest fashion",
     seoTitle: "Fabric Sourcing for Modest Fashion Brands",
     keywords: [
@@ -437,6 +444,7 @@ export const SOLUTIONS = [
   },
   {
     slug: "fashion-production-management",
+    updatedDate: "2026-10-09",
     keyword: "Fashion production management service",
     seoTitle: "Fashion Production Management Services",
     keywords: [
