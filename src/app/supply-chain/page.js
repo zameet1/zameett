@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { ORGANIZATION_ID } from "@/lib/seo";
 
 const siteUrl = "https://zameett.com";
@@ -48,6 +49,7 @@ const SUPPLIER_CHECKS = [
 export default function SupplyChainPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Supply Chain", path: "/supply-chain" }]} />
       <JsonLd data={serviceSchema} />
       <header className="page-hero supply-hero">
         <div className="inner">

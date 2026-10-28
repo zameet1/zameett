@@ -2,6 +2,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import JsonLd from "@/components/JsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import FashionBriefChecklistPromo from "@/components/FashionBriefChecklistPromo";
 import { getPackagesByCategory } from "@/data/pricing";
 import { ORGANIZATION_ID, canonicalUrl } from "@/lib/seo";
@@ -153,6 +154,7 @@ const servicesSchema = SERVICE_ROUTES.map((route) => {
 export default function Services() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Services", path: "/services" }]} />
       {servicesSchema.map((schema) => <JsonLd key={schema.name} data={schema} />)}
       <main>
         <header className={styles.hero + " page-hero service-hero"}>

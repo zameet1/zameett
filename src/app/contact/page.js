@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SocialLinks from "@/components/SocialLinks";
 import TrackedContactLink from "@/components/TrackedContactLink";
 import JsonLd from "@/components/JsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { GIGS } from "@/app/services/gigs";
 import { SOLUTIONS } from "@/app/solutions/solutions";
 import { getPricingPackage } from "@/data/pricing";
@@ -68,6 +69,7 @@ export default async function Contact({ searchParams }) {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]} />
       <JsonLd data={faqSchema} />
       <header className="page-hero contact-hero">
         <div className="inner">
