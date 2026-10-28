@@ -112,4 +112,7 @@ export const POLICIES = {
   },
 };
 
-export function getPolicy(slug) { return POLICIES[slug]; }
+export function getPolicy(slug) {
+  const policy = POLICIES[slug];
+  return policy ? { slug, ...policy } : undefined;
+}

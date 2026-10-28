@@ -1,9 +1,11 @@
 import Footer from "@/components/Footer";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({ title: "Privacy Policy", description: "How Zameett collects, uses, shares, stores and protects website, enquiry, account and order information.", path: "/privacy" });
 const Section = ({ title, children }) => <section className="legal-section"><h2 className="s-title">{title}</h2>{children}</section>;
 export default function Privacy() { return <>
+  <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy" }]} />
   <header className="page-hero legal-hero"><div className="inner"><p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Privacy Policy</p><h1>Privacy <em>Policy</em></h1><p>Last updated: September 6, 2026</p></div></header>
   <main className="services legal-page"><div className="inner legal-content"><p className="legal-lead">This policy explains how Zameett collects and uses information when you visit zameett.com, request a quote, create an account, purchase a digital product or enable browser notifications.</p>
     <Section title="Information you provide"><ul><li>Contact and brand details submitted through enquiry or quote forms.</li><li>Project information, reference files and links you choose to share.</li><li>Account identifiers, order records, delivery email and support messages.</li><li>Consent records, notification subscriptions and communication preferences.</li></ul></Section>

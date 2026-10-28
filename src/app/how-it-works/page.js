@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 const siteUrl = "https://zameett.com";
 
@@ -58,6 +59,7 @@ const howToSchema = {
 export default function HowItWorksPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "How It Works", path: "/how-it-works" }]} />
       <JsonLd data={howToSchema} />
       <header className="page-hero workflow-hero">
         <div className="inner">

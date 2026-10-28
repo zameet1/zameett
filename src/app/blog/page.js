@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import BlogExplorer from "@/components/BlogExplorer";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { createPageMetadata } from "@/lib/seo";
 import { POSTS } from "./posts";
 import { BLOG_CLUSTERS } from "./category";
@@ -40,6 +41,7 @@ export default function Blog() {
   const ordered = featured ? [featured, ...sorted.filter((post) => post.slug !== featured.slug)] : sorted;
 
   return <>
+    <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Journal", path: "/blog" }]} />
     <header className="blog-journal-hero">
       <div className="inner blog-journal-hero-grid">
         <div className="blog-journal-copy">
