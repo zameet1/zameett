@@ -16,11 +16,13 @@ function entry(path, { lastModified, changeFrequency, priority }) {
 }
 export default function sitemap() {
   const checklistUpdated = "2026-10-22";
+  const talaPortfolioUpdated = "2026-10-29";
   const entries = [
     ...PUBLIC_STATIC_ROUTES.filter((route) => SHOP_ENABLED || route !== "/shop").map((route) => entry(route, {
       ...(route === "/resources/fashion-development-brief-checklist" ? { lastModified: checklistUpdated } : {}),
+      ...(route === "/portfolio/tala-mahj" ? { lastModified: talaPortfolioUpdated } : {}),
       changeFrequency: route === "/blog" ? "weekly" : "monthly",
-      priority: route === "" ? 1 : ["/services","/portfolio","/contact","/pricing"].includes(route) ? 0.9 : 0.7,
+      priority: route === "" ? 1 : ["/services","/portfolio","/contact","/pricing"].includes(route) ? 0.9 : route === "/portfolio/tala-mahj" ? 0.8 : 0.7,
     })),
     ...Object.keys(POLICIES).map((slug) => entry("/" + slug, { changeFrequency: "yearly", priority: 0.4 })),
     ...GIGS.map((gig) => entry("/services/" + gig.slug, { lastModified: gig.updatedDate, changeFrequency: "monthly", priority: 0.8 })),
