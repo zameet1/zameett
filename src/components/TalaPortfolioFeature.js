@@ -32,7 +32,7 @@ export default function TalaPortfolioFeature() {
             </div>
             <div>
               <dt>Evidence</dt>
-              <dd>Traceable public source links</dd>
+              <dd>Five client-approved visual references</dd>
             </div>
             <div>
               <dt>Protection</dt>
@@ -43,14 +43,12 @@ export default function TalaPortfolioFeature() {
             <Link className="btn btn-gold" href={reference.path}>
               View the portfolio feature <span aria-hidden="true">→</span>
             </Link>
-            <a
-              className={styles.sourceLink}
-              href={reference.profileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              className="btn btn-outline-ivory"
+              href="/contact?service=custom-textile-patterns#get-in-touch"
             >
-              View public source <span aria-hidden="true">↗</span>
-            </a>
+              Discuss your project
+            </Link>
           </div>
         </div>
       </div>
