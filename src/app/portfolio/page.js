@@ -2,6 +2,8 @@ import PortfolioGallery from "@/components/PortfolioGallery";
 import Footer from "@/components/Footer";
 import CoverImage from "@/components/CoverImage";
 import JsonLd from "@/components/JsonLd";
+import TalaPortfolioFeature from "@/components/TalaPortfolioFeature";
+import { TALA_MAHJ_REFERENCE } from "@/data/caseStudies";
 import { PORTFOLIO_ITEMS } from "@/data/portfolio";
 
 const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
@@ -19,19 +21,36 @@ const portfolioSchema = {
   mainEntity: {
     "@type": "ItemList",
     itemListOrder: "https://schema.org/ItemListOrderAscending",
-    numberOfItems: PORTFOLIO_ITEMS.length,
-    itemListElement: PORTFOLIO_ITEMS.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      url: `https://zameett.com/portfolio#${item.slug}`,
-      item: {
-        "@type": "CreativeWork",
-        name: `${item.titleLead} ${item.titleEmphasis}`,
-        description: item.desc,
-        image: `https://zameett.com${item.src}`,
-        creator: { "@id": "https://zameett.com/#organization" },
+    numberOfItems: PORTFOLIO_ITEMS.length + 1,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        url: `https://zameett.com${TALA_MAHJ_REFERENCE.path}`,
+        item: {
+          "@type": "WebPage",
+          "@id": `https://zameett.com${TALA_MAHJ_REFERENCE.path}#webpage`,
+          name: TALA_MAHJ_REFERENCE.title,
+          description: TALA_MAHJ_REFERENCE.description,
+          primaryImageOfPage: {
+            "@type": "ImageObject",
+            contentUrl: `https://zameett.com${TALA_MAHJ_REFERENCE.heroImage.src}`,
+          },
+        },
       },
-    })),
+      ...PORTFOLIO_ITEMS.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 2,
+        url: `https://zameett.com/portfolio#${item.slug}`,
+        item: {
+          "@type": "CreativeWork",
+          name: `${item.titleLead} ${item.titleEmphasis}`,
+          description: item.desc,
+          image: `https://zameett.com${item.src}`,
+          creator: { "@id": "https://zameett.com/#organization" },
+        },
+      })),
+    ],
   },
 };
 
@@ -42,6 +61,7 @@ export default function Portfolio() { return <>
   <JsonLd data={portfolioSchema} />
   <header className="page-hero portfolio-hero"><div className="inner"><p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Portfolio</p><h1>Selected <em>development work.</em></h1><p>A curated set of fashion concepts, technical-development references, samples and finished modest-wear directions.</p><div className="page-hero-proof"><span>Design direction</span><span>Technical development</span><span>Sampling references</span></div></div></header>
   <section className="pf-feature portfolio-feature"><div className="inner"><div className="pff-media"><span className="pff-badge">Featured Development Reference</span><CoverImage src="/images/velvet-caftan.jpeg" alt="Maroon velvet caftan gown" objectPosition="center 22%" sizes="(max-width: 960px) 100vw, 55vw" priority /></div><div className="pff-copy"><p className="s-tag">Luxury Velvet Kaftan</p><h2>From concept to <em>sample direction.</em></h2><p><strong>Brief:</strong> Develop a formal modest silhouette with a rich evening finish and controlled embellishment placement.</p><p><strong>Zameett&apos;s role:</strong> Design direction, material review, detail placement and sample-stage development as shown in the approved project scope.</p><p><strong>Development focus:</strong> Drape, border scale, waist treatment, coverage and a finish suitable for formal styling.</p><div className="pff-meta"><div className="m"><b>Velvet</b><span>Material direction</span></div><div className="m"><b>Gota</b><span>Border detail</span></div><div className="m"><b>Sample</b><span>Approval stage</span></div></div></div></div></section>
+  <TalaPortfolioFeature />
   <section className="portfolio-disclosure"><div className="inner"><p><strong>Portfolio note:</strong> Selected projects are displayed with client permission or as Zameett studio references. Some branding and commercially sensitive details have been removed to protect client confidentiality. The role label on each item explains the work represented; not every project includes every service.</p></div></section>
   <section className="services" aria-labelledby="portfolio-evidence-heading"><div className="inner intent-overview-grid"><div className="reveal"><p className="s-tag">Evidence Standards</p><h2 className="s-title" id="portfolio-evidence-heading">Know what each <em>reference demonstrates.</em></h2><p className="s-body">Every portfolio card now separates the type of reference from Zameett&apos;s stated role. Client identities, confidential files and commercial outcomes remain unpublished unless a source and permission are available.</p></div><div className="intent-facts"><article className="reveal"><span>Development reference</span><p>Shows public visual evidence of the design, technical, print or sample-stage work described in that card&apos;s role label.</p></article><article className="reveal"><span>Studio reference</span><p>Shows a Zameett-created study or internal development example. It is not presented as a named client commission.</p></article><article className="reveal"><span>Outcome claims</span><p>Portfolio images demonstrate visible work, not sales, production volume or client results. Those claims will be added only when they can be sourced and published with permission.</p></article></div></div></section>
   <section className="pf-section portfolio-gallery-section" id="portfolio-gallery"><div className="inner"><PortfolioGallery /></div></section>

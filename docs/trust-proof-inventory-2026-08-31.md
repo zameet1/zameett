@@ -1,12 +1,13 @@
 # Zameett trust and proof inventory
 
-Reviewed: 2026-10-12
+Reviewed: 2026-10-29
 
 This inventory records only evidence that is public on `zameett.com` or directly represented in the repository. It is not permission to publish client identities, confidential files, sales outcomes, production volumes, reviews, certifications or other claims without a source and publication clearance.
 
 | Evidence area | Public evidence | Current strength | Safe public claim | Gap / next action |
 | --- | --- | --- | --- | --- |
-| Portfolio | 14 visual references on `/portfolio`; every card states Zameett's role; four cards are explicitly labelled as Zameett studio references | Moderate | The specific design, technical, print or sample-stage role shown on each card | Convert five permission-cleared projects into full case studies with brief, role, deliverables, decisions and sourced outcome |
+| Portfolio | 14 visual references on `/portfolio`, plus the permission-cleared Tala client feature at `/portfolio/tala-mahj`; every gallery card states Zameett's role; four cards are explicitly labelled as Zameett studio references | Moderate | The specific design, technical, print or sample-stage role shown on each gallery card; the Tala page is a client-approved public-source reference | Convert four more permission-cleared projects into full case studies with brief, role, deliverables, decisions and sourced outcome |
+| Tala client reference | Three first-party Tala visuals are reproduced as permanently watermarked, lower-resolution derivatives; five supplied Instagram sources are linked, while collaborative or third-party photography is link-only | Permission reported; sources traceable; scope not independently documented | Tala is a client-approved portfolio reference and the displayed visuals come from the linked public Tala sources | Archive the permission message and confirm the exact Zameett role, approved deliverables, project decisions and any publishable outcome before expanding the page into a full service case study |
 | Featured development reference | Velvet kaftan reference with brief, Zameett role, development focus, material direction, border detail and sample stage | Moderate | The visible brief, role and development focus | Confirm whether a client identity, approved deliverable excerpt or outcome can be published |
 | Textile-print proof | Public textile portfolio PDF plus visible print references; service page explicitly limits what the portfolio proves | Moderate | Visual direction and artwork capability shown in the published work | Add one permission-cleared project with brief, file deliverables and a sourced outcome |
 | Tech-pack proof | Service deliverables, workflow, package scope and related educational guides | Process proof only | Published scope, files and workflow | Add a redacted, permission-cleared tech-pack excerpt or case study |
@@ -28,3 +29,14 @@ Each case study must have all of the following before publication:
 5. An outcome stated no more strongly than its source supports.
 6. A confidentiality review with private measurements, supplier terms, prices and files removed or redacted.
 7. A canonical case-study URL, links to the relevant service and portfolio pages, and no review or rating schema unless independently verifiable.
+
+## Permission record log
+
+### Tala / @talamahj — 29 October 2026
+
+- **Approval basis:** Ahad Mubashir reported in the Zameett Codex conversation that the client approved use of the work in Zameett's portfolio.
+- **Public identity and source record:** `@talamahj`, `talamahj.com`, and the five Instagram links supplied in the same conversation.
+- **Published imagery scope:** three first-party Tala post or reel previews, converted to lower-resolution WebP derivatives with a permanent Zameett portfolio watermark and client-permission credit.
+- **Rights boundary:** the Suits & Satchels post and the Tala collaborative post remain external links only; their photography is not stored or reproduced on Zameett.
+- **Claim boundary:** the exact Zameett brief, role, deliverables, production responsibility and commercial outcomes are not documented in the repository, so the public page does not infer or claim them.
+- **Follow-up evidence needed:** retain a client permission screenshot or email in the private project record, then confirm which role, deliverables, decisions and outcomes may be published.
