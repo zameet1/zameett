@@ -18,7 +18,7 @@ const displayedImages = [reference.heroImage, ...reference.gallery];
 export const metadata = createPageMetadata({
   title: "Tala Luxury Mahjong Textile Portfolio Reference",
   description:
-    "Explore a client-approved Tala luxury mahjong textile portfolio feature with watermarked visuals, public source links and clear evidence boundaries.",
+    "Explore a client-approved Tala luxury mahjong textile portfolio feature with five protected, watermarked visuals and clear evidence boundaries.",
   path: reference.path,
   image: {
     url: reference.heroImage.src,
@@ -47,14 +47,12 @@ const referenceSchema = {
   about: {
     "@type": "Brand",
     name: reference.clientName,
-    url: reference.websiteUrl,
-    sameAs: [reference.profileUrl],
   },
   primaryImageOfPage: {
     "@type": "ImageObject",
     contentUrl: absoluteUrl(reference.heroImage.src),
     caption: reference.heroImage.caption,
-    creditText: "Tala public source; displayed by Zameett with client permission.",
+    creditText: "Tala; displayed by Zameett with client permission.",
   },
   mainEntity: {
     "@type": "ItemList",
@@ -67,19 +65,11 @@ const referenceSchema = {
         contentUrl: absoluteUrl(image.src),
         name: image.title,
         caption: image.caption,
-        creditText: "Tala public source; displayed by Zameett with client permission.",
-        isBasedOn: image.sourceUrl,
+        creditText: "Tala; displayed by Zameett with client permission.",
       },
     })),
   },
 };
-
-const displayedSources = displayedImages.map((image) => ({
-  title: image.sourceLabel,
-  detail: `Displayed as a protected, watermarked web derivative. Published ${image.publishedDate}.`,
-  url: image.sourceUrl,
-  status: "Displayed",
-}));
 
 export default function TalaMahjPortfolioPage() {
   return (
@@ -110,21 +100,19 @@ export default function TalaMahjPortfolioPage() {
               <p className={styles.intro}>{reference.description}</p>
               <div className={styles.heroMeta} aria-label="Portfolio evidence">
                 <span>Client permission</span>
-                <span>First-party sources</span>
+                <span>Five approved visuals</span>
                 <span>Protected imagery</span>
               </div>
               <div className={styles.heroActions}>
                 <a className="btn btn-gold" href="#published-visuals">
                   View published visuals <span aria-hidden="true">↓</span>
                 </a>
-                <a
-                  className={styles.externalLink}
-                  href={reference.profileUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  className="btn btn-outline-ivory"
+                  href="/contact?service=custom-textile-patterns#get-in-touch"
                 >
-                  Visit {reference.handle} <span aria-hidden="true">↗</span>
-                </a>
+                  Discuss a textile project
+                </Link>
               </div>
             </div>
 
@@ -140,13 +128,7 @@ export default function TalaMahjPortfolioPage() {
               />
               <figcaption>
                 <span>{reference.heroImage.title}</span>
-                <a
-                  href={reference.heroImage.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View original source <span aria-hidden="true">↗</span>
-                </a>
+                <strong>Client-approved display</strong>
               </figcaption>
             </figure>
           </div>
@@ -167,10 +149,10 @@ export default function TalaMahjPortfolioPage() {
             <div className={styles.factGrid}>
               <article className="reveal">
                 <span>01</span>
-                <h3>Public identity</h3>
+                <h3>Named client</h3>
                 <p>
-                  Tala publishes luxury mahjong products as {reference.handle}. Every
-                  displayed visual links back to a public Tala source.
+                  Tala is identified by name with client approval. Direct profile,
+                  post and contact links are intentionally not published.
                 </p>
               </article>
               <article className="reveal">
@@ -223,13 +205,9 @@ export default function TalaMahjPortfolioPage() {
                     <span>{image.publishedDate}</span>
                     <h3>{image.title}</h3>
                     <p>{image.caption}</p>
-                    <a
-                      href={image.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View original source <span aria-hidden="true">↗</span>
-                    </a>
+                    <strong className={styles.displayNote}>
+                      Client-approved portfolio display
+                    </strong>
                   </figcaption>
                 </figure>
               ))}
@@ -237,49 +215,45 @@ export default function TalaMahjPortfolioPage() {
           </div>
         </section>
 
-        <section className={styles.sourcesSection} aria-labelledby="source-record-heading">
+        <section className={styles.sourcesSection} aria-labelledby="portfolio-record-heading">
           <div className="inner">
             <div className={styles.sectionHeader}>
               <div>
-                <p className="s-tag">Source Record</p>
-                <h2 className="s-title" id="source-record-heading">
-                  Every supplied link, <em>handled transparently.</em>
+                <p className="s-tag">Portfolio Record</p>
+                <h2 className="s-title" id="portfolio-record-heading">
+                  Client proof, <em>protected carefully.</em>
                 </h2>
               </div>
               <p>
-                Collaborative or third-party photography is linked for provenance and
-                not copied onto Zameett unless its reuse rights are independently clear.
+                The visual evidence remains inspectable on this page while direct client
+                contact routes and private commercial details stay unpublished.
               </p>
             </div>
             <div className={styles.sourceGrid}>
-              {displayedSources.map((source) => (
-                <a
-                  href={source.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={source.url}
-                >
-                  <span>{source.status}</span>
-                  <h3>{source.title}</h3>
-                  <p>{source.detail}</p>
-                  <b aria-hidden="true">↗</b>
-                </a>
-              ))}
-              {reference.linkedSources.map((source) => (
-                <a
-                  href={source.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={source.url}
-                >
-                  <span>Linked only</span>
-                  <h3>{source.title}</h3>
-                  <p>
-                    {source.detail} Published {source.publishedDate}.
-                  </p>
-                  <b aria-hidden="true">↗</b>
-                </a>
-              ))}
+              <article>
+                <span>Permission</span>
+                <h3>Client-approved display</h3>
+                <p>
+                  Zameett recorded the client&apos;s approval to include this named
+                  project reference in the portfolio.
+                </p>
+              </article>
+              <article>
+                <span>Evidence</span>
+                <h3>Five supplied visuals</h3>
+                <p>
+                  All five supplied visual references are represented as protected,
+                  permanently watermarked web derivatives.
+                </p>
+              </article>
+              <article>
+                <span>Protection</span>
+                <h3>Direct links withheld</h3>
+                <p>
+                  Client account, post and contact links are intentionally omitted
+                  while the Tala name remains visible as approved proof.
+                </p>
+              </article>
             </div>
           </div>
         </section>
