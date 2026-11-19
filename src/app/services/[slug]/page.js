@@ -4,11 +4,11 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import GigGallery from "@/components/GigGallery";
 import ServicePricingHighlight from "@/components/ServicePricingHighlight";
-import TechPackServiceExperience from "@/components/TechPackServiceExperience";
+import TechPackServiceExperience, { TECH_PACK_FAQS } from "@/components/TechPackServiceExperience";
 import ModestWearDevelopment, { MODEST_WEAR_FAQS } from "@/components/ModestWearDevelopment";
 import TextilePatternDevelopment, { TEXTILE_PATTERN_FAQS } from "@/components/TextilePatternDevelopment";
 import { ORGANIZATION_ID, createPageMetadata } from "@/lib/seo";
-import { PRICING_FAQS, getPackagesByCategory } from "@/data/pricing";
+import { getPackagesByCategory } from "@/data/pricing";
 import { GIGS, getGig } from "../gigs";
 import styles from "../services.module.css";
 
@@ -51,7 +51,7 @@ export default async function GigPage({ params }) {
       ["Prepare textile artwork for production", "/blog/prepare-textile-print-for-production"],
     ],
     "clothing-manufacturing": [
-      ["Prepare your fashion product-development brief", "/resources/fashion-development-brief-checklist#saudi-arabia-projects"],
+      ["Prepare your fashion product-development brief", "/resources/fashion-development-brief-checklist"],
       ["Private-label abaya manufacturing guide", "/blog/private-label-abaya-manufacturing"],
       ["How to compare modest-fashion manufacturers", "/blog/modest-fashion-manufacturer-pakistan"],
       ["How abaya MOQ works", "/blog/abaya-manufacturer-moq"],
@@ -60,7 +60,7 @@ export default async function GigPage({ params }) {
       ["Plan the right garment sample stages", "/solutions/fashion-sampling-services"],
     ],
   }[gig.slug] || [];
-  const visibleFaqs = gig.slug === "clothing-manufacturing" ? MODEST_WEAR_FAQS : gig.slug === "custom-textile-patterns" ? TEXTILE_PATTERN_FAQS : PRICING_FAQS.slice(0, 5);
+  const visibleFaqs = gig.slug === "clothing-manufacturing" ? MODEST_WEAR_FAQS : gig.slug === "custom-textile-patterns" ? TEXTILE_PATTERN_FAQS : TECH_PACK_FAQS;
   const pageUrl = siteUrl + "/services/" + gig.slug;
 
   const serviceSchema = {

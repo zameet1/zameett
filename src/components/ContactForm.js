@@ -19,6 +19,38 @@ const SERVICE_CHOICES = [
   "Not sure — help me choose",
 ];
 const STEP_LABELS = ["Your details", "Project scope", "References & consent"];
+const UK_TARGET_MARKERS = [
+  "uk",
+  "united kingdom",
+  "england",
+  "scotland",
+  "wales",
+  "northern ireland",
+  "great britain",
+  "britain",
+];
+const PROJECT_ROUTE_EVENTS = new Map([
+  ["Design / technical development only", "design_technical_development"],
+  ["Fabric / trim sourcing", "fabric_trim_sourcing"],
+  ["Sample development", "sample_development"],
+  ["Sampling and manufacturing", "sampling_manufacturing"],
+  ["Production management / coordination", "production_management"],
+  ["Not sure yet", "not_sure"],
+]);
+
+function normaliseMarketValue(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\./g, "")
+    .replace(/[^a-z]+/g, " ")
+    .replace(/\s+/g, " ");
+}
+
+function getTargetMarketSegment(value) {
+  const normalised = ` ${normaliseMarketValue(value)} `;
+  return UK_TARGET_MARKERS.some((marker) => normalised.includes(` ${marker} `)) ? "uk" : "other";
+}
 
 function getPackagePrefill(packageParam) {
   const pricingPackage = PRICING_PACKAGES.find((item) => item.contactParam === packageParam);
@@ -226,6 +258,9 @@ export default function ContactForm({ initialService = "", initialPackageParam =
     try {
       const formData = new FormData(form);
       formData.set("Enquiry Page", window.location.pathname);
+      const targetMarketSegment = getTargetMarketSegment(formData.get("Target Market or Country"));
+      const targetCityProvided = Boolean(String(formData.get("Target City or Region") || "").trim());
+      const projectRouteEvent = PROJECT_ROUTE_EVENTS.get(String(formData.get("Project Route") || "")) || "other";
       Object.entries(attributionToContactFields(readBrowserAttribution())).forEach(([name, value]) => {
         formData.set(name, value);
       });
@@ -233,16 +268,21 @@ export default function ContactForm({ initialService = "", initialPackageParam =
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || "Your enquiry could not be sent.");
 
-      trackAnalyticsEvent("lead_submit", {
-        package_slug: packageParam || "custom",
-        service_name: service || "not_selected",
-        form_location: window.location.pathname,
-      });
-      trackAnalyticsEvent("conversion", {
-        send_to: GOOGLE_ADS_LEAD_CONVERSION,
-      });
-      trackOpenAIAdsCustomEvent("lead_form_submit");
-      trackWhopEvent("lead");
+      if (result.accepted !== false) {
+        trackAnalyticsEvent("lead_submit", {
+          package_slug: packageParam || "custom",
+          service_name: service || "not_selected",
+          form_location: window.location.pathname,
+          project_route: projectRouteEvent,
+          target_market_segment: targetMarketSegment,
+          target_city_provided: targetCityProvided,
+        });
+        trackAnalyticsEvent("conversion", {
+          send_to: GOOGLE_ADS_LEAD_CONVERSION,
+        });
+        trackOpenAIAdsCustomEvent("lead_form_submit");
+        trackWhopEvent("lead");
+      }
       form.reset();
       setService("");
       setPackageParam("");
@@ -359,10 +399,13 @@ export default function ContactForm({ initialService = "", initialPackageParam =
           <div className="form-group"><label htmlFor="quantity">Required Quantity</label><input id="quantity" type="text" name="Required Quantity" maxLength="100" placeholder="Per style / colour if known" /></div>
         </div>
         <div className="form-row">
-          <div className="form-group"><label htmlFor="sizes">Target Sizes</label><input id="sizes" type="text" name="Target Sizes" maxLength="100" placeholder="e.g. XS to XL or custom lengths" /></div>
-          <div className="form-group"><label htmlFor="market">Target Market / Country *</label><input id="market" type="text" name="Target Market or Country" maxLength="100" required /></div>
+          <div className="form-group"><label htmlFor="market">Target Market / Country *</label><input id="market" type="text" name="Target Market or Country" maxLength="100" placeholder="e.g. United Kingdom" required /></div>
+          <div className="form-group"><label htmlFor="target-city">Target City / Region <span>(optional)</span></label><input id="target-city" type="text" name="Target City or Region" maxLength="100" placeholder="e.g. London or Manchester" /></div>
         </div>
-        <div className="form-group"><label htmlFor="delivery">Required Delivery Date</label><input id="delivery" type="date" name="Required Delivery Date" /></div>
+        <div className="form-row">
+          <div className="form-group"><label htmlFor="sizes">Target Sizes</label><input id="sizes" type="text" name="Target Sizes" maxLength="100" placeholder="e.g. XS to XL or custom lengths" /></div>
+          <div className="form-group"><label htmlFor="delivery">Required Delivery Date</label><input id="delivery" type="date" name="Required Delivery Date" /></div>
+        </div>
       </section>
 
       <section className={styles.stepPanel} data-form-step="3" hidden={step !== 3} aria-labelledby="contact-step-three">

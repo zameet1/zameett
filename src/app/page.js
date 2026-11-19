@@ -7,7 +7,7 @@ import HomePricingHighlight from "@/components/HomePricingHighlight";
 import { createPageMetadata } from "@/lib/seo";
 
 const homeTitle = "Fashion Design, Tech Packs & Modest-Wear Development | Zameett";
-const homeDescription = "Fashion design, fashion technical drawings, production-ready tech packs, textile print design and specialist modest-wear manufacturing support from Zameett.";
+const homeDescription = "Fashion design, technical drawings, tech packs, textile print design and specialist modest-wear support for UK and international clothing brands.";
 export const metadata = { ...createPageMetadata({ title: homeTitle, description: homeDescription, path: "/" }), title: { absolute: homeTitle } };
 
 const CLIENT_ROUTES = [
@@ -45,7 +45,7 @@ export default function HomePage() {
         <section className="hero">
           <div className="hero-bg"><CoverImage src="/images/21.jpeg" alt="Zameett fashion design and modest-wear development" priority /></div>
           <div className="hero-inner"><div className="hero-content">
-            <p className="hero-eyebrow">Fashion Design & Product Development · Pakistan</p>
+            <p className="hero-eyebrow">Pakistan-Based · UK & Worldwide Enquiries Welcome</p>
             <h1 className="hero-h1 home-hero-title">Fashion Design &amp; Tech Packs.<em>Build Your Collection With Clarity.</em></h1>
             <p className="hero-sub">Zameett provides original fashion design, technical drawings, production-ready tech packs and textile print design for clothing brands. We also review sampling and manufacturing briefs mainly for modest wear and abayas, with project-specific scope and MOQ confirmed before payment.</p>
             <div className="hero-btns"><a href="#ways-to-work" className="btn btn-gold">Choose Your Service →</a><a href="/portfolio#portfolio-gallery" className="btn btn-outline-ivory">View Portfolio</a></div>

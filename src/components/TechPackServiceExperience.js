@@ -23,6 +23,33 @@ const steps = [
   ["04", "Review and handover", "Consolidated feedback is applied, final files are checked and the approved package is delivered."],
 ];
 
+export const TECH_PACK_FAQS = [
+  {
+    question: "What can a Zameett fashion tech pack include?",
+    answer: "A scoped pack can include technical flats, construction call-outs, a bill of materials, measurements and points of measure, colourways, artwork placement, labels, packaging notes and revision control. The exact pages and file formats are confirmed for the garment before payment.",
+  },
+  {
+    question: "Can a UK clothing brand use the files with its own manufacturer?",
+    answer: "Yes. Zameett is Pakistan-based and works remotely with UK and international brands. The approved files can be handed to a nominated UK or overseas manufacturer, but any supplier-specific template, measurement method or export requirement should be shared before final delivery.",
+  },
+  {
+    question: "What should I send before requesting a tech-pack quotation?",
+    answer: "Share the garment category, sketches or references, intended customer, size range, known materials, artwork, branding, target market and any supplier requirements. Missing decisions can be identified during the brief review instead of being guessed.",
+  },
+  {
+    question: "Does a tech-pack package include sampling or manufacturing?",
+    answer: "Not unless those stages are explicitly included in a written proposal. Physical sampling, pattern development, grading, sourcing and manufacturing are separate services and decisions.",
+  },
+  {
+    question: "Does Zameett sell sewing patterns or grading as standalone services?",
+    answer: "No. Zameett does not advertise sewing-pattern development or grading as standalone services. Where they are relevant to a wider approved development route, responsibilities and deliverables must be confirmed in writing.",
+  },
+  {
+    question: "How are revisions and final file formats handled?",
+    answer: "The proposal states the included revision rounds, feedback route, final PDF and any editable source files. Consolidated feedback is applied against the current version so the handover does not mix superseded instructions.",
+  },
+];
+
 export default function TechPackServiceExperience() {
   return (
     <section className={styles.experience} aria-labelledby="tech-pack-service-experience-title">
@@ -68,6 +95,11 @@ export default function TechPackServiceExperience() {
           {" "}<Link href="/solutions/abaya-tech-pack-designer">abaya tech-pack design service</Link>. For a reusable
           internal framework instead, review the {" "}
           <Link href="/solutions/editable-fashion-tech-pack-template">custom editable template service</Link>.
+        </p>
+        <p>
+          For a UK or international supplier handover, share the nominated manufacturer&apos;s current template,
+          measurement method and file requirements before final export. The completed pack documents the approved
+          product; the receiving supplier remains responsible for confirming its own capability and quotation.
         </p>
       </div>
 

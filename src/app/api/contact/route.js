@@ -8,7 +8,7 @@ const MAX_FILES_BYTES = 5 * 1024 * 1024;
 const ALLOWED_FILE_TYPES = new Set(["application/pdf","image/jpeg","image/png","application/zip","application/x-zip-compressed"]);
 const REQUIRED_FIELDS = ["First Name","Last Name","Email","Product Category","Project Route","Project Stage","Estimated Budget","Service Required","Target Market or Country","Message","Privacy Consent"];
 const ATTRIBUTION_FIELD_NAMES = ["Enquiry Page","Attribution Source","Attribution Medium","Attribution Campaign","Attribution Campaign ID","Attribution Term","Attribution Content","Latest Paid Source","Latest Paid Medium","Google Click ID","Google GBRAID","Google WBRAID","First Landing Page","Attribution Referrer","Attribution Recorded At","Latest Paid Touch At"];
-const FIELD_NAMES = ["Package","First Name","Last Name","Email","Phone","Brand Name","Service Required","Custom Service","Product Category","Project Route","Project Stage","Estimated Budget","Number of Styles","Required Quantity","Target Sizes","Target Market or Country","Required Delivery Date","Preferred Communication","NDA Required","How Did You Hear About Us","Google Drive or WeTransfer Link","Message","Privacy Consent",...ATTRIBUTION_FIELD_NAMES];
+const FIELD_NAMES = ["Package","First Name","Last Name","Email","Phone","Brand Name","Service Required","Custom Service","Product Category","Project Route","Project Stage","Estimated Budget","Number of Styles","Required Quantity","Target Sizes","Target Market or Country","Target City or Region","Required Delivery Date","Preferred Communication","NDA Required","How Did You Hear About Us","Google Drive or WeTransfer Link","Message","Privacy Consent",...ATTRIBUTION_FIELD_NAMES];
 
 const rateStore = globalThis.__zameettContactRateStore || new Map();
 globalThis.__zameettContactRateStore = rateStore;
@@ -58,7 +58,7 @@ export async function POST(request) {
     return Response.json({ error: "The submitted form could not be read." }, { status: 400 });
   }
 
-  if (clean(formData.get("Website"))) return Response.json({ success: true });
+  if (clean(formData.get("Website"))) return Response.json({ success: true, accepted: false });
 
   const fields = Object.fromEntries(FIELD_NAMES.map((name) => [name, clean(formData.get(name))]));
   const missing = REQUIRED_FIELDS.filter((name) => !fields[name]);
@@ -97,5 +97,5 @@ export async function POST(request) {
     return Response.json({ error: "Email delivery is temporarily unavailable. Please email hello@zameett.com." }, { status: 502 });
   }
 
-  return Response.json({ success: true }, { headers: { "Cache-Control": "private, no-store, max-age=0" } });
+  return Response.json({ success: true, accepted: true }, { headers: { "Cache-Control": "private, no-store, max-age=0" } });
 }
