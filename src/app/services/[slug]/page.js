@@ -38,7 +38,7 @@ export default async function GigPage({ params }) {
   const contactAnchor = gig.slug === "fashion-tech-packs" ? "project-brief-form" : "get-in-touch";
   const learningLinks = {
     "fashion-tech-packs": [
-      ["Prepare your fashion development brief", "/resources/fashion-development-brief-checklist"],
+      ["Prepare a supplier handoff brief", "/resources/fashion-development-brief-checklist#manufacturer-handoff"],
       ["What is a tech pack?", "/blog/what-is-a-tech-pack"],
       ["Create a clothing tech pack in 12 steps", "/blog/how-to-create-a-tech-pack"],
       ["How much does a tech pack cost?", "/blog/tech-pack-cost"],
@@ -51,7 +51,7 @@ export default async function GigPage({ params }) {
       ["Prepare textile artwork for production", "/blog/prepare-textile-print-for-production"],
     ],
     "clothing-manufacturing": [
-      ["Prepare your fashion product-development brief", "/resources/fashion-development-brief-checklist"],
+      ["Prepare manufacturer handoff details", "/resources/fashion-development-brief-checklist#manufacturer-handoff"],
       ["Private-label abaya manufacturing guide", "/blog/private-label-abaya-manufacturing"],
       ["How to compare modest-fashion manufacturers", "/blog/modest-fashion-manufacturer-pakistan"],
       ["How abaya MOQ works", "/blog/abaya-manufacturer-moq"],

@@ -7,9 +7,9 @@ import styles from "./page.module.css";
 
 const pagePath = "/resources/fashion-development-brief-checklist";
 const pdfPath = "/resources/fashion-development-brief-checklist.pdf";
-const pdfDownloadPath = `${pdfPath}?v=20261022`;
+const pdfDownloadPath = `${pdfPath}?v=20261121`;
 const title = "Fashion Product Development Brief Checklist | Free PDF";
-const description = "Plan garment categories, materials, technical files, sample approvals, quantities, timing and destination before requesting fashion product-development support.";
+const description = "Plan garments, technical files, sample approvals, quantities, destination and manufacturer handoff before requesting fashion product-development support.";
 
 export const metadata = createPageMetadata({
   title,
@@ -34,6 +34,15 @@ const routes = [
   ["Modest-wear development", "Discuss project-specific sampling and production support for abayas and modest garments.", "/services/clothing-manufacturing"],
 ];
 
+const manufacturerHandoffChecks = [
+  ["01", "Manufacturer and contact", "Name the nominated UK or overseas manufacturer, location, technical contact and quotation contact so questions have a clear owner."],
+  ["02", "Supplier requirements", "Request the supplier's current template, measurement method, file formats and submission rules before preparing the release package."],
+  ["03", "Current approved files", "Identify the approved tech pack, artwork, measurement specification, colourways, issue date and revision. Archive superseded files separately."],
+  ["04", "Materials and responsibilities", "Record approved fabrics, trims, labels, packaging, sourcing ownership, substitutions and any decisions the supplier must return for approval."],
+  ["05", "Sample and change control", "State the sample stage, fit reviewer, comment method, open corrections, resampling route and written approval required before any bulk step."],
+  ["06", "Commercial and delivery route", "Share quantity by style, colour and size, target city or destination, quotation basis, project-specific MOQ questions and freight or import responsibility."],
+];
+
 const saudiConsiderations = [
   ["01", "Customer, city and channel", "Name the Saudi customer, sales channel and intended city or destination instead of treating the whole market as one audience."],
   ["02", "Climate and wearing context", "Separate outdoor heat, air-conditioned interiors, daily wear, occasion wear and seasonal launch needs before choosing fabric or lining."],
@@ -55,7 +64,7 @@ const resourceSchema = {
     "@type": "CreativeWork",
     "@id": absoluteUrl(pdfPath) + "#resource",
     name: "Zameett Fashion Product Development Brief Checklist",
-    description: "A free planning checklist for fashion product development, technical documentation, sampling and project-quotation preparation, including Saudi Arabia and GCC market prompts.",
+    description: "A free planning checklist for fashion product development, technical documentation, sampling, manufacturer handoff and project-quotation preparation, including UK, international, Saudi Arabia and GCC prompts.",
     url: absoluteUrl(pdfPath),
     encodingFormat: "application/pdf",
     isAccessibleForFree: true,
@@ -83,7 +92,8 @@ export default function FashionDevelopmentBriefChecklistPage() {
               <p className={styles.lede}>
                 Organise the information a fashion designer, technical developer, sampling team or
                 reviewed supplier route may need. Complete what you know now, use the checklist to
-                identify open decisions and review the optional Saudi Arabia and GCC planning module.
+                identify open decisions, then review the UK and international manufacturer-handoff
+                module and the optional Saudi Arabia and GCC planning module.
               </p>
               <div className={styles.heroActions}>
                 <TrackedDownloadLink
@@ -96,7 +106,7 @@ export default function FashionDevelopmentBriefChecklistPage() {
                 </TrackedDownloadLink>
                 <Link className="btn btn-outline-ivory" href="/contact#get-in-touch">Send Your Brief</Link>
               </div>
-              <div className={styles.heroNotes} role="list" aria-label="Resource details"><span role="listitem">No sign-up</span><span role="listitem">Three-page PDF</span><span role="listitem">Worldwide projects</span></div>
+              <div className={styles.heroNotes} role="list" aria-label="Resource details"><span role="listitem">No sign-up</span><span role="listitem">Four-page PDF</span><span role="listitem">Worldwide projects</span></div>
             </div>
 
             <div className={`${styles.document} reveal`} style={{ "--reveal-delay": "90ms" }} role="img" aria-label="Fashion Product Development Brief Checklist preview">
@@ -135,6 +145,37 @@ export default function FashionDevelopmentBriefChecklistPage() {
               <li className="reveal"><span>02</span><div><strong>Attach useful references</strong><p>Include sketches, inspiration, measurements, artwork or supplier notes that explain the product.</p></div></li>
               <li className="reveal"><span>03</span><div><strong>Send it with your enquiry</strong><p>Zameett reviews the requested service and confirms missing questions before any payment.</p></div></li>
             </ol>
+          </div>
+        </section>
+
+        <section className={styles.handoff} id="manufacturer-handoff" aria-labelledby="manufacturer-handoff-title">
+          <div className={`inner ${styles.handoffGrid}`}>
+            <div className={`${styles.handoffIntro} reveal`}>
+              <p className={styles.eyebrow}>UK &amp; international manufacturer handoff module</p>
+              <h2 id="manufacturer-handoff-title">Prepare the approved information, <em>not only a folder of files.</em></h2>
+              <p>
+                A UK or international brand can hand approved files to a nominated UK or overseas
+                manufacturer. The useful handoff identifies the current specification, open decisions,
+                commercial assumptions and who is responsible for each approval before quotation or sampling.
+              </p>
+              <div className={styles.handoffLinks}>
+                <Link href="/services/fashion-tech-packs">Review tech-pack support <span aria-hidden="true">&rarr;</span></Link>
+                <Link href="/solutions/fashion-sampling-services">Plan the sample stage <span aria-hidden="true">&rarr;</span></Link>
+                <Link href="/blog/prepare-design-for-manufacturer">Read the manufacturer-handoff guide <span aria-hidden="true">&rarr;</span></Link>
+                <Link href="/contact?service=fashion-tech-packs#get-in-touch">Send a project brief <span aria-hidden="true">&rarr;</span></Link>
+              </div>
+            </div>
+            <div className={styles.handoffCards}>
+              {manufacturerHandoffChecks.map(([number, heading, text], index) => (
+                <article className="reveal" style={{ "--reveal-delay": `${index * 45}ms` }} key={heading}>
+                  <span>{number}</span><div><h3>{heading}</h3><p>{text}</p></div>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className={`inner ${styles.handoffNote} reveal`}>
+            <strong>Supplier capability and destination responsibilities remain project specific.</strong>
+            <p>A checklist does not confirm capability, pricing, MOQ, delivery or compliance. The brand, manufacturer, freight parties and importer should confirm current UK or destination-specific labelling, packaging, customs, duties, tax and product requirements for the actual route before production or sale.</p>
           </div>
         </section>
 

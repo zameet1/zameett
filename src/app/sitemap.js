@@ -15,7 +15,7 @@ function entry(path, { lastModified, changeFrequency, priority }) {
   };
 }
 export default function sitemap() {
-  const checklistUpdated = "2026-10-22";
+  const checklistUpdated = "2026-11-21";
   const talaPortfolioUpdated = "2026-10-29";
   const entries = [
     ...PUBLIC_STATIC_ROUTES.filter((route) => SHOP_ENABLED || route !== "/shop").map((route) => entry(route, {

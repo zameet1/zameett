@@ -228,6 +228,7 @@ export const SOLUTIONS = [
     ctaSecondaryHref: "/services/fashion-tech-packs",
     ctaSecondaryLabel: "Compare Tech-Pack Services",
     resources: [
+      ["Prepare a manufacturer handoff brief", "/resources/fashion-development-brief-checklist#manufacturer-handoff"],
       ["Prepare a Saudi or GCC fashion development brief", "/resources/fashion-development-brief-checklist#saudi-arabia-projects"],
       ["Learn what a complete tech pack includes", "/blog/what-is-a-tech-pack"],
       ["Review a production-ready tech pack structure", "/blog/tech-pack-example"],
