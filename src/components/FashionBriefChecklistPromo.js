@@ -20,15 +20,15 @@ export default function FashionBriefChecklistPromo() {
           </h2>
           <p>
             Use Zameett&apos;s free checklist to organise your garment direction, references,
-            materials, quantities and approval requirements before requesting design, tech-pack,
-            sampling or modest-wear production support.
+            materials, quantities, supplier-handoff and approval requirements before requesting
+            design, tech-pack, sampling or modest-wear production support.
           </p>
           <div className={styles.actions}>
             <Link href="/resources/fashion-development-brief-checklist">
               Use the free checklist <span aria-hidden="true">&rarr;</span>
             </Link>
             <TrackedDownloadLink
-              href="/resources/fashion-development-brief-checklist.pdf?v=20261022"
+              href="/resources/fashion-development-brief-checklist.pdf?v=20261121"
               linkLocation="fashion_brief_promo"
               resourceName="fashion_development_brief_checklist"
             >
@@ -52,7 +52,7 @@ export default function FashionBriefChecklistPromo() {
               </div>
             ))}
           </div>
-          <div className={styles.previewFoot}><span>PDF · 3 pages</span><span>Free download</span></div>
+          <div className={styles.previewFoot}><span>PDF · 4 pages</span><span>Free download</span></div>
         </div>
       </div>
     </section>
